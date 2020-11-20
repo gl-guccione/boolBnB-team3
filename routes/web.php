@@ -31,12 +31,9 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::resource('flats', 'FlatController');
     
     //requests routes
-    // Route::resource('requests', 'RequestController');
     Route::get('requests', 'RequestController@index')->name('requests.index');
     Route::get('requests/{id}', 'RequestController@show')->name('requests.show');
-    Route::get('requests', 'RequestController@store')->name('requests.store');
     Route::get('requests/{request}', 'RequestController@destroy')->name('requests.destroy');
-    Route::get('requests/create', 'RequestController@create')->name('requests.create');
     
     //sponsorships routes
     Route::get('sponsorships', 'RequestController@index')->name('sponsorships.index');
@@ -52,8 +49,14 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 
 //routes for UI
 Route::name('guest.')->namespace('Guest')->group(function () {
+    
+    //route for Flats
     Route::get('/flats', 'FlatController@index')->name('flat.index');
     Route::get('/flats/{slug}', 'FlatController@show')->name('flat.show');
 
+    //routes for request public
+    Route::get('requests/create', 'RequestController@create')->name('requests.create');
+    Route::get('requests', 'RequestController@store')->name('requests.store');
+    Route::get('requests/{id}', 'RequestController@show')->name('requests.show');
 
 });
