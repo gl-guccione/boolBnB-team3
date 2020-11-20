@@ -1,3 +1,0 @@
-<footer>
-  ciao ciao
-</footer>
