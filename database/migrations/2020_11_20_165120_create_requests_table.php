@@ -15,7 +15,12 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('flat_id')->constrained();
+            $table->string('name', 50);
+            $table->string('email');
+            $table->text('message');
+            $table->dateTime('date_of_send');
+            $table->boolean('seed')->default(false);
         });
     }
 
