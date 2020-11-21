@@ -12,4 +12,16 @@ class SponsorshipPrice extends Model
      * @var boolean
      */
     public $timestamps = false;
+
+     /**
+     * Create the relation between Sponsorship_price and Sponsorship.
+     * Sponsorship_price -> Sponsorship
+     *         1         ->     *
+     *
+     * @return App\Sponsorship (array)
+     */
+    public function sponsorships()
+    {
+        return $this->hasMany('App\Sponsorship');
+    }
 }

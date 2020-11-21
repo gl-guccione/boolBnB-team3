@@ -26,6 +26,18 @@ class Sponsorship extends Model
     }
 
      /**
+     * Create the relation between Sponsorship and Sponsorship_price.
+     * Sponsorship -> Sponsorship_price
+     *      *      ->        1
+     *
+     * @return App\SponsorshipPrice
+     */
+    public function sponsorship_price()
+    {
+        return $this->belongsTo('App\SponsorshipPrice');
+    }
+
+     /**
      * Create the relation between Sponsorship and Flat.
      * Sponsorship -> Flat
      *      *      ->  1
