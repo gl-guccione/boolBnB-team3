@@ -12,4 +12,16 @@ class Option extends Model
      * @var boolean
      */
     public $timestamps = false;
+
+     /**
+     * Create the relation between Option and Flat.
+     * Option -> Flat
+     *    *   ->  *
+     *
+     * @return App\Flat (array)
+     */
+    public function flats()
+    {
+        return $this->belongsToMany('App\Flat');
+    }
 }

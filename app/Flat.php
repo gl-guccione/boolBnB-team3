@@ -65,4 +65,16 @@ class Flat extends Model
     {
         return $this->hasMany('App\Sponsorship');
     }
+
+     /**
+     * Create the relation between Flat and Option.
+     * Flat -> Option
+     *   *  ->  *
+     *
+     * @return App\Option (array)
+     */
+    public function options()
+    {
+        return $this->belongsToMany('App\Option');
+    }
 }
