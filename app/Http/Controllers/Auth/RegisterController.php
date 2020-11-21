@@ -69,13 +69,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $path = null;
+        if(isset($data['avatar']))
+        {
+            $path = Storage::disk('public')->put('images', $data['avatar']);
+        } 
+
+
         return User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'date_of_birth' => $data['date_of_birth'],
-            // 'avatar' => $data['avatar'],
-            'avatar' => Storage::disk('public')->put('images', $data['avatar']),
-
+            'avatar' => $path,
             'description' => $data['description'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
