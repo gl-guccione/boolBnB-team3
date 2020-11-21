@@ -20,7 +20,7 @@ class CreateRequestsTable extends Migration
             $table->string('email');
             $table->text('message');
             $table->dateTime('date_of_send');
-            $table->boolean('seed')->default(false);
+            $table->boolean('seen')->default(false);
         });
     }
 
