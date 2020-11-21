@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //routes for UPR/UPRA
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {

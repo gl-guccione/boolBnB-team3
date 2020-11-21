@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class FlatController extends Controller
@@ -14,7 +16,10 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $flats = User::where('id', $user_id)->get();
+
+        dd($flats);
     }
 
     /**
