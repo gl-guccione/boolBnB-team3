@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //routes for UPR/UPRA
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
@@ -51,7 +51,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 Route::name('guest.')->namespace('Guest')->group(function () {
     
     //route for Flats
-    Route::get('/flats', 'FlatController@index')->name('flat.index');
+    Route::get('/', 'FlatController@index')->name('flat.index');
     Route::get('/flats/{slug}', 'FlatController@show')->name('flat.show');
 
     //routes for request public
