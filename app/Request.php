@@ -12,4 +12,16 @@ class Request extends Model
      * @var boolean
      */
     public $timestamps = false;
+
+     /**
+     * Create the relation between Request and Flat.
+     * Request -> Flat
+     *    *    ->  1
+     *
+     * @return App\Flat
+     */
+    public function flat()
+    {
+        return $this->belongsTo('App\Flat');
+    }
 }

@@ -17,4 +17,16 @@ class Flat extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+     /**
+     * Create the relation between Flat and Request.
+     * Flat -> Request
+     *   1  ->  *
+     *
+     * @return App\Request (array)
+     */
+    public function requests()
+    {
+        return $this->hasMany('App\Request');
+    }
 }
