@@ -12,4 +12,16 @@ class Payment extends Model
      * @var boolean
      */
     public $timestamps = false;
+
+     /**
+     * Create the relation between Payment and Sponsorship.
+     * Payment -> Sponsorship
+     *    1    ->     1
+     *
+     * @return App\Sponsorship
+     */
+    public function sponsorship()
+    {
+        return $this->hasOne('App\Sponsorship');
+    }
 }

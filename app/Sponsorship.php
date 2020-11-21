@@ -14,6 +14,18 @@ class Sponsorship extends Model
     public $timestamps = false;
 
      /**
+     * Create the relation between Sponsorship and Payment.
+     * Sponsorship -> Payment
+     *      1      ->    1
+     *
+     * @return App\Payment
+     */
+    public function payment()
+    {
+        return $this->belongsTo('App\Payment');
+    }
+
+     /**
      * Create the relation between Sponsorship and Flat.
      * Sponsorship -> Flat
      *      *      ->  1
