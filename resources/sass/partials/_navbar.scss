@@ -1,4 +1,10 @@
 nav {
     height: 60px;
     background-color: $main-color;
+
+    .logo{
+        .img-logo{
+            height: 30px;
+        }
+    }
 }
