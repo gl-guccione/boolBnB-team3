@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('homeprova');
+    return view('ui.home');
 });
 
 Auth::routes();

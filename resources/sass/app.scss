@@ -8,10 +8,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//MAIN LAYOUT
+// partials
 @import 'partials/_common.scss';
 @import "partials/_navbar.scss";
 @import "partials/_header.scss";
 @import 'partials/_jumbo.scss';
 @import "partials/_main.scss";
 @import "partials/_footer.scss";
+
+// home
+@import 'partials/home/home';
+
+// sponsorship
+@import 'partials/sponsorship/sponsorship';
