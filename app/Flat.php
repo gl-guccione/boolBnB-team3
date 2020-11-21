@@ -29,4 +29,16 @@ class Flat extends Model
     {
         return $this->hasMany('App\Request');
     }
+
+     /**
+     * Create the relation between Flat and View.
+     * Flat -> View
+     *   1  ->  *
+     *
+     * @return App\View (array)
+     */
+    public function views()
+    {
+        return $this->hasMany('App\View');
+    }
 }
