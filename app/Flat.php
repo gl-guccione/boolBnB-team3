@@ -53,4 +53,16 @@ class Flat extends Model
     {
         return $this->hasMany('App\Image');
     }
+
+     /**
+     * Create the relation between Flat and Sponsorship.
+     * Flat -> Sponsorship
+     *   1  ->  *
+     *
+     * @return App\Sponsorship (array)
+     */
+    public function sponsorships()
+    {
+        return $this->hasMany('App\Sponsorship');
+    }
 }

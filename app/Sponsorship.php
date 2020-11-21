@@ -12,4 +12,16 @@ class Sponsorship extends Model
      * @var boolean
      */
     public $timestamps = false;
+
+     /**
+     * Create the relation between Sponsorship and Flat.
+     * Sponsorship -> Flat
+     *      *      ->  1
+     *
+     * @return App\Flat
+     */
+    public function flat()
+    {
+        return $this->belongsTo('App\Flat');
+    }
 }
