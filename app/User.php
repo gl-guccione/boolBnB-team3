@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     /**
+     * Create the relation between User and Flat.
+     * User -> Flat
+     *   1  ->  *
+     *
+     * @return App\Flat (array)
+     */
+    public function flats()
+    {
+        return $this->hasMany('App\Flat');
+    }
 }
