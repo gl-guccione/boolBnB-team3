@@ -41,4 +41,16 @@ class Flat extends Model
     {
         return $this->hasMany('App\View');
     }
+
+     /**
+     * Create the relation between Flat and Image.
+     * Flat -> Image
+     *   1  ->  *
+     *
+     * @return App\Image (array)
+     */
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
 }
