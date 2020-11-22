@@ -20,7 +20,7 @@ class PaymentsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         // defining the number of payment to generate
-        $payments_to_generate = 25;
+        $payments_to_generate = 100;
 
         for ($i=0; $i < $payments_to_generate; $i++) {
 

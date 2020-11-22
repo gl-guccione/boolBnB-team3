@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
           ViewsTableSeeder::class,
           ImagesTableSeeder::class,
           SponsorshipPricesTableSeeder::class,
-          PaymentsTableSeeder::class
+          PaymentsTableSeeder::class,
+          SponsorshipsTableSeeder::class
         ]);
     }
 }
