@@ -17,7 +17,7 @@ class FlatController extends Controller
     {
         $flats = Flat::all();
 
-        return view('flats.index', compact('flats'));
+        return view('ui.home', compact('flats'));
     }
 
     /**
@@ -30,6 +30,6 @@ class FlatController extends Controller
     {
         $flat = Flat::where('slug', $slug)->get()->first();
 
-        return view('flats.show', compact('flat'));
+        return view('ui.flats.show', compact('flat'));
     }
 }

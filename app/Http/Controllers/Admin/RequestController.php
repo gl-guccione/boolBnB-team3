@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Request as FlatRequest;
 
 class RequestController extends Controller
 {
@@ -14,7 +16,10 @@ class RequestController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $requests = FlatRequest::where('user_id', $user_id)->get()->first();
+
+        return view('admin.requests.index', compact('requests'));
     }
 
     /**
@@ -25,20 +30,16 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $request = FlatRequest::where('id', $id)->get()->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        //non so se posso fare un update dentro la show
 
+        $request->seen = true;
+
+        $request->update();
+        
+        return view('admin.request.show', compact('request'));
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -48,6 +49,8 @@ class RequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        FlatRequest::where('id', $id)->get()->first()->delete();
+
+        return view('admin.request.index');
     }
 }

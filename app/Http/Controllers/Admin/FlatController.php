@@ -23,7 +23,7 @@ class FlatController extends Controller
         $user_id = Auth::id();
         $flats = Flat::where('user_id', $user_id)->get();
 
-        return view('admin.flats.index', compact($flats));
+        return view('admin.flats.index', compact('flats'));
     }
 
     /**
@@ -35,7 +35,7 @@ class FlatController extends Controller
     {
         $options = Option::all();
 
-        return view('admin.flats.create', compact($options));
+        return view('admin.flats.create', compact('options'));
     }
 
     /**
