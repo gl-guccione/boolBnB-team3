@@ -56,7 +56,7 @@ class FlatController extends Controller
                 'number_of_beds' => 'required',
                 'number_of_bathrooms' => 'required',
                 'mq' => 'required',
-                //price ?
+                'price' => 'required', //price ?
                 'type' => 'required',
                 'description' => 'required',
                 //stars random
