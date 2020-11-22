@@ -5,40 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\User;
 use App\Flat;
 use App\Option;
 
 class FlatController extends Controller
 {
-
-    // //transform a text into slug
-    // public function slugify($text)
-    // {
-    // // replace non letter or digits by -
-    // $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-    // // transliterate
-    // $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-    // // remove unwanted characters
-    // $text = preg_replace('~[^-\w]+~', '', $text);
-
-    // // trim
-    // $text = trim($text, '-');
-
-    // // remove duplicate -
-    // $text = preg_replace('~-+~', '-', $text);
-
-    // // lowercase
-    // $text = strtolower($text);
-
-    // if (empty($text)) {
-    //     return 'n-a';
-    // }
-
-    // return $text;
-    // }
 
     /**
      * Display a listing of the resource.
@@ -101,7 +74,7 @@ class FlatController extends Controller
 
         $newFlat->user_id = Auth::id();
         $newFlat->title = $data['title'];
-        // $newFlat->slug = controlla slugify inizio controller;
+        $newFlat->slug = Str::slug($newFlat->title, '-');
         $newFlat->active = $data['active'];
         $newFlat->number_of_rooms = $data['number_of_rooms'];
         $newFlat->number_of_beds = $data['number_of_beds'];
@@ -111,7 +84,13 @@ class FlatController extends Controller
         $newFlat->type = $data['type'];
         $newFlat->description = $data['description'];
         $newFlat->stars = rand(1,10);
-        // $newFlat->extra_options = non ricordo se erano da dividere o usciranno assieme;
+
+        if(isset($data['extra_options']))
+        {
+            $options = implode(',', $data['extra_options']);
+            $newFlat->extra_options = $options;
+        }
+
         $newFlat->street_name = $data['street_name'];
         $newFlat->zip_code = $data['zip_code'];
         $newFlat->city = $data['city'];
@@ -130,11 +109,11 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $flats = Flat::where('id', $id)->get()->first();
+        $flat = Flat::where('slug', $slug)->get()->first();
 
-        return view('admin.flats.show', compact('flats'));
+        return view('admin.flats.show', compact('flat'));
     }
 
     /**
@@ -143,9 +122,11 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $flat = Flat::where('slug', $slug)->get()->first();
+
+        return view('admin.flats.edit', compact('flat'));
     }
 
     /**
@@ -155,9 +136,61 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $data = $request->all();
+
+        $request->validate(
+            [
+                'title' => 'required|unique',
+                'slug' => 'required|unique',
+                'number_of_rooms' => 'required',
+                'number_of_beds' => 'required',
+                'number_of_bathrooms' => 'required',
+                'mq' => 'required',
+                //price ?
+                'type' => 'required',
+                'description' => 'required',
+                //stars random
+                //extra options 
+                'street_name' => 'required',
+                'zip_code' => 'required',
+                'city' => 'required',
+                //lat
+                //lng
+            ]
+        );
+
+        $flat = Flat::where('slug', $slug)->get()->first();
+
+        $flat->user_id = Auth::id();
+        $flat->title = $data['title'];
+        $flat->slug = Str::slug($flat->title, '-');
+        $flat->active = $data['active'];
+        $flat->number_of_rooms = $data['number_of_rooms'];
+        $flat->number_of_beds = $data['number_of_beds'];
+        $flat->number_of_bathrooms = $data['number_of_bathrooms'];
+        $flat->mq = $data['mq'];
+        $flat->price = $data['price'];
+        $flat->type = $data['type'];
+        $flat->description = $data['description'];
+        $flat->stars = rand(1,10);
+
+        if(isset($data['extra_options']))
+        {
+            $options = implode(',', $data['extra_options']);
+            $flat->extra_options = $options;
+        }
+
+        $flat->street_name = $data['street_name'];
+        $flat->zip_code = $data['zip_code'];
+        $flat->city = $data['city'];
+        $flat->lat = $data['lat'];
+        $flat->lng = $data['lng'];
+
+        $flat->update();
+
+        return redirect()->route('admin.flats,show', $flat->slug);
     }
 
     /**
