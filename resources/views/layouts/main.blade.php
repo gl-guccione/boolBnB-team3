@@ -1,3 +1,5 @@
+
+{{-- LAYOUTS CREATO DA NOI --}}
 @include('layouts.partials.head')
 
 <body>
