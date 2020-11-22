@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
           FlatsTableSeeder::class,
           RequestsTableSeeder::class,
           ViewsTableSeeder::class,
-          ImagesTableSeeder::class
+          ImagesTableSeeder::class,
+          SponsorshipPricesTableSeeder::class
         ]);
     }
 }
