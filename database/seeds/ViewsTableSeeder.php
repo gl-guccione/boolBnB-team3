@@ -23,9 +23,10 @@ class ViewsTableSeeder extends Seeder
 
         foreach ($flats as $flat) {
 
-          // defining the number of views for each flat
           if (rand(0, 3)) {
 
+            // defining the number of views for each flat
+            // could be from 0 -> 15
             $number_of_views = rand(0, 14);
 
             for ($i=0; $i < $number_of_views; $i++) {
