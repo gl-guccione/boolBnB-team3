@@ -11,8 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // the line bellow is temporarily commented becouse the seeder is still WIP!!
-
         $this->call([
           UsersTableSeeder::class,
           FlatsTableSeeder::class,
@@ -22,7 +20,8 @@ class DatabaseSeeder extends Seeder
           SponsorshipPricesTableSeeder::class,
           PaymentsTableSeeder::class,
           SponsorshipsTableSeeder::class,
-          OptionsTableSeeder::class
+          OptionsTableSeeder::class,
+          FlatOptionTableSeeder::class
         ]);
     }
 }
