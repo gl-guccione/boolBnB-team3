@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
           UsersTableSeeder::class,
           FlatsTableSeeder::class,
           RequestsTableSeeder::class,
-          ViewsTableSeeder::class
+          ViewsTableSeeder::class,
+          ImagesTableSeeder::class
         ]);
     }
 }
