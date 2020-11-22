@@ -3,9 +3,6 @@
 // using Laravel Facades
 use Illuminate\Database\Seeder;
 
-// using Faker
-use Faker\Generator as Faker;
-
 // using Carbon
 use Carbon\Carbon;
 
@@ -22,7 +19,7 @@ class SponsorshipsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
         $payments = Payment::orderBy('date_of_payment', 'asc')->get();
 
