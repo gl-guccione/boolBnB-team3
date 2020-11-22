@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Flat;
 
 class FlatController extends Controller
 {
@@ -14,7 +15,9 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        $flats = Flat::all();
+
+        return view('flats.index', compact('flats'));
     }
 
     /**
@@ -23,8 +26,10 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $flat = Flat::where('slug', $slug)->get()->first();
+
+        return view('flats.show', compact('flat'));
     }
 }
