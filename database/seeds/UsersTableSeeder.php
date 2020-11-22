@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 // using Faker
 use Faker\Generator as Faker;
 
-// using Models
+// using Model
 use App\User;
 
 class UsersTableSeeder extends Seeder
