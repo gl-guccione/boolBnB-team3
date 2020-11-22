@@ -1,5 +1,9 @@
+
+{{-- NAVBAR DI LARAVEL DA MODIFICARE --}}
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
+
+        <!-- logo e link che riporta alla home -->
         <a class="navbar-brand logo" href="{{ url('/') }}">
             <img class="img-logo" src="{{asset('img/logo.png')}}">
         </a>
