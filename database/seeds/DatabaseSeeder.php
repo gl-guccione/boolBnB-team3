@@ -13,8 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         // the line bellow is temporarily commented becouse the seeder is still WIP!!
 
-        // $this->call(
-        //   UsersTableSeeder::class,
-        // );
+        $this->call([
+          UsersTableSeeder::class,
+          FlatsTableSeeder::class
+        ]);
     }
 }
