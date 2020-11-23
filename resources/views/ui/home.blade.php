@@ -1,3 +1,5 @@
+{{-- slides 1 e 2, sia admin che guest --}}
+
 @extends('layouts.app')
 
 @section('mainContent')
@@ -7,7 +9,7 @@
     </div>
 
     <div class="presentazione"></div>
-    
+
     <div class="inEvidenza"></div>
 </main>
 @endsection
