@@ -19,15 +19,15 @@ class Flat extends Model
     }
 
      /**
-     * Create the relation between Flat and Request.
-     * Flat -> Request
+     * Create the relation between Flat and Message.
+     * Flat -> Message
      *   1  ->  *
      *
-     * @return App\Request (array)
+     * @return App\Message (array)
      */
-    public function requests()
+    public function messages()
     {
-        return $this->hasMany('App\Request');
+        return $this->hasMany('App\Message');
     }
 
      /**
