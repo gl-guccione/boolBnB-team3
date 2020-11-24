@@ -4,21 +4,11 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Request as FlatRequest;
+use App\Message;
 
-use App\Flat;
 
 class RequestController extends Controller
 {
-     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -32,30 +22,28 @@ class RequestController extends Controller
 
         $request->validate(
             [
-                'name' => 'required',
-                'email' => 'required',
-                'message' => 'required',
+                'name' => 'required|max:50',
+                'email' => 'required|max:255',
+                'message' => 'required|max:10000',
+                'flat_id' => 'numeric',
             ]
         );
 
-        $newRequest = new Request;
+        $newMessage = new Message;
 
-        //non so se vada bene cosi
-        $newRequest->flat_id = Flat::id();
+        $newMessage->flat_id = $data['flat_id'];
+        $newMessage->name = $data['name'];
+        $newMessage->email = $data['email'];
+        $newMessage->message = $data['message'];
+        $newMessage->date_of_send = date('Y-m-d H:i:s');
+        $newMessage->seen = false; 
 
-        $newRequest->name = $data['name'];
-        $newRequest->email = $data['email'];
-        $newRequest->message = $data['message'];
-        $newRequest->date_of_send = date('Y-m-d H:i:s');
-        $newRequest->seen = false; 
+        $newMessage->save();
 
-        $newRequest->save();
-
-        return redirect()->route('ui.flats.show', $newRequest->flat_id);
+        return redirect()->route('ui.flats.show', $newMessage->flat_id);
 
     }
 
-    //questa mi sa che non esiste come view
     /**
      * Display the specified resource.
      *
@@ -64,7 +52,7 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        $request = FlatRequest::where('id', $id)->get()->first();
+        $request = Message::where('id', $id)->first();
 
         return view('ui.request.show', compact('request'));
     }

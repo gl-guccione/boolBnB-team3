@@ -23,12 +23,12 @@ class FlatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
-        $flat = Flat::where('slug', $slug)->get()->first();
+        $flat = Flat::where('slug', $slug)->first();
 
         return view('ui.flats.show', compact('flat'));
     }
