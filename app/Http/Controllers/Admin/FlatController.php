@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\User;
+//use model
 use App\Flat;
 use App\Option;
 
@@ -50,22 +50,17 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique',
-                'slug' => 'required|unique',
-                'number_of_rooms' => 'required',
-                'number_of_beds' => 'required',
-                'number_of_bathrooms' => 'required',
-                'mq' => 'required',
-                //price ?
-                'type' => 'required',
+                'title' => 'required|unique|max:255',
+                'number_of_rooms' => 'required|numeric',
+                'number_of_beds' => 'required|numeric',
+                'number_of_bathrooms' => 'required|numeric',
+                'mq' => 'required|numeric',
+                'price' => 'required|numeric',
+                'type' => 'required|max:30',
                 'description' => 'required',
-                //stars random
+                'active' => 'boolean',
                 //extra options 
-                'street_name' => 'required',
-                'zip_code' => 'required',
-                'city' => 'required',
-                //lat
-                //lng
+                //algolia indirizzo
             ]
         );
 
@@ -86,15 +81,15 @@ class FlatController extends Controller
 
         if(isset($data['extra_options']))
         {
-            $options = implode(',', $data['extra_options']);
+            $options = implode(', ', $data['extra_options']);
             $newFlat->extra_options = $options;
         }
 
-        $newFlat->street_name = $data['street_name'];
-        $newFlat->zip_code = $data['zip_code'];
-        $newFlat->city = $data['city'];
-        $newFlat->lat = $data['lat'];
-        $newFlat->lng = $data['lng'];
+        // $newFlat->street_name = $data['street_name'];
+        // $newFlat->zip_code = $data['zip_code'];
+        // $newFlat->city = $data['city'];
+        // $newFlat->lat = $data['lat'];
+        // $newFlat->lng = $data['lng'];
 
         $newFlat->save();
 
@@ -105,12 +100,13 @@ class FlatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
-        $flat = Flat::where('slug', $slug)->get()->first();
+        $user_id = Auth::id();
+        $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
 
         return view('admin.flats.show', compact('flat'));
     }
@@ -118,12 +114,13 @@ class FlatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
     {
-        $flat = Flat::where('slug', $slug)->get()->first();
+        $user_id = Auth::id();
+        $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
 
         return view('admin.flats.edit', compact('flat'));
     }
@@ -141,26 +138,21 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique',
-                'slug' => 'required|unique',
-                'number_of_rooms' => 'required',
-                'number_of_beds' => 'required',
-                'number_of_bathrooms' => 'required',
-                'mq' => 'required',
-                //price ?
-                'type' => 'required',
+                'title' => 'required|unique|max:255',
+                'number_of_rooms' => 'required|numeric',
+                'number_of_beds' => 'required|numeric',
+                'number_of_bathrooms' => 'required|numeric',
+                'mq' => 'required|numeric',
+                'price' => 'required|numeric',
+                'type' => 'required|max:30',
                 'description' => 'required',
-                //stars random
+                'active' => 'boolean',
                 //extra options 
-                'street_name' => 'required',
-                'zip_code' => 'required',
-                'city' => 'required',
-                //lat
-                //lng
+                //algolia indirizzo
             ]
         );
 
-        $flat = Flat::where('slug', $slug)->get()->first();
+        $flat = Flat::where('slug', $slug)->first();
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
@@ -177,15 +169,11 @@ class FlatController extends Controller
 
         if(isset($data['extra_options']))
         {
-            $options = implode(',', $data['extra_options']);
+            $options = implode(', ', $data['extra_options']);
             $flat->extra_options = $options;
         }
 
-        $flat->street_name = $data['street_name'];
-        $flat->zip_code = $data['zip_code'];
-        $flat->city = $data['city'];
-        $flat->lat = $data['lat'];
-        $flat->lng = $data['lng'];
+
 
         $flat->update();
 
@@ -200,7 +188,8 @@ class FlatController extends Controller
      */
     public function destroy($slug)
     {
-        Flat::where('slug', $slug)->get()->first()->delete();
+        $user_id = Auth::id();
+        Flat::where('slug', $slug)->where('user_id', $user_id)->first()->delete();
 
         return redirect()->route('admin.flats.index');
     }

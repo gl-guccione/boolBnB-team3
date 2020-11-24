@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Request as FlatRequest;
+use App\Message;
 
 class RequestController extends Controller
 {
@@ -17,9 +17,9 @@ class RequestController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $requests = FlatRequest::where('user_id', $user_id)->get()->first();
+        $messages = Message::where('user_id', $user_id)->get();
 
-        return view('admin.requests.index', compact('requests'));
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -30,15 +30,16 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        $request = FlatRequest::where('id', $id)->get()->first();
+        $user_id = Auth::id();
+        $messages = Message::where('id', $id)->where('user_id', $user_id)->first();
 
         //non so se posso fare un update dentro la show
 
-        $request->seen = true;
+        $messages->seen = true;
 
-        $request->update();
+        $messages->update();
         
-        return view('admin.request.show', compact('request'));
+        return view('admin.messages.show', compact('messages'));
     }
 
     /**
@@ -49,8 +50,9 @@ class RequestController extends Controller
      */
     public function destroy($id)
     {
-        FlatRequest::where('id', $id)->get()->first()->delete();
+        $user_id = Auth::id();
+        Message::where('id', $id)->where('user_id', $user_id)->first()->delete();
 
-        return view('admin.request.index');
+        return view('admin.messages.index');
     }
 }

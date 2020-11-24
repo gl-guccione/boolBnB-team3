@@ -52,9 +52,9 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        $request = Message::where('id', $id)->first();
+        $messages = Message::where('id', $id)->first();
 
-        return view('ui.request.show', compact('request'));
+        return view('ui.messages.show', compact('messages'));
     }
 
 
