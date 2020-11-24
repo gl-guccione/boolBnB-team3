@@ -27,12 +27,12 @@ class CreateFlatsTable extends Migration
             $table->string('type', 30);
             $table->text('description');
             $table->tinyInteger('stars');
-            $table->string('extra_options');
+            $table->string('extra_options')->nullable();
             $table->string('street_name');
             $table->string('zip_code', 5);
             $table->string('city');
-            $table->string('lat', 15);
-            $table->string('lng', 15);
+            $table->string('lat', 10);
+            $table->string('lng', 11);
             $table->timestamps();
         });
     }
