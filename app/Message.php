@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
+class Message extends Model
 {
      /**
      * The attributes that remove the timestamp from the table.
@@ -14,8 +14,8 @@ class Request extends Model
     public $timestamps = false;
 
      /**
-     * Create the relation between Request and Flat.
-     * Request -> Flat
+     * Create the relation between Message and Flat.
+     * Message -> Flat
      *    *    ->  1
      *
      * @return App\Flat
