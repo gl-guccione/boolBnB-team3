@@ -40,6 +40,7 @@ class RequestController extends Controller
 
         $newRequest = new Request;
 
+        //non so se vada bene cosi
         $newRequest->flat_id = Flat::id();
 
         $newRequest->name = $data['name'];
@@ -50,9 +51,7 @@ class RequestController extends Controller
 
         $newRequest->save();
 
-        //o cosi oppure non succede nulla e rimane sulla stessa pagina
         return redirect()->route('ui.flats.show', $newRequest->flat_id);
-
 
     }
 
