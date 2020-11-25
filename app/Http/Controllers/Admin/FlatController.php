@@ -1,12 +1,15 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Admin;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-//use model
+
+// using Models
 use App\Flat;
 use App\Option;
 
@@ -59,7 +62,7 @@ class FlatController extends Controller
                 'type' => 'required|max:30',
                 'description' => 'required',
                 'active' => 'boolean',
-                //extra options 
+                //extra options
                 //algolia indirizzo
             ]
         );
@@ -147,7 +150,7 @@ class FlatController extends Controller
                 'type' => 'required|max:30',
                 'description' => 'required',
                 'active' => 'boolean',
-                //extra options 
+                //extra options
                 //algolia indirizzo
             ]
         );

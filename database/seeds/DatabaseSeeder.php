@@ -1,5 +1,6 @@
 <?php
 
+// using Laravel Facades
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

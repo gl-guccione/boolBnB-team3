@@ -18,14 +18,15 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
+// routes for Auth
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//routes for UPR/UPRA
+// routes for Admin (UPR/UPRA)
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
 
-    //flats routes
+    // flats routes
     Route::resource('flats', 'FlatController');
     
     //messages routes
@@ -39,17 +40,14 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::get('sponsorships', 'MessageController@store')->name('sponsorships.store');
     
 
-    //statistics route
+
+    // statistics route
     Route::get('flats/statistics', 'ViewController@index')->name('statistics');
 });
 
 
-//routes for UI
+// routes for UI
 Route::name('guest.')->namespace('Guest')->group(function () {
-    
-    //route for Flats
-    Route::get('/', 'FlatController@index')->name('flat.index');
-    Route::get('/flats/{slug}', 'FlatController@show')->name('flat.show');
 
     //routes for message public
     Route::get('messages/create', 'MessageController@create')->name('messages.create');

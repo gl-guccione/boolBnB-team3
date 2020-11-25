@@ -1,10 +1,14 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Admin;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
+// using Models
 use App\Message;
 
 class RequestController extends Controller
@@ -31,14 +35,14 @@ class RequestController extends Controller
     public function show($id)
     {
         $user_id = Auth::id();
-        $messages = Message::where('id', $id)->where('user_id', $user_id)->first();
+        $message = Message::where('id', $id)->where('user_id', $user_id)->first();
 
-        //non so se posso fare un update dentro la show
+        // update the 'seen' value when the user see the message
+        if ($message->seen == false) {
+          $message->seen = true;
+          $message->update();
+        }
 
-        $messages->seen = true;
-
-        $messages->update();
-        
         return view('admin.messages.show', compact('messages'));
     }
 
