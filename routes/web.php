@@ -29,14 +29,14 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::resource('flats', 'FlatController');
     
     //messages routes
-    Route::get('messages', 'RequestController@index')->name('messages.index');
-    Route::get('messages/{id}', 'RequestController@show')->name('messages.show');
+    Route::get('messages', 'MessageController@index')->name('messages.index');
+    Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
     
     //sponsorships routes
-    Route::get('sponsorships', 'RequestController@index')->name('sponsorships.index');
-    Route::get('sponsorships/{id}', 'RequestController@show')->name('sponsorships.show');
-    Route::get('sponsorships/create', 'RequestController@create')->name('sponsorships.create');
-    Route::get('sponsorships', 'RequestController@store')->name('sponsorships.store');
+    Route::get('sponsorships', 'MessageController@index')->name('sponsorships.index');
+    Route::get('sponsorships/{id}', 'MessageController@show')->name('sponsorships.show');
+    Route::get('sponsorships/create', 'MessageController@create')->name('sponsorships.create');
+    Route::get('sponsorships', 'MessageController@store')->name('sponsorships.store');
     
 
     //statistics route
@@ -52,8 +52,8 @@ Route::name('guest.')->namespace('Guest')->group(function () {
     Route::get('/flats/{slug}', 'FlatController@show')->name('flat.show');
 
     //routes for message public
-    Route::get('messages/create', 'RequestController@create')->name('messages.create');
-    Route::get('messages', 'RequestController@store')->name('messages.store');
-    Route::get('messages/{id}', 'RequestController@show')->name('messages.show');
+    Route::get('messages/create', 'MessageController@create')->name('messages.create');
+    Route::get('messages', 'MessageController@store')->name('messages.store');
+    Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
 
 });
