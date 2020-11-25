@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // routes for Auth
 Auth::routes();
@@ -30,20 +30,20 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::resource('flats', 'FlatController');
 
     // messages routes
-    Route::get('messages', 'MessageController@index')->name('messages.index');
-    Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
-    Route::delete('messages/{id}', 'MessageController@destroy')->name('messages.destroy');
+    // Route::get('messages', 'MessageController@index')->name('messages.index');
+    // Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
+    // Route::delete('messages/{id}', 'MessageController@destroy')->name('messages.destroy');
 
     // sponsorships routes
-    Route::get('sponsorships', 'MessageController@index')->name('sponsorships.index');
-    Route::get('sponsorships/{id}', 'MessageController@show')->name('sponsorships.show');
-    Route::get('sponsorships/create', 'MessageController@create')->name('sponsorships.create');
-    Route::post('sponsorships', 'MessageController@store')->name('sponsorships.store');
+    // Route::get('sponsorships', 'MessageController@index')->name('sponsorships.index');
+    // Route::get('sponsorships/{id}', 'MessageController@show')->name('sponsorships.show');
+    // Route::get('sponsorships/create', 'MessageController@create')->name('sponsorships.create');
+    // Route::post('sponsorships', 'MessageController@store')->name('sponsorships.store');
 
 
 
     // statistics route
-    Route::get('flats/statistics', 'ViewController@index')->name('statistics');
+    // Route::get('flats/statistics', 'ViewController@index')->name('statistics');
 });
 
 
@@ -51,13 +51,13 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 Route::name('guest.')->namespace('Guest')->group(function () {
 
     // route for Flats
-    Route::get('/', 'FlatController@index')->name('flats.index');
-    Route::get('/flats/{slug}', 'FlatController@show')->name('flats.show');
+    // Route::get('/', 'FlatController@index')->name('flats.index');
+    // Route::get('/flats/{slug}', 'FlatController@show')->name('flats.show');
 
 
     //routes for message public
-    Route::get('messages/create', 'MessageController@create')->name('messages.create');
-    Route::post('messages', 'MessageController@store')->name('messages.store');
-    Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
+    // Route::get('messages/create', 'MessageController@create')->name('messages.create');
+    // Route::post('messages', 'MessageController@store')->name('messages.store');
+    // Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
 
 });
