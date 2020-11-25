@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App;
 
+// using Laravel Facades
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname', 'lastname', 'date_of_birth', 'avatar', 'description', 'email', 'password',
     ];
 
     /**
