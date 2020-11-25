@@ -43,8 +43,8 @@
                                   <a class="dropdown-item" href="{{ route('login') }}">Crea appartamenti</a>
                                     {{-- route che fa fare il logout --}}
 
-                                    @if (Auth::user())
-                                      @dd(Auth::user())
+                                    @if (Auth::user()->flats()->count() > 0)
+                                      
                                       {{-- route che manda alla view degli appartamenti dell'utente --}}
                                       <a class="dropdown-item" href="{{ route('login') }}">I miei appartamenti</a>
 
@@ -72,6 +72,8 @@
                 </div>
             </div>
         </nav>
+{{-- 
+        @dd(Auth::user()->flats()->count()) --}}
 
         <main class="py-4">
             @yield('content')
