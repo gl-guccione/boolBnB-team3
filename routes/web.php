@@ -50,6 +50,11 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 // routes for UI
 Route::name('guest.')->namespace('Guest')->group(function () {
 
+    // route for Flats
+    Route::get('/', 'FlatController@index')->name('flats.index');
+    Route::get('/flats/{slug}', 'FlatController@show')->name('flats.show');
+
+
     //routes for message public
     Route::get('messages/create', 'MessageController@create')->name('messages.create');
     Route::post('messages', 'MessageController@store')->name('messages.store');
