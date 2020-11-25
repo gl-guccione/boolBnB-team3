@@ -35,13 +35,13 @@ class RequestController extends Controller
     public function show($id)
     {
         $user_id = Auth::id();
-        $messages = Message::where('id', $id)->where('user_id', $user_id)->first();
+        $message = Message::where('id', $id)->where('user_id', $user_id)->first();
 
-        //non so se posso fare un update dentro la show
-
-        $messages->seen = true;
-
-        $messages->update();
+        // update the 'seen' value when the user see the message
+        if ($message->seen == false) {
+          $message->seen = true;
+          $message->update();
+        }
 
         return view('admin.messages.show', compact('messages'));
     }
