@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Guest;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Message;
@@ -36,7 +38,7 @@ class RequestController extends Controller
         $newMessage->email = $data['email'];
         $newMessage->message = $data['message'];
         $newMessage->date_of_send = date('Y-m-d H:i:s');
-        $newMessage->seen = false; 
+        $newMessage->seen = false;
 
         $newMessage->save();
 

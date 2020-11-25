@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App;
 
+// using Laravel Facades
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

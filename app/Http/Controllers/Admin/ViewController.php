@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Admin;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
