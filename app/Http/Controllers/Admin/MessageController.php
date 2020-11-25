@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 // using Models
 use App\Message;
 
-class RequestController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
