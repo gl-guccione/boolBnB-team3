@@ -20,44 +20,18 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-
-
                           {{-- menu guest con login e register --}}
                           <li class="nav-item dropdown">
-
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Area Host
                               </a>
-
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 @if (Route::has('register'))
                                   <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
-
                               </div>
-
-
-
-
-
-
-
-                              {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      {{ __('Logout') }}
-                                  </a>
-
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                      @csrf
-                                  </form>
-                              </div> --}}
                           </li>
-
-
-                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,6 +39,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  {{-- route che manda al form create --}}
+                                  <a class="dropdown-item" href="{{ route('login') }}">Crea appartamenti</a>
+                                    {{-- route che fa fare il logout --}}
+
+                                    @if (Auth::user())
+                                      @dd(Auth::user())
+                                      {{-- route che manda alla view degli appartamenti dell'utente --}}
+                                      <a class="dropdown-item" href="{{ route('login') }}">I miei appartamenti</a>
+
+                                      {{-- route che manda alle statistiche --}}
+                                      <a class="dropdown-item" href="{{ route('login') }}">Statistiche</a>
+
+                                    @endif
+
+
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
