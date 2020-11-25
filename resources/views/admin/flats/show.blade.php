@@ -36,19 +36,19 @@
 
   <ul>
 
-    @if (flat->number_of_rooms = 1)
+    @if ($flat->number_of_rooms == 1)
       <li>Stanza: 1</li>
     @else
       <li>Stanze: {{ $flat->number_of_rooms }}</li>
     @endif
 
-    @if (flat->number_of_beds = 1)
+    @if ($flat->number_of_beds == 1)
     <li>Letto: 1</li>
     @else
     <li>Letti: {{ $flat->number_of_beds }}</li>
     @endif
 
-    @if (flat->number_of_bathrooms = 1)
+    @if ($flat->number_of_bathrooms == 1)
       <li>Bagno: 1</li>
     @else
       <li>Bagni: {{ $flat->number_of_bathrooms }}</li>
