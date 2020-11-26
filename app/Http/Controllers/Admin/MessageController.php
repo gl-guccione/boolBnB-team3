@@ -20,8 +20,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
-        $messages = Message::where('user_id', $user_id)->get();
+        // $user_id = Auth::id();
+        // $messages = Message::where('user_id', $user_id)->get();
+
+        $messages = Message::inRandomOrder()->limit(10)->get();
 
         return view('admin.messages.index', compact('messages'));
     }
