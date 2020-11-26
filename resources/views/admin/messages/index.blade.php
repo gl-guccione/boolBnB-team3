@@ -4,6 +4,7 @@
 
 <h1>I miei messaggi</h1>
 
+{{-- messages details--}}
 @foreach($messages as $message)
 <h3>{{$message->name}}</h3>
 <div class="display_flex">

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="display_flex">
+    {{-- user info --}}
     <div class="">
         <img src={{$user->avatar}} alt=" ">
     </div>
@@ -15,6 +16,7 @@
     $arrFlats = $user->flats()->get();
 @endphp
 
+{{-- flats details --}}
 @foreach($arrFlats as $flat)
     <div class="display_flex">
         <div class="flat-img">
