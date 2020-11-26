@@ -2,4 +2,6 @@
 
 @section('content')
 
+@dd($flats)
+
 @endsection
