@@ -72,7 +72,7 @@ class FlatController extends Controller
         $newFlat->user_id = Auth::id();
         $newFlat->title = $data['title'];
         $newFlat->slug = Str::slug($newFlat->title, '-');
-        // $newFlat->active = $data['active'];
+        $newFlat->active = $data['active'];
         $newFlat->number_of_rooms = $data['number_of_rooms'];
         $newFlat->number_of_beds = $data['number_of_beds'];
         $newFlat->number_of_bathrooms = $data['number_of_bathrooms'];
@@ -95,6 +95,8 @@ class FlatController extends Controller
         $newFlat->lng = $data['lng'];
 
         $newFlat->save();
+
+        $newFlat->options()->sync($data["options"]);
 
         return redirect()->route('admin.flats.show', $newFlat->slug);
 

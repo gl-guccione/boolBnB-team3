@@ -79,7 +79,7 @@
     <div class="form-check">
       @foreach ($options as $option)
         <div class="div">
-          <input type="checkbox" class="form-check-input" name={{$option->name}} id="checkbox_{{$option->id}}" value="{{$option->id}}">
+          <input type="checkbox" class="form-check-input" name="options[]" id="checkbox_{{$option->id}}" value="{{$option->id}}">
           <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
         </div>
       @endforeach

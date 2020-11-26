@@ -6,6 +6,8 @@
 
   @foreach ($flats as $flat)
 
+    @if($flat->active)
+  
     <h2>{{ $flat->title }}</h2>
 
     <img src="{{ $flat->images()->first()->path }}">
@@ -30,7 +32,7 @@
     </form>
 
     <a href="#">Contatti ricevuti</a>
-
+    @endif
   @endforeach
 
 @endsection
