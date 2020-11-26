@@ -26,6 +26,28 @@
         <button type="submit" class="btn btn-primary">Cerca</button>
     </form>
   </div>
+  <!-- slide 2 pubblicità sito e appartamenti in evidenza -->
+  <div class="advertise">
+    <h1>Qui ci andrà la descrizione del progetto</h1>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
+  </div>
+  <div class="container">
+    <div class="row">
+      @foreach ($flats as $flat)
+        <div class="col-2">
+          <a href="{{route("guest.users.show", $flat->id)}}"></a>
+          <div class="overlay">
+            <h3>{{$flat->title}}</h2>
+            <p>{{$flat->city}}</p>
+            <span>{{$flat->stars}}</span>
+          </div>
+          <img src="{{$flat->image}}" alt="#">
+        </div>
+      @endforeach
+    </div>
+  </div>
 
 
   @endsection
