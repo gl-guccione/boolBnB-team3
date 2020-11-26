@@ -1,59 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
+    @php
+        $arrImage = $flat->images()->get();
+    @endphp
 
-  @foreach($flat->images as $img)
-    <img src="{{ $img->path }}" alt="foto appartamento">
-  @endforeach
-
-  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
-
-  <p>{{ $flat->description }}</p>
-
-  <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
-
-  <img src="{{ $flat->user->avatar }}" atl="foto utente - {{ $flat->user->firstname }} {{ $flat->user->lastname }}">
-
-  @if ($flat->user->description)
-    <p>{{ $flat->user->description }}</p>
-  @endif
-
-  <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
-
-
-  <h3>Servizi</h3>
-
-  <ul>
-
-    @foreach($flat->options as $option)
-      <li>{{ $option->name }}</li>
+    @foreach($arrImage as $img)
+        <img src='{{$img->path}}' alt=' ' >
     @endforeach
+    
+<h2>{{$flat->title}} - {{$flat->user()->first()->firstname}} {{$flat->user()->first()->lastname}} - valutazione: {{$flat->stars}} - € {{$flat->price}}</h2>
+<p>{{$flat->description}}</p>
 
-  </ul>
-
-
-  <h3>Informazioni</h3>
-
-  <ul>
-
-    @if ($flat->number_of_rooms == 1)
-      <li>Stanza: 1</li>
-    @else
-      <li>Stanze: {{ $flat->number_of_rooms }}</li>
+<h3>{{$flat->user()->first()->firstname}} {{$flat->user()->first()->lastname}}</h3>
+    <img src={{$flat->user()->first()->avatar}} atl=" ">
+    @if ($flat->user()->first()->description) 
+    <p>{{$flat->user()->first()->description}}</p>
     @endif
 
-    @if ($flat->number_of_beds == 1)
-    <li>Letto: 1</li>
-    @else
-    <li>Letti: {{ $flat->number_of_beds }}</li>
-    @endif
+<span>{{$flat->street_name}} - {{$flat->zip_code}} - {{$flat->city}}</span>
 
-    @if ($flat->number_of_bathrooms == 1)
-      <li>Bagno: 1</li>
-    @else
-      <li>Bagni: {{ $flat->number_of_bathrooms }}</li>
-    @endif
+<h3>Servizi</h3>
+<ul>
+@foreach($flat->options()->get() as $option)
+    <li>{{$option->name}}</li>
+@endforeach
+</ul>
 
-  </ul>
-
+<h3>Informazioni</h3>
+<ul>
+<li>Stanze: {{$flat->number_of_rooms}}</li>
+    <li>Letti: {{$flat->number_of_beds}}</li>
+    <li> Bagni: {{$flat->number_of_bathrooms}}</li>
+</ul>
 @endsection
