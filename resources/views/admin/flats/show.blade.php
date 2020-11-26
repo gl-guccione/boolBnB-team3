@@ -2,22 +2,20 @@
 
 @section('content')
 
-  {{-- @dd($flat->user) --}}
-
-  @foreach($flat->images()->get() as $img)
+  @foreach($flat->images as $img)
     <img src="{{ $img->path }}" alt="foto appartamento">
   @endforeach
 
-  <h2>{{ $flat->title }} - {{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
+  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
 
   <p>{{ $flat->description }}</p>
 
-  <h3>{{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }}</h3>
+  <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
 
-  <img src="{{ $flat->user()->first()->avatar }}" atl="foto appartamento">
+  <img src="{{ $flat->user->avatar }}" atl="foto utente - {{ $flat->user->firstname }} {{ $flat->user->lastname }}">
 
-  @if ($flat->user()->first()->description)
-    <p>{{ $flat->user()->first()->description }}</p>
+  @if ($flat->user->description)
+    <p>{{ $flat->user->description }}</p>
   @endif
 
   <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
@@ -27,7 +25,7 @@
 
   <ul>
 
-    @foreach($flat->options()->get() as $option)
+    @foreach($flat->options as $option)
       <li>{{ $option->name }}</li>
     @endforeach
 
