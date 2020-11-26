@@ -52,7 +52,7 @@
 
     {{-- algolia input --}}
 
-      <input type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" />
+      <input name="algolia" type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" />
       <p>Selected: <strong id="address-value">none</strong></p>
 
     {{-- /algolia input --}}

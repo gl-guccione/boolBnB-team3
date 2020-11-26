@@ -67,6 +67,8 @@ class FlatController extends Controller
 
         ]);
 
+        dd($data);
+
         $newFlat = new Flat;
 
         $newFlat->user_id = Auth::id();
