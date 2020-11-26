@@ -2,6 +2,8 @@
 
 @section('content')
 
+  {{-- @dd($flat->user) --}}
+
   @foreach($flat->images()->get() as $img)
     <img src="{{ $img->path }}" alt="foto appartamento">
   @endforeach

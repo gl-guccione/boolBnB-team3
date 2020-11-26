@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // routes for Auth
 Auth::routes();
@@ -49,6 +49,13 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 
 // routes for UI
 Route::name('guest.')->namespace('Guest')->group(function () {
+
+    // route for Homepage
+    Route::get('/', 'HomepageController@index')->name('homepage');
+    Route::get('/search', 'HomepageController@search')->name('homepage.search');
+
+    // route for User
+    Route::get('/users/{id}', 'UserController@show')->name('users.show');
 
     // route for Flats
     // Route::get('/', 'FlatController@index')->name('flats.index');
