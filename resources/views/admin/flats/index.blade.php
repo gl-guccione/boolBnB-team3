@@ -10,11 +10,11 @@
   
     <h2>{{ $flat->title }}</h2>
 
-    <img src="{{ $flat->images()->first()->path }}">
+    {{-- <img src="{{ asset($flat->images()->first()->path) }}"> --}}
 
     <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a>
 
-    <p>{{ $flat->description }}</p>
+    <p>DESCRIZIONE{{ $flat->description }}</p>
 
     <span> Valutazione: {{ $flat->stars }}</span>
 

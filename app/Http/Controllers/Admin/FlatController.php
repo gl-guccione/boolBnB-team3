@@ -96,7 +96,11 @@ class FlatController extends Controller
 
         $newFlat->save();
 
-        $newFlat->options()->sync($data["options"]);
+        if(isset($data['extra_options']))
+        {
+            $options = implode(', ', $data['extra_options']);
+            $newFlat->extra_options = $options;
+        }
 
         return redirect()->route('admin.flats.show', $newFlat->slug);
 
@@ -125,9 +129,10 @@ class FlatController extends Controller
     public function edit($slug)
     {
         $user_id = Auth::id();
+        $options = Option::all();
         $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
 
-        return view('admin.flats.edit', compact('flat'));
+        return view('admin.flats.edit', compact('flat'), compact('options'));
     }
 
     /**
@@ -143,7 +148,7 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique|max:255',
+                'title' => 'required|unique:flats|max:255',
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -161,7 +166,7 @@ class FlatController extends Controller
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
-        $flat->slug = Str::slug($flat->title, '-');
+        // $flat->slug = Str::slug($flat->title, '-');
         $flat->active = $data['active'];
         $flat->number_of_rooms = $data['number_of_rooms'];
         $flat->number_of_beds = $data['number_of_beds'];
@@ -178,11 +183,20 @@ class FlatController extends Controller
             $flat->extra_options = $options;
         }
 
-
+        $flat->street_name = $data['street_name'];
+        $flat->zip_code = $data['zip_code'];
+        $flat->city = $data['city'];
+        $flat->lat = $data['lat'];
+        $flat->lng = $data['lng'];
 
         $flat->update();
 
-        return redirect()->route('admin.flats,show', $flat->slug);
+        if($data["options"])
+        {
+            $flat->options()->sync($data["options"]);
+        }
+
+        return redirect()->route('admin.flats.show', $flat->slug);
     }
 
     /**
