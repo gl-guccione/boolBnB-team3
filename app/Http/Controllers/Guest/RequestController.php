@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Guest;
 // using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+// using Models
 use App\Message;
 
 
