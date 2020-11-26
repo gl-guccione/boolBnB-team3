@@ -42,8 +42,6 @@ class HomepageController extends Controller
     {
         $options = Option::all();
 
-        dd($options);
-
-        return view('guest.search');
+        return view('guest.search', compact('options'));
     }
 }
