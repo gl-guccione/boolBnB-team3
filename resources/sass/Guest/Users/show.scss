@@ -1,0 +1,33 @@
+.user_container {
+    width: 100%;
+    border: 1px solid blue;
+    margin: 5% 0;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border: 1px solid transparent;
+    border-radius: 100%;
+    overflow: hidden;
+    float: left;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.user_infos {
+    width: calc(100% - 201px);
+    float: left;
+}
+
+.flats_list {
+    width: 100%;
+    margin: 5% 0;
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

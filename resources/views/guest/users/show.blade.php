@@ -1,24 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="display_flex">
-    {{-- user info --}}
-    <div class="">
+<div class="page_wrapper">
+<div class="user_container">
+    {{-- user infos --}}
+    <div class="avatar">
         <img src={{$user->avatar}} alt=" ">
     </div>
-    <div class="">
+    <div class="user_infos">
         <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
         <h4>{{$user->description}}</h4>
     </div>
 </div>  
-<div class="flat_list">
+
+{{-- flats list--}}
+<div class="flats_list">
 @php
     $arrFlats = $user->flats()->get();
 @endphp
 
 {{-- flats details --}}
 @foreach($arrFlats as $flat)
-    <div class="display_flex">
+    <div class="">
         <div class="flat-img">
             <img src={{$flat->path}} alt=" ">
         </div>
@@ -30,5 +33,5 @@
     </div>
 </div>
 @endforeach
-
+</div>
 @endsection

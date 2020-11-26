@@ -4,8 +4,14 @@
     <div class="container">
       <div class="row">
         <!-- slide 1 jumbotron e form search -->
-        <div class="jumbotron">
-          <form action="{{route("guest.homepage.search")}}" method="get" enctype="multipart/form-data">
+        <div id="j" class="jumbo">
+          <div class="opacity">
+          <img id="first-img" class="photo-carousel first" src={{asset('../img/img1.jpeg')}} alt="" >
+          <img id="second-img" class="photo-carousel" src={{asset('../img/img2.jpg')}} alt="" >
+          <img id="third-img" class="photo-carousel" src={{asset('../img/img3.jpg')}} alt="" >
+          <img id="fourth-img" class="photo-carousel" src={{asset('../img/img4.jpg')}} alt="" >          
+        <div class="search_container">
+          <form class="form" action="{{route("guest.homepage.search")}}" method="get" enctype="multipart/form-data">
             @csrf
             @method('GET')
             <div class="form-group">
@@ -26,6 +32,8 @@
             </div>
               <button type="submit" class="btn btn-primary">Cerca</button>
           </form>
+        </div>
+        </div>
         </div>
       </div>
       <!-- slide 2 pubblicità sito e appartamenti in evidenza -->
