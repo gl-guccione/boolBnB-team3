@@ -43,6 +43,7 @@ function changeMargin() {
   }, 100);
 }*/
 
+// images slider home guest page
 function animation() {
 
   let x = "a";
