@@ -30,9 +30,18 @@
             <a href="{{ route('admin.flats.edit', $flat->slug) }}"><i class="fas fa-edit"></i></a>
           </div>
 
-          <div class="delete m-2">
+          <form class="delete m-2" action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
+
+            @csrf
+            @method('DELETE')
+      
+            <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
+      
+          </form>
+      
+          {{-- <div class="delete m-2">
               <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
-          </div>
+          </div> --}}
 
           <div class="message m-2">
             <a href="#"><i class="fas fa-envelope"></i></a>
