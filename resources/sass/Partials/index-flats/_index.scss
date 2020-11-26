@@ -1,3 +1,6 @@
+.card {
+    box-shadow: 1px 3px 10px 3px #b1afaf;
+}
 
 p {
     height: 50px;
@@ -8,5 +11,12 @@ p {
 .card__icons {
     display: flex;
     justify-content: flex-end;
-    font-size: 20px;
+    font-size: 30px;
+
+    a {
+        color: #000;
+    }
+    .delete a {
+        color: #e3342f;
+    }
 }
