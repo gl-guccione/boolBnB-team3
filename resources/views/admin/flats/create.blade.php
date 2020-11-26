@@ -75,17 +75,23 @@
       <input type="hidden" id="lng" name="lng" value="none">
     {{-- /input hidden for address --}}
 
-
+   {{-- opzioni --}}
     <div class="form-check">
       @foreach ($options as $option)
         <div class="div">
-          <input type="checkbox" class="form-check-input" id="checkbox_{{$option->id}}">
+          <input type="checkbox" class="form-check-input" name={{$option->name}} id="checkbox_{{$option->id}}" value="{{$option->id}}">
           <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
         </div>
       @endforeach
       </div>
 
 
+    <div class="form-check">
+      <input type="radio" value=1 name="active" id="active" checked>
+      <label for="active" class="form-check-label">Pubblica subito</label>
+      <input type="radio" value=0 name="active" id="active_off" >
+      <label for="active" class="form-check-label">Salva bozza</label>
+    </div>
 
     <button type="submit" class="btn btn-primary">Pubblica appartamento</button>
 

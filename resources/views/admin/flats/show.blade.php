@@ -24,7 +24,6 @@
   <h3>Servizi</h3>
 
   <ul>
-
     @foreach($flat->options()->get() as $option)
       <li>{{ $option->name }}</li>
     @endforeach
