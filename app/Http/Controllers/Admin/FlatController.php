@@ -53,7 +53,7 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique|max:255',
+                'title' => 'required|unique:flats|max:255',
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -72,7 +72,7 @@ class FlatController extends Controller
         $newFlat->user_id = Auth::id();
         $newFlat->title = $data['title'];
         $newFlat->slug = Str::slug($newFlat->title, '-');
-        $newFlat->active = $data['active'];
+        // $newFlat->active = $data['active'];
         $newFlat->number_of_rooms = $data['number_of_rooms'];
         $newFlat->number_of_beds = $data['number_of_beds'];
         $newFlat->number_of_bathrooms = $data['number_of_bathrooms'];
@@ -88,15 +88,15 @@ class FlatController extends Controller
             $newFlat->extra_options = $options;
         }
 
-        // $newFlat->street_name = $data['street_name'];
-        // $newFlat->zip_code = $data['zip_code'];
-        // $newFlat->city = $data['city'];
-        // $newFlat->lat = $data['lat'];
-        // $newFlat->lng = $data['lng'];
+        $newFlat->street_name = $data['street_name'];
+        $newFlat->zip_code = $data['zip_code'];
+        $newFlat->city = $data['city'];
+        $newFlat->lat = $data['lat'];
+        $newFlat->lng = $data['lng'];
 
         $newFlat->save();
 
-        return redirect()->route('admin.flats,show', $newFlat->slug);
+        return redirect()->route('admin.flats.show', $newFlat->slug);
 
     }
 

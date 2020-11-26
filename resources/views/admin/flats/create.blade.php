@@ -52,19 +52,40 @@
 
     {{-- algolia input --}}
 
-      <input type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" />
-      <p>Selected: <strong id="address-value">none</strong></p>
-
+    <div class="form-group">
+      <label for="street_name">Indirizzo*</label>
+      <input type="search" class="form-control" id="street_name" name="street_name" placeholder="Inserisci l'indirizzo" />
+    </div>
+    <div class="form-group">
+      <label for="form-address2">Indirizzo 2</label>
+      <input type="text" class="form-control" id="form-address2" placeholder="Opzionale" />
+    </div>
+    <div class="form-group">
+      <label for="city">Città*</label>
+      <input type="text" class="form-control" id="city" name="city" placeholder="Inserisci città">
+    </div>
+    <div class="form-group">
+      <label for="zip_code">CAP*</label>
+      <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Inserisci codice postale">
+    </div>
     {{-- /algolia input --}}
 
+    {{-- input hidden for address --}}
+      <input type="hidden" id="lat" name="lat" value="none">
+      <input type="hidden" id="lng" name="lng" value="none">
+    {{-- /input hidden for address --}}
+
+
     <div class="form-check">
-    @foreach ($options as $option)
-      <div class="div">
-        <input type="checkbox" class="form-check-input" id="checkbox_{{$option->id}}">
-        <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
+      @foreach ($options as $option)
+        <div class="div">
+          <input type="checkbox" class="form-check-input" id="checkbox_{{$option->id}}">
+          <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
+        </div>
+      @endforeach
       </div>
-    @endforeach
-    </div>
+
+
 
     <button type="submit" class="btn btn-primary">Pubblica appartamento</button>
 
