@@ -8,7 +8,7 @@
 
     <h2>{{ $flat->title }}</h2>
 
-    <img src="{{ $flat->images()->first()->path }}">
+    <img src="{{ $flat->images[0]->path }}">
 
     <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a>
 
