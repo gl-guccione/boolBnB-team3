@@ -1,5 +1,7 @@
 require('./bootstrap');
 var places = require('places.js');
+var jQuery = require('jquery')
+
 
 (function() { 
   var placesAutocomplete = places({ 
