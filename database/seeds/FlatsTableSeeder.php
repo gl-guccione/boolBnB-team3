@@ -30,7 +30,7 @@ class FlatsTableSeeder extends Seeder
           $new_flat = New Flat;
 
           $new_flat->user_id = $random_user_id;
-          $new_flat->title = 'titolo - '.$faker->sentence(7);
+          $new_flat->title = $faker->sentence(7);
           $new_flat->slug = Str::slug($new_flat->title, '-');
           $new_flat->active = (rand(0, 9)) > 0 ? true : false;
           $new_flat->number_of_rooms = rand(1, 5);
@@ -49,14 +49,14 @@ class FlatsTableSeeder extends Seeder
             $new_flat->extra_options = $options;
           }
 
-          $new_flat->street_name = $faker->streetName;
+          $new_flat->street_name = $faker->streetAddress;
           $new_flat->zip_code = substr($faker->postcode, 0, 5);
           $new_flat->city = $faker->city;
-          $new_flat->lat = $faker->latitude(-90, 90);
-          $new_flat->lng = $faker->longitude(-180, 180);
+          // TODO - CHECK lat and lng should be only from italy
+          $new_flat->lat = $faker->latitude(45, 37);
+          $new_flat->lng = $faker->longitude(8, 16);
 
           $new_flat->save();
-
         }
 
     }
