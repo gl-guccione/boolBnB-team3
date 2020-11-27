@@ -1,0 +1,32 @@
+footer {
+    background-color: gray;
+        
+    .color_link {
+        color: #000;
+        font-weight: bold;
+
+        &:hover {
+            color: $colorMain;
+        }
+
+       
+    }
+
+    .icon-footer {
+        font-size: 30px;
+    }
+
+    .logo-footer {
+        width: 30px;
+    }
+
+    .description-footer {
+        font-size: 15px;
+    }
+
+    .description-site {
+        font-size: 12px;
+        font-weight: 400;
+        // text-align: center;
+    }
+}
