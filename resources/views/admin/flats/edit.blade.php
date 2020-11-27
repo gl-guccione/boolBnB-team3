@@ -81,6 +81,7 @@
         <div class="div">
           <input type="checkbox" class="form-check-input" name="options[]" id="checkbox_{{$option->id}}" value="{{$option->id}}">
           <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
+          {{-- TODO show checked options --}}
         </div>
       @endforeach
       </div>

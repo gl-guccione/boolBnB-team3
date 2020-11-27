@@ -19,27 +19,27 @@
 
     <div class="form-group">
       <label for="number_of_rooms">Numero di stanze</label>
-      <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci numero di stanze" min="0" max="254" required value="{{old("number_of_rooms")}}">
+      <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci numero di stanze" min="1" max="254" required value="{{old("number_of_rooms")}}">
     </div>
 
     <div class="form-group">
       <label for="number_of_beds">Numero di letti</label>
-      <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci numero di letti" min="0" max="254" required value="{{old("number_of_beds")}}">
+      <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci numero di letti" min="1" max="254" required value="{{old("number_of_beds")}}">
     </div>
 
     <div class="form-group">
       <label for="number_of_bathrooms">Numero di bagni</label>
-      <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci numero di bagni" min="0" max="254" required value="{{old("number_of_bathrooms")}}">
+      <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci numero di bagni" min="1" max="254" required value="{{old("number_of_bathrooms")}}">
     </div>
 
     <div class="form-group">
       <label for="mq">Metri quadri</label>
-      <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="0" max="65000" required value="{{old("mq")}}">mq
+      <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="1" max="65000" required value="{{old("mq")}}">mq
     </div>
 
     <div class="form-group">
       <label for="price">Prezzo</label>
-      <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo per notte" min="0" max="9999" step="0.01" required value="{{old("price")}}">
+      <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo per notte" min="1" max="9999" step="0.01" required value="{{old("price")}}">
     </div>
 
     <div class="form-group">
@@ -68,7 +68,7 @@
     </div>
     <div class="form-group">
       <label for="form-address2">Indirizzo 2</label>
-      <input type="text" class="form-control" id="form-address2" placeholder="Opzionale" value="{{old("form-address2")}}">
+      <input type="text" class="form-control" id="form-address2" placeholder="Maggiori informazioni" value="{{old("form-address2")}}">
     </div>
     <div class="form-group">
       <label for="city">Città*</label>

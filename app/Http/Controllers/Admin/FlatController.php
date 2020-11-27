@@ -54,31 +54,34 @@ class FlatController extends Controller
     {
         $data = $request->all();
 
-
         $request->validate(
             [
-                'title' => 'required|unique:flats|max:255',
-                'number_of_rooms' => 'required|numeric',
-                'number_of_beds' => 'required|numeric',
-                'number_of_bathrooms' => 'required|numeric',
-                'mq' => 'required|numeric',
-                'price' => 'required|numeric',
-                'type' => 'required|max:30',
-                'description' => 'required',
-                'active' => 'boolean',
-                //extra options
-                //algolia indirizzo
-                'images' => 'image',
+              'title' => 'required|string|unique:flats|between:3,255',
+              'active' => 'required|boolean',
+              'number_of_rooms' => 'required|integer|between:1,254',
+              'number_of_beds' => 'required|integer|between:1,254',
+              'number_of_bathrooms' => 'required|integer|between:1,254',
+              'mq' => 'required|integer|between:1,65000',
+              'price' => 'required|numeric|between:1,9999',
+              'type' => 'required|string|in:appartamento,villetta|max:30',
+              'description' => 'required|string|between:3,65000',
+              //TODO extra options
+              'street_name' => 'required|string|between:1,255',
+              'zip_code' =>'required|integer|digits:5',
+              'city' => 'required|string|between:1,255',
+              'lat' => 'required|string|between:1,10',
+              'lng' => 'required|string|between:1,11',
+              'options' => 'array|exists:options,id',
+              'images' => 'image',
             ]
         );
-
 
         $newFlat = new Flat;
 
         $newFlat->user_id = Auth::id();
         $newFlat->title = $data['title'];
         $newFlat->slug = Str::slug($newFlat->title, '-');
-        // $newFlat->active = $data['active'];
+        $newFlat->active = $data['active'];
         $newFlat->number_of_rooms = $data['number_of_rooms'];
         $newFlat->number_of_beds = $data['number_of_beds'];
         $newFlat->number_of_bathrooms = $data['number_of_bathrooms'];
@@ -88,7 +91,7 @@ class FlatController extends Controller
         $newFlat->description = $data['description'];
         $newFlat->stars = rand(1,10);
 
-        if(isset($data['extra_options']))
+        if (isset($data['extra_options']))
         {
             $options = implode(', ', $data['extra_options']);
             $newFlat->extra_options = $options;
@@ -102,12 +105,12 @@ class FlatController extends Controller
 
         $newFlat->save();
 
-        if(isset($data["options"]))
+        if (isset($data["options"]))
         {
             $newFlat->options()->sync($data["options"]);
         }
 
-        if(isset($data["images"]))
+        if (isset($data["images"]))
         {
             $imagePath = Storage::disk("public")->put("images", $data["images"]);
 
@@ -117,12 +120,9 @@ class FlatController extends Controller
             $newImage->path = $imagePath;
 
             $newImage->save();
-
-
         }
 
         return redirect()->route('admin.flats.show', $newFlat->slug);
-
     }
 
     /**
@@ -134,7 +134,10 @@ class FlatController extends Controller
     public function show($slug)
     {
         $user_id = Auth::id();
-        $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
+        $flat = Flat::where([
+                              ['slug', $slug],
+                              ['user_id', $user_id]
+                            ])->first();
 
         return view('admin.flats.show', compact('flat'));
     }
@@ -149,9 +152,17 @@ class FlatController extends Controller
     {
         $user_id = Auth::id();
         $options = Option::all();
-        $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
+        $flat = Flat::where([
+                              ['slug', $slug],
+                              ['user_id', $user_id]
+                            ])->first();
 
-        return view('admin.flats.edit', compact('flat'), compact('options'));
+        $data = [
+          'flat' => $flat,
+          'options' => $options
+        ];
+
+        return view('admin.flats.edit', $data);
     }
 
     /**
@@ -169,21 +180,27 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                "title" => [
-                    "required",
-                    Rule::unique('flats')->ignore($flat),
-                    "max:255",
-                ],
-
-                'number_of_rooms' => 'required|numeric',
-                'number_of_beds' => 'required|numeric',
-                'number_of_bathrooms' => 'required|numeric',
-                'mq' => 'required|numeric',
-                'price' => 'required|numeric',
-                'type' => 'required|max:30',
-                'description' => 'required',
-                'active' => 'boolean',
-                //extra options
+              "title" => [
+                  "required",
+                  Rule::unique('flats')->ignore($flat),
+                  "max:255",
+              ],
+              'active' => 'required|boolean',
+              'number_of_rooms' => 'required|integer|between:1,254',
+              'number_of_beds' => 'required|integer|between:1,254',
+              'number_of_bathrooms' => 'required|integer|between:1,254',
+              'mq' => 'required|integer|between:1,65000',
+              'price' => 'required|numeric|between:1,9999',
+              'type' => 'required|string|in:appartamento,villetta|max:30',
+              'description' => 'required|string|between:3,65000',
+              //extra options
+              'street_name' => 'required|string|between:1,255',
+              'zip_code' =>'required|integer|digits:5',
+              'city' => 'required|string|between:1,255',
+              'lat' => 'required|string|between:1,10',
+              'lng' => 'required|string|between:1,11',
+              'options' => 'array|exists:options,id',
+              'images' => 'image',
             ]
         );
 
@@ -201,7 +218,7 @@ class FlatController extends Controller
         $flat->description = $data['description'];
         $flat->stars = rand(1,10);
 
-        if(isset($data['extra_options']))
+        if (isset($data['extra_options']))
         {
             $options = implode(', ', $data['extra_options']);
             $flat->extra_options = $options;
@@ -215,7 +232,7 @@ class FlatController extends Controller
 
         $flat->update();
 
-        if(isset($data["options"]))
+        if (isset($data["options"]))
         {
             $flat->options()->sync($data["options"]);
         }
