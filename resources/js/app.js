@@ -19,7 +19,7 @@ var jQuery = require('jquery');
 
 animation();
 
-function changeMargin() {
+function opacity() {
   let count = 0;
   setInterval(function() {
         if (count == 9) {
@@ -30,18 +30,6 @@ function changeMargin() {
       }
   }, 200);
   }
-
-/*function opacity() {
-  let count = 9;
-  setInterval(function() {
-        if (count == 0) {
-          clearInterval();
-        } else {
-        count--;
-        $(".photo-carousel.active").css({opacity: "0."+count});
-      }
-  }, 100);
-}*/
 
 // images slider home guest page
 function animation() {
@@ -54,25 +42,25 @@ function animation() {
       $(".photo-carousel").removeClass("active");
       $("#second-img").addClass("active");
     
-      changeMargin();
+      opacity();
       x = "b";
     } else if (x == "b") {
       $(".photo-carousel").removeClass("active");
       $("#third-img").addClass("active");
     
-      changeMargin();
+      opacity();
       x = "c";
     } else if (x == "c") {
       $(".photo-carousel").removeClass("active");
       $("#fourth-img").addClass("active");
     
-      changeMargin();
+      opacity();
       x = "d";
     } else if (x == "d") {
       $(".photo-carousel").removeClass("active");
       $("#first-img").addClass("active");
     
-      changeMargin();
+      opacity();
       x = "a";
     } 
   }, 10000);
