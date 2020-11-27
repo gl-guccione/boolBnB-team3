@@ -27,8 +27,8 @@ class MessagesTableSeeder extends Seeder
         // these messages will be assigned randomly
         $number_of_messages = intval($number_of_flats / 1.25);
 
-        for ($i=0; $i < $number_of_messages; $i++)
-        {
+        for ($i=0; $i < $number_of_messages; $i++) {
+
           $random_flat_id = Flat::inRandomOrder()->first()->id;
           $new_message = New Message;
 
@@ -38,8 +38,8 @@ class MessagesTableSeeder extends Seeder
           $new_message->message = 'messaggio - '.$faker->paragraph(6);
           $new_message->date_of_send = $faker->dateTimeBetween('-1 years', 'now');
 
-          if (!rand(0, 2))
-          {
+          // TODO - SUGAR SYNTAX
+          if (!rand(0, 2)) {
             $new_message->seen = true;
           }
 

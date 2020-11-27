@@ -19,7 +19,6 @@ class ImagesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-
         $flats = Flat::all();
 
         foreach ($flats as $flat) {

@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        // TODO add user UPR and UPRA
+
         // defining the number of user to generate
         $users_to_generate = 25;
 
@@ -30,13 +32,12 @@ class UsersTableSeeder extends Seeder
           $new_user->lastname = $faker->lastName();
           $new_user->email = $faker->freeEmail();
           $new_user->email = $faker->freeEmail();
-          $new_user->password = Hash::make('password_super_sicura');
+          $new_user->password = Hash::make('password');
           $new_user->date_of_birth = $faker->dateTimeBetween('-50 years', '-20 years');
           $new_user->avatar = $faker->imageUrl(250, 250, 'person', true, 'avatar');
           $new_user->description = 'Descrizione persona - '.$faker->text(800);
 
           $new_user->save();
-
         }
     }
 }

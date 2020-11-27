@@ -34,8 +34,8 @@ class ViewsTableSeeder extends Seeder
               $new_view = New View;
 
               $new_view->flat_id = $flat->id;
-              $new_view->session_id = rand(10, 99);
-              $new_view->date = $faker->dateTimeBetween('-1 years', 'now');
+              $new_view->session_id = $faker->regexify('[a-zA-Z0-9]{40}');
+              $new_view->date = $faker->dateTimeBetween('-3 months', 'now');
 
               $new_view->save();
 
@@ -44,6 +44,5 @@ class ViewsTableSeeder extends Seeder
           }
 
         }
-
     }
 }

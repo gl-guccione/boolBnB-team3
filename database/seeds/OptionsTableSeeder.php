@@ -42,7 +42,5 @@ class OptionsTableSeeder extends Seeder
           }
 
         }
-
-
     }
 }
