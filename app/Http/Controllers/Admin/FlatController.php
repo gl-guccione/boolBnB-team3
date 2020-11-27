@@ -100,8 +100,6 @@ class FlatController extends Controller
         $newFlat->lat = $data['lat'];
         $newFlat->lng = $data['lng'];
 
-        dd($newFlat);
-
         $newFlat->save();
 
         if(isset($data["options"]))
@@ -112,7 +110,7 @@ class FlatController extends Controller
         if(isset($data["images"]))
         {
             $imagePath = Storage::disk("public")->put("images", $data["images"]);
-            
+
             $newImage = new Image;
             $newImage->index = 1;
             $newImage->flat_id = $newFlat->id;
@@ -235,7 +233,8 @@ class FlatController extends Controller
     public function destroy($slug)
     {
         $user_id = Auth::id();
-        Flat::where('slug', $slug)->where('user_id', $user_id)->first()->delete();
+        $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
+        $flat->delete();
 
         return redirect()->route('admin.flats.index');
     }

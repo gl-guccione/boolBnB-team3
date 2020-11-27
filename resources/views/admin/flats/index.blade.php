@@ -8,10 +8,14 @@
 
     <div class="row flats">
       <div class="col-lg-2 pt-4 m-3">
-        <div class="img-flats">
-          <h3>image</h3>
-          <img style="max-width: 100px" src="{{ $flat->images[0]->path }}">
-        </div>
+
+        @if (count($flat->images) > 0)
+          <div class="img-flats">
+            <h3>image</h3>
+            <img style="max-width: 100px" src="{{ asset('storage/'.$flat->images[0]->path) }}">
+          </div>
+        @endif
+
       </div>
 
       <div class="card col-lg-6 pt-4 m-3">
@@ -35,11 +39,11 @@
 
             @csrf
             @method('DELETE')
-      
-            <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
-      
+
+            <button type="submit"><i class="fas fa-trash-alt"></i></button>
+
           </form>
-      
+
           {{-- <div class="delete m-2">
               <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
           </div> --}}
@@ -48,7 +52,7 @@
             <a href="#"><i class="fas fa-envelope"></i></a>
           </div>
       </div>
-      
+
     </div>
   @endforeach
 </div>

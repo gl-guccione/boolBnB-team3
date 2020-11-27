@@ -50,22 +50,17 @@
       </select>
     </div>
 
-    
+
     {{-- immagini --}}
     <div class="form-group">
       <label for="images">Inserisci immagini</label>
       <input id="images" type="file" class="form-control" name="images" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg">
       {{-- <input id="images" type="file" class="form-control" name="images[]" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg"> --}}
 
-
-      <input name="algolia" type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" />
-      <p>Selected: <strong id="address-value">none</strong></p>
-
     </div>
     {{-- /immagini --}}
-    
-    {{-- algolia input --}}
 
+    {{-- algolia input --}}
 
     <div class="form-group">
       <label for="street_name">Indirizzo*</label>
@@ -90,7 +85,7 @@
       <input type="hidden" id="lng" name="lng" value="{{old("lng")}}">
     {{-- /input hidden for address --}}
 
-   {{-- opzioni --}}
+{{-- opzioni --}}
     <div class="form-check">
       @foreach ($options as $option)
         <div class="div">
