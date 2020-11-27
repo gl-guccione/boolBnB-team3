@@ -23,7 +23,6 @@ class FlatOptionTableSeeder extends Seeder
 
           $number_option_for_flat = rand(0, count($options));
           $options_for_flat = Option::inRandomOrder()->limit($number_option_for_flat)->get();
-
           foreach ($options_for_flat as $option) {
             $option->flats()->attach($flat->id);
           }

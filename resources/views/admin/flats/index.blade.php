@@ -6,13 +6,19 @@
 
   @foreach ($flats as $flat)
 
+    @if($flat->active)
+  
     <h2>{{ $flat->title }}</h2>
 
-    <img src="{{ $flat->images[0]->path }}">
+   // conflitto
+   // <img src="{{ $flat->images[0]->path }}">
+
+    <img src="{{ asset('storage/'.$flat->images()->first()->path) }}">
+
 
     <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a>
 
-    <p>{{ $flat->description }}</p>
+    <p>DESCRIZIONE{{ $flat->description }}</p>
 
     <span> Valutazione: {{ $flat->stars }}</span>
 
@@ -30,7 +36,7 @@
     </form>
 
     <a href="#">Contatti ricevuti</a>
-
+    @endif
   @endforeach
 
 @endsection

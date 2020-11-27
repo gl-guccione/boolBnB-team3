@@ -5,9 +5,32 @@
         $arrImage = $flat->images()->get();
     @endphp
 
-    @foreach($arrImage as $img)
-        <img src='{{$img->path}}' alt=' ' >
-    @endforeach
+
+  @foreach($flat->images as $img)
+    <img src="{{asset('storage/'.$img->path)}}" alt="foto appartamento">
+  @endforeach
+
+  <h2>{{ $flat->title }} - {{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
+
+  <p>{{ $flat->description }}</p>
+
+  <h3>{{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }}</h3>
+
+  <img src="{{ $flat->user()->first()->avatar }}" atl="foto appartamento">
+
+  @if ($flat->user()->first()->description)
+    <p>{{ $flat->user()->first()->description }}</p>
+  @endif
+
+  <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
+
+
+  <h3>Servizi</h3>
+
+  <ul>
+    @foreach($flat->options()->get() as $option)
+      <li>{{ $option->name }}</li>
+
     
 <h2>{{$flat->title}} - {{$flat->user()->first()->firstname}} {{$flat->user()->first()->lastname}} - valutazione: {{$flat->stars}} - € {{$flat->price}}</h2>
 <p>{{$flat->description}}</p>
