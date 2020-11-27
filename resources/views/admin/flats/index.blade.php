@@ -10,7 +10,11 @@
   
     <h2>{{ $flat->title }}</h2>
 
+   // conflitto
+   // <img src="{{ $flat->images[0]->path }}">
+
     <img src="{{ asset('storage/'.$flat->images()->first()->path) }}">
+
 
     <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a>
 

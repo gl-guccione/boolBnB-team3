@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 // Variables
 @import 'variables';
@@ -10,3 +11,7 @@
 @import 'Partials/header';
 @import 'Partials/_navbar';
 @import 'Partials/_footer';
+@import 'Partials/_jumbotron';
+@import 'Partials/_home_guest';
+@import 'Admin/Messages/index';
+@import 'Guest/Users/show.scss';

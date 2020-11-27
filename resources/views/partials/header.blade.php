@@ -1,6 +1,6 @@
 <body>
   <div id="app">
-      <nav class="navbar navbar-expand-md navbar-light bg-colorMain shadow-sm">
+      <nav class="navigation-bar navbar navbar-expand-md navbar-light bg-colorMain shadow-sm">
           <div class="container">
               <a class="navbar-brand" href="{{ url('/') }}">
                   <img class="logo-header" src="{{asset('img/logo.png')}}" alt="">

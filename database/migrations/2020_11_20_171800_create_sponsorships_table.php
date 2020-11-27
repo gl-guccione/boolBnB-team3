@@ -16,9 +16,9 @@ class CreateSponsorshipsTable extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flat_id')->constrained();
-            $table->foreignId('payment_id')->constrained();
-            $table->foreignId('sponsorship_price_id')->constrained();
+            $table->foreignId('flat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('payment_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sponsorship_price_id')->constrained()->onDelete('cascade');
             $table->dateTime('date_of_start')->nullable();
             $table->dateTime('date_of_end')->nullable();
         });

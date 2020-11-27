@@ -29,7 +29,7 @@ class PaymentsTableSeeder extends Seeder
           $new_payment->transaction_id = $faker->regexify('[a-z]{5}[0-9]{1}[a-z]{2}');
           $new_payment->amount = SponsorshipPrice::inRandomOrder()->first()->price;
           $new_payment->status = (rand(0, 5) == 0) ? 'failed' : 'confirmed';
-          $new_payment->date_of_payment = $faker->dateTimeBetween('-1 years', 'now');
+          $new_payment->date_of_payment = (rand(0, 1)) ? $faker->dateTimeBetween('-3 month', 'now') : $faker->dateTimeBetween('-1 days', 'now');
 
           $new_payment->save();
 

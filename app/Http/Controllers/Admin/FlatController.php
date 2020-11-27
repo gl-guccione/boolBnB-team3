@@ -54,6 +54,7 @@ class FlatController extends Controller
     {
         $data = $request->all();
 
+
         $request->validate(
             [
                 'title' => 'required|unique:flats|max:255',
@@ -71,12 +72,13 @@ class FlatController extends Controller
             ]
         );
 
+
         $newFlat = new Flat;
 
         $newFlat->user_id = Auth::id();
         $newFlat->title = $data['title'];
         $newFlat->slug = Str::slug($newFlat->title, '-');
-        $newFlat->active = $data['active'];
+        // $newFlat->active = $data['active'];
         $newFlat->number_of_rooms = $data['number_of_rooms'];
         $newFlat->number_of_beds = $data['number_of_beds'];
         $newFlat->number_of_bathrooms = $data['number_of_bathrooms'];
@@ -97,6 +99,8 @@ class FlatController extends Controller
         $newFlat->city = $data['city'];
         $newFlat->lat = $data['lat'];
         $newFlat->lng = $data['lng'];
+
+        dd($newFlat);
 
         $newFlat->save();
 

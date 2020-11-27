@@ -16,7 +16,7 @@ class CreateFlatsTable extends Migration
     {
         Schema::create('flats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->boolean('active')->default(true);
