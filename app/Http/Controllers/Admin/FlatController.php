@@ -165,15 +165,16 @@ class FlatController extends Controller
     {
         $data = $request->all();
 
+        $flat = Flat::where('slug', $slug)->first();
+
         $request->validate(
             [
-                'title' => 'required|max:255',
-                // 'title' => 'required|unique:flats,title,$slug,slug',
-                // "title" => [
-                //     "required",
-                //     Rule::unique('flats')->ignore($slug),
-                //     "max:255",
-                // ],
+                "title" => [
+                    "required",
+                    Rule::unique('flats')->ignore($flat),
+                    "max:255",
+                ],
+
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -183,7 +184,6 @@ class FlatController extends Controller
                 'description' => 'required',
                 'active' => 'boolean',
                 //extra options
-                //algolia indirizzo
             ]
         );
 
@@ -191,7 +191,6 @@ class FlatController extends Controller
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
-        // $flat->slug = Str::slug($flat->title, '-');
         $flat->active = $data['active'];
         $flat->number_of_rooms = $data['number_of_rooms'];
         $flat->number_of_beds = $data['number_of_beds'];
