@@ -19,6 +19,8 @@ class FlatController extends Controller
      */
     public function index()
     {
+        // TODO I think we don't need the index!!
+
         $flats = Flat::all();
 
         return view('ui.home', compact('flats'));
@@ -32,6 +34,8 @@ class FlatController extends Controller
      */
     public function show($slug)
     {
+        // TODO we should use this show instad of the admin.flats.show ??
+
         $flat = Flat::where('slug', $slug)->first();
 
         return view('ui.flats.show', compact('flat'));
