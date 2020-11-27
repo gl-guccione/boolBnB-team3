@@ -96,10 +96,9 @@ class FlatController extends Controller
 
         $newFlat->save();
 
-        if(isset($data['extra_options']))
+        if(isset($data["options"]))
         {
-            $options = implode(', ', $data['extra_options']);
-            $newFlat->extra_options = $options;
+            $newFlat->options()->sync($data["options"]);
         }
 
         return redirect()->route('admin.flats.show', $newFlat->slug);
@@ -148,7 +147,7 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique:flats|max:255',
+                'title' => 'required|max:255',
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -191,7 +190,7 @@ class FlatController extends Controller
 
         $flat->update();
 
-        if($data["options"])
+        if(isset($data["options"]))
         {
             $flat->options()->sync($data["options"]);
         }
