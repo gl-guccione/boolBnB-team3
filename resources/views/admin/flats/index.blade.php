@@ -5,6 +5,7 @@
   <h1 class="col-lg-12 title">I miei appartamenti</h1>
 
   @foreach ($flats as $flat)
+
     <div class="row flats">
       <div class="col-lg-2 pt-4 m-3">
         <div class="img-flats">

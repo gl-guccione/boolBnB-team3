@@ -1,0 +1,50 @@
+.page_wrapper {
+    width: 80vw;
+    margin: auto;
+}
+
+.messages_list {
+    width: 100%;
+    margin-top: 5%;
+    border-bottom: 1px solid darkgrey;
+}
+
+.messages_list::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.mex_offset {
+    padding: 1% 2%;
+    border: none;
+}
+
+.mex_name {
+    padding: 0 2%;
+    background-color: grey;
+    color: #fff;
+    h3 {
+        font-size: 20px;
+    }
+}
+
+.mex_text {
+    width: 90%;
+    background-color: lightgrey;
+}
+
+.mex_id {
+    width: 100px;
+}
+
+.id_sign {
+    width: 30px;
+    height: 25px;
+    border: 1px solid transparent;
+    border-radius: 100%;
+    text-align: center;
+    background-color: turquoise;
+}
+
+
