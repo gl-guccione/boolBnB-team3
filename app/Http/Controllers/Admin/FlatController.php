@@ -70,7 +70,7 @@ class FlatController extends Controller
                 'images' => 'image',
             ]
         );
-// dd($data);
+
         $newFlat = new Flat;
 
         $newFlat->user_id = Auth::id();
