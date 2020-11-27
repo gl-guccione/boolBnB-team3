@@ -1,8 +1,6 @@
 @extends ('layouts.app')
 
   @section('content')
-    <div class="container">
-      <div class="row">
         <!-- slide 1 jumbotron e form search -->
         <div id="j" class="jumbo">
           <div class="opacity">
@@ -35,28 +33,34 @@
         </div>
         </div>
         </div>
-      </div>
+        
       <!-- slide 2 pubblicità sito e appartamenti in evidenza -->
-
-      <div class="row">
-        <h1>Qui ci andrà la descrizione del progetto</h1>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
+      <div class="container">
+      <div class="project-description row">
+        <section class="left col-6">
+          <h1>Qui ci andrà la descrizione del progetto</h1>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        </section>
+        <section class="right col-6">
+          <p>
+            Posizionato tra i primi 10 siti di prenotazioni
+          </p>
+        </section>
       </div>
-      <div id="sponsored-flats" class="row no-gutters">
+      <div id="sponsored-flats" class="row">
         @foreach ($flats as $flat)
-          <div class="col-2 box_flat">
-            <a href="{{route("guest.users.show", $flat->id)}}"></a>
+          <div class="flat_box col-2">
+            <a href="{{route("guest.users.show", $flat->id)}}">
             <div class="overlay">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->city}}</p>
-              <span>{{$flat->stars}}</span>
+              <span>valutazione: {{$flat->stars}}</span>
             </div>
-            <img src={{asset('img/img1.jpeg')}} alt="#">
+            </a>
           </div>
         @endforeach
       </div>
     </div>
-
+</div>
   @endsection
