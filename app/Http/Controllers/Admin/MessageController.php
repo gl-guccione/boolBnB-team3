@@ -20,6 +20,7 @@ class MessageController extends Controller
      */
     public function index()
     {
+        // TODO select only message for the correct user (message->flats->user)
         // $user_id = Auth::id();
         // $messages = Message::where('user_id', $user_id)->get();
 
@@ -37,14 +38,16 @@ class MessageController extends Controller
     public function show($id)
     {
         $user_id = Auth::id();
-        $message = Message::where('id', $id)->where('user_id', $user_id)->first();
+        $message = Message::find($id)->where('user_id', $user_id)->first();
 
-        // update the 'seen' value when the user see the message
+        // TODO update the 'seen' value when the user see the message
+        // could be wrong
         if ($message->seen == false) {
           $message->seen = true;
           $message->update();
         }
 
+        // TODO we should use API for this method
         return view('admin.messages.show', compact('messages'));
     }
 
@@ -57,7 +60,7 @@ class MessageController extends Controller
     public function destroy($id)
     {
         $user_id = Auth::id();
-        Message::where('id', $id)->where('user_id', $user_id)->first()->delete();
+        Message::find($id)->where('user_id', $user_id)->first()->delete();
 
         return view('admin.messages.index');
     }
