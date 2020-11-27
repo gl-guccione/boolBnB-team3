@@ -17,7 +17,7 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->foreignId('flat_id')->constrained()->onDelete('cascade');
-            $table->string('session_id');
+            $table->string('session_id', 40);
             $table->dateTime('date');
         });
     }
