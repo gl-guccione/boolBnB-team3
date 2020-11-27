@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Auth;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -51,13 +53,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:50'],
-            'lastname' => ['required', 'string', 'max:50'],
-            'date_of_birth' => ['required', 'date'],
-            'avatar' => 'image',
-            'description' => ['required', 'string'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'firstname' => ['required', 'string', 'between:1,50'],
+            'lastname' => ['required', 'string', 'between:1,50'],
+            'email' => ['required', 'string', 'email', 'between:1,255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // TODO we can check if the user have at least 18 years
+            'date_of_birth' => ['required', 'date', 'before:today'],
+            'avatar' => 'image',
+            'description' => ['required', 'string', 'between:1,500'],
         ]);
     }
 
@@ -70,20 +73,20 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $path = null;
-        if(isset($data['avatar']))
+        if (isset($data['avatar']))
         {
             $path = Storage::disk('public')->put('images', $data['avatar']);
-        } 
+        }
 
 
         return User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
             'date_of_birth' => $data['date_of_birth'],
             'avatar' => $path,
             'description' => $data['description'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
         ]);
     }
 }
