@@ -11,9 +11,8 @@ use Illuminate\Http\Request;
 use App\Message;
 
 
-class RequestController extends Controller
+class MessageController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *
@@ -26,10 +25,10 @@ class RequestController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|max:50',
-                'email' => 'required|max:255',
+                'flat_id' => 'required|integer|exists:flats,id',
+                'name' => 'required|string|between:1,50',
+                'email' => 'required|string|email|between:1,255',
                 'message' => 'required|max:10000',
-                'flat_id' => 'numeric',
             ]
         );
 
@@ -44,8 +43,8 @@ class RequestController extends Controller
 
         $newMessage->save();
 
+        // TODO add a toast notification 'Messaggio inviato correttamente'
         return redirect()->route('ui.flats.show', $newMessage->flat_id);
-
     }
 
     /**
@@ -56,9 +55,11 @@ class RequestController extends Controller
      */
     public function show($id)
     {
-        $messages = Message::where('id', $id)->first();
+        // TODO I think we can remove this method because we never show the message to the user
 
-        return view('ui.messages.show', compact('messages'));
+        $message = Message::where('id', $id)->first();
+
+        return view('ui.messages.show', compact('message'));
     }
 
 
