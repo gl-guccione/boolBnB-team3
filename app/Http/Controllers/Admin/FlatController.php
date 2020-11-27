@@ -8,11 +8,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 // using Models
 use App\Flat;
 use App\Option;
+use App\Image;
 
 class FlatController extends Controller
 {
@@ -65,9 +67,10 @@ class FlatController extends Controller
                 'active' => 'boolean',
                 //extra options
                 //algolia indirizzo
+                'images' => 'image',
             ]
         );
-
+// dd($data);
         $newFlat = new Flat;
 
         $newFlat->user_id = Auth::id();
@@ -100,6 +103,20 @@ class FlatController extends Controller
         if(isset($data["options"]))
         {
             $newFlat->options()->sync($data["options"]);
+        }
+
+        if(isset($data["images"]))
+        {
+            $imagePath = Storage::disk("public")->put("images", $data["images"]);
+            
+            $newImage = new Image;
+            $newImage->index = 1;
+            $newImage->flat_id = $newFlat->id;
+            $newImage->path = $imagePath;
+
+            $newImage->save();
+
+
         }
 
         return redirect()->route('admin.flats.show', $newFlat->slug);

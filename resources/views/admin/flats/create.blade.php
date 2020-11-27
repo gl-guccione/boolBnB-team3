@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <form action="{{route("admin.flats.store")}}" method="post" enctype="multipart/form-data">
+  <form action="{{route("admin.flats.store")}}" method="post" enctype="multipart/form-data" enctype="multipart/form-data">
 
     @csrf
     @method('POST')
@@ -49,7 +49,17 @@
         <option value="appartamento">appartamento</option>
       </select>
     </div>
+    {{-- immagini --}}
 
+    {{-- immagini --}}
+
+    <div class="form-group">
+      <label for="images">Inserisci immagini</label>
+      <input id="images" type="file" class="form-control @error('images') is-invalid @enderror" name="images" value="{{ old('images') }}"  autocomplete="name" autofocus accept="image/x-png, image/jpeg">
+
+    </div>
+    {{-- /immagini --}}
+    
     {{-- algolia input --}}
 
     <div class="form-group">

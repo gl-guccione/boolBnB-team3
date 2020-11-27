@@ -3,7 +3,7 @@
 @section('content')
 
   @foreach($flat->images()->get() as $img)
-    <img src="{{ $img->path }}" alt="foto appartamento">
+    <img src="{{asset('storage/'.$img->path)}}" alt="foto appartamento">
   @endforeach
 
   <h2>{{ $flat->title }} - {{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>

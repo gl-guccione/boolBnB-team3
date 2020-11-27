@@ -34,7 +34,7 @@ class ImagesTableSeeder extends Seeder
 
             $new_image->flat_id = $flat->id;
             $new_image->index = $i;
-            $new_image->path = '/public/placeholder_flat_image.jpg';
+            $new_image->path = 'media/placeholder_flat_image.jpg';
 
             $new_image->save();
 
