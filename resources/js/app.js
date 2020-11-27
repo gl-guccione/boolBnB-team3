@@ -65,3 +65,14 @@ function animation() {
     }
   }, 10000);
 }
+
+$("#sponsored-flats").on("mouseenter", ".box_flat",
+  function (){
+    $(this).find(".overlay").slideDown();
+
+  });
+
+  $("#sponsored-flats").on("mouseleave", ".box_flat",
+  function (){
+    $(this).find(".overlay").hide();
+  });

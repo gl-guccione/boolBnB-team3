@@ -44,7 +44,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
       </div>
-      <div id="sponsored-flats" class="row">
+      <div id="sponsored-flats" class="row no-gutters">
         @foreach ($flats as $flat)
           <div class="col-2 box_flat">
             <a href="{{route("guest.users.show", $flat->id)}}"></a>
