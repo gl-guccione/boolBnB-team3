@@ -68,11 +68,19 @@ function animation() {
 
 $("#sponsored-flats").on("mouseenter", ".box_flat",
   function (){
+    $(this).find("img").animate({
+   width: "500px",
+   height: "500px",
+    }, 500 );
     $(this).find(".overlay").slideDown();
 
   });
 
   $("#sponsored-flats").on("mouseleave", ".box_flat",
   function (){
+    $(this).find("img").animate({
+   width: "100%",
+   height: "100%",
+    }, 500 );
     $(this).find(".overlay").hide();
   });
