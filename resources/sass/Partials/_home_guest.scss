@@ -1,0 +1,33 @@
+#sponsored-flats {
+
+
+ .box_flat {
+   position: relative;
+   width: 100%;
+   height: 200px;
+   border: 1px solid red;
+
+  & .overlay {
+    position: absolute;
+    z-index: 3;
+    display: none;
+  }
+  .box_flat:hover .overlay {
+    display: block;
+  }
+
+  & img {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+
+  }
+   a {
+     // display: inline-block;
+     // position: absolute;
+     z-index: 1;
+     width: 100%;
+     height: 100%;
+   }
+ }
+}

@@ -28,7 +28,7 @@ function opacity() {
         count ++;
         $(".photo-carousel.active").css({opacity: "0."+count});
       }
-  }, 200);
+  }, 100);
   }
 
 // images slider home guest page
@@ -41,27 +41,27 @@ function animation() {
 
       $(".photo-carousel").removeClass("active");
       $("#second-img").addClass("active");
-    
+
       opacity();
       x = "b";
     } else if (x == "b") {
       $(".photo-carousel").removeClass("active");
       $("#third-img").addClass("active");
-    
+
       opacity();
       x = "c";
     } else if (x == "c") {
       $(".photo-carousel").removeClass("active");
       $("#fourth-img").addClass("active");
-    
+
       opacity();
       x = "d";
     } else if (x == "d") {
       $(".photo-carousel").removeClass("active");
       $("#first-img").addClass("active");
-    
+
       opacity();
       x = "a";
-    } 
+    }
   }, 10000);
 }

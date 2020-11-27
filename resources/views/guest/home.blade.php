@@ -6,10 +6,10 @@
         <!-- slide 1 jumbotron e form search -->
         <div id="j" class="jumbo">
           <div class="opacity">
-          <img id="first-img" class="photo-carousel first" src={{asset('../img/img1.jpeg')}} alt="" >
-          <img id="second-img" class="photo-carousel" src={{asset('../img/img2.jpg')}} alt="" >
-          <img id="third-img" class="photo-carousel" src={{asset('../img/img3.jpg')}} alt="" >
-          <img id="fourth-img" class="photo-carousel" src={{asset('../img/img4.jpg')}} alt="" >          
+          <img id="first-img" class="photo-carousel first" src={{asset('img/img1.jpeg')}} alt="" >
+          <img id="second-img" class="photo-carousel" src={{asset('img/img2.jpg')}} alt="" >
+          <img id="third-img" class="photo-carousel" src={{asset('img/img3.jpg')}} alt="" >
+          <img id="fourth-img" class="photo-carousel" src={{asset('img/img4.jpg')}} alt="" >
         <div class="search_container">
           <form class="form" action="{{route("guest.homepage.search")}}" method="get" enctype="multipart/form-data">
             @csrf
@@ -44,16 +44,16 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
       </div>
-      <div class="row sponsored-flats">
+      <div id="sponsored-flats" class="row">
         @foreach ($flats as $flat)
-          <div class="col-2">
+          <div class="col-2 box_flat">
             <a href="{{route("guest.users.show", $flat->id)}}"></a>
             <div class="overlay">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->city}}</p>
               <span>{{$flat->stars}}</span>
             </div>
-            <img src="{{$flat->image}}" alt="#">
+            <img src={{asset('img/img1.jpeg')}} alt="#">
           </div>
         @endforeach
       </div>
