@@ -8,10 +8,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 // using Models
 use App\Flat;
 use App\Option;
+use App\Image;
 
 class FlatController extends Controller
 {
@@ -53,7 +56,7 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique|max:255',
+                'title' => 'required|unique:flats|max:255',
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -64,6 +67,7 @@ class FlatController extends Controller
                 'active' => 'boolean',
                 //extra options
                 //algolia indirizzo
+                'images' => 'image',
             ]
         );
 
@@ -88,15 +92,34 @@ class FlatController extends Controller
             $newFlat->extra_options = $options;
         }
 
-        // $newFlat->street_name = $data['street_name'];
-        // $newFlat->zip_code = $data['zip_code'];
-        // $newFlat->city = $data['city'];
-        // $newFlat->lat = $data['lat'];
-        // $newFlat->lng = $data['lng'];
+        $newFlat->street_name = $data['street_name'];
+        $newFlat->zip_code = $data['zip_code'];
+        $newFlat->city = $data['city'];
+        $newFlat->lat = $data['lat'];
+        $newFlat->lng = $data['lng'];
 
         $newFlat->save();
 
-        return redirect()->route('admin.flats,show', $newFlat->slug);
+        if(isset($data["options"]))
+        {
+            $newFlat->options()->sync($data["options"]);
+        }
+
+        if(isset($data["images"]))
+        {
+            $imagePath = Storage::disk("public")->put("images", $data["images"]);
+            
+            $newImage = new Image;
+            $newImage->index = 1;
+            $newImage->flat_id = $newFlat->id;
+            $newImage->path = $imagePath;
+
+            $newImage->save();
+
+
+        }
+
+        return redirect()->route('admin.flats.show', $newFlat->slug);
 
     }
 
@@ -123,16 +146,17 @@ class FlatController extends Controller
     public function edit($slug)
     {
         $user_id = Auth::id();
+        $options = Option::all();
         $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
 
-        return view('admin.flats.edit', compact('flat'));
+        return view('admin.flats.edit', compact('flat'), compact('options'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -141,7 +165,13 @@ class FlatController extends Controller
 
         $request->validate(
             [
-                'title' => 'required|unique|max:255',
+                'title' => 'required|max:255',
+                // 'title' => 'required|unique:flats,title,$slug,slug',
+                // "title" => [
+                //     "required",
+                //     Rule::unique('flats')->ignore($slug),
+                //     "max:255",
+                // ],
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -159,7 +189,7 @@ class FlatController extends Controller
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
-        $flat->slug = Str::slug($flat->title, '-');
+        // $flat->slug = Str::slug($flat->title, '-');
         $flat->active = $data['active'];
         $flat->number_of_rooms = $data['number_of_rooms'];
         $flat->number_of_beds = $data['number_of_beds'];
@@ -176,17 +206,26 @@ class FlatController extends Controller
             $flat->extra_options = $options;
         }
 
-
+        $flat->street_name = $data['street_name'];
+        $flat->zip_code = $data['zip_code'];
+        $flat->city = $data['city'];
+        $flat->lat = $data['lat'];
+        $flat->lng = $data['lng'];
 
         $flat->update();
 
-        return redirect()->route('admin.flats,show', $flat->slug);
+        if(isset($data["options"]))
+        {
+            $flat->options()->sync($data["options"]);
+        }
+
+        return redirect()->route('admin.flats.show', $flat->slug);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
