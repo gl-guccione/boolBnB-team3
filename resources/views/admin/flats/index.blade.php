@@ -1,42 +1,55 @@
 @extends ('layouts.app')
 
 @section('content')
-
-  <h1 class="">Area privata - I miei appartamenti</h1>
+<div class="container">
+  <h1 class="col-lg-12 title">I miei appartamenti</h1>
 
   @foreach ($flats as $flat)
 
-    @if($flat->active)
-  
-    <h2>{{ $flat->title }}</h2>
+    <div class="row flats">
+      <div class="col-lg-2 pt-4 m-3">
+        <div class="img-flats">
+          <h3>image</h3>
+          <img style="max-width: 100px" src="{{ $flat->images[0]->path }}">
+        </div>
+      </div>
 
-   // conflitto
-   // <img src="{{ $flat->images[0]->path }}">
+      <div class="card col-lg-6 pt-4 m-3">
+        <h2 class="card__title"><a href="{{ route('admin.flats.show', $flat->slug) }}">{{ $flat->title }}</a></h2>
 
-    <img src="{{ asset('storage/'.$flat->images()->first()->path) }}">
+          {{-- <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a> --}}
 
+          <p>{{ $flat->description }}</p>
 
-    <a href="{{ route('admin.flats.show', $flat->slug) }}">Dettagli</a>
+          <span> Valutazione: {{ $flat->stars }}</span>
+      </div>
+      <div class="card__icons col-lg-3 pt-4">
+          <div class="sponsorship m-2">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+          <div class="edit m-2">
+            <a href="{{ route('admin.flats.edit', $flat->slug) }}"><i class="fas fa-edit"></i></a>
+          </div>
 
-    <p>DESCRIZIONE{{ $flat->description }}</p>
+          <form class="delete m-2" action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
 
-    <span> Valutazione: {{ $flat->stars }}</span>
+            @csrf
+            @method('DELETE')
+      
+            <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
+      
+          </form>
+      
+          {{-- <div class="delete m-2">
+              <a href={{ route('admin.flats.destroy', $flat->slug) }}"><i class="fas fa-trash-alt"></i></a>
+          </div> --}}
 
-    <a href="#">Sponsorizza</a>
-
-    <a href="{{ route('admin.flats.edit', $flat->slug) }}">Edit</a>
-
-    <form action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
-
-      @csrf
-      @method('DELETE')
-
-      <button type="submit">Delete</button>
-
-    </form>
-
-    <a href="#">Contatti ricevuti</a>
-    @endif
+          <div class="message m-2">
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+      </div>
+      
+    </div>
   @endforeach
-
+</div>
 @endsection

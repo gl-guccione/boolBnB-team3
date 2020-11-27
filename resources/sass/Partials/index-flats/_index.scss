@@ -1,0 +1,43 @@
+// text
+.title {
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card__title {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: capitalize;
+    
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+// text
+
+
+.img-flats:hover, .card:hover {
+    box-shadow: 1px 3px 10px 3px #b1afaf;
+}
+
+p {
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.card__icons {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+
+    a {
+        color: #000;
+    }
+    .delete a {
+        color: #e3342f;
+    }
+}
