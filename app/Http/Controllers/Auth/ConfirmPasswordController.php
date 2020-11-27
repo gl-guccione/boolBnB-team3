@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Auth;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;

@@ -1,7 +1,9 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Auth;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
