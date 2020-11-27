@@ -9,37 +9,37 @@
 
     <div class="form-group">
       <label for="title">Titolo</label>
-      <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" min="3" max="255" required>
+      <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" min="3" max="255" required value="{{old("title")}}">
     </div>
 
     <div class="form-group">
       <label for="description">Descrizione</label>
-      <textarea name="description" class="form-control" id="description" placeholder="Inserisci descrizione" rows="5" cols="10" min="3" max="65000" required></textarea>
+      <textarea name="description" class="form-control" id="description" placeholder="Inserisci descrizione" rows="5" cols="10" min="3" max="65000" required>{{old("description")}}</textarea>
     </div>
 
     <div class="form-group">
       <label for="number_of_rooms">Numero di stanze</label>
-      <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci numero di stanze" min="0" max="254" required>
+      <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci numero di stanze" min="0" max="254" required value="{{old("number_of_rooms")}}">
     </div>
 
     <div class="form-group">
       <label for="number_of_beds">Numero di letti</label>
-      <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci numero di letti" min="0" max="254" required>
+      <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci numero di letti" min="0" max="254" required value="{{old("number_of_beds")}}">
     </div>
 
     <div class="form-group">
       <label for="number_of_bathrooms">Numero di bagni</label>
-      <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci numero di bagni" min="0" max="254" required>
+      <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci numero di bagni" min="0" max="254" required value="{{old("number_of_bathrooms")}}">
     </div>
 
     <div class="form-group">
       <label for="mq">Metri quadri</label>
-      <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="0" max="65000" required>mq
+      <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="0" max="65000" required value="{{old("mq")}}">mq
     </div>
 
     <div class="form-group">
       <label for="price">Prezzo</label>
-      <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo per notte" min="0" max="9999" step="0.01" required>
+      <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo per notte" min="0" max="9999" step="0.01" required value="{{old("price")}}">
     </div>
 
     <div class="form-group">
@@ -54,25 +54,25 @@
 
     <div class="form-group">
       <label for="street_name">Indirizzo*</label>
-      <input type="search" class="form-control" id="street_name" name="street_name" placeholder="Inserisci l'indirizzo" />
+      <input type="search" class="form-control" id="street_name" name="street_name" placeholder="Inserisci l'indirizzo" required value="{{old("street_name")}}">
     </div>
     <div class="form-group">
       <label for="form-address2">Indirizzo 2</label>
-      <input type="text" class="form-control" id="form-address2" placeholder="Opzionale" />
+      <input type="text" class="form-control" id="form-address2" placeholder="Opzionale" value="{{old("form-address2")}}">
     </div>
     <div class="form-group">
       <label for="city">Città*</label>
-      <input type="text" class="form-control" id="city" name="city" placeholder="Inserisci città">
+      <input type="text" class="form-control" id="city" name="city" placeholder="Inserisci città" required value="{{old("city")}}">
     </div>
     <div class="form-group">
       <label for="zip_code">CAP*</label>
-      <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Inserisci codice postale">
+      <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Inserisci codice postale" required value="{{old("zip_code")}}">
     </div>
     {{-- /algolia input --}}
 
     {{-- input hidden for address --}}
-      <input type="hidden" id="lat" name="lat" value="none">
-      <input type="hidden" id="lng" name="lng" value="none">
+      <input type="hidden" id="lat" name="lat" value="{{old("lat")}}">
+      <input type="hidden" id="lng" name="lng" value="{{old("lng")}}">
     {{-- /input hidden for address --}}
 
    {{-- opzioni --}}

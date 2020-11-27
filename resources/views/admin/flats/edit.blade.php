@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <label for="description">Descrizione</label>
-      <textarea name="description" class="form-control" id="description" placeholder="Inserisci descrizione" rows="5" cols="10" min="3" max="65000" required value="{{old("description") ?? $flat->description}}"></textarea>
+      <textarea name="description" class="form-control" id="description" placeholder="Inserisci descrizione" rows="5" cols="10" min="3" max="65000" required>{{old("description") ?? $flat->description}}</textarea>
     </div>
 
     <div class="form-group">
@@ -71,8 +71,8 @@
     {{-- /algolia input --}}
 
     {{-- input hidden for address --}}
-      <input type="hidden" id="lat" name="lat" value="none">
-      <input type="hidden" id="lng" name="lng" value="none">
+      <input type="hidden" id="lat" name="lat" value="{{old("lat") ?? $flat->lat}}">
+      <input type="hidden" id="lng" name="lng" value="{{old("lng") ?? $flat->lng}}">
     {{-- /input hidden for address --}}
 
    {{-- opzioni --}}

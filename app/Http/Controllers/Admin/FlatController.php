@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 // using Models
 use App\Flat;
@@ -138,7 +139,7 @@ class FlatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -148,6 +149,12 @@ class FlatController extends Controller
         $request->validate(
             [
                 'title' => 'required|max:255',
+                // 'title' => 'required|unique:flats,title,$slug,slug',
+                // "title" => [
+                //     "required",
+                //     Rule::unique('flats')->ignore($slug),
+                //     "max:255",
+                // ],
                 'number_of_rooms' => 'required|numeric',
                 'number_of_beds' => 'required|numeric',
                 'number_of_bathrooms' => 'required|numeric',
@@ -201,7 +208,7 @@ class FlatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
