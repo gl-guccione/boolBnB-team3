@@ -20,9 +20,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        // TODO select only message for the correct user (message->flats->user)
-        // $user_id = Auth::id();
-        // $messages = Message::where('user_id', $user_id)->get();
+        // TODO select only message for the correct user
+        $messages = Message::whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->get();
 
         $messages = Message::inRandomOrder()->limit(10)->get();
 

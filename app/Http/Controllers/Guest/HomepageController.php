@@ -28,7 +28,7 @@ class HomepageController extends Controller
         // TODO send only the sponsored flats
         $datetime_now = Carbon::now();
         $sponsorhip_flats = Flat::whereHas('sponsorships', function ($query) use ($datetime_now) {
-         $query->where('date_of_end', '>', $datetime_now);
+          $query->where('date_of_end', '>', $datetime_now);
         })->get();
 
         return view('guest.home', compact('flats'));
