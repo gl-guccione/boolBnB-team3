@@ -37,7 +37,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::post('sponsorships', 'MessageController@store')->name('sponsorships.store');
 
     // statistics route
-    Route::get('flats/statistics', 'ViewController@index')->name('statistics');
+    Route::get('statistics', 'ViewController@index')->name('statistics');
 });
 
 

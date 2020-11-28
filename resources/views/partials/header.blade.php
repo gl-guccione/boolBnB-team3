@@ -20,35 +20,42 @@
                   <ul class="navbar-nav ml-auto">
                       <!-- Authentication Links -->
                       @guest
+
                         {{-- menu guest con login e register --}}
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               Area Host
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                {{-- link for login --}}
                                 <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                               @if (Route::has('register'))
+                                {{-- link for register --}}
                                 <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                               @endif
                             </div>
                         </li>
+                        {{-- /menu guest con login e register --}}
+
                       @else
+
+                          {{-- menu for registered user --}}
                           <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                              {{-- route che manda al form create --}}
+                              {{-- link for admin.flats.create --}}
                               <a class="dropdown-item" href="{{ route('admin.flats.create') }}">Crea appartamento</a>
-                                {{-- route che fa fare il logout --}}
 
-                                @if (Auth::user()->flats()->count() > 0)
+                                @if (count(Auth::user()->flats) > 0)
 
-                                  {{-- route che manda alla view degli appartamenti dell'utente --}}
+                                  {{-- link for admin.flats.index --}}
                                   <a class="dropdown-item" href="{{ route('admin.flats.index') }}">I miei appartamenti</a>
 
-                                  {{-- route che manda alle statistiche --}}
+                                  {{-- link for admin.statistics.index --}}
+                                  {{-- TODO add correct route --}}
                                   <a class="dropdown-item" href="{{ route('login') }}">Statistiche</a>
 
                                 @endif
@@ -65,6 +72,8 @@
 
                               </div>
                           </li>
+                          {{-- /menu for registered user --}}
+
                       @endguest
                   </ul>
               </div>
