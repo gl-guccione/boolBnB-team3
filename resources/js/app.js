@@ -1,7 +1,9 @@
 require('./bootstrap');
 
 var places = require('places.js');
-var jQuery = require('jquery');
+
+const $ = require('jquery');
+
 
 (function() {
   var placesAutocomplete = places({
@@ -19,7 +21,7 @@ var jQuery = require('jquery');
     document.querySelector('#city').value = e.suggestion.city || '';
     document.querySelector('#zip_code').value = e.suggestion.postcode || '';
 
-   // completamento form indirizzo 
+   // completamento form indirizzo
     document.getElementById('street_name').value = e.suggestion.name;
     document.getElementById('zip_code').value = e.suggestion.postcode;
     document.getElementById('city').value = e.suggestion.city;
@@ -77,4 +79,3 @@ function animation() {
     }
   }, 10000);
 }
-
