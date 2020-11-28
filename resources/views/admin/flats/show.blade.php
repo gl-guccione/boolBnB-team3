@@ -1,3 +1,5 @@
+{{-- TODO move this page in the guest/flats/show ?? --}}
+
 @extends('layouts.app')
 
 @section('content')
