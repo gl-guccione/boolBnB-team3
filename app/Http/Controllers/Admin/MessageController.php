@@ -20,7 +20,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        // TODO select only message for the correct user
+        // ONPROD select only message for the correct user
         $messages = Message::whereHas('flat', function ($query) {
           $query->where('user_id', Auth::id());
         })->get();

@@ -52,7 +52,6 @@ class FlatsTableSeeder extends Seeder
           $new_flat->street_name = $faker->streetAddress;
           $new_flat->zip_code = substr($faker->postcode, 0, 5);
           $new_flat->city = $faker->city;
-          // TODO - CHECK lat and lng should be only from italy
           $new_flat->lat = $faker->latitude(45, 37);
           $new_flat->lng = $faker->longitude(8, 16);
 
