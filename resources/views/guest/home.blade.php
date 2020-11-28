@@ -36,15 +36,15 @@
 
           <div class="form-group">
 
-            <label for="title"><strong>Check-in</strong></label>
-            <input name="title" type="date" class="form-control" id="title" placeholder="Inserisci titolo" required>
+            <label for="check_in"><strong>Check-in</strong></label>
+            <input name="check_in" type="date" class="form-control" id="check_in" placeholder="Inserisci titolo" required>
 
           </div>
 
           <div class="form-group">
 
-            <label for="title"><strong>Check-out</strong></label>
-            <input name="title" type="date" class="form-control" id="title" placeholder="Inserisci titolo" required>
+            <label for="check_out"><strong>Check-out</strong></label>
+            <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" required>
 
           </div>
 

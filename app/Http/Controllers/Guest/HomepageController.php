@@ -41,8 +41,21 @@ class HomepageController extends Controller
      */
     public function search()
     {
+        $algolia = isset($_GET['algolia']) ? $_GET['algolia'] : "";
+        $adults = isset($_GET['adults']) ? $_GET['adults'] : "";
+        $children = isset($_GET['children']) ? $_GET['children'] : "";
+        $check_in = isset($_GET['check_in']) ? $_GET['check_in'] : "";
+        $check_out = isset($_GET['check_out']) ? $_GET['check_out'] : "";
         $options = Option::all();
 
-        return view('guest.search', compact('options'));
+        $data = [
+          'algolia' => $algolia,
+          'adults' => $adults,
+          'children' => $children,
+          'check_in' => $check_in,
+          'check_out' => $check_out,
+          'options' => $options
+        ];
+        return view('guest.search', $data);
     }
 }

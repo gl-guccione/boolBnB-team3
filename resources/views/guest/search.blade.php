@@ -7,7 +7,7 @@
 
     <div class="form-group">
 
-      <input type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" />
+      <input type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
       <p>Selected: <strong id="address-value">none</strong></p>
 
     </div>
@@ -15,22 +15,22 @@
     <div class="form-group">
 
       <label for="adults"><strong>Ospiti</strong></label>
-      <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" required>
-      <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
+      <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" value="{{ $adults }}" required>
+      <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0" value="{{ $children }}">
 
     </div>
 
     <div class="form-group">
 
-      <label for="title"><strong>Check-in</strong></label>
-      <input name="title" type="date" class="form-control" id="title" placeholder="Inserisci titolo" required>
+      <label for="check_in"><strong>Check-in</strong></label>
+      <input name="check_in" type="date" class="form-control" id="check_in" placeholder="Inserisci titolo" value="{{ $check_in }}" required>
 
     </div>
 
     <div class="form-group">
 
-      <label for="title"><strong>Check-out</strong></label>
-      <input name="title" type="date" class="form-control" id="title" placeholder="Inserisci titolo" required>
+      <label for="check_out"><strong>Check-out</strong></label>
+      <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" value="{{ $check_out }}" required>
 
     </div>
 
