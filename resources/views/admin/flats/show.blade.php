@@ -2,35 +2,53 @@
 
 @section('content')
 
-  @foreach($flat->images()->get() as $img)
-    <img src="{{asset('storage/'.$img->path)}}" alt="foto appartamento">
+  {{-- carousel images --}}
+
+  {{-- TODO display images as carousel --}}
+  @foreach($flat->images as $img)
+    <img src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
   @endforeach
 
-  <h2>{{ $flat->title }} - {{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
+  {{-- /carousel images --}}
 
-  <p>{{ $flat->description }}</p>
+  {{-- flat info --}}
+  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
+  {{-- /flat info --}}
 
-  <h3>{{ $flat->user()->first()->firstname }} {{ $flat->user()->first()->lastname }}</h3>
+  {{-- host info --}}
+  <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
 
-  <img src="{{ $flat->user()->first()->avatar }}" atl="foto appartamento">
+  <img src="{{ $flat->user->avatar }}" atl="avatar utente">
 
-  @if ($flat->user()->first()->description)
-    <p>{{ $flat->user()->first()->description }}</p>
+  @if ($flat->user->description)
+    <p>{{ $flat->user->description }}</p>
   @endif
+  {{-- /host info --}}
 
-  <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
+  {{-- flat description --}}
+  <p>{{ $flat->description }}</p>
+  {{-- /flat description --}}
 
+  {{-- maps --}}
 
+    {{-- TODO add maps --}}
+
+    <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
+
+  {{-- /maps --}}
+
+  {{-- options --}}
   <h3>Servizi</h3>
 
   <ul>
-    @foreach($flat->options()->get() as $option)
+    @foreach($flat->options as $option)
       <li>{{ $option->name }}</li>
     @endforeach
-
   </ul>
+  {{-- /options --}}
 
 
+  {{-- info --}}
   <h3>Informazioni</h3>
 
   <ul>
@@ -54,6 +72,24 @@
     @endif
 
   </ul>
+  {{-- /info --}}
+
+
+  {{-- extra info --}}
+  @if ($flat->extra_options != null)
+    <h3>Servizi aggiuntivi</h3>
+
+    @php
+      $extra_options_arr = explode(', ', $flat->extra_options)
+    @endphp
+
+    <ul>
+      @foreach($extra_options_arr as $extra_option)
+        <li>{{ $extra_option }}</li>
+      @endforeach
+    </ul>
+  @endif
+  {{-- /extra info --}}
 
 @endsection
 
