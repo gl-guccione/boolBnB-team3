@@ -21,8 +21,7 @@
 
           <div class="display_flex">
 
-            {{-- TODO show only 1 row of message --}}
-            <div class="mex_text mex_offset">{{$message->message}}</div>
+            <div class="mex_text mex_offset">{{ substr($message->message, 0, 57).'...' }}</div>
 
             <div class="mex_id mex_offset">
               flat ID
