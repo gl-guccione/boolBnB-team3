@@ -40,6 +40,12 @@
                       @else
 
                           {{-- menu for registered user --}}
+                          <li class="nav-item">
+                            {{-- TODO fix route messages --}}
+                            <a href="{{ route('admin.messages.index') }}" class="nav-link">
+                              <i class="fas fa-envelope"></i>
+                            </a>
+                          </li>
                           <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
