@@ -9,7 +9,7 @@
     <div class="user_container">
 
       <div class="avatar">
-        <img src={{$user->avatar}} alt="avatar utente">
+        <img src="{{$user->avatar}}" alt="avatar utente">
       </div>
 
       <div class="user_infos">
@@ -32,7 +32,7 @@
           <div>
 
             <div class="flat-img">
-              <img src={{ asset('storage/'.$flat->images[0]->path) }} alt="foto appartamento">
+              <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
 
             <div class="flat-info">
