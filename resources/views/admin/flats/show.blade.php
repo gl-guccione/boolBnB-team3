@@ -14,7 +14,30 @@
   {{-- /carousel images --}}
 
   {{-- flat info --}}
-  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} - valutazione: {{ $flat->stars }} - € {{ $flat->price }}</h2>
+  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} -
+    <span>
+
+      @php
+        if ($flat->stars % 2 == 0) {
+          $star = $flat->stars / 2;
+          $half_star = 0;
+        } else {
+          $star = intval($flat->stars / 2);
+          $half_star = 1;
+        }
+      @endphp
+
+      @for ($i = 0; $i < $star; $i++)
+        <i class="fas fa-star"></i>
+      @endfor
+      @for ($i = 0; $i < $half_star; $i++)
+        <i class="fas fa-star-half"></i>
+      @endfor
+
+      ({{ $flat->stars / 2 }})
+
+  </span>
+  - € {{ $flat->price }}</h2>
   {{-- /flat info --}}
 
   {{-- host info --}}

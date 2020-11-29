@@ -58,7 +58,7 @@
                   <i class="fas fa-star-half"></i>
                 @endfor
 
-                ({{ $flat->stars }})
+                ({{ $flat->stars / 2 }})
 
               </span>
             </div>
