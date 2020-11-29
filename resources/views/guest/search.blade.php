@@ -40,6 +40,19 @@
 
     </div>
 
+    <div class="form-group">
+
+      <label for="algolia_radius"><strong>Raggio di ricerca</strong></label>
+      <select class="form-control" id="algolia_radius" name="algolia_radius" required>
+        <option value="10">10km</option>
+        <option value="20" selected>20km</option>
+        <option value="50">50km</option>
+        <option value="100">100km</option>
+        <option value="500">500km</option>
+      </select>
+
+    </div>
+
     <a class="btn btn-primary">Cerca</a>
 
     {{-- options --}}
