@@ -35,8 +35,28 @@
 
         <p>{{ $flat->description }}</p>
 
-        <span> Valutazione: {{ $flat->stars }}</span>
-        {{-- TODO transform number of stars in stars --}}
+        <span>
+
+          @php
+            if ($flat->stars % 2 == 0) {
+              $star = $flat->stars / 2;
+              $half_star = 0;
+            } else {
+              $star = intval($flat->stars / 2);
+              $half_star = 1;
+            }
+          @endphp
+
+          @for ($i = 0; $i < $star; $i++)
+            <i class="fas fa-star"></i>
+          @endfor
+          @for ($i = 0; $i < $half_star; $i++)
+            <i class="fas fa-star-half"></i>
+          @endfor
+
+          ({{ $flat->stars }})
+
+        </span>
 
       </div>
       {{-- /column info --}}
