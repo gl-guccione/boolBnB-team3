@@ -21,10 +21,12 @@ class OptionsTableSeeder extends Seeder
           'tv',
           'riscaldamento',
           'aria condizionata',
-          'ferro da stiro',
-          'cucina',
-          'parcheggio',
-          'bagno privato'
+          'posto macchina',
+          'bagno privato',
+          'piscina',
+          'portineria',
+          'sauna',
+          'vista mare'
         ];
 
         $options = Option::all();
