@@ -101,10 +101,14 @@
 
       {{-- option --}}
       @foreach ($options as $option)
+
+        @php
+          $checked = in_array($option->id, $flat->options->pluck('id')->toArray()) ? true : false;
+        @endphp
+
         <div class="div">
-          <input type="checkbox" class="form-check-input" name="options[]" id="checkbox_{{$option->id}}" value="{{$option->id}}">
+          <input type="checkbox" class="form-check-input" name="options[]" id="checkbox_{{$option->id}}" value="{{$option->id}}" {{ $checked ? 'checked' : null}}>
           <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
-          {{-- TODO show previously checked options --}}
         </div>
       @endforeach
       {{-- /option --}}
