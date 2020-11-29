@@ -3,6 +3,7 @@ require('./bootstrap');
 var places = require('places.js');
 
 const $ = require('jquery');
+const Handlebars = require("handlebars");
 
 
 (function() {
@@ -31,6 +32,7 @@ const $ = require('jquery');
   });
 })();
 
+// TODO load function only inside homepage
 animation();
 
 function opacity() {
