@@ -57,7 +57,7 @@ class MessageController extends Controller
     {
         // TODO I think we can remove this method because we never show the message to the user
 
-        $message = Message::where('id', $id)->first();
+        $message = Message::find($id);
 
         return view('ui.messages.show', compact('message'));
     }
