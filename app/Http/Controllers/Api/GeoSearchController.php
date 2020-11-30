@@ -72,6 +72,12 @@ class GeoSearchController extends Controller
               $flat->sponsored = false;
             }
 
+            if (count($flat->options)) {
+              foreach ($flat->options as $option) {
+                unset($option->pivot);
+              }
+            }
+
             unset($flat->user_id);
             unset($flat->active);
             unset($flat->extra_options);
