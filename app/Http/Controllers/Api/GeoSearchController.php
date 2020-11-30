@@ -47,7 +47,16 @@ class GeoSearchController extends Controller
 
           $datetime_now = Carbon::now();
 
-          $flats = Flat::where('active', 1)->get();
+          // TODO - SUGAR SINTAX
+          $rooms = isset($request->rooms) ? ($request->rooms) - 1 : 0;
+          $beds = isset($request->beds) ? ($request->beds) - 1 : 0;
+          $bathrooms = isset($request->bathrooms) ? ($request->bathrooms) - 1 : 0;
+
+          $flats = Flat::where('active', 1)
+                       ->where('number_of_rooms', '>', $rooms)
+                       ->where('number_of_beds', '>', $beds)
+                       ->where('number_of_bathrooms', '>', $bathrooms)
+                       ->get();
 
           $results = [];
 
