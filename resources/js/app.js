@@ -106,6 +106,16 @@ jQuery(function() {
       })();
 
       function getFlats(){
+        let countOptions = $('.form-check').children('div').length;
+        options = [];
+        for (let i = 1; i <= countOptions; i++) {
+
+          if ($('#checkbox_' + i).is(':checked')) {
+            options.push(i);
+          }
+
+        }
+
         $.ajax({
           "url": "http://localhost:8000/api/geosearch",
           "method": "GET",
@@ -115,6 +125,7 @@ jQuery(function() {
             "rooms": $("#rooms").val(),
             "beds": $("#beds").val(),
             "bathrooms": $("#bathrooms").val(),
+            "options": options
           },
           success: function (data) {
 
@@ -142,8 +153,6 @@ jQuery(function() {
               $(".entry-flat").remove();
 
               for (var i = 0; i < data.length; i++) {
-                console.log(data[i].images[0].path);
-
                 let context = {
                   'title': data[i].title,
                   'description': data[i].description,
