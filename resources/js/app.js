@@ -147,14 +147,15 @@ jQuery(function() {
             // sort obj
             data.sort( compare );
 
+            $(".no-results").remove();
+            $(".entry-flat").remove();
+
             if (data.length == 0) {
               let message = "<h2 class='no-results'> Nessun risultato </h2>"
               $("#results").append(message);
             } else {
               var source = document.getElementById("flat-template").innerHTML;
               var template = Handlebars.compile(source);
-              $(".no-results").remove();
-              $(".entry-flat").remove();
 
               for (var i = 0; i < data.length; i++) {
                 let context = {
