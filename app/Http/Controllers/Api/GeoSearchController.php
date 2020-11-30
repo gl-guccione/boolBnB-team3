@@ -48,6 +48,8 @@ class GeoSearchController extends Controller
           $rooms = isset($request->rooms) ? ($request->rooms) - 1 : 0;
           $beds = isset($request->beds) ? ($request->beds) - 1 : 0;
           $bathrooms = isset($request->bathrooms) ? ($request->bathrooms) - 1 : 0;
+          $options = isset($request->options) ? ($request->options) : 0;
+          $filters = explode(',', $options);
 
           $flats = Flat::where('active', 1)
                        ->where('number_of_rooms', '>', $rooms)
@@ -63,7 +65,6 @@ class GeoSearchController extends Controller
 
             $flat->distance_km = km_distance($request->latlng, $coordinate);
 
-
             if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
               $flat->sponsored = true;
             } else {
@@ -75,6 +76,12 @@ class GeoSearchController extends Controller
                 unset($option->pivot);
               }
             }
+
+            $arr_options = [];
+            foreach ($flat->options as $option) {
+              array_push($arr_options, $option->id);
+            }
+            $flat->options = $arr_options;
 
             if (count($flat->images)) {
               true;
@@ -88,7 +95,18 @@ class GeoSearchController extends Controller
             unset($flat->sponsorships);
 
             if ($flat->distance_km <= $request->radius) {
-              array_push($results, $flat);
+              if ($options == 0) {
+                array_push($results, $flat);
+
+              } else {
+                $flat_options = $flat->options;
+                $diff = array_diff($filters, $flat_options);
+                // dd($flat->options);
+                if (empty($diff)) {
+                  array_push($results, $flat);
+                }
+
+              }
             }
 
           }

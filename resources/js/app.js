@@ -107,7 +107,7 @@ jQuery(function() {
 
       function getFlats(){
         let countOptions = $('.form-check').children('div').length;
-        options = [];
+        let options = [];
         for (let i = 1; i <= countOptions; i++) {
 
           if ($('#checkbox_' + i).is(':checked')) {
@@ -115,6 +115,9 @@ jQuery(function() {
           }
 
         }
+
+        options = options.toString();
+        console.log(options);
 
         $.ajax({
           "url": "http://localhost:8000/api/geosearch",
@@ -128,6 +131,7 @@ jQuery(function() {
             "options": options
           },
           success: function (data) {
+            console.log(data);
 
             // sort object (rule)
             function compare( a, b ) {
