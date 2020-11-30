@@ -64,6 +64,13 @@ class GeoSearchController extends Controller
               $flat->sponsored = false;
             }
 
+            unset($flat->user_id);
+            unset($flat->active);
+            unset($flat->extra_options);
+            unset($flat->created_at);
+            unset($flat->updated_at);
+            unset($flat->sponsorships);
+
             if ($flat->distance_km <= $request->radius) {
               array_push($results, $flat);
             }
