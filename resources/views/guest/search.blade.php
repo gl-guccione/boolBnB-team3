@@ -80,22 +80,22 @@
 
   {{-- results --}}
   <section id="results">
-    <div class="row" id="sponsored">
-      <h2>Sponsorizzati</h2>
+    <div style="background-color: green" class="row" id="sponsored">
+      
     </div>
     <div class="row" id="not-sponsored">
-      <h2>Non sponsorizzati</h2>
+      
     </div>
   </section>
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="col-3 entry-flat">
-      <div style="background-color: red" class="flat-img-box">
-        <img style="width: 100px, height: 100px" src="/storage/@{{image}}" alt="@{{ title }}">
+    <div class="col-4 entry-flat">
+      <div class="flat-img-box">
+        <img src="/storage/@{{image}}" alt="@{{ title }}">
       </div>
       <div class="flat-text-box">
-        <h3>Titolo: @{{title}}</h3>
+        <h4>Titolo: @{{title}}</h4>
         <p>Descrizione: @{{description}}</p>
         <p>Valutazione: @{{stars}}</p>
         <p>Prezzo: @{{price}}</p>
