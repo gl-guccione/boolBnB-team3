@@ -81,10 +81,10 @@
   {{-- results --}}
   <section class="container" id="results">
     <div class="row" id="sponsored">
-      
+
     </div>
     <div class="row" id="not-sponsored">
-      
+
     </div>
   </section>
   {{-- /results --}}
