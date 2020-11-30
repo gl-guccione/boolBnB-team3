@@ -79,9 +79,23 @@
   {{-- /form --}}
 
   {{-- results --}}
-  <section id="results"></section>
+  <section id="results">
+    <div id="sponsored">
+      <h2>Sponsorizzati</h2>
+    </div>
+    <div id="not-sponsored">
+      <h2>Non sponsorizzati</h2>
+    </div>
+  </section>
   {{-- /results --}}
 
-
+  <script id="flat-template" type="text/x-handlebars-template">
+    <div class="entry-flat">
+      <h3>Titolo: @{{title}}</h3>
+      <p>Descrizione: @{{description}}</p>
+      <p>Valutazione: @{{stars}}</p>
+      <p>Prezzo: @{{price}}</p>
+    </div>
+  </script>
 
 @endsection
