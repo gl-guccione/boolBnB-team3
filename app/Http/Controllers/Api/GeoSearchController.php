@@ -1,12 +1,18 @@
 <?php
 
+// defining Namespace
 namespace App\Http\Controllers\Api;
 
+// using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use App\Flat;
 use Facade\FlareClient\Http\Response;
+
+// using Carbon
+use Carbon\Carbon;
+
+// using Models
+use App\Flat;
 
 class GeoSearchController extends Controller
 {
@@ -31,29 +37,40 @@ class GeoSearchController extends Controller
           $phi = abs($radLonA - $radLonB);
 
           $P = acos (
-                      (sin($radLatA) * sin($radLatB)) +
-                      (cos($radLatA) * cos($radLatB) * cos($phi))
+                      (sin($radLatA) * sin($radLatB)) + (cos($radLatA) * cos($radLatB) * cos($phi))
                     );
 
           return $P * 6372.795477598;
         }
 
-        if (isset($request->latlong)) {
+        if (isset($request->latlong) && isset($request->radius)) {
 
-          $latlong = $request->latlong;
+          $datetime_now = Carbon::now();
 
-          // dd(km_distance($latlong, '39.031234,10.846305'));
+          $flats = Flat::where('active', 1)->get();
 
-          $flats = Flat::where('active', true)->get();
+          $results = [];
+
           foreach ($flats as $flat) {
 
             $coordinate = $flat->lat.','.$flat->lng;
 
-            $flat->distance_km = km_distance($latlong, $coordinate);
+            $flat->distance_km = km_distance($request->latlong, $coordinate);
+
+
+            if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
+              $flat->sponsored = true;
+            } else {
+              $flat->sponsored = false;
+            }
+
+            if ($flat->distance_km <= $request->radius) {
+              array_push($results, $flat);
+            }
 
           }
 
-          return response()->json($flats);
+          return response()->json($results);
 
         } else {
 
