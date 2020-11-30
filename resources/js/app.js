@@ -104,8 +104,8 @@ jQuery(function() {
           $("#city").attr("data-algolia", e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng);
         });
       })();
-    
-      function getFlats(e){
+
+      function getFlats(){
         $.ajax({
           "url": "http://localhost:8000/api/geosearch",
           "method": "GET",
@@ -117,18 +117,39 @@ jQuery(function() {
             "bathrooms": $("#bathrooms").val(),
           },
           success: function (data) {
+
+            // sort object (rule)
+            function compare( a, b ) {
+              if ( a.distance_km < b.distance_km ){
+                return -1;
+              }
+              if ( a.distance_km > b.distance_km ){
+                return 1;
+              }
+              return 0;
+            }
+
+            // sort obj
+            data.sort( compare );
+
             console.log(data);
-              
+
           },
           error: function(error) {
-              alert("Errore, controlla la ricerca")
+              alert("Errore, controlla la ricerca!")
           }
 
         });
       };
 
+      if($('#city').attr('data-algolia') != '') {
+        // TODO check if the required parameters is set
+        getFlats();
+      }
+
 
       $("#submitSearch").click(function() {
+        // TODO check if the required parameters is set
         getFlats();
       });
   };
