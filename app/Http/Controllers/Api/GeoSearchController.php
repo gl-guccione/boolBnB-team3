@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Api;
 // using Laravel Facades
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Facade\FlareClient\Http\Response;
 
 // using Carbon
 use Carbon\Carbon;
