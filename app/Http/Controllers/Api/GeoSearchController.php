@@ -35,14 +35,12 @@ class GeoSearchController extends Controller
 
           $phi = abs($radLonA - $radLonB);
 
-          $P = acos (
-                      (sin($radLatA) * sin($radLatB)) + (cos($radLatA) * cos($radLatB) * cos($phi))
-                    );
+          $P = acos ((sin($radLatA) * sin($radLatB)) + (cos($radLatA) * cos($radLatB) * cos($phi)));
 
           return $P * 6372.795477598;
         }
 
-        if (isset($request->latlong) && isset($request->radius)) {
+        if (isset($request->latlng) && isset($request->radius)) {
 
           $datetime_now = Carbon::now();
 
@@ -63,7 +61,7 @@ class GeoSearchController extends Controller
 
             $coordinate = $flat->lat.','.$flat->lng;
 
-            $flat->distance_km = km_distance($request->latlong, $coordinate);
+            $flat->distance_km = km_distance($request->latlng, $coordinate);
 
 
             if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
@@ -95,7 +93,7 @@ class GeoSearchController extends Controller
 
         } else {
 
-            return response()->json(['error'=>'missing required parameter']);
+            return response()->json(['error'=>'missing latlng and/or radius parameters']);
 
         }
 
