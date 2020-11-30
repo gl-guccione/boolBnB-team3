@@ -18,17 +18,17 @@
 
       {{-- form --}}
       <div class="search_container">
+        <div id="HomePage"></div>
 
         <form class="form" action="{{ route("guest.homepage.search") }}" method="get">
 
           @method('GET')
-
+          {{-- algolia input search --}}
           <div class="form-group">
 
-            <label for="street_name"><strong>Dove</strong></label>
-            <input name="algolia" type="search" id="street_name" class="form-control" placeholder="Inserisci indirizzo" required>
-            {{-- TODO can we remove the <p> tag below? --}}
-            <p>Selected: <strong id="address-value">none</strong></p>
+            <label for="city"><strong>Dove</strong></label>
+            <input name="algolia" type="search" id="city" class="form-control" placeholder="Inserisci indirizzo" required>
+            <input name="data-algolia" type="hidden" id="data-algolia" class="form-control" required>
 
           </div>
 

@@ -8,21 +8,29 @@
 
 @section('content')
 
+  <div id="SearchPage"></div>
   {{-- form --}}
   <form method="post">
-
+    {{-- input algolia search --}}
     <div class="form-group">
 
-      <input type="search" id="address" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
-      <p>Selected: <strong id="address-value">none</strong></p>
+      <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
 
     </div>
-
+    {{-- ospiti --}}
     <div class="form-group">
 
       <label for="adults"><strong>Ospiti</strong></label>
       <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" value="{{ $adults }}" required>
       <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0" value="{{ $children }}">
+
+    </div>
+    {{-- stanze-bagni-letti --}}
+    <div class="form-group">
+
+      <input type="number" class="form-control" id="rooms" placeholder="Minimo stanze" min="1">
+      <input type="number" class="form-control" id="beds" placeholder="Minimo posti letto" min="1">
+      <input type="number" class="form-control" id="bathrooms" placeholder="Minimo bagni" min="1">
 
     </div>
 
@@ -53,8 +61,6 @@
 
     </div>
 
-    <a class="btn btn-primary">Cerca</a>
-
     {{-- options --}}
     <div class="form-check">
       @foreach ($options as $option)
@@ -64,15 +70,33 @@
         </div>
       @endforeach
     </div>
-  {{-- /options --}}
+   {{-- /options --}}
+
+   {{--SUBMIT  --}}
+   <a id="submitSearch" class="btn btn-primary">Cerca</a>
 
   </form>
   {{-- /form --}}
 
   {{-- results --}}
-  <section id="results"></section>
+  <section id="results">
+    <div id="sponsored">
+      <h2>Sponsorizzati</h2>
+    </div>
+    <div id="not-sponsored">
+      <h2>Non sponsorizzati</h2>
+    </div>
+  </section>
   {{-- /results --}}
 
-
+  <script id="flat-template" type="text/x-handlebars-template">
+    <div class="entry-flat">
+      <h3>Titolo: @{{title}}</h3>
+      <p>Descrizione: @{{description}}</p>
+      <p>Valutazione: @{{stars}}</p>
+      <p>Prezzo: @{{price}}</p>
+      <img src="/storage/@{{image}}" alt="@{{ title }}">
+    </div>
+  </script>
 
 @endsection

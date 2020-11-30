@@ -42,6 +42,7 @@ class HomepageController extends Controller
     public function search()
     {
         $algolia = isset($_GET['algolia']) ? $_GET['algolia'] : "";
+        $data_algolia = isset($_GET['data-algolia']) ? $_GET['data-algolia'] : "";
         $adults = isset($_GET['adults']) ? $_GET['adults'] : "";
         $children = isset($_GET['children']) ? $_GET['children'] : "";
         $check_in = isset($_GET['check_in']) ? $_GET['check_in'] : "";
@@ -50,6 +51,7 @@ class HomepageController extends Controller
 
         $data = [
           'algolia' => $algolia,
+          'data_algolia' => $data_algolia,
           'adults' => $adults,
           'children' => $children,
           'check_in' => $check_in,

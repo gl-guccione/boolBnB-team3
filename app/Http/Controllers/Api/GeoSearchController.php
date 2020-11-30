@@ -76,6 +76,10 @@ class GeoSearchController extends Controller
               }
             }
 
+            if (count($flat->images)) {
+              true;
+            }
+
             unset($flat->user_id);
             unset($flat->active);
             unset($flat->extra_options);
