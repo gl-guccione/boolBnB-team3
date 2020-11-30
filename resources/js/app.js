@@ -140,8 +140,19 @@ jQuery(function() {
               var template = Handlebars.compile(source);
               $(".no-results").remove();
               $(".entry-flat").remove();
+
               for (var i = 0; i < data.length; i++) {
-                var html = template(data[i]);
+                console.log(data[i].images[0].path);
+
+                let context = {
+                  'title': data[i].title,
+                  'description': data[i].description,
+                  'stars': data[i].stars,
+                  'price': data[i].price,
+                  'image': data[i].images[0].path
+                }
+
+                var html = template(context);
                 if (data[i].sponsored) {
                   $("#sponsored").append(html);
                 } else {

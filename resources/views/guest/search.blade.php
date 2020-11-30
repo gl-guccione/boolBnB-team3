@@ -95,6 +95,7 @@
       <p>Descrizione: @{{description}}</p>
       <p>Valutazione: @{{stars}}</p>
       <p>Prezzo: @{{price}}</p>
+      <img src="/storage/@{{image}}" alt="@{{ title }}">
     </div>
   </script>
 
