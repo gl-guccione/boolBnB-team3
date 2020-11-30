@@ -79,8 +79,8 @@
   {{-- /form --}}
 
   {{-- results --}}
-  <section id="results">
-    <div style="background-color: green" class="row" id="sponsored">
+  <section class="container" id="results">
+    <div class="row" id="sponsored">
       
     </div>
     <div class="row" id="not-sponsored">
@@ -90,7 +90,7 @@
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="col-4 entry-flat">
+    <div class="col-3 entry-flat">
       <div class="flat-img-box">
         <img src="/storage/@{{image}}" alt="@{{ title }}">
       </div>
