@@ -169,6 +169,7 @@ jQuery(function() {
                 var html = template(context);
                 if (data[i].sponsored) {
                   $("#sponsored").append(html);
+                  $('.entry-flat').addClass('sponsored-flat');
                 } else {
                   $("#not-sponsored").append(html);
                 }
@@ -215,9 +216,6 @@ jQuery(function() {
       });
     })();
   }
-
-
-
 
 
 

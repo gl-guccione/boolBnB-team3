@@ -1,0 +1,35 @@
+#results {
+    .entry-flat {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 10px;
+
+        .flat-img-box {
+            width: 50%;
+            float: left;
+
+            img {
+                width: 100%;
+
+            }
+        }
+        .flat-text-box {
+            width: 50%;
+            padding: 1%;
+            float: left;
+            overflow: hidden;
+            h4 {
+                font-size: 20px;
+            }
+
+        }
+    }
+}
+
+#sponsored {
+
+  .sponsored-flat {
+      background-color: #3FB27F;
+  }
+}
