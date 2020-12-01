@@ -142,11 +142,27 @@
     {{-- message --}}
     <div class="form-group">
       <label for="message">Messaggio*</label>
-      <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="65000" required>{{old("message")}}</textarea>
+      <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{old("message")}}</textarea>
     </div>
     {{-- /message --}}
 
+    {{-- button submit --}}
+    <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+    {{-- /button submit --}}
+
   </form>
   {{-- /form - send message --}}
+
+  {{-- show errors --}}
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+  {{-- show errors --}}
 
 @endsection
