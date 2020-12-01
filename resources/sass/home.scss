@@ -12,16 +12,8 @@
     }
   }
 
-  @media screen and (max-width: 575px) {
-
-    .form-home {
-      top: 0%;
-      left: 0%;
-    }
-  }
-
   .project-description {
-    margin: 5% 0;
+    margin: 10px;
     border: 2px solid $colorMain;
     border-radius: 10px;
     padding: 25px;
@@ -33,6 +25,23 @@
       p {
         font-size: 20px;
       }
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+
+    .form {
+      position: relative;
+    }
+
+    .form-home {
+      top: 0%;
+      left: 0%;
+      border-radius: 0;
+    }
+
+    .project-description {
+      margin: 50px 0;
     }
   }
 

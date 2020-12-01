@@ -148,12 +148,9 @@
       </div>
       <!-- /sponsored flats -->
 
+    <!-- end container -->
     </div>
-
+  <!-- end home-page wrapper -->
   </div>
-
-  </div>
-</div>
-
 
 @endsection
