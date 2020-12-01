@@ -9,6 +9,8 @@
 @section('content')
 
 <div class="home-page">
+  <!-- div che serve per app.js -->
+  <div id="HomePage"></div>
 
   {{-- jumbotron --}}
   <div class="container-fluid px-0 jumbo">
@@ -18,13 +20,13 @@
         <img id="second-img" class="photo-carousel" src={{ asset('img/img2.jpg') }} alt="carousel_img">
         <img id="third-img" class="photo-carousel" src={{ asset('img/img3.jpg') }} alt="carousel_img">
         <img id="fourth-img" class="photo-carousel" src={{ asset('img/img4.jpg') }} alt="carousel_img">
+      </div>
     </div>
+    {{-- form --}}
 
-      {{-- form --}}
-      <div class="search_container">
-        <div id="HomePage"></div>
-
-        <form class="form" action="{{ route("guest.homepage.search") }}" method="get">
+    <div class="row">
+      <div class="col-4">
+        <form class="form-home" action="{{ route("guest.homepage.search") }}" method="get">
 
           @method('GET')
           {{-- algolia input search --}}
@@ -62,6 +64,13 @@
             <button type="submit" class="btn btn-primary">Cerca</button>
 
         </form>
+      </div>
+
+    </div>
+
+      <div class="search_container">
+
+
 
       </div>
       {{-- /form --}}
