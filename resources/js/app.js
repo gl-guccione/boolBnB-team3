@@ -84,11 +84,9 @@ jQuery(function() {
     }, 10000);
   }
 
-  $('#filters').on('click', function() {
-    
-    
+  //Filter div on click
+  $('#filters').on('click', function() {    
       $('.form-check').addClass('block').toggle();
-    
   });
 
   if($("#SearchPage").length) {
@@ -178,6 +176,7 @@ jQuery(function() {
                   $('.entry-flat').addClass('sponsored-flat');
                 } else {
                   $("#not-sponsored").append(html);
+                  $('.entry-flat').addClass('not-sponsored-flat');
                 }
               }
             }

@@ -59,36 +59,48 @@
 
 
 #results {
+    padding: 2%;
 
     .flat-line {
         width: 100%;
     }
 
     .entry-flat {
-        width: calc(88% / 3);
+        width: calc(94% / 3);
         height: 150px;
         align-items: center;
-        margin: 1% 2%;
+        margin: 1%;
+        border-radius: 5px;
         overflow: hidden;
         float: left;
 
         .flat-img-box {
             width: 50%;
+            height: 100%;
+            padding: 4%;
             float: left;
+            position: relative;
 
             img {
                 width: 100%;
-
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
         }
         .flat-text-box {
             width: 50%;
-            padding: 1%;
-            border: 1px solid blue;
+            height: 100%;
+            padding: 4%;
             float: left;
             overflow: hidden;
             h4 {
-                font-size: 20px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            p {
+                font-size: 12px;
             }
 
         }
@@ -100,6 +112,12 @@
   .sponsored-flat {
       background-color: #3FB27F;
   }
+}
+
+#not-sponsored {
+    .not-sponsored-flat {
+        border: 2px solid #3FB27F;
+    }
 }
 
 }
