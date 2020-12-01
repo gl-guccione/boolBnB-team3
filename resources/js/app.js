@@ -84,6 +84,12 @@ jQuery(function() {
     }, 10000);
   }
 
+  $('#filters').on('click', function() {
+    
+    
+      $('.form-check').addClass('block').toggle();
+    
+  });
 
   if($("#SearchPage").length) {
       // algolia input search
