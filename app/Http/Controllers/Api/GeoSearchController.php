@@ -16,12 +16,14 @@ use App\Flat;
 class GeoSearchController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display fitered data.
      *
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request  $request
+     * @return json $results[]
      */
     public function geo_search(Request $request)
     {
+        // TODO ADD COMMENTS
 
         function km_distance ( $coordinate_a, $coordinate_b ) {
 
@@ -97,15 +99,12 @@ class GeoSearchController extends Controller
             if ($flat->distance_km <= $request->radius) {
               if ($options == 0) {
                 array_push($results, $flat);
-
               } else {
                 $flat_options = $flat->options;
                 $diff = array_diff($filters, $flat_options);
-                // dd($flat->options);
                 if (empty($diff)) {
                   array_push($results, $flat);
                 }
-
               }
             }
 
