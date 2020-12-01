@@ -28,10 +28,6 @@
             }
         }
 
-        .calendar {
-           margin-top: 2%;
-        }
-        
         .l_height_30 {
             width: 120px;
             line-height: 35px;
@@ -46,7 +42,7 @@
             position: absolute;
             bottom: -100px;
             left: 0;
-            background-color: $lighGrey;
+            background-color: $lightGrey;
             display: none;
             z-index: 2;
 
@@ -61,19 +57,20 @@
         }
     }
 
-    .fl_left {
-        float: left;
-    }
-
-
-
 
 #results {
+
+    .flat-line {
+        width: 100%;
+    }
+
     .entry-flat {
-        display: flex;
-        justify-content: space-around;
+        width: calc(88% / 3);
+        height: 150px;
         align-items: center;
-        margin: 10px;
+        margin: 1% 2%;
+        overflow: hidden;
+        float: left;
 
         .flat-img-box {
             width: 50%;
@@ -87,6 +84,7 @@
         .flat-text-box {
             width: 50%;
             padding: 1%;
+            border: 1px solid blue;
             float: left;
             overflow: hidden;
             h4 {

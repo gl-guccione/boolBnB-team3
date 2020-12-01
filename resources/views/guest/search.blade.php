@@ -72,7 +72,7 @@
         {{--SUBMIT  --}}
         <div class="line">
           <a id="submitSearch" class="btn btn-primary">Cerca</a>
-          <a id="filters" class="btn">more filters</a>
+          <a id="filters" class="btn">more filters <i class="fas fa-chevron-down"></i></a>
         </div>
 
         {{-- options --}}
@@ -92,17 +92,17 @@
 
   {{-- results --}}
   <section class="container" id="results">
-    <div class="row" id="sponsored">
+    <div class="row flat-line" id="sponsored">
 
     </div>
-    <div class="row" id="not-sponsored">
+    <div class="row flat-line" id="not-sponsored">
 
     </div>
   </section>
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="col-3 entry-flat">
+    <div class="entry-flat">
       <div class="flat-img-box">
         <img src="/storage/@{{image}}" alt="@{{ title }}">
       </div>
