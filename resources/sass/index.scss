@@ -1,5 +1,7 @@
 .flats-admin {
 
+
+
         // text
     .title {
         font-size: 50px;
@@ -23,11 +25,9 @@
     .img-flats-hover {
 
         & img {
-
             height: 160px;
+          }
         }
-        }
-
 
     .img-flats-hover:hover, .card:hover {
         box-shadow: 1px 3px 10px 3px #b1afaf;

@@ -84,6 +84,10 @@ jQuery(function() {
     }, 10000);
   }
 
+  //Filter div on click
+  $('#filters').on('click', function() {    
+      $('.form-check').addClass('block').toggle();
+  });
 
   if($("#SearchPage").length) {
       // algolia input search
@@ -172,6 +176,7 @@ jQuery(function() {
                   $('.entry-flat').addClass('sponsored-flat');
                 } else {
                   $("#not-sponsored").append(html);
+                  $('.entry-flat').addClass('not-sponsored-flat');
                 }
               }
             }
