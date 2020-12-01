@@ -25,47 +25,53 @@
     {{-- form --}}
 
     <div class="row">
-      <div class="col-4">
-        <form class="form-home" action="{{ route("guest.homepage.search") }}" method="get">
+      <div class="col-xl-4 col-sm-8 form form-home">
+        <form action="{{ route("guest.homepage.search") }}" method="get">
+          <div class="form-row">
+            @method('GET')
+            {{-- algolia input search --}}
+            <div class="form-group">
 
-          @method('GET')
-          {{-- algolia input search --}}
-          <div class="form-group">
+              <label for="city"><strong>Dove</strong></label>
+              <input name="algolia" type="search" id="city" class="form-control" placeholder="Inserisci indirizzo" required>
+              <input name="data-algolia" type="hidden" id="data-algolia" class="form-control" required>
 
-            <label for="city"><strong>Dove</strong></label>
-            <input name="algolia" type="search" id="city" class="form-control" placeholder="Inserisci indirizzo" required>
-            <input name="data-algolia" type="hidden" id="data-algolia" class="form-control" required>
-
+            </div>
           </div>
 
-          <div class="form-group">
-
+        <!-- ospiti adulti e bambini -->
+        <div class="form-row">
+          <div class="form-group col-6">
             <label for="adults"><strong>Ospiti</strong></label>
             <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" required>
-            <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
-
           </div>
+          <div class="form-group col-6">
+            <label for="adults"><strong>Ospiti</strong></label>
+            <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
+          </div>
+        </div>
+        <!-- ospiti adulti e bambini -->
 
-          <div class="form-group">
-
+        <!-- check in e chech out -->
+        <div class="form-row">
+          <div class="form-group col-6">
             <label for="check_in"><strong>Check-in</strong></label>
             <input name="check_in" type="date" class="form-control" id="check_in" placeholder="Inserisci titolo" min="{{ $today }}" required>
-
           </div>
-
-          <div class="form-group">
-
+          <div class="form-group col-6">
             <label for="check_out"><strong>Check-out</strong></label>
             {{-- TODO set min date = value of check-in date --}}
             <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" min="{{ $today }}" required>
-
           </div>
+        </div>
+        <!--/check in e chech out -->
 
-            <button type="submit" class="btn btn-primary">Cerca</button>
+        <!-- submit button -->
+
+            <button type="submit" class="btn btn-primary submit">Cerca</button>
 
         </form>
       </div>
-
     </div>
 
       <div class="search_container">
