@@ -1,8 +1,13 @@
+// including bootstrap
 require('./bootstrap');
 
+// including algolia places
 var places = require('places.js');
 
+// including jquery
 const $ = require('jquery');
+
+// including handlebars
 const Handlebars = require("handlebars");
 
 jQuery(function() {
@@ -178,7 +183,7 @@ jQuery(function() {
 
           },
           error: function(error) {
-              alert("Errore, controlla la ricerca!")
+              alert("Errore, controlla la ricerca!");
           }
 
         });
