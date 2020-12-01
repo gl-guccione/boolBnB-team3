@@ -110,36 +110,35 @@
         @foreach ($flats as $flat)
 
           <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
+            <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
+            <div class="overlay">
+              <h3>{{ $flat->title }}</h3>
+              <p>{{ $flat->city }}</p>
 
-            <a href="{{ route("guest.users.show", $flat->user->id) }}">
-              <div class="overlay">
-                <h3>{{ $flat->title }}</h3>
-                <p>{{ $flat->city }}</p>
+              <span>
 
-                <span>
+                @php
+                  if ($flat->stars % 2 == 0) {
+                    $star = $flat->stars / 2;
+                    $half_star = 0;
+                  } else {
+                    $star = intval($flat->stars / 2);
+                    $half_star = 1;
+                  }
+                @endphp
 
-                  @php
-                    if ($flat->stars % 2 == 0) {
-                      $star = $flat->stars / 2;
-                      $half_star = 0;
-                    } else {
-                      $star = intval($flat->stars / 2);
-                      $half_star = 1;
-                    }
-                  @endphp
+                @for ($i = 0; $i < $star; $i++)
+                  <i class="fas fa-star"></i>
+                @endfor
+                @for ($i = 0; $i < $half_star; $i++)
+                  <i class="fas fa-star-half"></i>
+                @endfor
 
-                  @for ($i = 0; $i < $star; $i++)
-                    <i class="fas fa-star"></i>
-                  @endfor
-                  @for ($i = 0; $i < $half_star; $i++)
-                    <i class="fas fa-star-half"></i>
-                  @endfor
+                ({{ $flat->stars / 2 }})
 
-                  ({{ $flat->stars / 2 }})
-
-                </span>
-              </div>
-            </a>
+              </span>
+            </div>
 
           </div>
 
