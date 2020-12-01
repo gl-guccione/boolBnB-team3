@@ -116,6 +116,37 @@
   @endif
   {{-- /extra info --}}
 
-@endsection
+  {{-- form - send message --}}
+  <h2>Contatta l'host</h2>
+  <form action="{{ route("guest.messages.store") }}" method="post">
 
-{{-- TODO form for request --}}
+    @csrf
+    @method('POST')
+
+    <input type="hidden" name="flat_id" required value="{{ $flat->id }}">
+
+    {{-- name --}}
+    <div class="form-group">
+      <label for="name">Nome*</label>
+      <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{old("name")}}">
+    </div>
+    {{-- /name --}}
+
+    {{-- email --}}
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{old("email")}}">
+    </div>
+    {{-- /email --}}
+
+    {{-- message --}}
+    <div class="form-group">
+      <label for="message">Messaggio*</label>
+      <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="65000" required>{{old("message")}}</textarea>
+    </div>
+    {{-- /message --}}
+
+  </form>
+  {{-- /form - send message --}}
+
+@endsection
