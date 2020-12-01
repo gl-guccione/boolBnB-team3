@@ -61,8 +61,8 @@ Route::name('guest.')->namespace('Guest')->group(function () {
 
 
     //routes for message public
+    Route::post('messages', 'MessageController@store')->name('messages.store');
     // Route::get('messages/create', 'MessageController@create')->name('messages.create');
-    // Route::post('messages', 'MessageController@store')->name('messages.store');
     // Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
 
 });
