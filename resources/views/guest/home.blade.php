@@ -102,74 +102,55 @@
           </div>
 
       </div>
+      <!-- project description -->
+
+      <!-- sponsored flats -->
+      <div id="sponsored-flats" class="row">
+
+        @foreach ($flats as $flat)
+
+          <div class="flat_box col-2">
+
+            <a href="{{ route("guest.users.show", $flat->user->id) }}">
+              <div class="overlay">
+                <h3>{{ $flat->title }}</h3>
+                <p>{{ $flat->city }}</p>
+
+                <span>
+
+                  @php
+                    if ($flat->stars % 2 == 0) {
+                      $star = $flat->stars / 2;
+                      $half_star = 0;
+                    } else {
+                      $star = intval($flat->stars / 2);
+                      $half_star = 1;
+                    }
+                  @endphp
+
+                  @for ($i = 0; $i < $star; $i++)
+                    <i class="fas fa-star"></i>
+                  @endfor
+                  @for ($i = 0; $i < $half_star; $i++)
+                    <i class="fas fa-star-half"></i>
+                  @endfor
+
+                  ({{ $flat->stars / 2 }})
+
+                </span>
+              </div>
+            </a>
+
+          </div>
+
+        @endforeach
+
+      </div>
+      <!-- /sponsored flats -->
+
     </div>
 
   </div>
-
-  <div class="container">
-
-    {{-- project description --}}
-    <div class="project-description row">
-
-      <section class="left col-6">
-        <h2>Qui ci andrà la descrizione del progetto</h2>
-          {{-- ??? --}}
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor distinctio dignissimos reprehenderit illo aliquam ab non vel repellat recusandae voluptatibus unde, ullam iste, iusto eveniet accusamus quia soluta minus dolores.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      </section>
-
-      <section class="right col-6">
-        <p>
-          Posizionato tra i primi 10 siti di prenotazioni
-        </p>
-      </section>
-
-    </div>
-    {{-- /project description --}}
-
-    {{-- sponsored flats --}}
-    <div id="sponsored-flats" class="row">
-
-      @foreach ($flats as $flat)
-
-        <div class="flat_box col-2">
-
-          <a href="{{ route("guest.users.show", $flat->user->id) }}">
-            <div class="overlay">
-              <h3>{{ $flat->title }}</h3>
-              <p>{{ $flat->city }}</p>
-
-              <span>
-
-                @php
-                  if ($flat->stars % 2 == 0) {
-                    $star = $flat->stars / 2;
-                    $half_star = 0;
-                  } else {
-                    $star = intval($flat->stars / 2);
-                    $half_star = 1;
-                  }
-                @endphp
-
-                @for ($i = 0; $i < $star; $i++)
-                  <i class="fas fa-star"></i>
-                @endfor
-                @for ($i = 0; $i < $half_star; $i++)
-                  <i class="fas fa-star-half"></i>
-                @endfor
-
-                ({{ $flat->stars / 2 }})
-
-              </span>
-            </div>
-          </a>
-
-        </div>
-
-      @endforeach
-
-    </div>
-    {{-- /sponsored flats --}}
 
   </div>
 </div>
