@@ -122,24 +122,7 @@ class FlatController extends Controller
             $newImage->save();
         }
 
-        return redirect()->route('admin.flats.show', $newFlat->slug);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  string $slug
-     * @return \Illuminate\Http\Response
-     */
-    public function show($slug)
-    {
-        $user_id = Auth::id();
-        $flat = Flat::where([
-                              ['slug', $slug],
-                              ['user_id', $user_id]
-                            ])->first();
-
-        return view('admin.flats.show', compact('flat'));
+        return redirect()->route('guest.flats.show', $newFlat->slug);
     }
 
     /**
@@ -237,7 +220,7 @@ class FlatController extends Controller
             $flat->options()->sync($data["options"]);
         }
 
-        return redirect()->route('admin.flats.show', $flat->slug);
+        return redirect()->route('guest.flats.show', $flat->slug);
     }
 
     /**

@@ -113,7 +113,7 @@
 
           <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
-            <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
+            <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
             <div class="overlay">
               <h3>{{ $flat->title }}</h3>
               <p>{{ $flat->city }}</p>

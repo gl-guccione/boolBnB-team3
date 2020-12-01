@@ -32,7 +32,7 @@
       <div class="card col-lg-6 pt-4 m-3">
 
         <h2 class="card__title">
-          <a href="{{ route('admin.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
+          <a href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
         </h2>
 
         <p class="p__description">{{ $flat->description }}</p>
