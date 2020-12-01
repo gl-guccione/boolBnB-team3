@@ -109,7 +109,7 @@
 
         @foreach ($flats as $flat)
 
-          <div class="flat_box col-2">
+          <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
 
             <a href="{{ route("guest.users.show", $flat->user->id) }}">
               <div class="overlay">
