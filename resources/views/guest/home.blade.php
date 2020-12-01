@@ -70,21 +70,41 @@
 
             <button type="submit" class="btn btn-primary submit">Cerca</button>
 
+            {{-- /form --}}
+
         </form>
       </div>
     </div>
 
-      <div class="search_container">
+      <!-- <div class="search_container">
 
 
 
-      </div>
-      {{-- /form --}}
+      </div> -->
+      {{-- /jumbotron --}}
 
     </div>
 
+    <div class="container">
+      <!-- project description -->
+      <div class="row project-description">
+
+          <div class="col-sm-12 col-md-6">
+            <h2>BoolBnB</h2>
+            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
+
+          </div>
+
+          <div class="right col-sm-12 col-md-6">
+            <p>
+              Posizionato tra i primi 10 siti di prenotazioni
+            </p>
+          </div>
+
+      </div>
+    </div>
+
   </div>
-  {{-- /jumbotron --}}
 
   <div class="container">
 
