@@ -15,12 +15,12 @@
     <div class="row flats">
 
       {{-- column image --}}
-      <div class="col-lg-2 pt-4 m-3">
+      <div class="img-flats-hover col-lg-2 pt-4 m-3">
 
         @if (count($flat->images) > 0)
-          <div class="img-flats">
-            <img style="max-width: 100px" src="{{ asset('storage/'.$flat->images[0]->path) }}">
-          </div>
+
+            <img class="img-flats" src="{{ asset('storage/'.$flat->images[0]->path) }}">
+
         @endif
 
       </div>
@@ -33,7 +33,7 @@
           <a href="{{ route('admin.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
         </h2>
 
-        <p>{{ $flat->description }}</p>
+        <p class="p__description">{{ $flat->description }}</p>
 
         <span>
 
