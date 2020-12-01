@@ -6,15 +6,17 @@
 
 @extends('layouts.app')
 
+@section('pageName', 'guest_search')
+
 @section('content')
 
   <div id="SearchPage">
 
   <div class="hero">
     {{-- form --}}
-    
+
     <form class="form-box" method="post">
-     
+
       {{-- input algolia search --}}
       <div class="line">
       <div class="form-group address fl_left">
@@ -35,23 +37,23 @@
             </div>
           </div>
       </div>
-          
+
       <div class="line">
           <div class="form-group fl_left">
-    
+
               <label for="check_in"><strong>Check-in</strong></label>
               <input name="check_in" type="date" class="form-control" id="check_in" placeholder="Inserisci titolo" min="{{ $today }}" value="{{ $check_in }}" required>
-    
+
           </div>
-    
+
           <div class="form-group fl_left">
-    
+
               <label for="check_out"><strong>Check-out</strong></label>
               <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" min="{{ $today }}" value="{{ $check_out }}" required>
-    
+
           </div>
-         
-          
+
+
           {{-- ospiti --}}
           <div class="form-group fl_left">
 

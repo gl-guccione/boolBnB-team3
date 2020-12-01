@@ -4,7 +4,7 @@
 {{-- including header --}}
 @include('partials.header')
 
-    <main class="py-6">
+    <main id="@yield('pageName')" class="py-6">
       @yield('content')
     </main>
 

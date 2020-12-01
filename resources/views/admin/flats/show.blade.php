@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@section('pageName', 'guest_flats_show')
+
 @section('content')
 
   {{-- carousel images --}}

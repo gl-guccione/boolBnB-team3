@@ -6,6 +6,8 @@
 
 @extends ('layouts.app')
 
+@section('pageName', 'guest_home')
+
 @section('content')
 
 <div class="home-page">
