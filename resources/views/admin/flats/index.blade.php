@@ -3,7 +3,7 @@
 @section('content')
 
 {{-- container --}}
-<div class="container">
+<div class="container flats-admin">
 
   <h2 class="col-lg-12">Ciao {{ $flats[0]->user->firstname }} {{ $flats[0]->user->lastname }}</h2>
   <h1 class="col-lg-12 title">Area Privata - I miei appartamenti</h1>

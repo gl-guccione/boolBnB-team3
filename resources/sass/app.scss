@@ -4,20 +4,24 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 // Variables
-@import 'variables';
+@import 'Partials/_variables';
+@import 'Partials/_common';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import 'Partials/header';
+//Partials
+@import 'Partials/_header';
 @import 'Partials/_navbar';
 @import 'Partials/_footer';
-@import 'Partials/index-flats/index';
 @import 'Partials/_jumbotron';
-@import 'Partials/_home_guest';
-@import 'Admin/Messages/index';
-@import 'Guest/Users/show.scss';
-@import 'Guest/search.scss';
+
+@import 'index';
+@import 'home';
+@import 'messages';
+@import 'show';
+@import 'search';
 
 // TODO fix this
 .py-6 {
