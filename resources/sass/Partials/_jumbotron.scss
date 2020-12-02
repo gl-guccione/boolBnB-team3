@@ -1,6 +1,5 @@
 .jumbo {
   position: relative;
-  max-height: 800px;
 
   .opacity {
     opacity: 0.8;
@@ -23,8 +22,8 @@
   }
 
   .form {
-    border-radius: 2%;
-    background-color: $lightGrey;
+    background-color: #fff;
     position: absolute;
+    box-shadow: 20px 20px 50px grey;
   }
 }
