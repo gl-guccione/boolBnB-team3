@@ -81,30 +81,29 @@
       <!-- project description -->
       <div class="row project-description">
 
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-6 left">
             <h2>BoolBnB</h2>
-            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb". Compilando il form qui sopra potrete accedere agli appartamenti che volete, mentre qui sotto trovate quelli in evidenza.</p>
-
+            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
+            <p><i class="fas fa-long-arrow-alt-up"></i> Qui sopra il form da compilare per la ricerca degli appartamenti.</p>
+            <p><i class="fas fa-long-arrow-alt-down"></i> Qui sotto gli appartamenti in evidenza.</p>
           </div>
 
           <div class="right col-sm-12 col-md-6">
-            <h2>STACK TECNOLOGICO</h2>
-            <ul class="">
-              <li><i class="fab fa-html5"></i></li>
-              <li><i class="fab fa-css3-alt"></i></li>
-              <li><i class="fab fa-js"></i></li>
-              <li><i class="fab fa-php"></i></li>
-              <li><i class="fab fa-sass"></i></li>
-              <li><i class="fab fa-laravel"></i></li>
+            <h2>Stack utilizzato</h2>
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+              <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+              <li class="list-inline-item"><i class="fab fa-js"></i></li>
+              <li class="list-inline-item"><i class="fab fa-php"></i></li>
+              <li class="list-inline-item"><i class="fab fa-sass"></i></li>
+              <li class="list-inline-item"><i class="fab fa-laravel"></i></li>
             </ul>
           </div>
 
       </div>
       <!-- project description -->
-
       <!-- sponsored flats -->
       <div id="sponsored-flats" class="row">
-
         @foreach ($flats as $flat)
 
           <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
