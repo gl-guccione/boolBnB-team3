@@ -220,7 +220,7 @@ class FlatController extends Controller
             $flat->options()->sync($data["options"]);
         }
 
-        return redirect()->route('guest.flats.show', $flat->slug);
+        return redirect()->route('guest.flats.show', $flat->slug)->with('record_added', 'Appartamento aggiornato correttamente!');
     }
 
      /**
@@ -243,8 +243,7 @@ class FlatController extends Controller
 
         $flat->update();
 
-        // TODO add a toast notification 'Appartamento aggiornato'
-        return redirect()->route('admin.flats.index');
+        return redirect()->route('admin.flats.index')->with('record_added', 'Appartamento aggiornato correttamente!');
     }
 
     /**
@@ -259,6 +258,6 @@ class FlatController extends Controller
         $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
         $flat->delete();
 
-        return redirect()->route('admin.flats.index');
+        return redirect()->route('admin.flats.index')->with('record_added', 'Appartamento eliminato correttamente!');
     }
 }
