@@ -34,10 +34,8 @@ class FlatController extends Controller
      */
     public function show($slug)
     {
-        // TODO we should use this show instad of the admin.flats.show ??
-
         $flat = Flat::where('slug', $slug)->first();
 
-        return view('ui.flats.show', compact('flat'));
+        return view('guest.flats.show', compact('flat'));
     }
 }

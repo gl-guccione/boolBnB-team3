@@ -1,9 +1,11 @@
 @extends ('layouts.app')
 
+@section('pageName', 'admin_flats_index')
+
 @section('content')
 
 {{-- container --}}
-<div class="container">
+<div class="container flats-admin">
 
   <h2 class="col-lg-12">Ciao {{ $flats[0]->user->firstname }} {{ $flats[0]->user->lastname }}</h2>
   <h1 class="col-lg-12 title">Area Privata - I miei appartamenti</h1>
@@ -15,12 +17,12 @@
     <div class="row flats">
 
       {{-- column image --}}
-      <div class="col-lg-2 pt-4 m-3">
+      <div class="img-flats-hover col-lg-2 pt-4 m-3">
 
         @if (count($flat->images) > 0)
-          <div class="img-flats">
-            <img style="max-width: 100px" src="{{ asset('storage/'.$flat->images[0]->path) }}">
-          </div>
+
+            <img class="img-flats" src="{{ asset('storage/'.$flat->images[0]->path) }}">
+
         @endif
 
       </div>
@@ -30,10 +32,10 @@
       <div class="card col-lg-6 pt-4 m-3">
 
         <h2 class="card__title">
-          <a href="{{ route('admin.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
+          <a href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
         </h2>
 
-        <p>{{ $flat->description }}</p>
+        <p class="p__description">{{ $flat->description }}</p>
 
         <span>
 

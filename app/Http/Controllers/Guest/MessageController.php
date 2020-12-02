@@ -39,28 +39,15 @@ class MessageController extends Controller
         $newMessage->email = $data['email'];
         $newMessage->message = $data['message'];
         $newMessage->date_of_send = date('Y-m-d H:i:s');
-        $newMessage->seen = false;
 
         $newMessage->save();
 
-        // TODO add a toast notification 'Messaggio inviato correttamente'
-        return redirect()->route('ui.flats.show', $newMessage->flat_id);
+        $notification =[
+          'message' => 'Messaggio inviato correttamente!',
+          'alert-type' => 'success'
+        ];
+
+        // TODO add a toast notification
+        return redirect()->back();
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // TODO I think we can remove this method because we never show the message to the user
-
-        $message = Message::find($id);
-
-        return view('ui.messages.show', compact('message'));
-    }
-
-
 }

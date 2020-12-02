@@ -23,7 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
 
     // flats routes
-    Route::resource('flats', 'FlatController');
+    Route::get('flats', 'FlatController@index')->name('flats.index');
+    Route::get('flats/create', 'FlatController@create')->name('flats.create');
+    Route::post('flats', 'FlatController@store')->name('flats.store');
+    Route::get('flats/{slug}/edit', 'FlatController@edit')->name('flats.edit');
+    Route::put('flats/{slug}', 'FlatController@update')->name('flats.update');
+    Route::delete('flats/{slug}', 'FlatController@destroy')->name('flats.destroy');
 
     // messages routes
     Route::get('messages', 'MessageController@index')->name('messages.index');
@@ -52,13 +57,12 @@ Route::name('guest.')->namespace('Guest')->group(function () {
     Route::get('/users/{id}', 'UserController@show')->name('users.show');
 
     // route for Flats
-    // Route::get('/', 'FlatController@index')->name('flats.index');
-    // Route::get('/flats/{slug}', 'FlatController@show')->name('flats.show');
+    Route::get('/flats/{slug}', 'FlatController@show')->name('flats.show');
 
 
     //routes for message public
+    Route::post('messages', 'MessageController@store')->name('messages.store');
     // Route::get('messages/create', 'MessageController@create')->name('messages.create');
-    // Route::post('messages', 'MessageController@store')->name('messages.store');
     // Route::get('messages/{id}', 'MessageController@show')->name('messages.show');
 
 });

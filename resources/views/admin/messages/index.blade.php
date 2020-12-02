@@ -1,5 +1,7 @@
 @extends ('layouts.app')
 
+@section('pageName', 'admin_messages_index')
+
 @section('content')
 
   {{-- wrapper --}}

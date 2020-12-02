@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('pageName', 'admin_flats_create')
+
 @section('content')
 
   {{-- form --}}

@@ -1,0 +1,131 @@
+#SearchPage {
+
+    .hero {
+        width: 100vw;
+        height: 60vh;
+        background-image: url('');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        border-bottom: 2px solid $mainGrey;
+        z-index: 3;
+
+        .form-box {
+            width: 70vw;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+
+            .line {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .address {
+                    width: 70%;
+                }
+            }
+
+            #submitSearch {
+                width: 100%;
+            }
+
+            #filters:hover {
+                color: #007BFF;
+            }
+        }
+
+        .l_height_30 {
+            width: 120px;
+            line-height: 35px;
+            margin-right: 2%;
+        }
+
+        .form-check {
+            width: 70vw;
+            height: 100px;
+            border-radius: 5px;
+            padding: 2% 5%;
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            background-color: $lightGrey;
+            display: none;
+            z-index: 2;
+
+            .checkbox {
+                width: 150px;
+                height: 30px;
+            }
+
+            .block {
+                display: block;
+            }
+        }
+    }
+
+
+#results {
+    padding: 2%;
+
+    .flat-line {
+        width: 100%;
+    }
+
+    .entry-flat {
+        width: calc(94% / 3);
+        height: 150px;
+        align-items: center;
+        margin: 1%;
+        border-radius: 5px;
+        overflow: hidden;
+        float: left;
+
+        .flat-img-box {
+            width: 50%;
+            height: 100%;
+            padding: 4%;
+            float: left;
+            position: relative;
+
+            img {
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .flat-text-box {
+            width: 50%;
+            height: 100%;
+            padding: 4%;
+            float: left;
+            overflow: hidden;
+            h4 {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            p {
+                font-size: 12px;
+            }
+
+        }
+    }
+}
+
+#sponsored {
+
+  .sponsored-flat {
+      background-color: #3FB27F;
+  }
+}
+
+#not-sponsored {
+    .not-sponsored-flat {
+        border: 2px solid #3FB27F;
+    }
+}
+
+}
