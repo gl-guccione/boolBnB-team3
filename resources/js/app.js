@@ -5,7 +5,6 @@ var places = require('places.js');
 const $ = require('jquery');
 const Handlebars = require("handlebars");
 
-
 // functions
 
 // algolia function for city
