@@ -10,10 +10,6 @@
 
 @section('content')
 
-<div class="home-page">
-  <!-- div che serve per app.js -->
-  <div id="HomePage"></div>
-
   {{-- jumbotron --}}
   <div class="container-fluid px-0 jumbo">
     <div class="row no-gutters">
@@ -77,12 +73,6 @@
         </form>
       </div>
     </div>
-
-      <!-- <div class="search_container">
-
-
-
-      </div> -->
       {{-- /jumbotron --}}
 
     </div>
@@ -151,7 +141,5 @@
 
     <!-- end container -->
     </div>
-  <!-- end home-page wrapper -->
-  </div>
 
 @endsection
