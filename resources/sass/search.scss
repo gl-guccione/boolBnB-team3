@@ -52,7 +52,7 @@
             left: 0;
             background-color: $lightGrey;
             display: none;
-            z-index: 2;
+            z-index: 0;
 
             .checkbox {
                 width: 150px;
@@ -128,4 +128,14 @@
     }
 }
 
+@media screen and (max-width: 575px) {
+
+      
+
+        
+      
+  }
+
+
 }
+
