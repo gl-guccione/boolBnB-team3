@@ -81,38 +81,39 @@
       <!-- project description -->
       <div class="row project-description">
 
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-6 left">
             <h2>BoolBnB</h2>
-            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb". Compilando il form qui sopra potrete accedere agli appartamenti che volete, mentre qui sotto trovate quelli in evidenza.</p>
-
+            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
+            <p><i class="fas fa-long-arrow-alt-up"></i> Qui sopra il form da compilare per la ricerca degli appartamenti.</p>
+            <p><i class="fas fa-long-arrow-alt-down"></i> Qui sotto gli appartamenti in evidenza.</p>
           </div>
 
           <div class="right col-sm-12 col-md-6">
-            <h2>STACK TECNOLOGICO</h2>
-            <ul class="">
-              <li><i class="fab fa-html5"></i></li>
-              <li><i class="fab fa-css3-alt"></i></li>
-              <li><i class="fab fa-js"></i></li>
-              <li><i class="fab fa-php"></i></li>
-              <li><i class="fab fa-sass"></i></li>
-              <li><i class="fab fa-laravel"></i></li>
+            <h2>Stack utilizzato</h2>
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+              <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+              <li class="list-inline-item"><i class="fab fa-js"></i></li>
+              <li class="list-inline-item"><i class="fab fa-php"></i></li>
+              <li class="list-inline-item"><i class="fab fa-sass"></i></li>
+              <li class="list-inline-item"><i class="fab fa-laravel"></i></li>
             </ul>
+            <h2>Presenti in tutta Italia</h2>
+
           </div>
 
       </div>
       <!-- project description -->
-
       <!-- sponsored flats -->
       <div id="sponsored-flats" class="row">
-
         @foreach ($flats as $flat)
 
-          <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <div class="flat_box col-12 col-sm-10 offset-sm-1 col-md-6 col-lg-4 col-xl-3">
             <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
             <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
             <div class="overlay">
-              <h3>{{ $flat->title }}</h3>
-              <p>{{ $flat->city }}</p>
+              <h4>{{ $flat->title }}</h4>
+              <p>Dove:  {{ $flat->city }}</p>
 
               <span>
 
