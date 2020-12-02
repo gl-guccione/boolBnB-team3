@@ -12,6 +12,7 @@
 
   <div id="SearchPage">
 
+  {{-- Form visibile da smartphone --}}
     <div class="d-xs-block d-sm-block d-md-none d-lg-none">
     <div class="container-fluid hero">
     {{-- form --}}
@@ -104,20 +105,22 @@
       </div>--}}
   
       
-        </form>
+      </form>
       {{-- /form --}}
       </div>
     </div>
   </div>
+  {{-- /Form visibile da smartphone --}}
 
+  {{-- Form visibile da tablet e desktop --}}
   <div class="d-none d-xs-none d-sm-none d-md-block d-lg-block">
     <div class="container-fluid hero">
       {{-- form --}}
       <div class="row">
       <form class="form-box" method="post">
   
-        {{-- input algolia search --}}
-        <div class="form-row">
+      {{-- input algolia search --}}
+      <div class="form-row">
         <div class="form-group address col-7">
             <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
             <input name="data-algolia" type="hidden" id="data-algolia">
@@ -139,9 +142,9 @@
             <div class="form-group col-2">
               <a id="submitSearch" class="btn btn-primary">Cerca</a>
             </div>
-        </div>
+          </div>
   
-        <div class="form-row">
+          <div class="form-row">
             <div class="form-group col-2">
   
                 <label for="check_in"><strong>Check-in</strong></label>
@@ -209,14 +212,14 @@
               <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
             </div>
           @endforeach
+          </div>
+          {{-- /options --}}
+        </form>
+        {{-- /form --}}
         </div>
-        {{-- /options --}}
-      </form>
-      {{-- /form --}}
-    </div>
       </div>
     </div>
-
+    {{-- Form visibile da tablet e desktop --}}
 
 
   {{-- results --}}
