@@ -40,11 +40,11 @@
         <!-- ospiti adulti e bambini -->
         <div class="form-row">
           <div class="form-group col-6">
-            <label for="adults"><strong>Ospiti adulti</strong></label>
+            <label for="adults"><strong>Ospiti</strong></label>
             <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" required>
           </div>
           <div class="form-group col-6">
-            <label for="children"><strong>Ospiti bambini</strong></label>
+            <label for="children"><strong>Ospiti</strong></label>
             <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
           </div>
         </div>
@@ -83,14 +83,20 @@
 
           <div class="col-sm-12 col-md-6">
             <h2>BoolBnB</h2>
-            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
+            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb". Compilando il form qui sopra potrete accedere agli appartamenti che volete, mentre qui sotto trovate quelli in evidenza.</p>
 
           </div>
 
           <div class="right col-sm-12 col-md-6">
-            <p>
-              Posizionato tra i primi 10 siti di prenotazioni
-            </p>
+            <h2>STACK TECNOLOGICO</h2>
+            <ul class="">
+              <li><i class="fab fa-html5"></i></li>
+              <li><i class="fab fa-css3-alt"></i></li>
+              <li><i class="fab fa-js"></i></li>
+              <li><i class="fab fa-php"></i></li>
+              <li><i class="fab fa-sass"></i></li>
+              <li><i class="fab fa-laravel"></i></li>
+            </ul>
           </div>
 
       </div>
