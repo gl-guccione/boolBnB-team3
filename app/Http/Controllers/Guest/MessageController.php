@@ -50,21 +50,4 @@ class MessageController extends Controller
         // TODO add a toast notification
         return redirect()->back();
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // TODO I think we can remove this method because we never show the message to the user
-
-        $message = Message::find($id);
-
-        return view('ui.messages.show', compact('message'));
-    }
-
-
 }
