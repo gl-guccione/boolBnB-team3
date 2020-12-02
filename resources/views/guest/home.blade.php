@@ -106,12 +106,12 @@
       <div id="sponsored-flats" class="row">
         @foreach ($flats as $flat)
 
-          <div class="flat_box col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <div class="flat_box col-12 col-sm-10 offset-sm-1 col-md-6 col-lg-4 col-xl-3">
             <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
             <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
             <div class="overlay">
-              <h3>{{ $flat->title }}</h3>
-              <p>{{ $flat->city }}</p>
+              <h4>{{ $flat->title }}</h4>
+              <p>Dove:  {{ $flat->city }}</p>
 
               <span>
 
