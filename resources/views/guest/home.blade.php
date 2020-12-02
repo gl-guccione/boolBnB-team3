@@ -44,11 +44,11 @@
         <!-- ospiti adulti e bambini -->
         <div class="form-row">
           <div class="form-group col-6">
-            <label for="adults"><strong>Ospiti</strong></label>
+            <label for="adults"><strong>Ospiti adulti</strong></label>
             <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" required>
           </div>
           <div class="form-group col-6">
-            <label for="adults"><strong>Ospiti</strong></label>
+            <label for="children"><strong>Ospiti bambini</strong></label>
             <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
           </div>
         </div>
