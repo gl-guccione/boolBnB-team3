@@ -17,7 +17,7 @@
     <div class="row flats">
 
       {{-- column image --}}
-      <div class="img-flats-hover col-lg-2 pt-4 m-3">
+      <div class="img-flats-hover col-lg-2 m-3">
 
         @if (count($flat->images) > 0)
 
@@ -50,10 +50,10 @@
           @endphp
 
           @for ($i = 0; $i < $star; $i++)
-            <i class="fas fa-star"></i>
+            <i class="star_color fas fa-star"></i>
           @endfor
           @for ($i = 0; $i < $half_star; $i++)
-            <i class="fas fa-star-half"></i>
+            <i class="star_color fas fa-star-half"></i>
           @endfor
 
           ({{ $flat->stars / 2 }})
@@ -89,7 +89,7 @@
           @csrf
           @method('DELETE')
 
-          <button type="submit">
+          <button class="delete" type="submit">
             <i class="fas fa-trash-alt"></i>
           </button>
 
@@ -97,14 +97,14 @@
         {{-- /delete button/form --}}
 
         {{-- message button --}}
-        <div class="message m-2">
+        {{-- <div class="message m-2"> --}}
 
           {{-- TODO add route to see all the message for the flat --}}
-          <a href="#">
+          {{-- <a href="#">
             <i class="fas fa-envelope"></i>
-          </a>
+          </a> --}}
 
-        </div>
+        {{-- </div> --}}
         {{-- /message button --}}
 
       </div>
