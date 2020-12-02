@@ -120,7 +120,8 @@
         <div class="form-row">
         <div class="form-group address col-7">
             <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
-        </div>
+            <input name="data-algolia" type="hidden" id="data-algolia">
+          </div>
             <div class="form-group km col-3">
               <div class="fl_left">
                 <label class="l_height_30 d-none d-lg-block" for="algolia_radius"><strong>Raggio di ricerca</strong></label>
