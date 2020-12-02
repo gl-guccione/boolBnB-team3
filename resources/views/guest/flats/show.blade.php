@@ -117,6 +117,24 @@
   {{-- /extra info --}}
 
   {{-- form - send message --}}
+
+  @auth
+    @php
+
+      $user = Auth::user();
+      $user_name = $user->firstname.' '.$user->lastname;
+      $user_email = $user->email;
+
+    @endphp
+  @else
+    @php
+
+    $user_name = '';
+    $user_email = '';
+
+    @endphp
+  @endauth
+
   <h2>Contatta l'host</h2>
   <form action="{{ route("guest.messages.store") }}" method="post">
 
@@ -128,14 +146,14 @@
     {{-- name --}}
     <div class="form-group">
       <label for="name">Nome*</label>
-      <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{old("name")}}">
+      <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{ old("name") ?? $user_name }}">
     </div>
     {{-- /name --}}
 
     {{-- email --}}
     <div class="form-group">
       <label for="email">Email*</label>
-      <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{old("email")}}">
+      <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{ old("email") ?? $user_email }}">
     </div>
     {{-- /email --}}
 
