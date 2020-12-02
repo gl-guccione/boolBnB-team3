@@ -98,6 +98,8 @@
               <li class="list-inline-item"><i class="fab fa-sass"></i></li>
               <li class="list-inline-item"><i class="fab fa-laravel"></i></li>
             </ul>
+            <h2>Presenti in tutta Italia</h2>
+
           </div>
 
       </div>

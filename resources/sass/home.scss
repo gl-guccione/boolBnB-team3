@@ -15,7 +15,7 @@
   .project-description {
     margin: 75px 0;
     padding: 25px;
-    background-color: $mainGrey;
+    background-color: $lightGrey;
 
     p {
       font-size: 20px;
@@ -27,19 +27,19 @@
       i {
         font-size: 30px;
         vertical-align: middle;
-        color: #fff;
+        color: $lightGreen;
       }
     }
 
     .right, h2 {
       text-align: center;
-      background-color: $lightGrey;
+      background-color: #fff;
       color: $colorMain;
 
       i {
         margin-top: 10px;
         font-size: 50px;
-        color: #fff;
+        color: $lightGreen;
       }
     }
   }
