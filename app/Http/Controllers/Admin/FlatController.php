@@ -223,6 +223,30 @@ class FlatController extends Controller
         return redirect()->route('guest.flats.show', $flat->slug);
     }
 
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function update_status(Request $request, $slug)
+    {
+
+        $flat = Flat::where('slug', $slug)->first();
+
+        if ($flat->active) {
+          $flat->active = 0;
+        } else {
+          $flat->active = 1;
+        }
+
+        $flat->update();
+
+        // TODO add a toast notification 'Appartamento aggiornato'
+        return redirect()->route('admin.flats.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

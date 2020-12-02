@@ -83,6 +83,23 @@
         </div>
         {{-- /edit button --}}
 
+        {{-- pause button/form --}}
+        <form class="m-2" action="{{ route('admin.flats.update_status', $flat->slug) }}" method="POST">
+
+          @csrf
+          @method('PUT')
+
+          <button type="submit">
+            @if ($flat->active == 1)
+              <i class="fas fa-pause"></i>
+            @else
+              <i class="fas fa-play"></i>
+            @endif
+          </button>
+
+        </form>
+        {{-- /pause button/form --}}
+
         {{-- delete button/form --}}
         <form class="delete m-2" action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
 
