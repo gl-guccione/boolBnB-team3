@@ -230,6 +230,11 @@ jQuery(function() {
 
   }
 
+  // function to load inside admin.flats.create
+  if ($("#admin_flats_create").length) {
+    algoliaAddress();
+  }
+
 
 
 
