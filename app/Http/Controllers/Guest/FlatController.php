@@ -12,20 +12,6 @@ use App\Flat;
 
 class FlatController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        // TODO I think we don't need the index!!
-
-        $flats = Flat::all();
-
-        return view('ui.home', compact('flats'));
-    }
-
     /**
      * Display the specified resource.
      *

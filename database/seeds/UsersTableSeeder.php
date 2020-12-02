@@ -19,8 +19,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // TODO add user UPR and UPRA
-
         // defining the number of user to generate
         $users_to_generate = 25;
 
