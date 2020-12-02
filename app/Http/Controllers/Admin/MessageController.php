@@ -63,6 +63,6 @@ class MessageController extends Controller
         $user_id = Auth::id();
         Message::find($id)->where('user_id', $user_id)->first()->delete();
 
-        return view('admin.messages.index');
+        return view('admin.messages.index')->with('record_added', 'Messaggio eliminato correttamente!');
     }
 }

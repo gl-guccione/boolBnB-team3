@@ -122,7 +122,7 @@ class FlatController extends Controller
             $newImage->save();
         }
 
-        return redirect()->route('guest.flats.show', $newFlat->slug);
+        return redirect()->route('guest.flats.show', $newFlat->slug)->with('record_added', 'Appartamento creato correttamente!');
     }
 
     /**

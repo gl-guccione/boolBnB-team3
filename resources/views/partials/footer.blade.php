@@ -106,18 +106,18 @@
 
   </div>
 
-  {{-- script for toastr --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous"></script>
-  {{-- /script for toastr --}}
-
-  {{-- toastr --}}
+  {{-- toast --}}
   @if (Session::has('record_added'))
-    <script>
-      toastr.success("{!!Session::get('record_added')!!}");
-    </script>
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000" style="position: absolute; top: 75px; right: 15px; background-color: #4cbb60; border-radius: 10px">
+      <div class="toast-body" style="">
+        <span style="color: #fff">{!!Session::get('record_added')!!}</span>
+      </div>
+    </div>
+
   @endif
-  {{-- /toastr --}}
+
+  {{-- /toast --}}
 
 </body>
 </html>

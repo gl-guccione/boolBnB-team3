@@ -224,6 +224,9 @@ function checkParameters() {
 
 jQuery(function() {
 
+  // function to activate toast notifications
+  $('.toast').toast('show');
+
   // loading algoliaCity inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
     algoliaCity();
