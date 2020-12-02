@@ -39,17 +39,17 @@ class MessageController extends Controller
     public function show($id)
     {
         $user_id = Auth::id();
-        $message = Message::find($id)->where('user_id', $user_id)->first();
 
-        // TODO update the 'seen' value when the user see the message
-        // could be wrong
+        $message = Message::find($id);
+
+        // update the 'seen' value when the user see the message
         if ($message->seen == false) {
           $message->seen = true;
           $message->update();
         }
 
         // TODO we should use API for this method
-        return view('admin.messages.show', compact('messages'));
+        return view('admin.messages.show', compact('message'));
     }
 
     /**
