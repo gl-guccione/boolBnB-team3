@@ -199,7 +199,7 @@ function printFlats(data) {
 function checkParameters() {
   console.log($("#city").attr("data-algolia"));
 
-  if ($("#city").attr("data-algolia") == "" && $("#data-algolia").val() == "") {
+  if ($("#city").attr("data-algolia") == "") {
     alert('inserisci una città!');
     return false;
   }
@@ -212,7 +212,7 @@ function checkParameters() {
     return false;
   }
   if ($("#adults").val() == "" || $("#adults").val() < 1) {
-    alert('inserisci una data di check-in!');
+    alert('inserisci il numero di ospiti!');
     return false;
   }
 
