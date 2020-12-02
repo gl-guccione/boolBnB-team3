@@ -22,7 +22,9 @@ function algoliaCity() {
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#city').value = e.suggestion.name || '';
 
-    $("#data-algolia").val(e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng);
+    let latlng = e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng;
+    $("#data-algolia").val(latlng);
+    $("#city").attr("data-algolia", latlng);
   });
 }
 
@@ -206,10 +208,10 @@ function checkParameters() {
     return false;
   }
   if ($("#check_out").val() == "") {
-    alert('inserisci una data di check-in!');
+    alert('inserisci una data di check-out!');
     return false;
   }
-  if ($("#adults").val() == "" || $("#adults").val() <= 1) {
+  if ($("#adults").val() == "" || $("#adults").val() < 1) {
     alert('inserisci una data di check-in!');
     return false;
   }
@@ -235,8 +237,6 @@ jQuery(function() {
   // functions to load inside search
   if ($("#guest_search").length) {
 
-      $("#data-algolia").val("");
-
       // open filter div on click
       $('#filters').on('click', function() {
         $('.form-check').addClass('block').toggle();
@@ -254,7 +254,7 @@ jQuery(function() {
       $("#submitSearch").click(function() {
         // TODO check if the required parameters is set
         if (checkParameters()) {
-          getFlats($("#data-algolia").val());
+          getFlats($("#city").attr("data-algolia"));
         }
       });
 
