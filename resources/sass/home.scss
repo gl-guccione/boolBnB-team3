@@ -97,8 +97,8 @@
         text-shadow: 2px 2px 5px grey;
         padding: 20px;
 
-      p {
-        font-size: 20px;
+      i.fa-star, i.fa-star-half {
+        color: #FF385C;
       }
       }
 
@@ -107,7 +107,7 @@
       }
 
       &:hover img {
-        transform: scale(1.5);
+        transform: scale(1.1);
         position: absolute;
         z-index: 3;
       }

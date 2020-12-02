@@ -76,7 +76,6 @@
       {{-- /jumbotron --}}
 
     </div>
-
     <div class="container">
       <!-- project description -->
       <div class="row project-description">
@@ -108,7 +107,7 @@
       <div id="sponsored-flats" class="row">
         @foreach ($flats as $flat)
 
-          <div class="flat_box col-12 col-sm-10 offset-sm-1 col-md-6 col-lg-4 col-xl-3">
+          <div class="flat_box col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3">
             <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
             <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
             <div class="overlay">
