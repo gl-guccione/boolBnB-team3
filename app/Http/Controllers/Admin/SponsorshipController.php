@@ -121,10 +121,10 @@ class SponsorshipController extends Controller
             $newSponsorship->payment_id = $newPayment->id;
             $newSponsorship->sponsorship_price_id = $sponsorship->id;
             $newSponsorship->date_of_start= Carbon::now();
-            $newSponsorship->date_of_end = Carbon::now()->addMinutes(10);
+            $newSponsorship->date_of_end = Carbon::now()->addHours($sponsorship->duration_in_hours);
 
             $newSponsorship->save();
-        
+        dd($newSponsorship);
             return back()->with('success_message', 'Hai pagato correttamente '.$transaction->amount.'€');
         
         } else {
