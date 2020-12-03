@@ -124,7 +124,7 @@ class SponsorshipController extends Controller
             $newSponsorship->date_of_end = Carbon::now()->addHours($sponsorship->duration_in_hours);
 
             $newSponsorship->save();
-        dd($newSponsorship);
+        
             return back()->with('success_message', 'Hai pagato correttamente '.$transaction->amount.'€');
         
         } else {
