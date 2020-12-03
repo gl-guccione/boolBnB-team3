@@ -1,30 +1,8 @@
 #guest_search {
 
-    .hero {
-        margin-top: 50px;
-        width: 100vw;
-        height: 60vh;
-        background-image: url('');
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: relative;
-        border-bottom: 2px solid $mainGrey;
-        z-index: 3;
-
-        .form-box {
-            width: 70vw;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-
-            .line {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-
-            }
+        .form-search {
+            top: 10%;
+            padding: 20px;
 
             #submitSearch {
                 width: 100%;
@@ -59,7 +37,6 @@
                 display: block;
             }
         }
-    }
 
 
 #results {
