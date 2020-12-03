@@ -26,13 +26,14 @@
           {{-- input algolia search --}}
           <div class="form-row">
             <div class="form-group col-2">
-                <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
+              <label for="city"><strong>Dove</strong></label>
+              <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
             </div>
             <div class="form-group col-2">
-              <div class="fl_left">
-                <label class="l_height_30 d-none d-lg-block" for="algolia_radius"><strong>Raggio di ricerca</strong></label>
+              <div class="">
+                <label class="" for="algolia_radius"><strong>Raggio di ricerca</strong></label>
               </div>
-              <div class="fl_left">
+              <div class="">
                 <select class="form-control" id="algolia_radius" name="algolia_radius" required>
                   <option value="10">10km</option>
                   <option value="20" selected>20km</option>
@@ -95,7 +96,7 @@
           <div class="form-row">
 
               <div class="form-group offset-11 col-1">
-                <a id="filters" class="btn submit">Altri filtri <i class="fas fa-chevron-down"></i></a>
+                <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
               </div>
           </div>
 
