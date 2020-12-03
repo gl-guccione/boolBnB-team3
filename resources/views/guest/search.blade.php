@@ -136,6 +136,8 @@
 
   <script id="flat-template" type="text/x-handlebars-template">
     <div class="entry-flat">
+      <a href='@{{slug}}'></a>
+
       <div class="flat-img-box">
         <img src="/storage/@{{image}}" alt="@{{ title }}">
       </div>
