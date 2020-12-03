@@ -92,7 +92,7 @@
               <a id="submitSearch" class="btn btn-primary">Cerca</a>
             </div>
               <div class="form-group col-6">
-                <a id="filters" class="btn">more filters <i class="fas fa-chevron-down"></i></a>
+                <a id="filters" class="btn">Altri filtri <i class="fas fa-chevron-down"></i></a>
               </div>
 
             </div>
