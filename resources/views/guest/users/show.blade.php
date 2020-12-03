@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('pageName', 'guest_user_show')
+
+
+
 @section('content')
 
   {{-- page wrapper --}}
@@ -8,11 +12,11 @@
     {{-- user info --}}
     <div class="user_container">
       <div class="row">
-        <div class="col-lg-3 col-xs-2 avatar">
+        <div class="col-lg-3 col-sm-2 avatar">
           <img src="{{$user->avatar}}" alt="avatar utente">
         </div>
 
-        <div class="col-lg-9 col-xs-10  user_infos">
+        <div class="col-lg-9 col-sm-10  user_infos">
           <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
           <h4>{{$user->description}}</h4>
         </div>
@@ -32,11 +36,11 @@
           {{-- flat --}}
           <div class="row flats_list">
 
-            <div class="col-4 flat-img ">
+            <div class="col-lg-4 col-md-6 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
 
-            <div class="col-8 flat-info">
+            <div class="col-lg-8 col-md-6 flat-info">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->description}}</p>
 
