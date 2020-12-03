@@ -15,7 +15,7 @@
     <div class="container-fluid px-0 jumbo">
       <div class="row no-gutters">
         <div class="col-12">
-          <img class="" src={{ asset('img/img1.jpeg') }} alt="carousel_img">
+          <img class="hero-search" src={{ asset('img/img2.jpg') }} alt="hero_img">
         </div>
       </div>
       {{-- form --}}
@@ -25,11 +25,11 @@
 
           {{-- input algolia search --}}
           <div class="form-row">
-            <div class="form-group col-xl-2 col-sm-3 col-2">
+            <div class="form-group col-xl-2 col-sm-3 col-6">
               <label for="city"><strong>Dove</strong></label>
               <input type="search" id="city" data-algolia="{{ $data_algolia }}" class="form-control" placeholder="Inserisci indirizzo" value="{{ $algolia }}" required>
             </div>
-            <div class="form-group col-xl-2 col-sm-3 col-2">
+            <div class="form-group col-xl-2 col-sm-3 col-6">
               <div class="">
                 <label class="" for="algolia_radius"><strong>Raggio di ricerca</strong></label>
               </div>
@@ -43,59 +43,59 @@
                 </select>
               </div>
             </div>
-            <div class="form-group col-xl-1 col-sm-3 col-1">
+            <div class="form-group col-xl-1 col-sm-3 col-6">
 
                 <label for="check_in"><strong>Check-in</strong></label>
                 <input name="check_in" type="date" class="form-control" id="check_in" placeholder="Inserisci titolo" min="{{ $today }}" value="{{ $check_in }}" required>
 
             </div>
-            <div class="form-group col-xl-1 col-sm-3 col-1">
+            <div class="form-group col-xl-1 col-sm-3 col-6">
 
                 <label for="check_out"><strong>Check-out</strong></label>
                 <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" min="{{ $today }}" value="{{ $check_out }}" required>
 
             </div>
             {{-- ospiti --}}
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-2">
 
               <label for="adults"><strong>Ospiti</strong></label>
               <input name="adults" type="number" class="form-control" id="adults" placeholder="Adulti" min="1" value="{{ $adults }}" required>
 
             </div>
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-2">
 
               <label for="adults"><strong>Bambini</strong></label>
               <input name="children" type="number" class="form-control" id="children" placeholder="Bambini" min="0" value="{{ $children }}">
 
             </div>
             {{-- stanze-bagni-letti --}}
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-2">
 
               <label for="adults"><strong>Stanze</strong></label>
               <input type="number" class="form-control" id="rooms" placeholder="Min." min="1">
 
             </div>
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-2">
 
               <label for="adults"><strong>Letti</strong></label>
               <input type="number" class="form-control" id="beds" placeholder="Min." min="1">
 
             </div>
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-2">
 
               <label for="adults"><strong>Bagni</strong></label>
               <input type="number" class="form-control" id="bathrooms" placeholder="Min." min="1">
 
               {{-- SUBMIT --}}
             </div>
-            <div class="form-group col-xl-1 col-sm-2 col-1">
+            <div class="form-group col-xl-1 col-sm-2 col-4">
               <a id="submitSearch" class="btn btn-primary submit">Cerca</a>
             </div>
           </div>
 
           <div class="form-row">
 
-              <div class="form-group offset-10 col-2">
+              <div class="form-group offset-sm-10 col-4">
                 <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
               </div>
           </div>

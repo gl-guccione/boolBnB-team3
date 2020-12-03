@@ -1,5 +1,9 @@
 #guest_search {
 
+  .hero-search {
+    width: 100%;
+  }
+
         .form-search {
             top: 10%;
             padding: 20px;
@@ -53,6 +57,20 @@
           bottom: -78px;
         }
       }
+
+      @media screen and (max-width: 571px){
+        .form-check {
+          bottom: -106px;
+        }
+      }
+
+      @media screen and (max-width: 389px){
+        .form-check {
+          bottom: -246px;
+        }
+      }
+
+
 
 
 #results {
