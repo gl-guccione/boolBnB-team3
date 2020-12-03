@@ -3,20 +3,20 @@
 @section('content')
 
   {{-- page wrapper --}}
-  <div class="page_wrapper">
+  <div class="container page_wrapper">
 
     {{-- user info --}}
     <div class="user_container">
+      <div class="row">
+        <div class="col-lg-3 col-xs-2 avatar">
+          <img src="{{$user->avatar}}" alt="avatar utente">
+        </div>
 
-      <div class="avatar">
-        <img src="{{$user->avatar}}" alt="avatar utente">
+        <div class="col-lg-9 col-xs-10  user_infos">
+          <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
+          <h4>{{$user->description}}</h4>
+        </div>
       </div>
-
-      <div class="user_infos">
-        <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
-        <h4>{{$user->description}}</h4>
-      </div>
-
     </div>
     {{-- /user info --}}
 
@@ -26,16 +26,17 @@
       <h2>I miei appartamenti:</h2>
 
       <div class="flats_list">
+
         @foreach($user->flats as $flat)
 
           {{-- flat --}}
-          <div>
+          <div class="row flats_list">
 
-            <div class="flat-img">
+            <div class="col-4 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
 
-            <div class="flat-info">
+            <div class="col-8 flat-info">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->description}}</p>
 
@@ -52,13 +53,13 @@
                 @endphp
 
                 @for ($i = 0; $i < $star; $i++)
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star star"></i>
                 @endfor
                 @for ($i = 0; $i < $half_star; $i++)
-                  <i class="fas fa-star-half"></i>
+                  <i class="fas fa-star-half star"></i>
                 @endfor
 
-                ({{ $flat->stars / 2 }})
+                {{--({{ $flat->stars / 2 }})--}}
 
               </span>
             </div>
@@ -75,7 +76,7 @@
       <h2>Questo utente non ha pubblicato nessun appartamento</h2>
 
     @endif
-
+    
   </div>
   {{-- /page wrapper --}}
 
