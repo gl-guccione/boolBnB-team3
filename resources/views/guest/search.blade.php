@@ -136,6 +136,7 @@
 
   <script id="flat-template" type="text/x-handlebars-template">
     <div class="entry-flat">
+    <!-- <div class="col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3"></div> -->
       <a href='@{{slug}}'></a>
 
       <div class="flat-img-box">
