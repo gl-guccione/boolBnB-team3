@@ -72,7 +72,9 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'image',
+              'images' => 'required|max:5',
+              'images.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
+
             ]
         );
 
@@ -112,14 +114,22 @@ class FlatController extends Controller
 
         if (isset($data["images"]))
         {
-            $imagePath = Storage::disk("public")->put("images", $data["images"]);
+            foreach ($data["images"] as $key => $image) {
 
-            $newImage = new Image;
-            $newImage->index = 1;
-            $newImage->flat_id = $newFlat->id;
-            $newImage->path = $imagePath;
+              $imagePath = Storage::disk("public")->put("images", $image);
 
-            $newImage->save();
+              $newImage = new Image;
+
+              $index = $key;
+
+              $newImage->index = $index + 1;
+              $newImage->flat_id = $newFlat->id;
+              $newImage->path = $imagePath;
+
+              $newImage->save();
+
+            }
+
         }
 
         return redirect()->route('guest.flats.show', $newFlat->slug)->with('record_added', 'Appartamento creato correttamente!');
@@ -183,7 +193,8 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'image',
+              'images' => 'required',
+              'image.*' => 'image|mimes:jpeg,jpg,png'
             ]
         );
 
