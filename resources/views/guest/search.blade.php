@@ -10,7 +10,7 @@
 
 @section('content')
 
-  <div id="SearchPage">
+  <div id="SearchPage"></div>
 
   {{-- Form visibile da tablet e desktop --}}
   <div class="d-none d-xs-none d-sm-none d-md-block d-lg-block">
@@ -146,6 +146,5 @@
     </div>
   </script>
 
-  </div>
 </div>
 @endsection
