@@ -35,13 +35,13 @@
       <div class="flats_list">
 
         @foreach($user->flats as $flat)
-          <div class="flat-box">
+          <div class="flat-box col-lg-12 col-sm-12 col-md-12">
           {{-- flat --}}
-            <div class="col-lg-4 col-md-6 flat-img ">
+            <div class="col-lg-4 col-md-12 col-xl-12 col-xs-12 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
 
-            <div class="col-lg-8 col-md-6 flat-info">
+            <div class="col-lg-8 col-md-12 col-xl-12 col-xs-12 flat-info">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->description}}</p>
 
