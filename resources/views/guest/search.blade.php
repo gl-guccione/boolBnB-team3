@@ -91,14 +91,14 @@
             <div class="form-group col-xl-1 col-sm-2 col-4">
               <a id="submitSearch" class="btn btn-primary submit">Cerca</a>
             </div>
+
+            <div class="form-group offset-sm-10 col-sm-2 col-2">
+              <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
+            </div>
           </div>
 
-          <div class="form-row">
 
-              <div class="form-group offset-sm-10 col-4">
-                <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
-              </div>
-          </div>
+
 
             {{-- options --}}
             <div class="form-check ">
@@ -124,7 +124,7 @@
 
 
   {{-- results --}}
-  <section class="container" id="results">
+  <section class="container results" id="results">
     <div class="row flat-line" id="sponsored">
 
     </div>
