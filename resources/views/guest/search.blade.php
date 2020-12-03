@@ -97,9 +97,7 @@
               <div class="form-group offset-11 col-1">
                 <a id="filters" class="btn submit">Altri filtri <i class="fas fa-chevron-down"></i></a>
               </div>
-
-
-            </div>
+          </div>
 
             {{-- options --}}
             <div class="form-check ">
@@ -111,6 +109,7 @@
             @endforeach
             </div>
             {{-- /options --}}
+
 
 
             </form>
