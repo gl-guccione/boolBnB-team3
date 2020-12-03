@@ -3,7 +3,12 @@
 @section('pageName', 'guest_flats_show')
 
 @section('content')
+  {{-- dont't touch --}}
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+
+  {{-- /dont't touch --}}
+  
   {{-- carousel images --}}
 
   {{-- TODO display images as carousel --}}
@@ -115,6 +120,16 @@
     </ul>
   @endif
   {{-- /extra info --}}
+  
+  {{-- algolia map --}}
+  
+  <div id="map-example-container"></div>
+  
+  <style>
+    #map-example-container {height: 300px; width:500px};
+  </style>
+  
+  {{-- /algolia map --}}
 
   {{-- form - send message --}}
 
@@ -183,4 +198,45 @@
   @endif
   {{-- show errors --}}
 
+
+  {{--  function that show map for flats --}}
+  <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+  <script>
+
+    (function() {
+
+      var map = L.map('map-example-container', {
+        scrollWheelZoom: false,
+        zoomControl: true
+      });
+
+      var osmLayer = new L.TileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          minZoom: 0.2,
+          maxZoom: 10,
+        }
+      );
+
+      var markers = [];
+
+      map.setView(new L.LatLng(0, 0), 1);
+      map.addLayer(osmLayer);
+
+      function addMarker() {
+        var marker = L.marker({lat:{{$flat->lat}},lng:{{$flat->lng}}}, {opacity: .4});
+        marker.addTo(map);
+        markers.push(marker);
+      }
+
+      function findBestZoom() {
+        var featureGroup = L.featureGroup(markers);
+        map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
+      }
+
+
+      addMarker();
+      findBestZoom();
+      
+    })();
+  </script>
 @endsection

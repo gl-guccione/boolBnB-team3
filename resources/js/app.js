@@ -22,7 +22,9 @@ function algoliaCity() {
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#city').value = e.suggestion.name || '';
 
-    $("#data-algolia").val(e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng);
+    let latlng = e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng;
+    $("#data-algolia").val(latlng);
+    $("#city").attr("data-algolia", latlng);
   });
 }
 
@@ -197,7 +199,7 @@ function printFlats(data) {
 function checkParameters() {
   console.log($("#city").attr("data-algolia"));
 
-  if ($("#city").attr("data-algolia") == "" && $("#data-algolia").val() == "") {
+  if ($("#city").attr("data-algolia") == "") {
     alert('inserisci una città!');
     return false;
   }
@@ -206,11 +208,11 @@ function checkParameters() {
     return false;
   }
   if ($("#check_out").val() == "") {
-    alert('inserisci una data di check-in!');
+    alert('inserisci una data di check-out!');
     return false;
   }
-  if ($("#adults").val() == "" || $("#adults").val() <= 1) {
-    alert('inserisci una data di check-in!');
+  if ($("#adults").val() == "" || $("#adults").val() < 1) {
+    alert('inserisci il numero di ospiti!');
     return false;
   }
 
@@ -221,6 +223,9 @@ function checkParameters() {
 
 
 jQuery(function() {
+
+  // function to activate toast notifications
+  $('.toast').toast('show');
 
   // loading algoliaCity inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
@@ -234,8 +239,6 @@ jQuery(function() {
 
   // functions to load inside search
   if ($("#guest_search").length) {
-
-      $("#data-algolia").val("");
 
       // open filter div on click
       $('#filters').on('click', function() {
@@ -254,7 +257,7 @@ jQuery(function() {
       $("#submitSearch").click(function() {
         // TODO check if the required parameters is set
         if (checkParameters()) {
-          getFlats($("#data-algolia").val());
+          getFlats($("#city").attr("data-algolia"));
         }
       });
 
