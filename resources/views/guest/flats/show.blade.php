@@ -115,6 +115,22 @@
     </ul>
   @endif
   {{-- /extra info --}}
+  
+  {{-- algolia map --}}
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+
+
+  <div id="map-example-container"></div>
+  <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+  
+  <style>
+    #map-example-container {height: 300px};
+  </style>
+  
+  
+  
+  {{-- /algolia map --}}
 
   {{-- form - send message --}}
 
