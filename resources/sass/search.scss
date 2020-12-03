@@ -10,18 +10,13 @@
             }
 
             #submitSearch {
+              margin-top: 30px;
                 width: 100%;
             }
 
             #filters:hover {
                 color: #007BFF;
             }
-        }
-
-        .l_height_30 {
-            width: 120px;
-            line-height: 35px;
-            margin-right: 2%;
         }
 
         .form-check {
@@ -38,13 +33,26 @@
             padding-left: 30px;
 
             .checkbox {
-                min-width: 200px;
+                min-width: 180px;
             }
 
             .block {
                 display: block;
             }
         }
+
+      @media screen and (max-width: 929px) {
+
+        .form-check {
+          bottom: -53px;
+        }
+      }
+
+      @media screen and (max-width: 749px) {
+        .form-check {
+          bottom: -78px;
+        }
+      }
 
 
 #results {
