@@ -1,6 +1,7 @@
 #guest_search {
 
     .hero {
+        margin-top: 50px;
         width: 100vw;
         height: 60vh;
         background-image: url('');
@@ -22,9 +23,7 @@
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                .address {
-                    width: 70%;
-                }
+
             }
 
             #submitSearch {
