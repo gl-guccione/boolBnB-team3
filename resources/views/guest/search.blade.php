@@ -91,14 +91,14 @@
             <div class="form-group col-xl-1 col-sm-2 col-4">
               <a id="submitSearch" class="btn btn-primary submit">Cerca</a>
             </div>
+
+            <div class="form-group offset-sm-10 col-sm-2 col-2">
+              <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
+            </div>
           </div>
 
-          <div class="form-row">
 
-              <div class="form-group offset-sm-10 col-4">
-                <a id="filters" class="btn ">Altri filtri <i class="fas fa-chevron-down"></i></a>
-              </div>
-          </div>
+
 
             {{-- options --}}
             <div class="form-check ">
@@ -124,7 +124,7 @@
 
 
   {{-- results --}}
-  <section class="container" id="results">
+  <section class="container results" id="results">
     <div class="row flat-line" id="sponsored">
 
     </div>
@@ -136,6 +136,9 @@
 
   <script id="flat-template" type="text/x-handlebars-template">
     <div class="entry-flat">
+    <!-- <div class="col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3"></div> -->
+      <a href='@{{slug}}'></a>
+
       <div class="flat-img-box">
         <img src="/storage/@{{image}}" alt="@{{ title }}">
       </div>
