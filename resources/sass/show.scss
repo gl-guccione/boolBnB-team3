@@ -37,7 +37,7 @@
     }
 
     .flat-img {
-        border: 1px solid grey;
+        border: 1px solid $mainGrey;
         border-right: none;
         box-shadow: 2px 2px 15px darkgrey;
         height: 250px;
@@ -51,7 +51,7 @@
     .flat-info {
         height: 250px;
         padding: 2%;
-        border: 1px solid grey;
+        border: 1px solid $mainGrey;
         border-left: none;
         box-shadow: 2px 2px 15px darkgrey;
         overflow: hidden;
@@ -74,14 +74,159 @@
 /* Smartphone */
 
 @media only screen and (max-width: 768px) {
+
+    .user_container {
+        height: 600px;
+        margin: 5% 0;
+    }
     
+    .avatar {
+        height: 200px;
+        border: 1px solid transparent;
+        border-radius: 100%;
+        overflow: hidden;
+        float: left;
     
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+    }
+    
+    .user_infos {
+        //width: calc(100% - 201px);
+        h4 {
+            font-size: 10px;
+            line-height: 25px;
+        }
+    }
+    
+    .flats_list {
+        min-height: 250px;
+        margin: 5% 0;
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .flat-box {
+            margin: 5% 0;
+            border-radius: 5px;
+        }
+    
+        .flat-img {
+            border: 1px solid $mainGrey;
+            box-shadow: 2px 2px 15px darkgrey;
+            height: 250px;
+    
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    
+        .flat-info {
+            height: 250px;
+            padding: 2%;
+            border: 1px solid $mainGrey;
+            box-shadow: 2px 2px 15px darkgrey;
+            overflow: hidden;
+    
+            h3 {
+                font-weight: 700;
+                font-size: 15px;
+            }
+    
+            p {
+               font-size: 10px;
+            }
+    
+            .star {
+                color: #E9A100;
+            }
+        }
+    }
       
 }
 
 /* Tablet */
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
+
+    .user_container {
+        height: 350px;
+        margin: 5% 0 10% 0;
+    }
+    
+    .avatar {
+        height: 350px;
+        border: 1px solid blue;
+        border: 1px solid transparent;
+        border-radius: 100%;
+        overflow: hidden;
+        float: left;
+    
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+    }
+    
+    .user_infos {
+        height: 350px;
+        //width: calc(100% - 201px);
+        h4 {
+            font-size: 15px;
+            line-height: 25px;
+        }
+    }
+    
+    .flats_list {
+        min-height: 250px;
+        margin: 5% 0;
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    
+        .flat-img {
+            border: 1px solid $mainGrey;
+            border-right: none;
+            box-shadow: 2px 2px 15px darkgrey;
+            height: 250px;
+    
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    
+        .flat-info {
+            height: 250px;
+            padding: 2%;
+            border: 1px solid $mainGrey;
+            border-left: none;
+            box-shadow: 2px 2px 15px darkgrey;
+            overflow: hidden;
+    
+            h3 {
+                font-weight: 700;
+                font-size: 15px;
+            }
+    
+            p {
+               font-size: 10px;
+            }
+    
+            .star {
+                color: #E9A100;
+            }
+        }
+    }
 
 }
 

@@ -3,20 +3,19 @@
 @section('pageName', 'guest_user_show')
 
 
-
 @section('content')
 
   {{-- page wrapper --}}
   <div class="container page_wrapper">
 
     {{-- user info --}}
+    <div class="row">
     <div class="user_container">
-      <div class="row">
-        <div class="col-lg-3 col-sm-2 avatar">
+        <div class="col-xl-3 col-lg-4 col-sm-12 col-md-4 avatar ">
           <img src="{{$user->avatar}}" alt="avatar utente">
         </div>
 
-        <div class="col-lg-9 col-sm-10  user_infos">
+        <div class="col-xl-9 col-lg-8 col-sm-12 col-md-8 user_infos">
           <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
           <h4>{{$user->description}}</h4>
         </div>
@@ -26,16 +25,18 @@
 
     @if (count($user->flats) > 0)
       {{-- flats list--}}
+    <div class="row">
+      <div class="col-12">
+        <h2>I miei appartamenti:</h2>
+      </div>
+    </div>
 
-      <h2>I miei appartamenti:</h2>
-
+    <div class="row">
       <div class="flats_list">
 
         @foreach($user->flats as $flat)
-
+          <div class="flat-box">
           {{-- flat --}}
-          <div class="row flats_list">
-
             <div class="col-lg-4 col-md-6 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
@@ -67,14 +68,11 @@
 
               </span>
             </div>
-
-          </div>
           {{-- /flat --}}
-
+          </div>
         @endforeach
-      </div>
       {{-- /flats list--}}
-
+    </div>
     @else
 
       <h2>Questo utente non ha pubblicato nessun appartamento</h2>
