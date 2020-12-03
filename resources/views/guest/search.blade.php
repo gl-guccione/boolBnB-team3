@@ -88,18 +88,17 @@
               <input type="number" class="form-control" id="bathrooms" placeholder="Minimo bagni" min="1">
 
             </div>--}}
-            <div class="form-group col-xl-2 col-md-4 col-sm-6">
+            <div class="form-group col-6">
               <a id="submitSearch" class="btn btn-primary">Cerca</a>
             </div>
+              <div class="form-group col-6">
+                <a id="filters" class="btn">more filters <i class="fas fa-chevron-down"></i></a>
+              </div>
 
             </div>
 
           {{--SUBMIT  --}}
-          <div class="form-row">
-            <div class="form-group col-xl-2">
-              <a id="filters" class="btn">more filters <i class="fas fa-chevron-down"></i></a>
-            </div>
-          </div>
+
 
           {{-- options --}}
           <div class="form-check ">
