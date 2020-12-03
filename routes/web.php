@@ -28,6 +28,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::post('flats', 'FlatController@store')->name('flats.store');
     Route::get('flats/{slug}/edit', 'FlatController@edit')->name('flats.edit');
     Route::put('flats/{slug}', 'FlatController@update')->name('flats.update');
+    Route::put('flats/status/{slug}', 'FlatController@update_status')->name('flats.update_status');
     Route::delete('flats/{slug}', 'FlatController@destroy')->name('flats.destroy');
 
     // messages routes

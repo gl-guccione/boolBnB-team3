@@ -42,12 +42,6 @@ class MessageController extends Controller
 
         $newMessage->save();
 
-        $notification =[
-          'message' => 'Messaggio inviato correttamente!',
-          'alert-type' => 'success'
-        ];
-
-        // TODO add a toast notification
-        return redirect()->back();
+        return redirect()->back()->with('record_added', 'Messaggio inviato correttamente!');
     }
 }

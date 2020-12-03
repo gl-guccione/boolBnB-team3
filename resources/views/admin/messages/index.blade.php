@@ -33,7 +33,7 @@
             <div class="mex_offset">{{$message->date_of_send}}</div>
 
             {{-- TODO show the complete message with api --}}
-            <a class="mex_offset" href="#">Leggi</a>
+            <a class="mex_offset" href="{{ route('admin.messages.show', $message->id) }}">Leggi</a>
 
           </div>
 

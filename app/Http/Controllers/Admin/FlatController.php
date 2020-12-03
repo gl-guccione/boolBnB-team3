@@ -72,7 +72,9 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'image',
+              'images' => 'required|max:5',
+              'images.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
+
             ]
         );
 
@@ -112,17 +114,25 @@ class FlatController extends Controller
 
         if (isset($data["images"]))
         {
-            $imagePath = Storage::disk("public")->put("images", $data["images"]);
+            foreach ($data["images"] as $key => $image) {
 
-            $newImage = new Image;
-            $newImage->index = 1;
-            $newImage->flat_id = $newFlat->id;
-            $newImage->path = $imagePath;
+              $imagePath = Storage::disk("public")->put("images", $image);
 
-            $newImage->save();
+              $newImage = new Image;
+
+              $index = $key;
+
+              $newImage->index = $index + 1;
+              $newImage->flat_id = $newFlat->id;
+              $newImage->path = $imagePath;
+
+              $newImage->save();
+
+            }
+
         }
 
-        return redirect()->route('guest.flats.show', $newFlat->slug);
+        return redirect()->route('guest.flats.show', $newFlat->slug)->with('record_added', 'Appartamento creato correttamente!');
     }
 
     /**
@@ -183,7 +193,8 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'image',
+              'images' => 'required',
+              'image.*' => 'image|mimes:jpeg,jpg,png'
             ]
         );
 
@@ -220,7 +231,30 @@ class FlatController extends Controller
             $flat->options()->sync($data["options"]);
         }
 
-        return redirect()->route('guest.flats.show', $flat->slug);
+        return redirect()->route('guest.flats.show', $flat->slug)->with('record_added', 'Appartamento aggiornato correttamente!');
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function update_status(Request $request, $slug)
+    {
+
+        $flat = Flat::where('slug', $slug)->first();
+
+        if ($flat->active) {
+          $flat->active = 0;
+        } else {
+          $flat->active = 1;
+        }
+
+        $flat->update();
+
+        return redirect()->route('admin.flats.index')->with('record_added', 'Appartamento aggiornato correttamente!');
     }
 
     /**
@@ -235,6 +269,6 @@ class FlatController extends Controller
         $flat = Flat::where('slug', $slug)->where('user_id', $user_id)->first();
         $flat->delete();
 
-        return redirect()->route('admin.flats.index');
+        return redirect()->route('admin.flats.index')->with('record_added', 'Appartamento eliminato correttamente!');
     }
 }

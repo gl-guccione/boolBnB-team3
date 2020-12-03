@@ -62,7 +62,7 @@
 
                                   {{-- link for admin.statistics.index --}}
                                   {{-- TODO add correct route --}}
-                                  <a class="dropdown-item" href="{{ route('login') }}">Statistiche</a>
+                                  <a class="dropdown-item" href="{{ route('admin.statistics') }}">Statistiche</a>
 
                                 @endif
 

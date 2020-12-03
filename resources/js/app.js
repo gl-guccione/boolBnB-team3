@@ -22,7 +22,9 @@ function algoliaCity() {
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#city').value = e.suggestion.name || '';
 
-    $("#data-algolia").val(e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng);
+    let latlng = e.suggestion.latlng.lat +","+ e.suggestion.latlng.lng;
+    $("#data-algolia").val(latlng);
+    $("#city").attr("data-algolia", latlng);
   });
 }
 
@@ -102,7 +104,7 @@ function carousel() {
 }
 
 // function getFlats (make an ajax request and get flats)
-function getFlats(){
+function getFlats(latlng){
 
   // selecting the checked options if they exist
   let countOptions = $('.form-check').children('div').length;
@@ -120,7 +122,7 @@ function getFlats(){
     "url": "http://localhost:8000/api/geosearch",
     "method": "GET",
     "data": {
-      "latlng": $("#city").attr("data-algolia"),
+      "latlng": latlng,
       "radius": $("#algolia_radius").val(),
       "rooms": $("#rooms").val(),
       "beds": $("#beds").val(),
@@ -193,10 +195,37 @@ function printFlats(data) {
   }
 }
 
+// function that check if all the required parameters are set (guest_search)
+function checkParameters() {
+  console.log($("#city").attr("data-algolia"));
+
+  if ($("#city").attr("data-algolia") == "") {
+    alert('inserisci una città!');
+    return false;
+  }
+  if ($("#check_in").val() == "") {
+    alert('inserisci una data di check-in!');
+    return false;
+  }
+  if ($("#check_out").val() == "") {
+    alert('inserisci una data di check-out!');
+    return false;
+  }
+  if ($("#adults").val() == "" || $("#adults").val() < 1) {
+    alert('inserisci il numero di ospiti!');
+    return false;
+  }
+
+  return true;
+}
+
 // _______________________________________________________________________________________________________________________________________________
 
 
 jQuery(function() {
+
+  // function to activate toast notifications
+  $('.toast').toast('show');
 
   // loading algoliaCity inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
@@ -219,13 +248,17 @@ jQuery(function() {
       // start getFlats on load page if the attribute 'data-algolia' is set
       if($('#city').attr('data-algolia') != '') {
         // TODO check if the required parameters is set
-        getFlats();
+        if (checkParameters()) {
+          getFlats($("#city").attr("data-algolia"));
+        }
       }
 
       // start getFlats on button click
       $("#submitSearch").click(function() {
         // TODO check if the required parameters is set
-        getFlats();
+        if (checkParameters()) {
+          getFlats($("#city").attr("data-algolia"));
+        }
       });
 
   }

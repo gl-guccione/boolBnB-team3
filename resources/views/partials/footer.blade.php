@@ -106,5 +106,18 @@
 
   </div>
 
+  {{-- toast --}}
+  @if (Session::has('record_added'))
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000" style="position: absolute; top: 75px; right: 15px; background-color: #4cbb60; border-radius: 10px">
+      <div class="toast-body" style="">
+        <span style="color: #fff">{!!Session::get('record_added')!!}</span>
+      </div>
+    </div>
+
+  @endif
+
+  {{-- /toast --}}
+
 </body>
 </html>

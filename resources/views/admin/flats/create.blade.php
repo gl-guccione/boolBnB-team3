@@ -73,9 +73,7 @@
     {{-- immagini --}}
     <div class="form-group">
       <label for="images">Inserisci immagini</label>
-      <input id="images" type="file" class="form-control" name="images" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg">
-      {{-- TODO add more images --}}
-      {{-- <input id="images" type="file" class="form-control" name="images[]" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg"> --}}
+      <input id="images" type="file" class="form-control" name="images[]" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg">
     </div>
     {{-- /immagini --}}
 
