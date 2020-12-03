@@ -4,6 +4,11 @@
             top: 10%;
             padding: 20px;
 
+            .submit {
+              background-color: $colorMain;
+              border-color: #fff;
+            }
+
             #submitSearch {
                 width: 100%;
             }
