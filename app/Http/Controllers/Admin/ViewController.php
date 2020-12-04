@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+// using Carbon
+use Carbon\Carbon;
+
 // using Models
 use App\View;
 
@@ -20,10 +23,100 @@ class ViewController extends Controller
      */
     public function index()
     {
-        $views = View::whereHas('flat', function ($query) {
-          $query->where('user_id', Auth::id());
-        })->get();
+        // $views = View::whereHas('flat', function ($query) {
+        //   $query->where('user_id', Auth::id());
+        // })->get();
 
-        return view('admin.statistics.index', compact('views'));
+        // $total_views = View::where('flat_id', '3')->whereHas('flat', function ($query) {
+        //   $query->where('user_id', Auth::id());
+        // })->count();
+
+        $total_views = View::whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        // days
+        $today = Carbon::today();
+        $oneDayBefore = Carbon::today()->subDays(1);
+        $twoDaysBefore = Carbon::today()->subDays(2);
+        $threeDaysBefore = Carbon::today()->subDays(3);
+        $fourDaysBefore = Carbon::today()->subDays(4);
+        $fiveDaysBefore = Carbon::today()->subDays(5);
+        $sixDaysBefore = Carbon::today()->subDays(6);
+
+        $days_names = [
+          0 => $today->locale('it')->dayName,
+          1 => $oneDayBefore->locale('it')->dayName,
+          2 => $twoDaysBefore->locale('it')->dayName,
+          3 => $threeDaysBefore->locale('it')->dayName,
+          4 => $fourDaysBefore->locale('it')->dayName,
+          5 => $fiveDaysBefore->locale('it')->dayName,
+          6 => $sixDaysBefore->locale('it')->dayName,
+        ];
+
+        $today_views = View::where('date', '>', $today)->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $one_day_before_views = View::where([
+                                              ['date', '>', $oneDayBefore],
+                                              ['date', '<', $today]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $two_days_before_views = View::where([
+                                              ['date', '>', $twoDaysBefore],
+                                              ['date', '<', $oneDayBefore]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $three_days_before_views = View::where([
+                                              ['date', '>', $threeDaysBefore],
+                                              ['date', '<', $twoDaysBefore]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $four_days_before_views = View::where([
+                                              ['date', '>', $fourDaysBefore],
+                                              ['date', '<', $threeDaysBefore]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $five_days_before_views = View::where([
+                                              ['date', '>', $fiveDaysBefore],
+                                              ['date', '<', $fourDaysBefore]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+        $six_days_before_views = View::where([
+                                              ['date', '>', $sixDaysBefore],
+                                              ['date', '<', $fiveDaysBefore]
+                                            ])->whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->count();
+
+
+
+
+
+
+        $data = [
+          'total_views' => $total_views,
+          'today_views' => $today_views,
+          'one_day_before_views' => $one_day_before_views,
+          'two_days_before_views' => $two_days_before_views,
+          'three_days_before_views' => $three_days_before_views,
+          'four_days_before_views' => $four_days_before_views,
+          'five_days_before_views' => $five_days_before_views,
+          'six_days_before_views' => $six_days_before_views,
+          'days_names' => $days_names,
+        ];
+
+        return view('admin.statistics.index', $data);
     }
 }
