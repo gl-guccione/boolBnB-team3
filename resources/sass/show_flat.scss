@@ -1,0 +1,47 @@
+#guest_flats_show {
+
+  .jumbo {
+    overflow-x: hidden;
+
+    .left, .right {
+      position: absolute;
+      top: 50%;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .left i, .right i {
+      font-size: 100px;
+      color: #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .main-infos-flat {
+    padding: 10px;
+    text-align: center;
+    background-color: $lightGreen;
+    color: #fff;
+  }
+
+  .user_avatar {
+
+    img {
+      border-radius: 100%;
+      width: 100px;
+      float: left;
+    }
+
+    h3, p {
+    }
+  }
+}

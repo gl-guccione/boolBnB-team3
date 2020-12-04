@@ -1,5 +1,13 @@
 #guest_home {
 
+  .jumbo {
+    height: 100vh;
+    .photo-carousel {
+      width: 100vw;
+      height: 90vh;
+    }
+  }
+
   .form-home {
     top: 10%;
     left: 10%;
@@ -13,9 +21,12 @@
   }
 
   .project-description {
-    margin: 75px 0;
+    margin: 5% 0;
     padding: 25px;
     background-color: $lightGrey;
+    border: 3px solid #333333;
+    border-left: none;
+    border-right: none;
 
     p {
       font-size: 20px;
@@ -106,11 +117,15 @@
         display: block;
       }
 
-      &:hover img {
-        transform: scale(1.1);
-        position: absolute;
-        z-index: 3;
+      @media screen and (min-width: 768px){
+        &:hover img {
+          transform: scale(1.1);
+          position: absolute;
+          z-index: 3;
+        }
       }
+
+
 
    }
   }

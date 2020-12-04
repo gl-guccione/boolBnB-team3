@@ -1,41 +1,47 @@
 @extends('layouts.app')
 
+@section('pageName', 'guest_user_show')
+
+
 @section('content')
 
   {{-- page wrapper --}}
-  <div class="page_wrapper">
+  <div class="container page_wrapper">
 
     {{-- user info --}}
-    <div class="user_container">
+    <div class="row user_container">
+    
+        <div class="col-xl-3 col-lg-4 col-sm-5 col-md-4 col-xs-12 avatar">
+          <img src="{{$user->avatar}}" alt="avatar utente">
+        </div>
 
-      <div class="avatar">
-        <img src="{{$user->avatar}}" alt="avatar utente">
-      </div>
-
-      <div class="user_infos">
-        <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
-        <h4>{{$user->description}}</h4>
-      </div>
-
+        <div class="col-xl-9 col-lg-8 col-sm-7 col-md-8 col-xs-12 user_infos">
+          <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
+          <h4>{{$user->description}}</h4>
+        </div>
+      
     </div>
     {{-- /user info --}}
 
     @if (count($user->flats) > 0)
       {{-- flats list--}}
+    <div class="row title">
+      <div class="col-12">
+        <h2>I miei appartamenti:</h2>
+      </div>
+    </div>
 
-      <h2>I miei appartamenti:</h2>
-
+    <div class="">
       <div class="flats_list">
+
         @foreach($user->flats as $flat)
-
+          <div class="row flat-box" data-aos="fade-left">
           {{-- flat --}}
-          <div>
-
-            <div class="flat-img">
+            <div class="col-lg-4 col-md-4 col-xl-4 col-sm-12 col-xs-12 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
             </div>
 
-            <div class="flat-info">
+            <div class="col-lg-8 col-md-8 col-xl-8 col-sm-12 col-xs-12 flat-info">
               <h3>{{$flat->title}}</h3>
               <p>{{$flat->description}}</p>
 
@@ -52,31 +58,32 @@
                 @endphp
 
                 @for ($i = 0; $i < $star; $i++)
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star star"></i>
                 @endfor
                 @for ($i = 0; $i < $half_star; $i++)
-                  <i class="fas fa-star-half"></i>
+                  <i class="fas fa-star-half star"></i>
                 @endfor
 
-                ({{ $flat->stars / 2 }})
+                {{--({{ $flat->stars / 2 }})--}}
 
               </span>
             </div>
-
-          </div>
           {{-- /flat --}}
-
+          </div>
         @endforeach
-      </div>
       {{-- /flats list--}}
-
+    </div>
     @else
 
       <h2>Questo utente non ha pubblicato nessun appartamento</h2>
 
     @endif
-
+    
   </div>
   {{-- /page wrapper --}}
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  </div>
 @endsection

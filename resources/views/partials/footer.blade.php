@@ -13,10 +13,10 @@
             </div>
 
             <div class="description-footer mt-2">
-              <p>Qui ci andrà la descrizione del progetto</p>
+              <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
             </div>
 
-            <div class="description-site p-2">
+            <div class="description-site">
               <p>© 2020 boolbnb, Inc. All rights reserved</p>
             </div>
 
@@ -38,19 +38,19 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/mdecrema"><i class="fab fa-github"></i>Marco De Crema</a>
+                  <a class="nav-link color_link" href="https://github.com/mdecrema"><i class="fab fa-github icon-footer p-1"></i>Marco De Crema</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/peppe965"><i class="fab fa-github"></i>Giuseppe Falco</a>
+                  <a class="nav-link color_link" href="https://github.com/peppe965"><i class="fab fa-github icon-footer p-1"></i>Giuseppe Falco</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/gl-guccione"><i class="fab fa-github"></i>Luca Guccione</a>
+                  <a class="nav-link color_link" href="https://github.com/gl-guccione"><i class="fab fa-github icon-footer p-1"></i>Luca Guccione</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/domg87"><i class="fab fa-github"></i>Domenico Garofalo</a>
+                  <a class="nav-link color_link" href="https://github.com/domg87"><i class="fab fa-github icon-footer p-1"></i>Domenico Garofalo</a>
                 </li>
 
               </ul>
@@ -75,19 +75,19 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://www.instagram.com/"><i class="fab fa-instagram-square"></i></a>
+                  <a class="nav-link color_link" href="https://www.instagram.com/"><i class="fab fa-instagram-square icon-footer"></i></a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                  <a class="nav-link color_link" href="https://www.linkedin.com/"><i class="fab fa-linkedin icon-footer"></i></a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://twitter.com/login?lang=it"><i class="fab fa-twitter-square"></i></a>
+                  <a class="nav-link color_link" href="https://twitter.com/login?lang=it"><i class="fab fa-twitter-square icon-footer"></i></a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link color_link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                  <a class="nav-link color_link" href="https://www.youtube.com/"><i class="fab fa-youtube icon-footer"></i></a>
                 </li>
 
               </ul>

@@ -3,56 +3,88 @@
 @section('pageName', 'guest_flats_show')
 
 @section('content')
+  {{-- dont't touch --}}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+
+  {{-- /dont't touch --}}
 
   {{-- carousel images --}}
+  <div class="container-fluid px-0 jumbo">
+    <div class="row no-gutters">
+      <div class="col-12 px-0 opacity">
+        <div class="left"><a href="#"><i class="fas fa-angle-left"></i></a></div>
+        <div class="right"><a href=""><i class="fas fa-angle-right"></i></a></div>
+        @foreach($flat->images as $img)
+          <img class="" src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
+        @endforeach
+      </div>
+      {{-- /carousel images --}}
+    </div>
 
-  {{-- TODO display images as carousel --}}
-  @foreach($flat->images as $img)
-    <img src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
-  @endforeach
+    {{-- flat info --}}
 
-  {{-- /carousel images --}}
+      <div class="row">
+        <div class="col-12 main-infos-flat">
 
-  {{-- flat info --}}
-  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} -
-    <span>
+          <!-- riepilogo su una riga delle info principali -->
+          <h2 class="main-infos-flat">{{ $flat->title }}
+          <span>
 
-      @php
-        if ($flat->stars % 2 == 0) {
-          $star = $flat->stars / 2;
-          $half_star = 0;
-        } else {
-          $star = intval($flat->stars / 2);
-          $half_star = 1;
-        }
-      @endphp
+            @php
+              if ($flat->stars % 2 == 0) {
+                $star = $flat->stars / 2;
+                $half_star = 0;
+              } else {
+                $star = intval($flat->stars / 2);
+                $half_star = 1;
+              }
+            @endphp
 
-      @for ($i = 0; $i < $star; $i++)
-        <i class="fas fa-star"></i>
-      @endfor
-      @for ($i = 0; $i < $half_star; $i++)
-        <i class="fas fa-star-half"></i>
-      @endfor
+            @for ($i = 0; $i < $star; $i++)
+              <i class="fas fa-star"></i>
+            @endfor
+            @for ($i = 0; $i < $half_star; $i++)
+              <i class="fas fa-star-half"></i>
+            @endfor
 
-      ({{ $flat->stars / 2 }})
+            ({{ $flat->stars / 2 }})
 
-  </span>
-  - € {{ $flat->price }}</h2>
+        </span>
+         € {{ $flat->price }}</h2>
+        <!-- riepilogo su una riga delle info principali -->
+
+        </div>
+      </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      {{-- host info --}}
+      <div class="col-4 user_avatar">
+        <img src="{{ $flat->user->avatar }}" atl="avatar utente">
+        
+        <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
+        <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
+
+        @if ($flat->user->description)
+          <p>{{ $flat->user->description }}</p>
+        @endif
+
+      </div>
+      {{-- /host info --}}
+      {{-- flat description --}}
+      <div class="col-8">
+
+        <p>{{ $flat->description }}</p>
+
+      </div>
+      {{-- /flat description --}}
+    </div>
+  </div>
   {{-- /flat info --}}
 
-  {{-- host info --}}
-  <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
 
-  <img src="{{ $flat->user->avatar }}" atl="avatar utente">
 
-  @if ($flat->user->description)
-    <p>{{ $flat->user->description }}</p>
-  @endif
-  {{-- /host info --}}
-
-  {{-- flat description --}}
-  <p>{{ $flat->description }}</p>
-  {{-- /flat description --}}
 
   {{-- maps --}}
 
@@ -115,6 +147,16 @@
     </ul>
   @endif
   {{-- /extra info --}}
+
+  {{-- algolia map --}}
+
+  <div id="map-example-container"></div>
+
+  <style>
+    #map-example-container {height: 300px; width:500px};
+  </style>
+
+  {{-- /algolia map --}}
 
   {{-- form - send message --}}
 
@@ -184,5 +226,44 @@
   {{-- show errors --}}
 
 
+  {{--  function that show map for flats --}}
+  <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+  <script>
 
+    (function() {
+
+      var map = L.map('map-example-container', {
+        scrollWheelZoom: false,
+        zoomControl: true
+      });
+
+      var osmLayer = new L.TileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          minZoom: 0.2,
+          maxZoom: 10,
+        }
+      );
+
+      var markers = [];
+
+      map.setView(new L.LatLng(0, 0), 1);
+      map.addLayer(osmLayer);
+
+      function addMarker() {
+        var marker = L.marker({lat:{{$flat->lat}},lng:{{$flat->lng}}}, {opacity: .4});
+        marker.addTo(map);
+        markers.push(marker);
+      }
+
+      function findBestZoom() {
+        var featureGroup = L.featureGroup(markers);
+        map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
+      }
+
+
+      addMarker();
+      findBestZoom();
+
+    })();
+  </script>
 @endsection
