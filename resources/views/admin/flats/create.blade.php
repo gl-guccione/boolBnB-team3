@@ -6,6 +6,7 @@
 
 {{-- container --}}
 <div class="container pt-4 create_box">
+  <h2>Inserisci un appartamento</h2>
 
   {{-- row --}}
   <div class="">
