@@ -58,9 +58,12 @@
       </div>
   </div>
   <div class="container mt-5">
+
+    <!-- user avatar & flat description -->
     <div class="row">
       {{-- host info --}}
       <div class="col-4 user_avatar">
+
         <img src="{{ $flat->user->avatar }}" atl="avatar utente">
         <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
         <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
@@ -71,6 +74,7 @@
 
       </div>
       {{-- /host info --}}
+
       {{-- flat description --}}
       <div class="col-8 flat_description">
 
@@ -79,25 +83,26 @@
       </div>
       {{-- /flat description --}}
     </div>
+    <!--/user avatar & flat description -->
+
+    <!-- map -->
     <div class="row">
-      <div class="col-12 col-lg-6 flat_map">
-        {{-- maps --}}
+      <div class="col-12 col-lg-8 flat_map">
 
           {{-- TODO add maps --}}
 
           <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
 
-        {{-- /maps --}}
-        {{-- algolia map --}}
-
         <div id="map-example-container"></div>
-
-
-        {{-- /algolia map --}}
       </div>
-      <div class="col-12 col-lg-6">
+    </div>
+    <!--/map -->
+
+    <!-- informazioni appartamento -->
+    <div class="row">
+      <div class="col-12 offset-lg-4 col-lg-8">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-12 col-sm-4">
             {{-- options --}}
             <h3>Servizi</h3>
 
@@ -108,7 +113,7 @@
             </ul>
             {{-- /options --}}
           </div>
-          <div class="col-md-4">
+          <div class="col-12 col-sm-4">
             {{-- info --}}
             <h3>Informazioni</h3>
 
@@ -135,7 +140,7 @@
             </ul>
             {{-- /info --}}
           </div>
-          <div class="col-md-4">
+          <div class="col-12 col-sm-4">
             @if ($flat->extra_options != null)
               <h3>Servizi aggiuntivi</h3>
 
@@ -154,8 +159,11 @@
         </div>
       </div>
     </div>
+    <!--/informazioni appartamento -->
+
+    <!-- form per contattare il proprietario -->
     <div class="row">
-      <div class="col-12 offset-lg-6 col-lg-6">
+      <div class="col-12 col-lg-6">
         {{-- form - send message --}}
 
         @auth
@@ -212,6 +220,8 @@
         {{-- /form - send message --}}
       </div>
     </div>
+    <!-- form per contattare il proprietario -->
+
   </div>
   {{-- /flat info --}}
 
