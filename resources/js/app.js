@@ -183,14 +183,14 @@ function printFlats(data) {
         'image': data[i].images[0].path,
         'slug': data[i].slug
       }
-      
+
       var html = template(context);
       if (data[i].sponsored) {
         $("#sponsored").append(html);
-        $('.entry-flat').addClass('sponsored-flat');
+        $('.card_container').addClass('sponsored-flat');
       } else {
         $("#not-sponsored").append(html);
-        $('.entry-flat').addClass('not-sponsored-flat');
+        $('.card_container').addClass('not-sponsored-flat');
       }
     }
   }

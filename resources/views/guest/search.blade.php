@@ -124,7 +124,7 @@
 
 
   {{-- results --}}
-  <section class="container results" id="results">
+  <section class="container-fluid results" id="results">
     <div class="row flat-line" id="sponsored">
 
     </div>
@@ -135,18 +135,20 @@
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="entry-flat">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 entry-flat">
     <!-- <div class="col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3"></div> -->
-      <a href='@{{slug}}'></a>
+      <div class="card_container">
+        <a href='@{{slug}}'></a>
 
-      <div class="flat-img-box">
-        <img src="/storage/@{{image}}" alt="@{{ title }}">
-      </div>
-      <div class="flat-text-box">
-        <h4>Titolo: @{{title}}</h4>
-        <p>Descrizione: @{{description}}</p>
-        <p>Valutazione: @{{stars}}</p>
-        <p>Prezzo: @{{price}}</p>
+        <div class="flat-img-box">
+          <img src="/storage/@{{image}}" alt="@{{ title }}">
+        </div>
+        <div class="flat-text-box">
+          <h4>Titolo: @{{title}}</h4>
+          <p>Descrizione: @{{description}}</p>
+          <p>Valutazione: @{{stars}}</p>
+          <p>Prezzo: @{{price}}</p>
+        </div>
       </div>
     </div>
   </script>
