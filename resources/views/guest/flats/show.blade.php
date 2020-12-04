@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
 
   {{-- /dont't touch --}}
-  
-  {{-- carousel images --}}
 
+  {{-- carousel images --}}
+  <div class="container-fluid px-0 jumbo">
+    <div class="row no-gutters">
+      <div class="col-12 opacity">
+        @foreach($flat->images as $img)
+          <img class="" src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
+        @endforeach
+      </div>
+    </div>
   {{-- TODO display images as carousel --}}
-  @foreach($flat->images as $img)
-    <img src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
-  @endforeach
+
 
   {{-- /carousel images --}}
 
@@ -120,15 +125,15 @@
     </ul>
   @endif
   {{-- /extra info --}}
-  
+
   {{-- algolia map --}}
-  
+
   <div id="map-example-container"></div>
-  
+
   <style>
     #map-example-container {height: 300px; width:500px};
   </style>
-  
+
   {{-- /algolia map --}}
 
   {{-- form - send message --}}
@@ -236,7 +241,7 @@
 
       addMarker();
       findBestZoom();
-      
+
     })();
   </script>
 @endsection
