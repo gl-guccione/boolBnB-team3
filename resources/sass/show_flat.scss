@@ -34,6 +34,7 @@
   }
 
   .user_avatar {
+    max-height: 150px;
 
     img {
       border-radius: 100%;
@@ -41,7 +42,18 @@
       float: left;
     }
 
-    h3, p {
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .flat_map {
+
+    #map-example-container {
+      height: 300px;
+      width: 100%;
     }
   }
 }
