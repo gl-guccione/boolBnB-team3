@@ -139,9 +139,34 @@ class SponsorshipController extends Controller
             $newSponsorship->flat_id = $data['flat_id'];
             $newSponsorship->payment_id = $newPayment->id;
             $newSponsorship->sponsorship_price_id = $sponsorship->id;
-            // TODO date
-            $newSponsorship->date_of_start= Carbon::now();
-            $newSponsorship->date_of_end = Carbon::now()->addHours($sponsorship->duration_in_hours);
+
+
+            // check if exist an other sponsorship for the same flat (in desc order, selecting only the first)
+            $sponsorship_same_flat = Sponsorship::orderByDesc('date_of_end')->where('flat_id', $newSponsorship->flat_id)->first();
+
+            // if exist i set the date_of_start of the new sponsorship as the date_of_end of the last sponsorship (only if it is in the future), otherwise i set it as the date_of_payment
+            if (!isset($sponsorship_same_flat)) {
+
+              $newSponsorship->date_of_start = $transaction->updatedAt;
+
+            } else {
+
+              $date_of_payment = Carbon::parse($transaction->updatedAt);
+              $old_sponsorship_date = Carbon::parse($sponsorship_same_flat->date_of_end);
+
+              if ($date_of_payment->gt($old_sponsorship_date)) {
+
+                $newSponsorship->date_of_start = $transaction->updatedAt;
+
+              } else {
+
+                $newSponsorship->date_of_start = $sponsorship_same_flat->date_of_end;
+
+              }
+
+            }
+
+            $newSponsorship->date_of_end = Carbon::parse($newSponsorship->date_of_start)->addHours($sponsorship->duration_in_hours);
 
             $newSponsorship->save();
 

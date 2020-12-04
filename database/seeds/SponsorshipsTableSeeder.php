@@ -43,7 +43,7 @@ class SponsorshipsTableSeeder extends Seeder
             $sponsorship_same_flat = Sponsorship::orderByDesc('date_of_end')->where('flat_id', $new_sponsorship->flat_id)->first();
 
             // if exist i set the date_of_start of the new sponsorship as the date_of_end of the last sponsorship (only if it is in the future), otherwise i set it as the date_of_payment
-            if ($sponsorship_same_flat == null) {
+            if (!isset($sponsorship_same_flat)) {
 
               $new_sponsorship->date_of_start = $payment->date_of_payment;
 
