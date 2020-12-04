@@ -1,18 +1,20 @@
-.page_wrapper {
-    width: 80vw;
-    margin: auto;
-}
+#admin_messages_index {
 
 .messages_list {
-    width: 100%;
     margin-top: 5%;
-    border-bottom: 1px solid darkgrey;
 }
 
 .messages_list::after {
     content: "";
     display: table;
     clear: both;
+}
+
+.message_box {
+    margin-bottom: 3%;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
 }
 
 .mex_offset {
@@ -22,29 +24,55 @@
 
 .mex_name {
     padding: 0 2%;
-    background-color: grey;
-    color: #fff;
+    color: #333333;
+    background-color: lightgrey;
     h3 {
         font-size: 20px;
+        line-height: 30px;
     }
 }
 
-.mex_text {
-    width: 90%;
+.bg_lightgrey {
     background-color: lightgrey;
 }
 
-.mex_id {
-    width: 100px;
-}
 
 .id_sign {
-    width: 30px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    padding: 2%;
     border: 1px solid transparent;
-    border-radius: 100%;
     text-align: center;
-    background-color: turquoise;
+    background-color: $colorMain;
 }
 
+.leggi {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    display: none;
+    z-index: 3;
+    border-left: 2px solid #333333;
 
+    .link_box {
+        width: 40px;
+        height: 20px;
+        float: right;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.message_box:hover {
+    border: 2px solid #333333;
+}
+
+.message_box:hover .leggi {
+    display: block;
+}
+
+}
