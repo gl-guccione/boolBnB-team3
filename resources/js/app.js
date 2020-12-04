@@ -247,7 +247,6 @@ jQuery(function() {
 
       // start getFlats on load page if the attribute 'data-algolia' is set
       if($('#city').attr('data-algolia') != '') {
-        // TODO check if the required parameters is set
         if (checkParameters()) {
           getFlats($("#city").attr("data-algolia"));
         }
@@ -255,7 +254,6 @@ jQuery(function() {
 
       // start getFlats on button click
       $("#submitSearch").click(function() {
-        // TODO check if the required parameters is set
         if (checkParameters()) {
           getFlats($("#city").attr("data-algolia"));
         }

@@ -48,7 +48,6 @@ class MessageController extends Controller
           $message->update();
         }
 
-        // TODO we should use API for this method
         return view('admin.messages.show', compact('message'));
     }
 
