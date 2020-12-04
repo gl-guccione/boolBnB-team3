@@ -40,7 +40,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::get('sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
     Route::get('sponsorships/create', 'SponsorshipController@create')->name('sponsorships.create');
     Route::post('sponsorships', 'SponsorshipController@store')->name('sponsorships.store');
-    Route::get('sponsorships/{id}', 'SponsorshipController@show')->name('sponsorships.show');
 
     // statistics route
     Route::get('statistics', 'ViewController@index')->name('statistics');

@@ -31,22 +31,11 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        // $sponsorships = Sponsorship::whereHas('flat', function ($query) {
-        //   $query->where('user_id', Auth::id());
-        // })->get();
+        $sponsorships = Sponsorship::whereHas('flat', function ($query) {
+          $query->where('user_id', Auth::id());
+        })->get();
 
-        // dd($sponsorships);
-
-        // $sponsorship = SponsorshipPrice::where('price', 10)->first();
-
-        // if (!isset($sponsorship)) {
-        //   return back()->withErrors('errore, importo non valido, e ci teniamo pure i tuoi soldi!');
-        // }
-
-        // dd('non sono entrato');
-
-
-
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
      /**
@@ -183,16 +172,4 @@ class SponsorshipController extends Controller
 
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        dd('cnaikl');
-    }
-
 }
