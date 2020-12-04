@@ -12,46 +12,58 @@
   {{-- carousel images --}}
   <div class="container-fluid px-0 jumbo">
     <div class="row no-gutters">
-      <div class="col-12 opacity">
+      <div class="col-12 px-0 opacity">
+        <div class="left"><a href="#"><i class="fas fa-angle-left"></i></a></div>
+        <div class="right"><a href=""><i class="fas fa-angle-right"></i></a></div>
         @foreach($flat->images as $img)
           <img class="" src="{{ asset('storage/'.$img->path) }}" alt="foto appartamento">
         @endforeach
       </div>
+      {{-- /carousel images --}}
     </div>
-  {{-- TODO display images as carousel --}}
 
+    {{-- flat info --}}
 
-  {{-- /carousel images --}}
+      <div class="row">
+        <div class="col-12 main-infos-flat">
 
-  {{-- flat info --}}
-  <h2>{{ $flat->title }} - {{ $flat->user->firstname }} {{ $flat->user->lastname }} -
-    <span>
+          <!-- riepilogo su una riga delle info principali -->
+          <h2 class="main-infos-flat">{{ $flat->title }}
+          <span>
 
-      @php
-        if ($flat->stars % 2 == 0) {
-          $star = $flat->stars / 2;
-          $half_star = 0;
-        } else {
-          $star = intval($flat->stars / 2);
-          $half_star = 1;
-        }
-      @endphp
+            @php
+              if ($flat->stars % 2 == 0) {
+                $star = $flat->stars / 2;
+                $half_star = 0;
+              } else {
+                $star = intval($flat->stars / 2);
+                $half_star = 1;
+              }
+            @endphp
 
-      @for ($i = 0; $i < $star; $i++)
-        <i class="fas fa-star"></i>
-      @endfor
-      @for ($i = 0; $i < $half_star; $i++)
-        <i class="fas fa-star-half"></i>
-      @endfor
+            @for ($i = 0; $i < $star; $i++)
+              <i class="fas fa-star"></i>
+            @endfor
+            @for ($i = 0; $i < $half_star; $i++)
+              <i class="fas fa-star-half"></i>
+            @endfor
 
-      ({{ $flat->stars / 2 }})
+            ({{ $flat->stars / 2 }})
 
-  </span>
-  - € {{ $flat->price }}</h2>
+        </span>
+         € {{ $flat->price }}</h2>
+        <!-- riepilogo su una riga delle info principali -->
+
+        </div>
+      </div>
+
+  </div>
   {{-- /flat info --}}
+  <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 
   {{-- host info --}}
   <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
+  
 
   <img src="{{ $flat->user->avatar }}" atl="avatar utente">
 
