@@ -6,8 +6,8 @@
 
   <h1>Statistiche</h1>
 
-  <h3>Visite totali di tutti i tuoi appartamenti: {{ $total_views }}</h3>
-  <h3>Visite di oggi di tutti i tuoi appartamenti: {{ $today_views }}</h3>
+  <h3>Visite totali dei tuoi appartamenti: {{ $total_views }}</h3>
+  <h3>Visite odierne dei tuoi appartamenti: {{ $today_views }}</h3>
 
   {{-- including chart.js --}}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
