@@ -1,8 +1,8 @@
 <body>
   <div id="app">
-      <nav class="navigation-bar navbar navbar-expand-md navbar-light bg-colorMain shadow-sm">
+      <nav class="navigation-bar navbar navbar-expand-md navbar-light bg-colorMain">
           <div class="container">
-              <a class="navbar-brand" href="{{ url('/') }}">
+              <a class="navbar-brand text-white" href="{{ url('/') }}">
                   <img class="logo-header" src="{{asset('img/logo.png')}}" alt="">
                   {{ config('app.name', 'boolbnb') }}
               </a>
@@ -23,7 +23,7 @@
 
                         {{-- menu guest con login e register --}}
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               Area Host
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
