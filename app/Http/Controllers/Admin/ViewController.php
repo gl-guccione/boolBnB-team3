@@ -23,14 +23,6 @@ class ViewController extends Controller
      */
     public function index()
     {
-        // $views = View::whereHas('flat', function ($query) {
-        //   $query->where('user_id', Auth::id());
-        // })->get();
-
-        // $total_views = View::where('flat_id', '3')->whereHas('flat', function ($query) {
-        //   $query->where('user_id', Auth::id());
-        // })->count();
-
         $total_views = View::whereHas('flat', function ($query) {
           $query->where('user_id', Auth::id());
         })->count();
@@ -44,6 +36,7 @@ class ViewController extends Controller
         $fiveDaysBefore = Carbon::today()->subDays(5);
         $sixDaysBefore = Carbon::today()->subDays(6);
 
+        // days names
         $days_names = [
           0 => $today->locale('it')->dayName,
           1 => $oneDayBefore->locale('it')->dayName,
@@ -100,11 +93,7 @@ class ViewController extends Controller
           $query->where('user_id', Auth::id());
         })->count();
 
-
-
-
-
-
+        // data
         $data = [
           'total_views' => $total_views,
           'today_views' => $today_views,
