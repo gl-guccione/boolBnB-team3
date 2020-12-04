@@ -33,5 +33,15 @@
     color: #fff;
   }
 
+  .user_avatar {
 
+    img {
+      border-radius: 100%;
+      width: 100px;
+      float: left;
+    }
+
+    h3, p {
+    }
+  }
 }

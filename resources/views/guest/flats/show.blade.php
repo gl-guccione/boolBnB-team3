@@ -56,25 +56,35 @@
 
         </div>
       </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      {{-- host info --}}
+      <div class="col-4 user_avatar">
+        <img src="{{ $flat->user->avatar }}" atl="avatar utente">
+        
+        <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
+        <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 
+        @if ($flat->user->description)
+          <p>{{ $flat->user->description }}</p>
+        @endif
+
+      </div>
+      {{-- /host info --}}
+      {{-- flat description --}}
+      <div class="col-8">
+
+        <p>{{ $flat->description }}</p>
+
+      </div>
+      {{-- /flat description --}}
+    </div>
   </div>
   {{-- /flat info --}}
-  <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 
-  {{-- host info --}}
-  <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
-  
 
-  <img src="{{ $flat->user->avatar }}" atl="avatar utente">
 
-  @if ($flat->user->description)
-    <p>{{ $flat->user->description }}</p>
-  @endif
-  {{-- /host info --}}
-
-  {{-- flat description --}}
-  <p>{{ $flat->description }}</p>
-  {{-- /flat description --}}
 
   {{-- maps --}}
 
