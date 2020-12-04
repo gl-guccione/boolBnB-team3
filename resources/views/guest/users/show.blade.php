@@ -9,7 +9,7 @@
   <div class="container page_wrapper">
 
     {{-- user info --}}
-    <div class="row">
+    <div class="row user_container">
     
         <div class="col-xl-3 col-lg-4 col-sm-5 col-md-4 col-xs-12 avatar">
           <img src="{{$user->avatar}}" alt="avatar utente">
