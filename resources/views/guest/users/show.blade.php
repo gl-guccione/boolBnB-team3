@@ -35,7 +35,7 @@
       <div class="flats_list">
 
         @foreach($user->flats as $flat)
-          <div class="row flat-box">
+          <div class="row flat-box" data-aos="fade-left">
           {{-- flat --}}
             <div class="col-lg-4 col-md-4 col-xl-4 col-sm-12 col-xs-12 flat-img ">
               <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
@@ -81,5 +81,9 @@
     
   </div>
   {{-- /page wrapper --}}
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  </div>
 @endsection
