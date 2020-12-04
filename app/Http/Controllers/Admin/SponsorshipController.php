@@ -31,7 +31,22 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        return view('admin.sponsorships.create');
+        // $sponsorships = Sponsorship::whereHas('flat', function ($query) {
+        //   $query->where('user_id', Auth::id());
+        // })->get();
+
+        // dd($sponsorships);
+
+        // $sponsorship = SponsorshipPrice::where('price', 10)->first();
+
+        // if (!isset($sponsorship)) {
+        //   return back()->withErrors('errore, importo non valido, e ci teniamo pure i tuoi soldi!');
+        // }
+
+        // dd('non sono entrato');
+
+
+
     }
 
      /**
@@ -53,11 +68,11 @@ class SponsorshipController extends Controller
         $prices = SponsorshipPrice::all();
 
         $user_id = Auth::id();
-        
+
         $flats = Flat::where('user_id', $user_id)->get();
 
         return view('admin.sponsorships.create', compact('token', 'prices', 'flats'));
-        
+
     }
 
     /**
@@ -68,7 +83,7 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $gateway = new Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -95,7 +110,7 @@ class SponsorshipController extends Controller
 
             // create payment
             $newPayment = new Payment;
-            
+
             $newPayment->transaction_id = $transaction->id;
             $newPayment->amount = $transaction->amount;
             $newPayment->status = $transaction->status;
@@ -114,19 +129,24 @@ class SponsorshipController extends Controller
 
             // create sponsorship
             $sponsorship = SponsorshipPrice::where('price', $amount)->first();
-            
+
+            if (!isset($sponsorship)) {
+              return back()->withErrors('errore, importo non valido, e ci teniamo pure i tuoi soldi!');
+            }
+
             $newSponsorship = new Sponsorship;
 
             $newSponsorship->flat_id = $data['flat_id'];
             $newSponsorship->payment_id = $newPayment->id;
             $newSponsorship->sponsorship_price_id = $sponsorship->id;
+            // TODO date
             $newSponsorship->date_of_start= Carbon::now();
             $newSponsorship->date_of_end = Carbon::now()->addHours($sponsorship->duration_in_hours);
 
             $newSponsorship->save();
-        
+
             return back()->with('success_message', 'Hai pagato correttamente '.$transaction->amount.'€');
-        
+
         } else {
             $errorString = "";
 
