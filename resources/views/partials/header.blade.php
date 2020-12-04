@@ -61,7 +61,6 @@
                                   <a class="dropdown-item" href="{{ route('admin.flats.index') }}">I miei appartamenti</a>
 
                                   {{-- link for admin.statistics.index --}}
-                                  {{-- TODO add correct route --}}
                                   <a class="dropdown-item" href="{{ route('admin.statistics') }}">Statistiche</a>
 
                                 @endif

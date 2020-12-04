@@ -37,10 +37,9 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::delete('messages/{id}', 'MessageController@destroy')->name('messages.destroy');
 
     // sponsorships routes
-    Route::get('sponsorships', 'MessageController@index')->name('sponsorships.index');
-    Route::get('sponsorships/{id}', 'MessageController@show')->name('sponsorships.show');
-    Route::get('sponsorships/create', 'MessageController@create')->name('sponsorships.create');
-    Route::post('sponsorships', 'MessageController@store')->name('sponsorships.store');
+    Route::get('sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
+    Route::get('sponsorships/create', 'SponsorshipController@create')->name('sponsorships.create');
+    Route::post('sponsorships', 'SponsorshipController@store')->name('sponsorships.store');
 
     // statistics route
     Route::get('statistics', 'ViewController@index')->name('statistics');
