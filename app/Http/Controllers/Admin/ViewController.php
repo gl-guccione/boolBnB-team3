@@ -93,7 +93,7 @@ class ViewController extends Controller
           $query->where('user_id', Auth::id());
         })->count();
 
-        // data
+        // data to return with the view
         $data = [
           'total_views' => $total_views,
           'today_views' => $today_views,

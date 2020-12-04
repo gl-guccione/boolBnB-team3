@@ -33,9 +33,9 @@
             datasets: [{
                 label: 'visite',
                 data: [{{ $six_days_before_views }}, {{ $five_days_before_views }}, {{ $four_days_before_views }}, {{ $three_days_before_views }}, {{ $two_days_before_views }}, {{ $one_day_before_views }}, {{ $today_views }}],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+                backgroundColor: 'rgba(255, 255, 255, 0.0)',
+                borderColor: '#29B06F',
+                borderWidth: 5
             }]
         },
         options: {
