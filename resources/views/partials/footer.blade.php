@@ -33,25 +33,39 @@
 
               <ul class="nav flex-column">
 
-                <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/alessandroboscato"><i class="fab fa-github icon-footer p-1"></i>Alessandro Boscato</a>
-                </li>
+                @php
 
-                <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/mdecrema"><i class="fab fa-github icon-footer p-1"></i>Marco De Crema</a>
-                </li>
+                  $devs = [
+                    'Giuseppe Luca Guccione' => 'https://github.com/gl-guccione',
+                    'Giuseppe Falco' => 'https://github.com/peppe965',
+                    'Alessandro Boscato' => 'https://github.com/alessandroboscato',
+                    'Marco De Crema' => 'https://github.com/mdecrema',
+                    'Domenico Garofalo' => 'https://github.com/domg87'
+                  ];
 
-                <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/peppe965"><i class="fab fa-github icon-footer p-1"></i>Giuseppe Falco</a>
-                </li>
+                  function shuffle_assoc($list) {
+                    if (!is_array($list)) return $list;
 
-                <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/gl-guccione"><i class="fab fa-github icon-footer p-1"></i>Luca Guccione</a>
-                </li>
+                    $keys = array_keys($list);
+                    shuffle($keys);
+                    $random = array();
+                    foreach ($keys as $key)
+                      $random[$key] = $list[$key];
 
-                <li class="nav-item">
-                  <a class="nav-link color_link" href="https://github.com/domg87"><i class="fab fa-github icon-footer p-1"></i>Domenico Garofalo</a>
-                </li>
+                    return $random;
+                  }
+
+                  $devs = shuffle_assoc($devs);
+
+                @endphp
+
+                @foreach ($devs as $key => $dev)
+
+                  <li class="nav-item">
+                    <a class="nav-link color_link" href="{{ $dev }}"><i class="fab fa-github icon-footer p-1"></i>{{ $key }}</a>
+                  </li>
+
+                @endforeach
 
               </ul>
 
