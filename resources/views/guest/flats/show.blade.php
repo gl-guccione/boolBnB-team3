@@ -86,7 +86,7 @@
     <!--/user avatar & flat description -->
 
     <!-- map -->
-    <div class="row">
+    <div data-aos="fade-right" class="row">
       <div class="col-12 col-lg-8 flat_map">
 
           {{-- TODO add maps --}}
@@ -99,7 +99,7 @@
     <!--/map -->
 
     <!-- informazioni appartamento -->
-    <div class="row">
+    <div data-aos="fade-left"class="row">
       <div class="col-12 offset-lg-4 col-lg-8">
         <div class="row">
           <div class="col-12 col-sm-4">
@@ -162,7 +162,7 @@
     <!--/informazioni appartamento -->
 
     <!-- form per contattare il proprietario -->
-    <div class="row">
+    <div data-aos="fade-right" class="row">
       <div class="col-12 col-lg-6">
         {{-- form - send message --}}
 
@@ -279,5 +279,10 @@
       findBestZoom();
 
     })();
+  </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 @endsection
