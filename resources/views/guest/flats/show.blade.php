@@ -57,12 +57,11 @@
         </div>
       </div>
   </div>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
       {{-- host info --}}
       <div class="col-4 user_avatar">
         <img src="{{ $flat->user->avatar }}" atl="avatar utente">
-
         <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
         <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 
@@ -73,7 +72,7 @@
       </div>
       {{-- /host info --}}
       {{-- flat description --}}
-      <div class="col-8">
+      <div class="col-8 flat_description">
 
         <p>{{ $flat->description }}</p>
 

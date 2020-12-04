@@ -35,9 +35,12 @@
 
   .user_avatar {
     max-height: 150px;
+    position: relative;
+
 
     img {
       border-radius: 100%;
+      margin: 10px;
       width: 100px;
       float: left;
     }
@@ -47,6 +50,18 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+    a {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .flat_description {
+    font-size: 24px;
   }
 
   .flat_map {
