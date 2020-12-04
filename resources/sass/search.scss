@@ -109,12 +109,19 @@
               padding: 4%;
               float: left;
               overflow: hidden;
+              
               h4 {
                   font-size: 16px;
                   font-weight: bold;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
               }
               p {
                   font-size: 12px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
               }
 
           }

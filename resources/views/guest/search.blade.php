@@ -135,7 +135,7 @@
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 entry-flat">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 entry-flat">
     <!-- <div class="col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3"></div> -->
       <div class="card_container">
         <a href='@{{slug}}'></a>
@@ -146,8 +146,8 @@
         <div class="flat-text-box">
           <h4>Titolo: @{{title}}</h4>
           <p>Descrizione: @{{description}}</p>
-          <p>Valutazione: @{{stars}}</p>
-          <p>Prezzo: @{{price}}</p>
+          <span>Valutazione: @{{stars}}</span><br>
+          <span>Prezzo: @{{price}}</span>
         </div>
       </div>
     </div>
