@@ -57,12 +57,11 @@
         </div>
       </div>
   </div>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
       {{-- host info --}}
       <div class="col-4 user_avatar">
         <img src="{{ $flat->user->avatar }}" atl="avatar utente">
-        
         <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
         <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 
@@ -73,145 +72,150 @@
       </div>
       {{-- /host info --}}
       {{-- flat description --}}
-      <div class="col-8">
+      <div class="col-8 flat_description">
 
         <p>{{ $flat->description }}</p>
 
       </div>
       {{-- /flat description --}}
     </div>
+    <div class="row">
+      <div class="col-12 col-lg-6 flat_map">
+        {{-- maps --}}
+
+          {{-- TODO add maps --}}
+
+          <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
+
+        {{-- /maps --}}
+        {{-- algolia map --}}
+
+        <div id="map-example-container"></div>
+
+
+        {{-- /algolia map --}}
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          <div class="col-md-4">
+            {{-- options --}}
+            <h3>Servizi</h3>
+
+            <ul>
+              @foreach($flat->options as $option)
+                <li>{{ $option->name }}</li>
+              @endforeach
+            </ul>
+            {{-- /options --}}
+          </div>
+          <div class="col-md-4">
+            {{-- info --}}
+            <h3>Informazioni</h3>
+
+            <ul>
+
+              @if ($flat->number_of_rooms == 1)
+                <li>Stanza: 1</li>
+              @else
+                <li>Stanze: {{ $flat->number_of_rooms }}</li>
+              @endif
+
+              @if ($flat->number_of_beds == 1)
+              <li>Letto: 1</li>
+              @else
+              <li>Letti: {{ $flat->number_of_beds }}</li>
+              @endif
+
+              @if ($flat->number_of_bathrooms == 1)
+                <li>Bagno: 1</li>
+              @else
+                <li>Bagni: {{ $flat->number_of_bathrooms }}</li>
+              @endif
+
+            </ul>
+            {{-- /info --}}
+          </div>
+          <div class="col-md-4">
+            @if ($flat->extra_options != null)
+              <h3>Servizi aggiuntivi</h3>
+
+              @php
+                $extra_options_arr = explode(', ', $flat->extra_options)
+              @endphp
+
+              <ul>
+                @foreach($extra_options_arr as $extra_option)
+                  <li>{{ $extra_option }}</li>
+                @endforeach
+              </ul>
+            @endif
+            {{-- /extra info --}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 offset-lg-6 col-lg-6">
+        {{-- form - send message --}}
+
+        @auth
+          @php
+
+            $user = Auth::user();
+            $user_name = $user->firstname.' '.$user->lastname;
+            $user_email = $user->email;
+
+          @endphp
+        @else
+          @php
+
+          $user_name = '';
+          $user_email = '';
+
+          @endphp
+        @endauth
+
+        <h2>Contatta l'host</h2>
+        <form action="{{ route("guest.messages.store") }}" method="post">
+
+          @csrf
+          @method('POST')
+
+          <input type="hidden" name="flat_id" required value="{{ $flat->id }}">
+
+          {{-- name --}}
+          <div class="form-group">
+            <label for="name">Nome*</label>
+            <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{ old("name") ?? $user_name }}">
+          </div>
+          {{-- /name --}}
+
+          {{-- email --}}
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{ old("email") ?? $user_email }}">
+          </div>
+          {{-- /email --}}
+
+          {{-- message --}}
+          <div class="form-group">
+            <label for="message">Messaggio*</label>
+            <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{old("message")}}</textarea>
+          </div>
+          {{-- /message --}}
+
+          {{-- button submit --}}
+          <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+          {{-- /button submit --}}
+
+        </form>
+        {{-- /form - send message --}}
+      </div>
+    </div>
   </div>
   {{-- /flat info --}}
 
 
-
-
-  {{-- maps --}}
-
-    {{-- TODO add maps --}}
-
-    <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
-
-  {{-- /maps --}}
-
-  {{-- options --}}
-  <h3>Servizi</h3>
-
-  <ul>
-    @foreach($flat->options as $option)
-      <li>{{ $option->name }}</li>
-    @endforeach
-  </ul>
-  {{-- /options --}}
-
-
-  {{-- info --}}
-  <h3>Informazioni</h3>
-
-  <ul>
-
-    @if ($flat->number_of_rooms == 1)
-      <li>Stanza: 1</li>
-    @else
-      <li>Stanze: {{ $flat->number_of_rooms }}</li>
-    @endif
-
-    @if ($flat->number_of_beds == 1)
-    <li>Letto: 1</li>
-    @else
-    <li>Letti: {{ $flat->number_of_beds }}</li>
-    @endif
-
-    @if ($flat->number_of_bathrooms == 1)
-      <li>Bagno: 1</li>
-    @else
-      <li>Bagni: {{ $flat->number_of_bathrooms }}</li>
-    @endif
-
-  </ul>
-  {{-- /info --}}
-
-
-  {{-- extra info --}}
-  @if ($flat->extra_options != null)
-    <h3>Servizi aggiuntivi</h3>
-
-    @php
-      $extra_options_arr = explode(', ', $flat->extra_options)
-    @endphp
-
-    <ul>
-      @foreach($extra_options_arr as $extra_option)
-        <li>{{ $extra_option }}</li>
-      @endforeach
-    </ul>
-  @endif
-  {{-- /extra info --}}
-
-  {{-- algolia map --}}
-
-  <div id="map-example-container"></div>
-
-  <style>
-    #map-example-container {height: 300px; width:500px};
-  </style>
-
-  {{-- /algolia map --}}
-
-  {{-- form - send message --}}
-
-  @auth
-    @php
-
-      $user = Auth::user();
-      $user_name = $user->firstname.' '.$user->lastname;
-      $user_email = $user->email;
-
-    @endphp
-  @else
-    @php
-
-    $user_name = '';
-    $user_email = '';
-
-    @endphp
-  @endauth
-
-  <h2>Contatta l'host</h2>
-  <form action="{{ route("guest.messages.store") }}" method="post">
-
-    @csrf
-    @method('POST')
-
-    <input type="hidden" name="flat_id" required value="{{ $flat->id }}">
-
-    {{-- name --}}
-    <div class="form-group">
-      <label for="name">Nome*</label>
-      <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{ old("name") ?? $user_name }}">
-    </div>
-    {{-- /name --}}
-
-    {{-- email --}}
-    <div class="form-group">
-      <label for="email">Email*</label>
-      <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{ old("email") ?? $user_email }}">
-    </div>
-    {{-- /email --}}
-
-    {{-- message --}}
-    <div class="form-group">
-      <label for="message">Messaggio*</label>
-      <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{old("message")}}</textarea>
-    </div>
-    {{-- /message --}}
-
-    {{-- button submit --}}
-    <button type="submit" class="btn btn-primary">Invia Messaggio</button>
-    {{-- /button submit --}}
-
-  </form>
-  {{-- /form - send message --}}
 
   {{-- show errors --}}
   @if ($errors->any())
