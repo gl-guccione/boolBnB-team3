@@ -28,7 +28,10 @@ class FlatController extends Controller
 
         $session_id = session()->getId();
 
-        $last_view = View::where('session_id', $session_id)->orderBy('date', 'DESC')->first();
+        $last_view = View::where([
+                                  ['flat_id', $flat->id],
+                                  ['session_id', $session_id],
+                                ])->orderBy('date', 'DESC')->first();
 
         $new_view = new View;
 
