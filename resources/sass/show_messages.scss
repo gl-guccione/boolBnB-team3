@@ -3,6 +3,7 @@
   h5 {
     font-size: 22px;
     padding-bottom: 20px;
+    color: #000;
   }
   i {
     padding-right: 7px;
@@ -13,6 +14,7 @@
 
     display: flex;
     padding-top: 30px;
+    color: #474747;
 
     &__info {
       width: 30%;
@@ -24,8 +26,9 @@
     }
 
     &__reply {
-      border: 1px solid $lightGreen;
+      border: 2px solid $lightGreen;
       margin-top: 20px;
+      color: #474747;
 
       &:hover {
         background-color: $lightGreen;
@@ -35,6 +38,16 @@
           color: #fff;
         }
 
+      }
+    }
+
+    &__flat {
+      a {
+        color: $lightGreen;
+        &:hover {
+          text-decoration: none;
+          filter: brightness(0.7);
+        }
       }
     }
 
