@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/geosearch', 'Api\GeoSearchController@geo_search')->name('api.geosearch');
+
+Route::get('/newmessages', 'Api\ApiController@new_messages')->name('api.newmessages');

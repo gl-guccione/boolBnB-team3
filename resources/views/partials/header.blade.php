@@ -45,7 +45,7 @@
                             <a href="{{ route('admin.messages.index') }}" class="nav-link medium_fs">
                               <div class="envelope_container">
                                 <i class="fas fa-envelope color_white"></i>
-                                <div class="notification_mark"></div>
+                                <div id="notification_mark" class=""></div>
                               </div>
                             </a>
                           </li>

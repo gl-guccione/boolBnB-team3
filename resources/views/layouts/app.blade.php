@@ -183,5 +183,44 @@
   @endif
   {{-- /toast --}}
 
+  @auth
+
+    <script>
+
+      // function that check if there are new messages for the user
+      function newMessages(userId){
+
+        let user_id = {{ Auth::id() }};
+
+        let link = "http://localhost:8000/api/newmessages?user_id=" + user_id;
+        let xmlHttp = new XMLHttpRequest();
+
+        xmlHttp.onreadystatechange = function() {
+
+          if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+
+            let results = JSON.parse(xmlHttp.responseText);
+
+            if (results === true) {
+              let mark = document.getElementById("notification_mark");
+              mark.classList.add('active');
+            }
+
+          }
+
+        }
+        xmlHttp.open("GET", link);
+        xmlHttp.send();
+
+      }
+
+      newMessages( {{ Auth::id() }} );
+
+    </script>
+
+  @endauth
+
+
+
 </body>
 </html>

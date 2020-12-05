@@ -23,7 +23,7 @@
   position: relative;
 }
 
-.notification_mark {
+#notification_mark {
   position: absolute;
   top: 3px;
   right: -5px;
@@ -33,6 +33,6 @@
   border-radius: 50%;
 }
 
-.notification_mark.active {
+#notification_mark.active {
   background-color: red;
 }
