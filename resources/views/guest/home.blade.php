@@ -44,7 +44,7 @@
             <input name="adults" type="number" class="form-control" id="adults" placeholder="Aggiungi adulti" min="1" required>
           </div>
           <div class="form-group col-6">
-            <label for="children"><strong>Ospiti</strong></label>
+            <label for="children"><strong style="color: transparent">.</strong></label>
             <input name="children" type="number" class="form-control" id="children" placeholder="Aggiungi bambini" min="0">
           </div>
         </div>
