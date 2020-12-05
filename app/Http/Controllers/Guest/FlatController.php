@@ -39,7 +39,7 @@ class FlatController extends Controller
         $new_view->session_id = $session_id;
         $new_view->date = Carbon::now();
 
-        if ($last_view == null || Carbon::now()->gt(Carbon::create($last_view->date)->addMinutes(30))) {
+        if ($last_view == null || Carbon::now()->gt(Carbon::create($last_view->date)->addMinutes(15))) {
           $new_view->save();
         }
 
