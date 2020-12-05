@@ -8,7 +8,7 @@
   <div class="container py-4">
 
     <div class="hero py-4">
-      <img class="hero__image py-4" src="{{ asset('img/messages/message.svg') }}" alt="statistics image">
+      <img class="hero__image py-4" src="{{ asset('img/messages/message.svg') }}" alt="messages image">
       <h1 class="hero__title py-4">I miei Messaggi</h1>
     </div>
 
