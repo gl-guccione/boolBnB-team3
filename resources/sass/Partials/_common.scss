@@ -13,3 +13,32 @@
 .color_white {
   color: #fff !important;
 }
+
+.hero {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}
+
+.d_flex {
+  display: flex;
+  align-items: center;
+}
+
+.overflow_row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
