@@ -20,48 +20,48 @@
       {{-- title --}}
       <div class="form-group col-lg-12">
         <label for="title">Titolo*</label>
-        <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" min="3" max="255" required value="{{old("title")}}">
+        <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci il titolo per il tuo appartamento" min="3" max="255" required value="{{old("title")}}">
       </div>
       {{-- /title --}}
 
       {{-- description --}}
       <div class="form-group col-lg-12">
         <label for="description">Descrizione*</label>
-        <textarea name="description" class="form-control" id="description" placeholder="Inserisci descrizione" rows="5" cols="10" min="3" max="65000" required>{{old("description")}}</textarea>
+        <textarea name="description" class="form-control" id="description" placeholder="Inserisci una descrizione" rows="5" cols="10" min="3" max="65000" required>{{old("description")}}</textarea>
       </div>
       {{-- /description --}}
 
       {{-- number_of_rooms --}}
       <div class="form-group col-lg-4 col-md-6">
         <label for="number_of_rooms">Numero di stanze*</label>
-        <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci numero di stanze" min="1" max="254" required value="{{old("number_of_rooms")}}">
+        <input name="number_of_rooms" type="number" class="form-control" id="number_of_rooms" placeholder="Inserisci il numero di stanze" min="1" max="254" required value="{{old("number_of_rooms")}}">
       </div>
       {{-- /number_of_rooms --}}
 
       {{-- number_of_beds --}}
       <div class="form-group col-lg-4 col-md-6">
         <label for="number_of_beds">Numero di letti*</label>
-        <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci numero di letti" min="1" max="254" required value="{{old("number_of_beds")}}">
+        <input name="number_of_beds" type="number" class="form-control" id="number_of_beds" placeholder="Inserisci il numero di letti" min="1" max="254" required value="{{old("number_of_beds")}}">
       </div>
       {{-- /number_of_beds --}}
 
       {{-- number_of_bathrooms --}}
       <div class="form-group col-lg-4 col-md-6">
         <label for="number_of_bathrooms">Numero di bagni*</label>
-        <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci numero di bagni" min="1" max="254" required value="{{old("number_of_bathrooms")}}">
+        <input name="number_of_bathrooms" type="number" class="form-control" id="number_of_bathrooms" placeholder="Inserisci il numero di bagni" min="1" max="254" required value="{{old("number_of_bathrooms")}}">
       </div>
       {{-- /number_of_bathrooms --}}
 
       {{-- mq --}}
       <div class="form-group col-lg-4 col-md-6">
-        <label for="mq">Metri quadri*</label>
+        <label for="mq">Superfice m²*</label>
         <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="1" max="65000" required value="{{old("mq")}}">mq
       </div>
       {{-- /mq --}}
 
       {{-- price --}}
       <div class="form-group col-lg-4 col-md-6">
-        <label for="price">Prezzo*</label>
+        <label for="price">Prezzo €*</label>
         <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo per notte" min="1" max="9999" step="0.01" required value="{{old("price")}}">
       </div>
       {{-- /price --}}
@@ -79,7 +79,7 @@
 
       {{-- immagini --}}
       <div class="form-group col-lg-8">
-        <label for="images">Inserisci immagini</label>
+        <label for="images">Foto* (massimo 5)</label>
         <input id="images" type="file" class="form-control" name="images[]" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg">
       </div>
       {{-- /immagini --}}
@@ -122,7 +122,7 @@
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="form-check-input" name="options[]" id="checkbox_{{$option->id}}" value="{{$option->id}}">
                   <label for="checkbox_{{$option->id}}" class="form-check-label">{{$option->name}}</label>
-                </div>  
+                </div>
               </div>
             @endforeach
             {{-- /option --}}
