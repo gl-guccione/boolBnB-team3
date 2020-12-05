@@ -18,3 +18,21 @@
     padding-left: 10px;
   }
 }
+
+.envelope_container {
+  position: relative;
+}
+
+.notification_mark {
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.notification_mark.active {
+  background-color: red;
+}
