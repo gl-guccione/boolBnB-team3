@@ -235,7 +235,16 @@ jQuery(function() {
 
   // functions to load inside homepage
   if ($("#guest_home").length) {
+
     carousel();
+
+    $("#children").change(function() {
+      if (($("#children").val() > 0) && ($("#adults").val() == "")) {
+        $("#adults").val(1);
+        alert('inserire almeno un adulto!');
+      }
+    })
+
   }
 
   // functions to load inside search

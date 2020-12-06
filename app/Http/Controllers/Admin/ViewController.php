@@ -13,6 +13,7 @@ use Carbon\Carbon;
 
 // using Models
 use App\View;
+use App\Flat;
 
 class ViewController extends Controller
 {
@@ -93,6 +94,8 @@ class ViewController extends Controller
           $query->where('user_id', Auth::id());
         })->count();
 
+        $user_flats = Flat::where('user_id', Auth::id())->get();
+
         // data to return with the view
         $data = [
           'total_views' => $total_views,
@@ -103,7 +106,9 @@ class ViewController extends Controller
           'four_days_before_views' => $four_days_before_views,
           'five_days_before_views' => $five_days_before_views,
           'six_days_before_views' => $six_days_before_views,
+          'last_seven_days_views' => $today_views + $one_day_before_views + $two_days_before_views + $three_days_before_views + $four_days_before_views + $five_days_before_views + $six_days_before_views,
           'days_names' => $days_names,
+          'user:flats' => $user_flats
         ];
 
         return view('admin.statistics.index', $data);

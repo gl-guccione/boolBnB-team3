@@ -2,9 +2,9 @@
   <div id="app">
       <nav class="navigation-bar navbar navbar-expand-md navbar-light bg-colorMain">
           <div class="container">
-              <a class="navbar-brand text-white" href="{{ url('/') }}">
-                  <img class="logo-header" src="{{asset('img/logo.png')}}" alt="">
-                  {{ config('app.name', 'boolbnb') }}
+              <a class="navbar-brand" href="{{ url('/') }}">
+                  <img class="logo-header" src="{{asset('img/logo.png')}}" alt="logo">
+                  <span class="header__title">BoolBnB</span>
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                   <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
 
                         {{-- menu guest con login e register --}}
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white medium_fs" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               Area Host
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -42,12 +42,15 @@
                           {{-- menu for registered user --}}
                           <li class="nav-item">
                             {{-- TODO fix route messages --}}
-                            <a href="{{ route('admin.messages.index') }}" class="nav-link">
-                              <i class="fas fa-envelope"></i>
+                            <a href="{{ route('admin.messages.index') }}" class="nav-link medium_fs">
+                              <div class="envelope_container">
+                                <i class="fas fa-envelope color_white"></i>
+                                <div id="notification_mark" class=""></div>
+                              </div>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle color_white medium_fs" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                             </a>
 

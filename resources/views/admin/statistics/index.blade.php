@@ -4,24 +4,33 @@
 
 @section('content')
 
-  <h1>Statistiche</h1>
+  <div class="container py-4">
 
-  <h3>Visite totali dei tuoi appartamenti: {{ $total_views }}</h3>
-  <h3>Visite odierne dei tuoi appartamenti: {{ $today_views }}</h3>
+    <div class="hero py-4">
+      <img class="hero__image py-4" src="{{ asset('img/statistics/chart.svg') }}" alt="statistics image">
+      <h1 class="hero__title py-4">Statistiche generali dei tuoi appartamenti</h1>
+    </div>
+
+    <h3 class="pt-3 pb-1">Visite totali: {{ $total_views }}</h3>
+    <h3 class="pb-4">Visite di oggi: {{ $today_views }}</h3>
+
+    <h3 class="pt-4"> <i class="fas fa-chart-line"></i> Visite settimanali: {{ $last_seven_days_views }}</h3>
+
+  {{-- canvas for chart.js --}}
+    <div class="row">
+      <canvas id="viewsChart" style="width: 100%; height: 300px"></canvas>
+    </div>
+  {{-- /canvas for chart.js --}}
+
+  </div>
+
+@endsection
+
+@section('footerScript')
 
   {{-- including chart.js --}}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   {{-- /including chart.js --}}
-
-  {{-- canvas --}}
-
-  <div class="container">
-    <div class="row">
-      <canvas id="viewsChart" style="width: 100%; height: 300px"></canvas>
-    </div>
-  </div>
-
-  {{-- /canvas --}}
 
   {{-- script for generate the chart --}}
   <script>
@@ -39,10 +48,12 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        precision: 0
                     }
                 }]
             }

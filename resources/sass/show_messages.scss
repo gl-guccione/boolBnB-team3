@@ -1,0 +1,78 @@
+#admin_messages_show {
+
+  h5 {
+    font-size: 22px;
+    padding-bottom: 20px;
+    color: #000;
+  }
+  i {
+    padding-right: 7px;
+    color: $lightGreen;
+  }
+
+  .message {
+
+    display: flex;
+    padding-top: 30px;
+    color: #474747;
+
+    &__info {
+      width: 30%;
+      padding-right: 40px;
+    }
+
+    &__body {
+      width: 70%;
+    }
+
+    &__reply {
+      border: 2px solid $lightGreen;
+      margin-top: 20px;
+      color: #474747;
+
+      &:hover {
+        background-color: $lightGreen;
+        color: #fff;
+
+        i {
+          color: #fff;
+        }
+
+      }
+    }
+
+    &__flat {
+      a {
+        color: $lightGreen;
+        &:hover {
+          text-decoration: none;
+          filter: brightness(0.7);
+        }
+      }
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 850px) {
+
+  #admin_messages_show {
+
+    .message {
+      display: block;
+
+      &__info {
+        width: 100%;
+        margin-bottom: 50px;
+        padding-right: 0;
+      }
+      &__body {
+        width: 100%;
+      }
+
+    }
+
+  }
+
+}
