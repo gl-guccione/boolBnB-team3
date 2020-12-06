@@ -198,7 +198,6 @@ function printFlats(data) {
 
 // function that check if all the required parameters are set (guest_search)
 function checkParameters() {
-  console.log($("#city").attr("data-algolia"));
 
   if ($("#city").attr("data-algolia") == "") {
     alert('inserisci una città!');

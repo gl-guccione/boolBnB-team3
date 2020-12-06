@@ -20,12 +20,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        // ONPROD select only message for the correct user
         $messages = Message::whereHas('flat', function ($query) {
           $query->where('user_id', Auth::id());
         })->orderBy('date_of_send', 'desc')->get();
-
-        $messages = Message::inRandomOrder()->limit(10)->get();
 
         return view('admin.messages.index', compact('messages'));
     }
