@@ -1,13 +1,13 @@
-#admin_sponsorships_index{
-    .container{
+#admin_sponsorships_index {
+    .container {
         width: 80%;
         margin: auto;
-        
-        h2{
+
+        h2 {
             margin: 50px 0;
         }
 
-        .message{
+        .message {
             background-color: lightgrey;
             border: 1px solid #000;
             margin: 20px 0;
@@ -16,46 +16,46 @@
             flex-wrap: wrap;
             justify-content: center;
 
-            .title{
+            .title {
                 width: 60%;
                 padding: 30px;
 
-                span{
+                span {
                     text-transform: capitalize;
                 }
             }
 
-            .info{
+            .info {
                 width: 20%;
-                span{
+                span {
                     font-size: 16px;
 
-                    &:last-child{
+                    &:last-child {
                         color: green;
                     }
                 }
             }
 
-            .date{
+            .date {
                 width: 20%;
             }
 
-            p{
+            p {
                 font-weight: bold;
             }
 
-            @media screen and (max-width:768px) {
+            @media screen and (max-width: 768px) {
                 flex-wrap: wrap;
                 padding-bottom: 30px;
 
-                .title{
+                .title {
                     width: 80%;
                 }
 
-                .info,.date{
+                .info,
+                .date {
                     width: 60%;
                 }
-
             }
         }
     }
