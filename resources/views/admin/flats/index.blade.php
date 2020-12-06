@@ -27,7 +27,7 @@
     <div class="row">
 
       {{-- first col --}}
-      <div class="col-lg-8 flat__first">
+      <div class="col-lg-8 col-12 flat__first">
 
         <div class="flat__textimage d_flex">
 
@@ -37,8 +37,8 @@
 
           <div class="flat__text">
 
-            <h2 class="flat__title">
-              <a class="flat__link overflow_row" href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
+            <h2 class="flat__title overflow_row">
+              <a class="flat__link" href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
             </h2>
 
             <p class="flat__description overflow_two_rows">
@@ -121,7 +121,7 @@
       {{-- /first col --}}
 
       {{-- second col --}}
-      <div class="col-lg-2 flat__second d_flex_vertical center">
+      <div class="col-lg-2 col-sm-6 col-12 my-4 my-sm-0 flat__second d_flex_vertical center">
 
         <div class="flat__sponsored">
           <span>In evidenza fino al 21/12/2020</span>
@@ -138,7 +138,7 @@
       {{-- /second col --}}
 
       {{-- third col --}}
-      <div class="col-lg-2 flat__third center d_flex_vertical">
+      <div class="col-lg-2 col-sm-6 col-12 flat__third my-4 my-lg-0 my center d_flex_vertical">
 
         <div class="flat_actions">
 
