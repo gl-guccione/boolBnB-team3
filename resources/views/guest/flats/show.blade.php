@@ -86,11 +86,11 @@
     <!--/user avatar & flat description -->
 
     <!-- map -->
-    <div data-aos="fade-right" class="row">
-      <div class="col-12 col-lg-8 flat_map">
+    <div data-aos="fade-right" class="row my-5">
+      <div class="col-12 flat_map">
 
           {{-- TODO add maps --}}
-
+          <h2>Trascina il muose e scopri dove si trova l'appartamento..</h2>
           <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
 
         <div id="map-example-container"></div>
@@ -98,71 +98,76 @@
     </div>
     <!--/map -->
 
-    <!-- informazioni appartamento -->
-    <div data-aos="fade-left"class="row">
-      <div class="col-12 offset-lg-4 col-lg-8">
-        <div class="row">
-          <div class="col-12 col-sm-4">
-            {{-- options --}}
-            <h3>Servizi</h3>
+      <!-- informazioni appartamento -->
+      <div data-aos="fade-left"class="row my-5">
+        <div class="col-12 offset-lg-4 col-lg-8">
+          <h2>..e quali servizi offre!</h2>
+          <div class="row flat_infos">
+            <div class="col-12 col-sm-4">
 
-            <ul>
-              @foreach($flat->options as $option)
-                <li>{{ $option->name }}</li>
-              @endforeach
-            </ul>
-            {{-- /options --}}
-          </div>
-          <div class="col-12 col-sm-4">
-            {{-- info --}}
-            <h3>Informazioni</h3>
+              {{-- options --}}
+              <h3>Servizi</h3>
 
-            <ul>
-
-              @if ($flat->number_of_rooms == 1)
-                <li>Stanza: 1</li>
-              @else
-                <li>Stanze: {{ $flat->number_of_rooms }}</li>
-              @endif
-
-              @if ($flat->number_of_beds == 1)
-              <li>Letto: 1</li>
-              @else
-              <li>Letti: {{ $flat->number_of_beds }}</li>
-              @endif
-
-              @if ($flat->number_of_bathrooms == 1)
-                <li>Bagno: 1</li>
-              @else
-                <li>Bagni: {{ $flat->number_of_bathrooms }}</li>
-              @endif
-
-            </ul>
-            {{-- /info --}}
-          </div>
-          <div class="col-12 col-sm-4">
-            @if ($flat->extra_options != null)
-              <h3>Servizi aggiuntivi</h3>
-
-              @php
-                $extra_options_arr = explode(', ', $flat->extra_options)
-              @endphp
-
-              <ul>
-                @foreach($extra_options_arr as $extra_option)
-                  <li>{{ $extra_option }}</li>
+              <ul class="flat_infos_list">
+                @foreach($flat->options as $option)
+                  <li><i class="far fa-check-circle"></i> {{ $option->name }}</li>
                 @endforeach
               </ul>
-            @endif
-            {{-- /extra info --}}
+              {{-- /options --}}
+            </div>
+            <div class="col-12 col-sm-4">
+              {{-- info --}}
+              <h3>Informazioni</h3>
+
+              <ul class="flat_infos_list">
+
+                @if ($flat->number_of_rooms == 1)
+                  <li><i class="fas fa-door-closed"></i> Stanza: 1</li>
+                @else
+                  <li><i class="fas fa-door-closed"></i> Stanze: {{ $flat->number_of_rooms }}</li>
+                @endif
+
+                @if ($flat->number_of_beds == 1)
+                <li><i class="fas fa-bed"></i> Letto: 1</li>
+                @else
+                <li><i class="fas fa-bed"></i> Letti: {{ $flat->number_of_beds }}</li>
+                @endif
+
+                @if ($flat->number_of_bathrooms == 1)
+                  <li><i class="fas fa-sink"></i> Bagno: 1</li>
+                @else
+                  <li><i class="fas fa-sink"></i> Bagni: {{ $flat->number_of_bathrooms }}</li>
+                @endif
+
+              </ul>
+              {{-- /info --}}
+            </div>
+            <div class="col-12 col-sm-4">
+              @if ($flat->extra_options != null)
+
+
+                <h3>Extra</h3>
+
+                @php
+                  $extra_options_arr = explode(', ', $flat->extra_options)
+                @endphp
+
+                <ul class="flat_infos_list">
+                  @foreach($extra_options_arr as $extra_option)
+                    <li><i class="fas fa-plus"></i> {{ $extra_option }}</li>
+                  @endforeach
+                </ul>
+              @endif
+              {{-- /extra info --}}
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
-    <!--/informazioni appartamento -->
+      <!--/informazioni appartamento -->
 
     <!-- form per contattare il proprietario -->
-    <div data-aos="fade-right" class="row">
+    <div data-aos="fade-right" class="row my-5 flat_message">
       <div class="col-12 col-lg-6">
         {{-- form - send message --}}
 
@@ -183,7 +188,7 @@
           @endphp
         @endauth
 
-        <h2>Contatta l'host</h2>
+        <h2>Infine, contatta l'host per saperne direttamente la disponibilità.</h2>
         <form action="{{ route("guest.messages.store") }}" method="post">
 
           @csrf

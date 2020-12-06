@@ -67,8 +67,38 @@
   .flat_map {
 
     #map-example-container {
-      height: 300px;
+      height: 500px;
       width: 100%;
     }
+  }
+
+  .flat_infos {
+    background-color: $lightGrey;
+    padding: 20px;
+    border: 3px solid #333333;
+    border-left: none;
+    border-right: none;
+    font-size: 18px;
+
+    i {
+      color: $lightGreen;
+    }
+
+    h3 {
+      color: $colorMain;
+
+    }
+
+     &_list {
+       height: calc(100% - 30px);
+       list-style: none;
+       background-color: #fff;
+       margin-bottom: 15px;
+       padding-left: 5px;
+     }
+  }
+
+  .flat_message {
+
   }
 }
