@@ -13,6 +13,7 @@ use Carbon\Carbon;
 // using Models
 use App\Flat;
 use App\Option;
+use App\View;
 
 class HomepageController extends Controller
 {
@@ -28,7 +29,14 @@ class HomepageController extends Controller
           $query->where('date_of_end', '>', $datetime_now);
         })->get();
 
-        return view('guest.home', compact('flats'));
+        $views = View::all()->count();
+
+        $data = [
+          'flats' => $flats,
+          'views' => $views
+        ];
+
+        return view('guest.home', $data);
     }
 
      /**
