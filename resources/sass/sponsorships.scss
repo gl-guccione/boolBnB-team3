@@ -1,0 +1,62 @@
+#admin_sponsorships_index{
+    .container{
+        width: 80%;
+        margin: auto;
+        
+        h2{
+            margin: 50px 0;
+        }
+
+        .message{
+            background-color: lightgrey;
+            border: 1px solid #000;
+            margin: 20px 0;
+            padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .title{
+                width: 60%;
+                padding: 30px;
+
+                span{
+                    text-transform: capitalize;
+                }
+            }
+
+            .info{
+                width: 20%;
+                span{
+                    font-size: 16px;
+
+                    &:last-child{
+                        color: green;
+                    }
+                }
+            }
+
+            .date{
+                width: 20%;
+            }
+
+            p{
+                font-weight: bold;
+            }
+
+            @media screen and (max-width:768px) {
+                flex-wrap: wrap;
+                padding-bottom: 30px;
+
+                .title{
+                    width: 80%;
+                }
+
+                .info,.date{
+                    width: 60%;
+                }
+
+            }
+        }
+    }
+}
