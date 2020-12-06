@@ -1,0 +1,19 @@
+.edit_box {
+
+    .wd_100 {
+        width: 100%;
+    }
+
+    .mg-l {
+        margin-left: 0;
+    }
+
+    .btn-custom {
+        background-color: $colorMain;
+        color: #fff;
+        margin-left: 20px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

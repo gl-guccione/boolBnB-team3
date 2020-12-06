@@ -4,24 +4,37 @@
 
 @section('content')
 
-  <div>
+  <div class="container">
+  
+    <h2>Le mie sponsorizzazzioni</h2>
 
     @foreach ($sponsorships as $sponsorship)
 
-      <ul>
+      <div class="message">
 
-        <li><h3>Titolo appartemnto: {{ $sponsorship->flat->title }}</h3></li>
-        <li>Prezzo pagato: {{ $sponsorship->sponsorship_price->price }}€</li>
-        <li>Durata sponsorizzazzione: {{ $sponsorship->sponsorship_price->duration_in_hours }} ore</li>
-        <li>Data inizio: {{ $sponsorship->date_of_start }}</li>
-        <li>Data fine: {{ $sponsorship->date_of_end }}</li>
+        <div class="title">
+          <span>{{ $sponsorship->flat->type}}:</span>
+          <h4>{{ $sponsorship->flat->title }}</h4>
+        </div>
 
-      </ul>
+        <div class="info">
+          <p>Durata sponsorizzazzione:</p>
+          <span>{{ $sponsorship->sponsorship_price->duration_in_hours }} ore</span>
+          <p>Prezzo pagato:</p>
+          <span>{{ $sponsorship->sponsorship_price->price }} €</span>
+        </div>
+        
+        <div class="date">
+          <p>Data inizio:</p>
+          <span>{{ $sponsorship->date_of_start }}</span>
+          <p>Data fine:</p>
+          <span>{{ $sponsorship->date_of_end }}</span>
+        </div>
 
+      </div>
 
     @endforeach
-
-    </div>
-
+  
+  </div>
 
 @endsection
