@@ -80,32 +80,32 @@
 
         <div class="flat__info d_flex">
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="numero di stanze">
             <i class="fas fa-door-open"></i>
             {{ $flat->number_of_rooms }}
           </div>
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="numero di letti">
             <i class="fas fa-bed"></i>
             {{ $flat->number_of_beds }}
           </div>
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="numero di bagni">
             <i class="fas fa-restroom"></i>
             {{ $flat->number_of_bathrooms }}
           </div>
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="superfice in m²">
             <i class="fas fa-border-style"></i>
             {{ $flat->mq }}m²
           </div>
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="prezzo a notte">
             <i class="fas fa-euro-sign"></i>
             {{ $flat->price }}€
           </div>
 
-          <div>
+          <div data-toggle="tooltip" data-placement="top" title="visibilità">
             @if ($flat->active == true)
             <i class="far fa-eye"></i>
             visibile
