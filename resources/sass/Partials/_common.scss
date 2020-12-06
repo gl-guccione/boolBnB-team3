@@ -52,6 +52,12 @@
   align-items: center;
 }
 
+.d_flex_vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .overflow_row {
   white-space: nowrap;
   overflow: hidden;
@@ -71,4 +77,31 @@
 
 a:hover {
   text-decoration: none !important;
+}
+
+.button {
+  border: 2px solid $lightGreen !important;
+  color: #474747 !important;
+  i {
+    color: $lightGreen !important;
+  }
+  &:hover {
+    background-color: $lightGreen !important;
+    color: #fff !important;
+    i {
+      color: #fff !important;
+    }
+  }
+  &.delete {
+    &:hover {
+      background-color: red !important;
+      border-color: red !important;
+    }
+  }
+  &.edit {
+    &:hover {
+      background-color: #ffc107 !important;
+      border-color: #ffc107 !important;
+    }
+  }
 }

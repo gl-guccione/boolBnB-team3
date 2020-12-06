@@ -43,7 +43,7 @@
         </p>
 
         <div class="center">
-          <a href="mailto:{{ $message->email }}" class="btn message__reply"> <i class="fas fa-reply-all"></i> Rispondi</a>
+          <a href="mailto:{{ $message->email }}" class="btn button message__reply"> <i class="fas fa-reply-all"></i> Rispondi</a>
         </div>
 
       </div>

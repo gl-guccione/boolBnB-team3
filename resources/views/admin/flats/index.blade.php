@@ -45,9 +45,9 @@
               {{ $flat->description }}
             </p>
 
-            <p>
-              {{ $flat->street_name }},
-              {{ $flat->zip_code }} -
+            <p class="flat__address overflow_row">
+              <i class="fas fa-map-marker-alt"></i>
+              {{ $flat->street_name }} -
               {{ $flat->city }}
             </p>
 
@@ -105,21 +105,32 @@
             {{ $flat->price }}€
           </div>
 
+          <div>
+            @if ($flat->active == true)
+            <i class="far fa-eye"></i>
+            visibile
+            @else
+            <i class="fas fa-eye-slash"></i>
+            non visibile
+            @endif
+          </div>
+
         </div>
 
       </div>
       {{-- /first col --}}
 
       {{-- second col --}}
-      <div class="col-lg-2 flat__second">
+      <div class="col-lg-2 flat__second d_flex_vertical center">
 
         <div class="flat__sponsored">
           <span>In evidenza fino al 21/12/2020</span>
         </div>
         <hr>
         <div class="flat__sponsor">
-          <a href="{{ route('admin.sponsorships.create') }}">
-            <i class="fas fa-credit-card"> Promuovi</i>
+          <a class="btn button" href="{{ route('admin.sponsorships.create') }}">
+            <i class="fas fa-credit-card"></i>
+            Promuovi
           </a>
         </div>
 
@@ -127,17 +138,17 @@
       {{-- /second col --}}
 
       {{-- third col --}}
-      <div class="col-lg-2 flat__third">
+      <div class="col-lg-2 flat__third center d_flex_vertical">
 
         <div class="flat_actions">
 
           {{-- pause button/form --}}
-          <form class="m-2" action="{{ route('admin.flats.update_status', $flat->slug) }}" method="POST">
+          <form class="" action="{{ route('admin.flats.update_status', $flat->slug) }}" method="POST">
 
             @csrf
             @method('PUT')
 
-            <button type="submit">
+            <button type="submit" class="btn button">
               @if ($flat->active == 1)
                 <i class="fas fa-pause"></i>
                 Disattiva
@@ -151,8 +162,8 @@
           {{-- /pause button/form --}}
 
           {{-- edit button --}}
-          <div class="edit m-2">
-            <a href="{{ route('admin.flats.edit', $flat->slug) }}">
+          <div class="my-3">
+            <a class="btn button edit" href="{{ route('admin.flats.edit', $flat->slug) }}">
               <i class="fas fa-edit"></i>
               Modifica
             </a>
@@ -160,12 +171,12 @@
           {{-- /edit button --}}
 
           {{-- delete button/form --}}
-          <form class="delete m-2" action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
+          <form class="" action="{{ route('admin.flats.destroy', $flat->slug) }}" method="POST">
 
             @csrf
             @method('DELETE')
 
-            <button class="delete" type="submit">
+            <button class="btn button delete" type="submit">
               <i class="fas fa-trash-alt"></i>
               Elimina
             </button>
@@ -180,6 +191,8 @@
 
     </div>
     {{-- /row --}}
+
+    <hr class="end_flat">
 
 
   @endforeach
