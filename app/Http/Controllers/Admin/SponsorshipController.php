@@ -103,7 +103,7 @@ class SponsorshipController extends Controller
             $newPayment->transaction_id = $transaction->id;
             $newPayment->amount = $transaction->amount;
             $newPayment->status = $transaction->status;
-            $newPayment->date_of_payment = $transaction->updatedAt;
+            $newPayment->date_of_payment = Carbon::now();
 
             $newPayment->save();
 
@@ -136,16 +136,16 @@ class SponsorshipController extends Controller
             // if exist i set the date_of_start of the new sponsorship as the date_of_end of the last sponsorship (only if it is in the future), otherwise i set it as the date_of_payment
             if (!isset($sponsorship_same_flat)) {
 
-              $newSponsorship->date_of_start = $transaction->updatedAt;
+              $newSponsorship->date_of_start = Carbon::now();
 
             } else {
 
-              $date_of_payment = Carbon::parse($transaction->updatedAt);
+              $date_of_payment = Carbon::now();
               $old_sponsorship_date = Carbon::parse($sponsorship_same_flat->date_of_end);
 
               if ($date_of_payment->gt($old_sponsorship_date)) {
 
-                $newSponsorship->date_of_start = $transaction->updatedAt;
+                $newSponsorship->date_of_start = $date_of_payment;
 
               } else {
 
@@ -159,7 +159,7 @@ class SponsorshipController extends Controller
 
             $newSponsorship->save();
 
-            return back()->with('success_message', 'Hai pagato correttamente '.$transaction->amount.'€');
+            return redirect()->route('admin.flats.index')->with('record_added', 'Hai pagato correttamente '.$transaction->amount.'€');
 
         } else {
             $errorString = "";

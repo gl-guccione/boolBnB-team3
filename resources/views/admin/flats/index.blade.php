@@ -124,7 +124,14 @@
       <div class="col-lg-2 col-sm-6 col-12 my-4 my-sm-0 flat__second d_flex_vertical center">
 
         <div class="flat__sponsored">
-          <span>In evidenza fino al 21/12/2020</span>
+          <span>
+            <i class="fas fa-receipt"></i> <br>
+            @if ($flat->sponsored == false)
+              Non in evidenza
+            @else
+              In evidenza fino al {{ substr($flat->sponsored, 0, 16) }}
+            @endif
+          </span>
         </div>
         <hr>
         <div class="flat__sponsor">

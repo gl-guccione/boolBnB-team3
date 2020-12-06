@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
+// using Carbon
+use Carbon\Carbon;
+
 // using Models
 use App\Flat;
 use App\Option;
@@ -28,6 +31,16 @@ class FlatController extends Controller
     {
         $user_id = Auth::id();
         $flats = Flat::where('user_id', $user_id)->get();
+
+        $datetime_now = Carbon::now();
+
+        foreach ($flats as $flat) {
+          if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
+            $flat->sponsored = $flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end;
+          } else {
+            $flat->sponsored = false;
+          }
+        }
 
         return view('admin.flats.index', compact('flats'));
     }

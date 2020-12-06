@@ -5,12 +5,6 @@
 @section('content')
     <div class="container">
         {{-- errori --}}
-        @if (session('success_message'))
-            <div class="alert alert-success">
-                    {{ session('success_message')}}
-            </div>
-        @endif
-
         @if(count($errors) > 0)
             <div class="alert alert-danger">
                 <ul>
@@ -21,10 +15,10 @@
             </div>
         @endif
         {{-- /errori --}}
-      
+
 
         <form method="POST" id="payment-form" action="{{route('admin.sponsorships.store')}}">
-            
+
             @method('POST')
             @csrf
 
