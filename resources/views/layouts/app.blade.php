@@ -174,9 +174,15 @@
   {{-- toast --}}
   @if (Session::has('record_added'))
 
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000" style="position: fixed; top: 105px; right: 30px; background-color: #4cbb60; border-radius: 10px">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
+      <div class="toast-header">
+        <strong class="mr-auto toast-name">Notifica da BoolBnB</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <div class="toast-body">
-        <span style="color: #fff">{!!Session::get('record_added')!!}</span>
+        <span class="toast-content">{!!Session::get('record_added')!!}</span>
       </div>
     </div>
 
@@ -184,9 +190,15 @@
 
   @if (Session::has('record_added_perm'))
 
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: fixed; top: 105px; right: 30px; background-color: #4cbb60; border-radius: 10px">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+    <div class="toast-header">
+      <strong class="mr-auto toast-name">Notifica da BoolBnB</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="toast-body">
-      <span style="color: #fff">{!!Session::get('record_added')!!}</span>
+      <span class="toast-content">{!!Session::get('record_added_perm')!!}</span>
     </div>
   </div>
 
