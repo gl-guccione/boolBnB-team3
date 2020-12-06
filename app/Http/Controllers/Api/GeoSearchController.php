@@ -67,6 +67,8 @@ class GeoSearchController extends Controller
 
             $flat->distance_km = km_distance($request->latlng, $coordinate);
 
+            $flat->link = route('guest.flats.show', $flat->slug);
+
             if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
               $flat->sponsored = true;
             } else {

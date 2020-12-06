@@ -181,7 +181,7 @@ function printFlats(data) {
         'stars': data[i].stars,
         'price': data[i].price,
         'image': data[i].images[0].path,
-        'slug': data[i].slug
+        'link': data[i].link
       }
 
       var html = template(context);
