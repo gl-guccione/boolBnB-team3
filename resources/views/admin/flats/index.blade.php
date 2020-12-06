@@ -23,6 +23,8 @@
   {{-- flats --}}
   @foreach ($flats as $flat)
 
+    <hr class="end_flat">
+
     {{-- row --}}
     <div class="row">
 
@@ -198,9 +200,6 @@
 
     </div>
     {{-- /row --}}
-
-    <hr class="end_flat">
-
 
   @endforeach
   {{-- /flats --}}
