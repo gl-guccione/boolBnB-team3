@@ -4,6 +4,7 @@ var places = require('places.js');
 
 const $ = require('jquery');
 const Handlebars = require("handlebars");
+const moment = require("moment");
 
 // functions
 
@@ -230,7 +231,23 @@ jQuery(function() {
 
   // loading algoliaCity inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
+
     algoliaCity();
+
+    $("#check_in").change(function () {
+
+      let checkInValue = $("#check_in").val();
+      let checkOut = moment($("#check_out").val());
+      let endDate = moment(checkInValue).add(1, 'days');
+      let endDateSet = endDate.format('YYYY-MM-DD');
+
+      $("#check_out").attr('min', endDateSet);
+
+      if (checkOut.isBefore(endDate)) {
+        $("#check_out").val(endDateSet);
+      }
+
+    });
   }
 
   // functions to load inside homepage
