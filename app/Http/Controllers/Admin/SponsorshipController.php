@@ -159,7 +159,7 @@ class SponsorshipController extends Controller
 
             $newSponsorship->save();
 
-            return redirect()->route('admin.flats.index')->with('record_added', 'Hai pagato correttamente '.$transaction->amount.'€');
+            return redirect()->route('admin.flats.index')->with('record_added_perm', 'Hai pagato correttamente '.$transaction->amount.'€');
 
         } else {
             $errorString = "";

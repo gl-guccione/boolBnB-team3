@@ -181,6 +181,16 @@
     </div>
 
   @endif
+
+  @if (Session::has('record_added_perm'))
+
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: fixed; top: 105px; right: 30px; background-color: #4cbb60; border-radius: 10px">
+    <div class="toast-body">
+      <span style="color: #fff">{!!Session::get('record_added')!!}</span>
+    </div>
+  </div>
+
+@endif
   {{-- /toast --}}
 
   @auth
