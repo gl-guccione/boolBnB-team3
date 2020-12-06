@@ -87,10 +87,10 @@
 
     <!-- map -->
     <div data-aos="fade-right" class="row my-5">
-      <div class="col-12 col-lg-8 flat_map">
+      <div class="col-12 flat_map">
 
           {{-- TODO add maps --}}
-
+          <h2>Trascina il muose e scopri dove si trova l'appartamento..</h2>
           <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
 
         <div id="map-example-container"></div>
@@ -101,8 +101,10 @@
       <!-- informazioni appartamento -->
       <div data-aos="fade-left"class="row my-5">
         <div class="col-12 offset-lg-4 col-lg-8">
+          <h2>..e quali servizi offre!</h2>
           <div class="row flat_infos">
             <div class="col-12 col-sm-4">
+
               {{-- options --}}
               <h3>Servizi</h3>
 
@@ -144,7 +146,7 @@
               @if ($flat->extra_options != null)
 
 
-                <h3>Servizi aggiuntivi</h3>
+                <h3>Extra</h3>
 
                 @php
                   $extra_options_arr = explode(', ', $flat->extra_options)
@@ -186,7 +188,7 @@
           @endphp
         @endauth
 
-        <h2>Contatta l'host</h2>
+        <h2>Infine, contatta l'host per saperne direttamente la disponibilità.</h2>
         <form action="{{ route("guest.messages.store") }}" method="post">
 
           @csrf
