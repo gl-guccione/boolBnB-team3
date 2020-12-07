@@ -289,7 +289,7 @@ jQuery(function() {
   }
 
   // function to load inside admin.flats.create and admin.flats.edit
-  if ($("#admin_flats_create").length || $("#admin_flats_edit")) {
+  if ($("#admin_flats_create").length || $("#admin_flats_edit").length) {
     algoliaAddress();
   }
 
