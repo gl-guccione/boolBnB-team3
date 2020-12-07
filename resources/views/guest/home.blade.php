@@ -13,11 +13,11 @@
   {{-- jumbotron --}}
   <div class="container-fluid px-0 jumbo">
     <div class="row no-gutters">
-      <div class="col-12 opacity">
-        <img id="first-img" class="photo-carousel first" src={{ asset('img/img1.jpeg') }} alt="carousel_img">
-        <img id="second-img" class="photo-carousel" src={{ asset('img/img2.jpg') }} alt="carousel_img">
-        <img id="third-img" class="photo-carousel" src={{ asset('img/img3.jpg') }} alt="carousel_img">
-        <img id="fourth-img" class="photo-carousel" src={{ asset('img/img4.jpg') }} alt="carousel_img">
+      <div class="col-12 carousel">
+        <img src={{ asset('img/img1.jpeg') }} alt="carousel_img">
+        <img src={{ asset('img/img2.jpg') }} alt="carousel_img">
+        <img src={{ asset('img/img3.jpg') }} alt="carousel_img">
+        <img src={{ asset('img/img4.jpg') }} alt="carousel_img">
       </div>
     </div>
     {{-- form --}}
@@ -25,17 +25,18 @@
     <div class="row">
       <div class="col-xl-4 col-sm-8 form form-home">
         <form action="{{ route("guest.homepage.search") }}" method="get">
-          <div class="form-row">
-            @method('GET')
-            {{-- algolia input search --}}
-            <div class="form-group">
+        @method('GET')
 
-              <label for="city"><strong>Dove</strong></label>
-              <input name="algolia" type="search" id="city" class="form-control" placeholder="Inserisci indirizzo" required>
-              <input name="data-algolia" type="hidden" id="data-algolia" class="form-control" required>
+        {{-- algolia input search --}}
+        <div class="form-row">
+          <div class="form-group col-12">
 
-            </div>
+            <label for="city"><strong>Dove</strong></label>
+            <input name="algolia" type="search" id="city" class="form-control" placeholder="Inserisci indirizzo" required>
+            <input name="data-algolia" type="hidden" id="data-algolia" class="form-control" required>
+
           </div>
+        </div>
 
         <!-- ospiti adulti e bambini -->
         <div class="form-row">

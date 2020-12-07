@@ -5,6 +5,7 @@ var places = require('places.js');
 const $ = require('jquery');
 const Handlebars = require("handlebars");
 const moment = require("moment");
+const slick = require("slick-carousel");
 
 // functions
 
@@ -67,41 +68,6 @@ function opacity() {
         $(".photo-carousel.active").css({opacity: "0."+count});
       }
   }, 100);
-}
-
-// carousel function
-function carousel() {
-
-  let x = "a";
-  setInterval(function() {
-    if (x == "a") {
-      $("#first-img").removeClass("first");
-
-      $(".photo-carousel").removeClass("active");
-      $("#second-img").addClass("active");
-
-      opacity();
-      x = "b";
-    } else if (x == "b") {
-      $(".photo-carousel").removeClass("active");
-      $("#third-img").addClass("active");
-
-      opacity();
-      x = "c";
-    } else if (x == "c") {
-      $(".photo-carousel").removeClass("active");
-      $("#fourth-img").addClass("active");
-
-      opacity();
-      x = "d";
-    } else if (x == "d") {
-      $(".photo-carousel").removeClass("active");
-      $("#first-img").addClass("active");
-
-      opacity();
-      x = "a";
-    }
-  }, 10000);
 }
 
 // function getFlats (make an ajax request and get flats)
@@ -253,7 +219,14 @@ jQuery(function() {
   // functions to load inside homepage
   if ($("#guest_home").length) {
 
-    carousel();
+    $('.carousel').slick({
+      infinite: true,
+      arrows: false,
+      autoplay: true,
+      lazyLoad: 'progressive',
+      adaptiveHeight: true,
+      autoplaySpeed: 6000
+    });
 
     $("#children").change(function() {
       if (($("#children").val() > 0) && ($("#adults").val() == "")) {

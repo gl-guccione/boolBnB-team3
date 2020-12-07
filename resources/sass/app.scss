@@ -10,7 +10,6 @@
 @import 'Partials/_variables';
 @import 'Partials/_common';
 
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -21,6 +20,7 @@
 @import 'Partials/_jumbotron';
 
 @import 'toast';
+@import 'slick.css';
 @import 'home';
 @import 'show';
 @import 'search';
