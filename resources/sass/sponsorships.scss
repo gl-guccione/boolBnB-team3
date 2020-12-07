@@ -61,3 +61,34 @@
         }
     }
 }
+
+
+#admin_sponsorships_create {
+
+    span{
+        font-weight: bold;
+        font-size:16px;
+    }
+
+    .braintree-heading{
+      text-indent: -9999px;
+        line-height:0;
+        font-weight: bold;
+    }
+
+    .braintree-heading:after{
+        content: 'Scegli il metodo di pagamento ';
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+
+    .btn-custom{
+        background-color:$colorMain;
+
+        span{
+            color:#fff;
+            letter-spacing:0.05rem;
+        }
+    }
+}
