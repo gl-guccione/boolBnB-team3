@@ -6,7 +6,17 @@
 
   <div class="container">
   
-    <h2>Le mie sponsorizzazzioni</h2>
+
+    <div class="hero py-6">
+      <img class="hero__image pt-4" src="{{ asset('img/flats/sponsorships.svg') }}" alt="flat image">
+      <h1 class="hero__title py-4">
+      
+        <br>
+        Qui puoi controllare tutte le tue sponsorizzazzioni.
+      </h1>
+    </div>
+
+
 
     @foreach ($sponsorships as $sponsorship)
 
