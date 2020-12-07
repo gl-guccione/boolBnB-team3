@@ -63,8 +63,8 @@
     <div class="row">
       {{-- host info --}}
       <div class="col-4 user_avatar">
-
-        <img src="{{ $flat->user->avatar }}" atl="avatar utente">
+        
+        <img src="{{ asset($flat->user->avatar) }}" alt="avatar utente">
         <h3>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h3>
         <a href="{{ route("guest.users.show", $flat->user->id) }}"></a>
 

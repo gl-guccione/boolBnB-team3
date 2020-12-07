@@ -76,10 +76,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = null;
         if (isset($data['avatar']))
         {
             $path = Storage::disk('public')->put('images', $data['avatar']);
+        }
+        else
+        {
+            $path = '/img/propic.png';
         }
 
 
