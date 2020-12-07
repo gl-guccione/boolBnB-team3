@@ -41,7 +41,6 @@
 
                           {{-- menu for registered user --}}
                           <li class="nav-item">
-                            {{-- TODO fix route messages --}}
                             <a href="{{ route('admin.messages.index') }}" class="nav-link medium_fs">
                               <div class="envelope_container">
                                 <i class="fas fa-envelope color_white"></i>

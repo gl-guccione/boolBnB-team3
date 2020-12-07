@@ -58,7 +58,6 @@
           </div>
           <div class="form-group col-6">
             <label for="check_out"><strong>Check-out</strong></label>
-            {{-- TODO set min date = value of check-in date --}}
             <input name="check_out" type="date" class="form-control" id="check_out" placeholder="Inserisci titolo" min="{{ $today }}" required>
           </div>
         </div>

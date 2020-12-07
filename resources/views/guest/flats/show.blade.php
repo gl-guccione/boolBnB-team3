@@ -89,7 +89,6 @@
     <div data-aos="fade-right" class="row my-5">
       <div class="col-12 flat_map">
 
-          {{-- TODO add maps --}}
           <h2>Trascina il muose e scopri dove si trova l'appartamento..</h2>
           <span>{{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
 
