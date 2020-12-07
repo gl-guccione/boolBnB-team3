@@ -137,12 +137,20 @@
         </div>
         <hr>
         <div class="flat__sponsor">
-          <a class="btn button" href="{{ route('admin.sponsorships.create') }}">
-            <i class="fas fa-credit-card"></i>
-            Promuovi
-          </a>
-        </div>
 
+          <form action="{{ route("admin.sponsorships.create") }}" method="get">
+            @method('GET')
+            
+            <input name="flat_id" type="hidden" id="flat_id" required value="{{$flat->id}}">
+            
+            <button type="submit" class="btn button submit">
+              <i class="fas fa-credit-card"></i>
+              Promuovi
+            </button>
+
+          </form>
+
+        </div>
       </div>
       {{-- /second col --}}
 
