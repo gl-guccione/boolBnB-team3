@@ -206,8 +206,6 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'required',
-              'image.*' => 'image|mimes:jpeg,jpg,png'
             ]
         );
 

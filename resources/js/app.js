@@ -225,11 +225,11 @@ function checkParameters() {
 
 jQuery(function() {
 
-  // function to activate toast notifications
+  // function to activate toast notifications adn tooltips
   $('.toast').toast('show');
   $('[data-toggle="tooltip"]').tooltip()
 
-  // loading algoliaCity inside home and search
+  // loading algoliaCity and function to check "check-in and check-out" inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
 
     algoliaCity();
@@ -288,8 +288,8 @@ jQuery(function() {
 
   }
 
-  // function to load inside admin.flats.create
-  if ($("#admin_flats_create").length) {
+  // function to load inside admin.flats.create and admin.flats.edit
+  if ($("#admin_flats_create").length || $("#admin_flats_edit")) {
     algoliaAddress();
   }
 
