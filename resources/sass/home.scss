@@ -53,6 +53,50 @@
     }
   }
 
+  .container-dark {
+    background-color: #474747;
+  }
+
+  .became-host {
+    margin: 50px 0 0;
+
+    &__title {
+      margin: auto;
+      color: #e7e7e7;
+      text-align: left;
+      h2 {
+        padding-bottom: 20px;
+      }
+      a {
+        color: #fff !important;
+        font-size: 18px;
+      }
+    }
+
+    &__image {
+      padding: 25px 0;
+      margin: 50px 0;
+      background-color: #e7e7e7;
+      border-radius: 30px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width: 991px) {
+    .became-host {
+      &__title {
+        padding: 70px 0 10px;
+        text-align: center;
+        margin: 0;
+      }
+    }
+
+  }
+
   @media screen and (max-width: 575px) {
 
     .form {
