@@ -148,4 +148,31 @@
     <!-- end container -->
     </div>
 
+    {{-- became an host --}}
+    <div class="container-fluid container-dark">
+
+      <div class="container">
+
+        <div class="row became-host">
+
+          <div class="col-lg-6 col-md-12 became-host__title">
+            <h2>Unisciti a milioni <br> di host su BoolBnB</h2>
+            @guest
+              <a class="btn button" href="{{ route('register') }}">Registrati</a>
+            @else
+              <a class="btn button" href="#">Registrati</a>
+            @endguest
+          </div>
+
+          <div class="col-lg-6 col-md-12 became-host__image">
+            <img src="{{ asset('img/homepage/became_host.svg') }}" alt="">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {{-- /became an host --}}
+
 @endsection
