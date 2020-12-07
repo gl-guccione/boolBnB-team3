@@ -160,7 +160,7 @@
             @guest
               <a class="btn button" href="{{ route('register') }}">Registrati</a>
             @else
-              <a class="btn button" href="#">Registrati</a>
+              <a class="btn button" href="{{ route('admin.flats.create') }}">Pubblica un appartamento</a>
             @endguest
           </div>
 
