@@ -56,7 +56,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                               {{-- link for admin.flats.create --}}
                               <a class="dropdown-item" href="{{ route('admin.flats.create') }}">Crea appartamento</a>
-
+                              
                                 @if (count(Auth::user()->flats) > 0)
 
                                   {{-- link for admin.flats.index --}}
@@ -64,8 +64,14 @@
 
                                   {{-- link for admin.statistics.index --}}
                                   <a class="dropdown-item" href="{{ route('admin.statistics') }}">Statistiche</a>
+                                  
+                                  {{-- link for admin.sponsorships.index --}}
+                                  <a class="dropdown-item" href="{{ route('admin.sponsorships.index') }}">Le mie sponsorizzazioni</a>
 
                                 @endif
+
+                              {{-- link for admin.user.show --}}
+                              <a class="dropdown-item" href="{{ route('guest.users.show', Auth::id()) }}">Il mio profilo</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
