@@ -53,11 +53,12 @@ class GeoSearchController extends Controller
           $options = isset($request->options) ? ($request->options) : 0;
           $filters = explode(',', $options);
 
-          $flats = Flat::where('active', 1)
-                       ->where('number_of_rooms', '>', $rooms)
-                       ->where('number_of_beds', '>', $beds)
-                       ->where('number_of_bathrooms', '>', $bathrooms)
-                       ->get();
+          $flats = Flat::where([
+                                ['active', 1],
+                                ['number_of_rooms', '>', $rooms],
+                                ['number_of_beds', '>', $beds],
+                                ['number_of_bathrooms', '>', $bathrooms],
+          ])->get();
 
           $results = [];
 

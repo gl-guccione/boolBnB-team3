@@ -57,19 +57,6 @@ function algoliaAddress() {
   });
 }
 
-// opacity function (for carousel)
-function opacity() {
-  let count = 0;
-  setInterval(function() {
-        if (count == 9) {
-          clearInterval();
-        } else {
-        count ++;
-        $(".photo-carousel.active").css({opacity: "0."+count});
-      }
-  }, 100);
-}
-
 // function getFlats (make an ajax request and get flats)
 function getFlats(latlng){
 

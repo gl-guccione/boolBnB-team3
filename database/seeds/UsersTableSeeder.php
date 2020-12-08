@@ -29,7 +29,6 @@ class UsersTableSeeder extends Seeder
           $new_user->firstname = $faker->firstName();
           $new_user->lastname = $faker->lastName();
           $new_user->email = $faker->freeEmail();
-          $new_user->email = $faker->freeEmail();
           $new_user->password = Hash::make('password');
           $new_user->date_of_birth = $faker->dateTimeBetween('-50 years', '-20 years');
           $new_user->avatar = $faker->imageUrl(250, 250, 'person', true, 'avatar');
