@@ -6,7 +6,11 @@
 
 {{-- container --}}
 <div class="container pt-4 create_box">
-  <h2>Inserisci un appartamento</h2>
+
+  <div class="hero py-4">
+    <img class="hero__image py-4" src="{{ asset('img/flats/create.svg') }}" alt="flat image">
+    <h1 class="hero__title py-4">Inserisci un appartamento</h1>
+  </div>
 
   {{-- row --}}
   <div class="">

@@ -6,7 +6,12 @@
 
 {{-- container --}}
 <div class="container edit_box pt-4">
-  <h2>Modifica appartamento</h2>
+
+  <div class="hero py-4">
+    <img class="hero__image py-4" src="{{ asset('img/flats/edit.svg') }}" alt="flat image">
+    <h1 class="hero__title py-4">Modifica appartamento</h1>
+  </div>
+
   {{-- row --}}
   <div class="">
 
