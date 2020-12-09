@@ -148,20 +148,123 @@
   {{-- /results --}}
 
   <script id="flat-template" type="text/x-handlebars-template">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 entry-flat">
-      <div class="card_container">
-        <a class="link_view" href='@{{link}}'></a>
-        <div class="flat-img-box">
-          <img src="/storage/@{{image}}" alt="@{{ title }}">
+
+    <div class="col-12 col-lg-6 col-xl-4 flat entry-flat">
+
+      <div class="row">
+
+
+        <div class="col-12 col-lg-5 flat__container-img">
+          <a class="flat__link" href="@{{ link }}"></a>
+          <img class="flat__img" src="/storage/@{{ image }}" alt="@{{ title }}">
+          <div class="flat__sponsored"><i class="fas fa-tags"></i> in evidenza</div>
         </div>
-        <div class="flat-text-box">
-          <h4>Titolo: @{{title}}</h4>
-          <p>Descrizione: @{{description}}</p>
-          <span>Valutazione: @{{stars}}</span><br>
-          <span>Prezzo: @{{price}}</span>
+
+        <div class="col-12 col-lg-7 flat__text">
+          <h2 class="overflow_row">@{{ title }}</h2>
+          <p class="overflow_two_rows">@{{ description }}</p>
+          <a class="btn button" href="@{{ link }}"><i class="fas fa-search"></i> dettagli</a>
         </div>
+
+        <div class="col-12 flat__info">
+
+          <div data-toggle="tooltip" data-placement="top" title="numero di stanze">
+            <i class="fas fa-door-open"></i>
+            @{{ rooms }}
+          </div>
+
+          <div data-toggle="tooltip" data-placement="top" title="numero di letti">
+            <i class="fas fa-bed"></i>
+            @{{ beds }}
+          </div>
+
+          <div data-toggle="tooltip" data-placement="top" title="numero di bagni">
+            <i class="fas fa-restroom"></i>
+            @{{ bathrooms }}
+          </div>
+
+          <div data-toggle="tooltip" data-placement="top" title="superficie in m²">
+            <i class="fas fa-border-style"></i>
+            @{{ mq }}m²
+          </div>
+
+          <div data-toggle="tooltip" data-placement="top" title="prezzo a notte">
+            <i class="fas fa-euro-sign"></i>
+            @{{ price }} €
+          </div>
+
+          <div data-toggle="tooltip" data-placement="top" title="distanza">
+            <i class="fas fa-road"></i>
+            @{{ km }} km
+          </div>
+
+        </div>
+
+        <div class="col-12 flat__options">
+
+          @{{#if option1}}
+            <span for="checkbox_1" data-toggle="tooltip" data-placement="top" title="@{{ option1 }}"></span>
+          @{{ else }}
+            <span for="checkbox_1" class="missing-option" data-toggle="tooltip" data-placement="top" title="wifi assente">
+              <span></span>
+            </span>
+          @{{/if}}
+
+          @{{#if option2}}
+            <span for="checkbox_2" data-toggle="tooltip" data-placement="top" title="@{{ option2 }}"></span>
+          @{{ else }}
+          <span for="checkbox_2" class="missing-option" data-toggle="tooltip" data-placement="top" title="tv assente">
+            <span></span>
+          </span>
+          @{{/if}}
+
+          @{{#if option3}}
+            <span for="checkbox_3" data-toggle="tooltip" data-placement="top" title="@{{ option3 }}"></span>
+          @{{ else }}
+          <span for="checkbox_3" class="missing-option" data-toggle="tooltip" data-placement="top" title="riscaldamento assente">
+            <span></span>
+          </span>
+          @{{/if}}
+
+          @{{#if option4}}
+            <span for="checkbox_4" data-toggle="tooltip" data-placement="top" title="@{{ option4 }}"></span>
+          @{{ else }}
+          <span for="checkbox_4" class="missing-option" data-toggle="tooltip" data-placement="top" title="aria condizionata assente">
+            <span></span>
+          </span>
+          @{{/if}}
+
+          @{{#if option5}}
+            <span for="checkbox_5" data-toggle="tooltip" data-placement="top" title="@{{ option5 }}"></span>
+          @{{/if}}
+
+          @{{#if option6}}
+            <span for="checkbox_6" data-toggle="tooltip" data-placement="top" title="@{{ option6 }}"></span>
+          @{{/if}}
+
+          @{{#if option7}}
+            <span for="checkbox_7" data-toggle="tooltip" data-placement="top" title="@{{ option7 }}"></span>
+          @{{/if}}
+
+          @{{#if option8}}
+            <span for="checkbox_8" data-toggle="tooltip" data-placement="top" title="@{{ option8 }}"></span>
+          @{{/if}}
+
+          @{{#if option9}}
+            <span for="checkbox_9" data-toggle="tooltip" data-placement="top" title="@{{ option9 }}"></span>
+          @{{/if}}
+
+          @{{#if option10}}
+            <span for="checkbox_10" data-toggle="tooltip" data-placement="top" title="@{{ option10 }}"></span>
+          @{{/if}}
+
+
+        </div>
+
       </div>
+
     </div>
+
   </script>
 
 </div>

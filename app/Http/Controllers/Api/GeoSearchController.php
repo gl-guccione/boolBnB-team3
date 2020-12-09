@@ -111,6 +111,17 @@ class GeoSearchController extends Controller
               }
             }
 
+            $flat->option1 = in_array(1, $flat->options) ? 'wifi' : '';
+            $flat->option2 = in_array(2, $flat->options) ? 'tv' : '';
+            $flat->option3 = in_array(3, $flat->options) ? 'riscaldamento' : '';
+            $flat->option4 = in_array(4, $flat->options) ? 'aria condizionata' : '';
+            $flat->option5 = in_array(5, $flat->options) ? 'posto macchina' : '';
+            $flat->option6 = in_array(6, $flat->options) ? 'bagno privato' : '';
+            $flat->option7 = in_array(7, $flat->options) ? 'piscina' : '';
+            $flat->option8 = in_array(8, $flat->options) ? 'portineria' : '';
+            $flat->option9 = in_array(9, $flat->options) ? 'sauna' : '';
+            $flat->option10 = in_array(10, $flat->options) ? 'vista mare' : '';
+
           }
 
           return response()->json($results);
