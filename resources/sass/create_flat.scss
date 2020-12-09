@@ -1,5 +1,5 @@
 .create_box {
-    
+
     margin-bottom:30px;
 
     .mg-l {
@@ -20,5 +20,10 @@
         &:hover {
             opacity: 0.8;
         }
+    }
+
+    i {
+      color: $lightGreen;
+      padding-right: 8px;
     }
 }
