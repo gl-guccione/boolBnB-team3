@@ -229,7 +229,7 @@ jQuery(function() {
 
       // open filter div on click
       $('#filters').on('click', function() {
-        $('.form-check').addClass('block').toggle();
+        $('.form-check').toggleClass('d_none');
       });
 
       // start getFlats on load page if the attribute 'data-algolia' is set
