@@ -26,7 +26,7 @@
     <div class="header">
       <h1>{{ $flat->title}}</h1>
       <h4>{{ $flat->type}}</h4>
-      <p><i class="fas fa-map-marker-alt"></i> {{ $flat->street_name}}, {{ $flat->city }}</p>
+      <p><i class="fas fa-map-marker-alt"></i> {{ $flat->city }}</p>
     </div>
     
     <hr>

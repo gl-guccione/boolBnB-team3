@@ -82,6 +82,10 @@
     hr{
       margin: 30px 0;
     }
+
+    .fa-map-marker-alt{
+        color: $colorMain;
+    }
     // /general
 
     .header{
@@ -93,9 +97,6 @@
         font-size: 1.5rem;
       }
 
-      i{
-        color: $colorMain;
-      }
     }
 
     .info{
@@ -248,10 +249,6 @@
     }
 
     .flat_map {
-
-      span{
-        color:$colorMain;
-      }
 
       #map-example-container {
         margin:20px 0;
