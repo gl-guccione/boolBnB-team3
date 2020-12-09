@@ -41,10 +41,10 @@
                   <div class="form-group">
                     <select name="flat_id" id="flat_id" class="form-control">
                       @foreach ($flats as $flat)
-                        @if($flat->id == $_GET['flat_id'])
-                          <option selected value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
+                        @if(isset($_GET['flat_id']) && $flat->id == $_GET['flat_id'])
+                          <option selected value="{{ $flat->id }}">{{ $flat->title }}</option>
                         @else
-                          <option value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
+                          <option value="{{ $flat->id }}">{{ $flat->title }}</option>
                         @endif
                       @endforeach
                     </select>
