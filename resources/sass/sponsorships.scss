@@ -3,62 +3,72 @@
         width: 80%;
         margin: auto;
 
+        .hero{
+            // background-color: red;
+        }
+
         h2 {
             margin: 50px 0;
         }
 
-        .message {
-            background-color: rgba($color: #fff, $alpha: 0.9);
-            border: 1px solid lightgrey;
-            border-radius: 20px;
-            margin: 20px 0;
-            padding: 10px 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .list-message{
+            margin:20px 0;
+            padding:20px 0;
 
-            .title {
-                width: 60%;
-                padding: 30px;
+            .message {
+                background-color: rgba($color: #fff, $alpha: 0.9);
+                border: 1px solid lightgrey;
+                border-radius: 20px;
+                margin: 20px 0;
+                padding: 10px 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
 
-                span {
-                    text-transform: capitalize;
+                .title {
+                    width: 60%;
+                    padding: 30px;
+
+                    span {
+                        text-transform: capitalize;
+                    }
                 }
-            }
 
-            .info {
-                width: 20%;
-                span {
-                    font-size: 16px;
+                .info {
+                    width: 20%;
+                    span {
+                        font-size: 16px;
 
-                    &:last-child {
-                        color: green;
+                        &:last-child {
+                            color: green;
+                        }
+                    }
+                }
+
+                .date {
+                    width: 20%;
+                }
+
+                p {
+                    font-weight: bold;
+                }
+
+                @media screen and (max-width: 768px) {
+                    flex-wrap: wrap;
+                    padding-bottom: 30px;
+
+                    .title {
+                        width: 80%;
+                    }
+
+                    .info,
+                    .date {
+                        width: 60%;
                     }
                 }
             }
-
-            .date {
-                width: 20%;
-            }
-
-            p {
-                font-weight: bold;
-            }
-
-            @media screen and (max-width: 768px) {
-                flex-wrap: wrap;
-                padding-bottom: 30px;
-
-                .title {
-                    width: 80%;
-                }
-
-                .info,
-                .date {
-                    width: 60%;
-                }
-            }
         }
+
     }
 }
 

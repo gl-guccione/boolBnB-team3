@@ -17,16 +17,17 @@
     </div>
 
 
+    <div class="list-message">
 
-    @foreach ($sponsorships as $sponsorship)
-
+      @foreach ($sponsorships as $sponsorship)
+      
       <div class="message">
-
+        
         <div class="title">
           <span>{{ $sponsorship->flat->type}}:</span>
           <h4>{{ $sponsorship->flat->title }}</h4>
         </div>
-
+        
         <div class="info">
           <p>Durata sponsorizzazzione:</p>
           <span>{{ $sponsorship->sponsorship_price->duration_in_hours }} ore</span>
@@ -40,10 +41,11 @@
           <p>Data fine:</p>
           <span>{{ $sponsorship->date_of_end }}</span>
         </div>
-
+        
       </div>
-
-    @endforeach
+      
+      @endforeach
+    </div>
   
   </div>
 
