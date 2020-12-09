@@ -107,7 +107,7 @@
                 @foreach ($devs as $key => $dev)
 
                   <li class="nav-item">
-                    <a class="nav-link color_link" href="{{ $dev }}"><i class="fab fa-github icon-footer github margin_1"></i>{{ $key }}</a>
+                    <a class="nav-link color_link" href="{{ $dev }}"><i class="fab fa-github icon-footer github margin_1"></i> {{ $key }}</a>
                   </li>
 
                 @endforeach

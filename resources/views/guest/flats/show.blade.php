@@ -26,7 +26,7 @@
     <div class="header">
       <h1>{{ $flat->title}}</h1>
       <h4>{{ $flat->type}}</h4>
-      <p><i class="fas fa-map-marker-alt"></i> {{ $flat->street_name}}, {{ $flat->city }}</p>
+      <p><i class="fas fa-map-marker-alt"></i> {{ $flat->city }}</p>
     </div>
     
     <hr>
@@ -123,35 +123,37 @@
       </div>
       {{-- /stars --}}
       
-      {{-- host info --}}
-      <div class="user_avatar">
-      
-        <small>Annuncio pubblicato da</small>
-        <div class="name">
-          <a href="{{ route("guest.users.show", $flat->user->id) }}">
-            <img src="{{ asset($flat->user->avatar) }}" alt="avatar utente">
-            <h6>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h6>
-            </a>
+      <div class="user_and_description">
+        {{-- host info --}}
+        <div class="user_avatar">
+        
+          <small>Annuncio pubblicato da</small>
+          <div class="name">
+            <a href="{{ route("guest.users.show", $flat->user->id) }}">
+              <img src="{{ asset($flat->user->avatar) }}" alt="avatar utente">
+              <h5>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h5>
+              </a>
+          </div>
+          
+          
+          @if ($flat->user->description)
+            <p class="overflow_two_rows">{{ $flat->user->description }}</p>
+          @endif
+
+          <span>Utente attivo dal {{ $flat->user->created_at->year }}</span>
         </div>
+        {{-- /host info --}}
         
-        
-        @if ($flat->user->description)
-          <p>{{ $flat->user->description }}</p>
-        @endif
+        {{-- <hr> --}}
 
-        <span>Utente attivo dal {{ $flat->user->created_at->year }}</span>
+        {{-- description --}}
+        <div class="description">
+          <h2>Descrizione</h2>
+
+          <p>{{ $flat->description }}</p>
+        </div>
+        {{-- /description --}}
       </div>
-      {{-- /host info --}}
-      
-      <hr>
-
-      {{-- description --}}
-      <div class="description">
-        <h2>Descrizione</h2>
-
-        <p>{{ $flat->description }}</p>
-      </div>
-      {{-- /description --}}
       
       <hr>
 
@@ -184,9 +186,9 @@
     <div class="flat_map">
 
       <h2>Trascina il muose e scopri dove si trova l'appartamento..</h2>
-      <span><i class="fas fa-map-marker-alt"></i> {{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
-
       <div id="map-example-container"></div>
+
+      <span><i class="fas fa-map-marker-alt"></i> {{ $flat->street_name }} - {{ $flat->zip_code }} - {{ $flat->city }}</span>
     </div>
     <!--/map -->
 
