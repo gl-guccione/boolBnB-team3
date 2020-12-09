@@ -17,7 +17,7 @@
         {{-- /errori --}}
 
         {{-- image --}}
-        <div class="hero py-6" style="margin-bottom:80px">
+        <div class="hero py-6" >
           <img class="hero__image pt-4" src="{{ asset('img/flats/sponsorships_create.svg') }}" alt="sponsorships create image">
           <h1 class="hero__title py-4">
             <br>
@@ -26,8 +26,9 @@
         </div>
         {{-- /image --}}
 
-
+        
         <div class="pay-to-sponsor">
+          <hr>
 
           <form method="POST" id="payment-form" action="{{route('admin.sponsorships.store')}}" >
 

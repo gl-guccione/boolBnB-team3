@@ -7,7 +7,7 @@
   <div class="container">
   
 
-    <div class="hero py-6" style="margin-bottom:50px">
+    <div class="hero py-6" >
       <img class="hero__image pt-4" src="{{ asset('img/flats/sponsorships.svg') }}" alt="flat image">
       <h1 class="hero__title py-4" >
       
