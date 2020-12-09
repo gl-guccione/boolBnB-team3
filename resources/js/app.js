@@ -115,12 +115,13 @@ function getFlats(latlng){
 function printFlats(data) {
   // removing the message "nessun risultato", and the old results
   $(".no-results").remove();
+  $(".no-results__img").remove();
   $(".entry-flat").remove();
 
   // if results = 0, print "nessun risultato" - else, print the results inside #sponsored (if sponsored) or #not-sponsored (if not sponsored)
   if (data.length == 0) {
 
-    let message = "<h2 class='no-results'> Nessun risultato </h2>"
+    let message = "<img class=\"no-results__img\" src=\"/img/404.svg\" alt=\"404\"> <h2 class='no-results'> Purtroppo non è stato trovato nessun risultato, riprova allargando il raggio di ricerca o modificando la località </h2>"
     $("#results").append(message);
 
   } else {
@@ -135,7 +136,22 @@ function printFlats(data) {
         'stars': data[i].stars,
         'price': data[i].price,
         'image': data[i].images[0].path,
-        'link': data[i].link
+        'link': data[i].link,
+        'mq': data[i].mq,
+        'rooms': data[i].number_of_rooms,
+        'beds': data[i].number_of_beds,
+        'bathrooms': data[i].number_of_bathrooms,
+        'km': parseInt(data[i].distance_km),
+        'option1' : data[i].option1,
+        'option2' : data[i].option2,
+        'option3' : data[i].option3,
+        'option4' : data[i].option4,
+        'option5' : data[i].option5,
+        'option6' : data[i].option6,
+        'option7' : data[i].option7,
+        'option8' : data[i].option8,
+        'option9' : data[i].option9,
+        'option10' : data[i].option10,
       }
 
       var html = template(context);
@@ -147,6 +163,7 @@ function printFlats(data) {
         $('.card_container').addClass('not-sponsored-flat');
       }
     }
+    $('[data-toggle="tooltip"]').tooltip();
   }
 }
 
@@ -229,7 +246,7 @@ jQuery(function() {
 
       // open filter div on click
       $('#filters').on('click', function() {
-        $('.form-check').addClass('block').toggle();
+        $('.form-check').toggleClass('d_none');
       });
 
       // start getFlats on load page if the attribute 'data-algolia' is set

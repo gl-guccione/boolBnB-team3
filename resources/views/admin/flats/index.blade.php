@@ -97,7 +97,7 @@
             {{ $flat->number_of_bathrooms }}
           </div>
 
-          <div data-toggle="tooltip" data-placement="top" title="superfice in m²">
+          <div data-toggle="tooltip" data-placement="top" title="superficie in m²">
             <i class="fas fa-border-style"></i>
             {{ $flat->mq }}m²
           </div>
@@ -140,9 +140,9 @@
 
           <form action="{{ route("admin.sponsorships.create") }}" method="get">
             @method('GET')
-            
+
             <input name="flat_id" type="hidden" id="flat_id" required value="{{$flat->id}}">
-            
+
             <button type="submit" class="btn button submit">
               <i class="fas fa-credit-card"></i>
               Promuovi
