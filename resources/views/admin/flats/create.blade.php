@@ -54,7 +54,7 @@
 
       {{-- mq --}}
       <div class="form-group col-lg-4 col-md-6">
-        <label for="mq">Superfice m²*</label>
+        <label for="mq">Superficie m²*</label>
         <input name="mq" type="number" class="form-control" id="mq" placeholder="Metri quadri" min="1" max="65000" required value="{{old("mq")}}">mq
       </div>
       {{-- /mq --}}

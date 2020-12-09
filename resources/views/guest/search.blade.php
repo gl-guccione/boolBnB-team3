@@ -149,7 +149,6 @@
 
   <script id="flat-template" type="text/x-handlebars-template">
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 entry-flat">
-    <!-- <div class="col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3"></div> -->
       <div class="card_container">
         <a class="link_view" href='@{{link}}'></a>
         <div class="flat-img-box">
