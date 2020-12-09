@@ -115,6 +115,7 @@ function getFlats(latlng){
 function printFlats(data) {
   // removing the message "nessun risultato", and the old results
   $(".no-results").remove();
+  $(".no-results__img").remove();
   $(".entry-flat").remove();
 
   // if results = 0, print "nessun risultato" - else, print the results inside #sponsored (if sponsored) or #not-sponsored (if not sponsored)
