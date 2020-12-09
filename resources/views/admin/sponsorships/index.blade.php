@@ -7,9 +7,9 @@
   <div class="container">
   
 
-    <div class="hero py-6">
+    <div class="hero py-6" style="margin-bottom:50px">
       <img class="hero__image pt-4" src="{{ asset('img/flats/sponsorships.svg') }}" alt="flat image">
-      <h1 class="hero__title py-4">
+      <h1 class="hero__title py-4" >
       
         <br>
         Qui puoi controllare tutte le tue sponsorizzazzioni.

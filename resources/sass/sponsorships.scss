@@ -3,10 +3,6 @@
         width: 80%;
         margin: auto;
 
-        .hero{
-            // background-color: red;
-        }
-
         h2 {
             margin: 50px 0;
         }
@@ -75,30 +71,37 @@
 
 #admin_sponsorships_create {
 
-    span{
-        font-weight: bold;
-        font-size:16px;
-    }
+    .pay-to-sponsor{
 
-    .braintree-heading{
-      text-indent: -9999px;
-        line-height:0;
-        font-weight: bold;
-    }
-
-    .braintree-heading:after{
-        content: 'Scegli il metodo di pagamento ';
-        text-indent: 0;
-        display: block;
-        line-height: initial;
-    }
-
-    .btn-custom{
-        background-color:$colorMain;
+        margin:20px 0;
+        padding:20px 0;
 
         span{
-            color:#fff;
-            letter-spacing:0.05rem;
+            font-weight: bold;
+            font-size:16px;
+        }
+
+        .braintree-heading{
+        text-indent: -9999px;
+            line-height:0;
+            font-weight: bold;
+        }
+
+        .braintree-heading:after{
+            content: 'Scegli il metodo di pagamento ';
+            text-indent: 0;
+            display: block;
+            line-height: initial;
+        }
+
+        .btn-custom{
+            background-color:$colorMain;
+
+            span{
+                color:#fff;
+                letter-spacing:0.05rem;
+            }
         }
     }
+
 }

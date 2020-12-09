@@ -17,7 +17,7 @@
         {{-- /errori --}}
 
         {{-- image --}}
-        <div class="hero py-6">
+        <div class="hero py-6" style="margin-bottom:80px">
           <img class="hero__image pt-4" src="{{ asset('img/flats/sponsorships_create.svg') }}" alt="sponsorships create image">
           <h1 class="hero__title py-4">
             <br>
@@ -27,53 +27,57 @@
         {{-- /image --}}
 
 
-        <form method="POST" id="payment-form" action="{{route('admin.sponsorships.store')}}" >
+        <div class="pay-to-sponsor">
 
-            @method('POST')
-            @csrf
+          <form method="POST" id="payment-form" action="{{route('admin.sponsorships.store')}}" >
 
-            {{-- select flat --}}
-            <section>
-              <label for="flat_id">
-                <span class='input-label'>Seleziona appartamento</span>
-                <div class="form-group">
-                  <select name="flat_id" id="flat_id" class="form-control">
-                    @foreach ($flats as $flat)
-                      @if($flat->id == $_GET['flat_id'])
-                        <option selected value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
-                      @else
-                        <option value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
-                      @endif
-                    @endforeach
-                  </select>
-                </div>
-              </label>
-            </section>
-            {{-- /select flat --}}
+              @method('POST')
+              @csrf
 
-            {{-- select sponsorship --}}
-            <section>
-                <label for="amount">
-                    <span class="input-label">Scegli il tipo di sponsorizzazione</span>
-                    <div class="input-wrapper amount-wrapper form-group">
-                        {{-- <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10"> --}}
-                        <select name="amount" id="amount" class="form-control">
-                          @foreach ($prices as $price)
-                              <option value="{{ old('amount') ?? $price->price }}">{{ $price->duration_in_hours }} ore - {{ $price->price }} €</option>
-                          @endforeach
-                        </select>
-                    </div>
+              {{-- select flat --}}
+              <section>
+                <label for="flat_id">
+                  <span class='input-label'>Seleziona appartamento</span>
+                  <div class="form-group">
+                    <select name="flat_id" id="flat_id" class="form-control">
+                      @foreach ($flats as $flat)
+                        @if($flat->id == $_GET['flat_id'])
+                          <option selected value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
+                        @else
+                          <option value="{{ $flat->id }}">{{ $flat->id }} - {{ $flat->title }}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
                 </label>
+              </section>
+              {{-- /select flat --}}
 
-                <div class="bt-drop-in-wrapper">
-                    <div id="bt-dropin" class="form-group"></div>
-                </div>
-            </section>
-            {{-- /select sponsorship --}}
+              {{-- select sponsorship --}}
+              <section>
+                  <label for="amount">
+                      <span class="input-label">Scegli il tipo di sponsorizzazione</span>
+                      <div class="input-wrapper amount-wrapper form-group">
+                          {{-- <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10"> --}}
+                          <select name="amount" id="amount" class="form-control">
+                            @foreach ($prices as $price)
+                                <option value="{{ old('amount') ?? $price->price }}">{{ $price->duration_in_hours }} ore - {{ $price->price }} €</option>
+                            @endforeach
+                          </select>
+                      </div>
+                  </label>
 
-            <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button class="button btn btn-custom" type="submit"><span>Paga</span></button>
-        </form>
+                  <div class="bt-drop-in-wrapper">
+                      <div id="bt-dropin" class="form-group"></div>
+                  </div>
+              </section>
+              {{-- /select sponsorship --}}
+
+              <input id="nonce" name="payment_method_nonce" type="hidden" />
+              <button class="button btn btn-custom" type="submit"><span>Paga</span></button>
+          </form>
+        </div>
+
     </div>
 
 
