@@ -86,7 +86,7 @@
           </div>
 
           <div class="right col-sm-12 col-md-6">
-            <h2>Stack utilizzato</h2>
+            <h2>Tecnologie utilizzate</h2>
             <ul class="list-inline">
               <li class="list-inline-item"><i class="fab fa-html5"></i></li>
               <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
@@ -106,11 +106,15 @@
         @foreach ($flats as $flat)
 
           <div class="flat_box col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3">
-            <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
+
+            <div class="flat__img">
+              <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
+            </div>
+
             <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
+
             <div class="overlay">
-              <h4>{{ $flat->title }}</h4>
-              <p>Dove:  {{ $flat->city }}</p>
+              <h4 class="overflow_two_rows">{{ $flat->title }}</h4>
 
               <span>
 
@@ -134,6 +138,9 @@
                 ({{ $flat->stars / 2 }})
 
               </span>
+
+              <p>{{ $flat->city }}</p>
+
             </div>
 
           </div>
