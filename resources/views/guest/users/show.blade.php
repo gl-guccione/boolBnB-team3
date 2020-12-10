@@ -10,7 +10,7 @@
 
     {{-- user info --}}
     <div class="row user_container">
-    
+
         <div class="col-xl-3 col-lg-4 col-sm-5 col-md-4 col-xs-12 avatar">
           <img src="{{$user->avatar}}" alt="avatar utente">
         </div>
@@ -19,7 +19,7 @@
           <h3 class="inline_bl">{{$user->firstname}} {{$user->lastname}}</h3>
           <h4>{{$user->description}}</h4>
         </div>
-      
+
     </div>
     {{-- /user info --}}
 
@@ -35,55 +35,119 @@
       <div class="flats_list">
 
         @foreach($user->flats as $flat)
-          <div class="row flat-box" data-aos="fade-left">
-          {{-- flat --}}
-            <div class="col-lg-4 col-md-4 col-xl-4 col-sm-12 col-xs-12 flat-img ">
-              <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="foto appartamento">
+
+        <hr class="end_flat">
+
+        {{-- row --}}
+        <div class="row">
+
+          {{-- first col --}}
+          <div class="col-12 flat__first">
+
+            <div class="flat__textimage d_flex">
+
+              @if (count($flat->images) > 0)
+                <img class="flat__image @if($flat->active == 0) inactive @endif" src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="flat image">
+              @endif
+
+              <div class="flat__text">
+
+                <h2 class="flat__title overflow_two_rows">
+                  <a class="flat__link" href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
+                </h2>
+
+                <p class="flat__description overflow_four_rows">
+                  {{ $flat->description }}
+                </p>
+
+                <p class="flat__address overflow_row">
+                  <i class="fas fa-map-marker-alt"></i>
+                  {{ $flat->street_name }} -
+                  {{ $flat->city }}
+                </p>
+
+                <span class="flat__stars">
+
+                  @php
+                    if ($flat->stars % 2 == 0) {
+                      $star = $flat->stars / 2;
+                      $half_star = 0;
+                    } else {
+                      $star = intval($flat->stars / 2);
+                      $half_star = 1;
+                    }
+                  @endphp
+
+                  @for ($i = 0; $i < $star; $i++)
+                    <i class="star_color fas fa-star"></i>
+                  @endfor
+                  @for ($i = 0; $i < $half_star; $i++)
+                    <i class="star_color fas fa-star-half"></i>
+                  @endfor
+
+                  ({{ $flat->stars / 2 }})
+
+                </span>
+
+              </div>
+
             </div>
 
-            <div class="col-lg-8 col-md-8 col-xl-8 col-sm-12 col-xs-12 flat-info">
-              <h3>{{$flat->title}}</h3>
-              <p>{{$flat->description}}</p>
+            <div class="flat__info d_flex">
 
-              <span>
+              <div data-toggle="tooltip" data-placement="top" title="numero di stanze">
+                <i class="fas fa-door-open"></i>
+                {{ $flat->number_of_rooms }}
+              </div>
 
-                @php
-                  if ($flat->stars % 2 == 0) {
-                    $star = $flat->stars / 2;
-                    $half_star = 0;
-                  } else {
-                    $star = intval($flat->stars / 2);
-                    $half_star = 1;
-                  }
-                @endphp
+              <div data-toggle="tooltip" data-placement="top" title="numero di letti">
+                <i class="fas fa-bed"></i>
+                {{ $flat->number_of_beds }}
+              </div>
 
-                @for ($i = 0; $i < $star; $i++)
-                  <i class="fas fa-star star"></i>
-                @endfor
-                @for ($i = 0; $i < $half_star; $i++)
-                  <i class="fas fa-star-half star"></i>
-                @endfor
+              <div data-toggle="tooltip" data-placement="top" title="numero di bagni">
+                <i class="fas fa-restroom"></i>
+                {{ $flat->number_of_bathrooms }}
+              </div>
 
-                {{--({{ $flat->stars / 2 }})--}}
+              <div data-toggle="tooltip" data-placement="top" title="superficie in m²">
+                <i class="fas fa-border-style"></i>
+                {{ $flat->mq }}m²
+              </div>
 
-              </span>
+              <div data-toggle="tooltip" data-placement="top" title="prezzo a notte">
+                <i class="fas fa-euro-sign"></i>
+                {{ $flat->price }}€
+              </div>
+
+              <div data-toggle="tooltip" data-placement="top" title="visibilità">
+                @if ($flat->active == true)
+                <i class="far fa-eye"></i>
+                visibile
+                @else
+                <i class="fas fa-eye-slash"></i>
+                non visibile
+                @endif
+              </div>
+
             </div>
-          {{-- /flat --}}
+
           </div>
+          {{-- /first col --}}
+
+        </div>
+        {{-- /row --}}
+
         @endforeach
       {{-- /flats list--}}
     </div>
     @else
 
-      <h2>Questo utente non ha pubblicato nessun appartamento</h2>
+      <h2>Questo utente non ha ancora pubblicato nessun appartamento</h2>
 
     @endif
-    
+
   </div>
   {{-- /page wrapper --}}
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
   </div>
 @endsection

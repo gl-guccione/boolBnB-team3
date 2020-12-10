@@ -1,0 +1,33 @@
+.toast {
+  position: fixed;
+  top: 105px;
+  right: 30px;
+  background-color: $lightGreen;
+  border-radius: 10px;
+  padding: 0 10px;
+
+  .close {
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    text-shadow: none;
+  }
+
+  &-header {
+    padding: 10px 10px 0 10px;
+    background-color: $lightGreen;
+    border: 0px solid transparent;
+    justify-content: flex-end;
+  }
+  &-name {
+    color: #fff;
+  }
+
+  &-body {
+    padding-top: 10px;
+  }
+
+  &-content {
+    color: #fff;
+  }
+}

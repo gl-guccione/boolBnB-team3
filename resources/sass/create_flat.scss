@@ -1,0 +1,29 @@
+.create_box {
+
+    margin-bottom:30px;
+
+    .mg-l {
+        margin-left: 0;
+    }
+
+    .wd_100 {
+        width: 100%;
+    }
+    .wd_50 {
+        width: 50%;
+    }
+
+    .btn-custom {
+        background-color: $colorMain;
+        color: #fff;
+        margin-left: 20px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    i {
+      color: $lightGreen;
+      padding-right: 8px;
+    }
+}

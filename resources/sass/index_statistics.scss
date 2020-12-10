@@ -1,0 +1,30 @@
+#admin_statistics_index {
+
+  i {
+    color: $lightGreen;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h3 {
+    color: $darkGrey;
+    font-weight: 400;
+  }
+
+}
+
+.chart_container {
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 630px) {
+  .hero {
+    margin-bottom: 70px;
+  }
+
+  #viewsChart {
+    padding: 0 20px;
+  }
+}

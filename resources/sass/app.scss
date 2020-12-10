@@ -1,12 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
 // TODO import fontawesome with npm
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 // Variables
 @import 'Partials/_variables';
 @import 'Partials/_common';
-
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -17,16 +19,22 @@
 @import 'Partials/_footer';
 @import 'Partials/_jumbotron';
 
-@import 'index';
+@import 'toast';
+@import 'slick.css';
 @import 'home';
-@import 'messages';
 @import 'show';
 @import 'search';
+@import 'index_flats';
 @import 'show_flat';
+@import 'create_flat';
+@import 'edit_flat';
+@import 'sponsorships';
+@import 'index_statistics';
+@import 'index_messages';
+@import 'show_messages';
 
 
 // TODO fix this
 .py-6 {
-  padding-top: 57px;
-  padding-bottom: 5rem;
+  padding-top: 78px;
 }

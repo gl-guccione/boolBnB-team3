@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->date('date_of_birth');
-            $table->string('avatar')->nullable()->default('public/storage/media/propic.png');
+            $table->string('avatar')->nullable()->default('/storage/media/avatar/avatar_u_1.png');
             $table->text('description')->nullable();
             $table->timestamps();
 

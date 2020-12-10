@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
+// using Carbon
+use Carbon\Carbon;
+
 // using Models
 use App\Flat;
 use App\Option;
@@ -28,6 +31,16 @@ class FlatController extends Controller
     {
         $user_id = Auth::id();
         $flats = Flat::where('user_id', $user_id)->get();
+
+        $datetime_now = Carbon::now();
+
+        foreach ($flats as $flat) {
+          if ((count($flat->sponsorships) > 0) && ($flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end) > $datetime_now) {
+            $flat->sponsored = $flat->sponsorships[count($flat->sponsorships) - 1]->date_of_end;
+          } else {
+            $flat->sponsored = false;
+          }
+        }
 
         return view('admin.flats.index', compact('flats'));
     }
@@ -178,7 +191,6 @@ class FlatController extends Controller
                   Rule::unique('flats')->ignore($flat),
                   "max:255",
               ],
-              'active' => 'required|boolean',
               'number_of_rooms' => 'required|integer|between:1,254',
               'number_of_beds' => 'required|integer|between:1,254',
               'number_of_bathrooms' => 'required|integer|between:1,254',
@@ -193,8 +205,6 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
-              'images' => 'required',
-              'image.*' => 'image|mimes:jpeg,jpg,png'
             ]
         );
 
@@ -202,7 +212,6 @@ class FlatController extends Controller
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
-        $flat->active = $data['active'];
         $flat->number_of_rooms = $data['number_of_rooms'];
         $flat->number_of_beds = $data['number_of_beds'];
         $flat->number_of_bathrooms = $data['number_of_bathrooms'];

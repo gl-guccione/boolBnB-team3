@@ -28,7 +28,10 @@ class FlatController extends Controller
 
         $session_id = session()->getId();
 
-        $last_view = View::where('session_id', $session_id)->orderBy('date', 'DESC')->first();
+        $last_view = View::where([
+                                  ['flat_id', $flat->id],
+                                  ['session_id', $session_id],
+                                ])->orderBy('date', 'DESC')->first();
 
         $new_view = new View;
 
@@ -36,7 +39,7 @@ class FlatController extends Controller
         $new_view->session_id = $session_id;
         $new_view->date = Carbon::now();
 
-        if ($last_view == null || Carbon::now()->gt(Carbon::create($last_view->date)->addMinutes(30))) {
+        if ($last_view == null || Carbon::now()->gt(Carbon::create($last_view->date)->addMinutes(15))) {
           $new_view->save();
         }
 

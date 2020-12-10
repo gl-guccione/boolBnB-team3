@@ -8,3 +8,32 @@
     border: 1px solid darkgrey;
 }
 
+.header {
+  &__title {
+    font-family: 'Henny Penny', cursive;
+    font-size: 30px;
+    color: #fff;
+    position: relative;
+    top: 5px;
+    padding-left: 10px;
+  }
+}
+
+.envelope_container {
+  position: relative;
+  width: 18px;
+}
+
+#notification_mark {
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+#notification_mark.active {
+  background-color: red;
+}

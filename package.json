@@ -24,6 +24,8 @@
     "dependencies": {
         "handlebars": "^4.7.6",
         "jquery": "^3.5.1",
-        "places.js": "^1.19.0"
+        "moment": "^2.29.1",
+        "places.js": "^1.19.0",
+        "slick-carousel": "^1.8.1"
     }
 }

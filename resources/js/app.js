@@ -4,6 +4,8 @@ var places = require('places.js');
 
 const $ = require('jquery');
 const Handlebars = require("handlebars");
+const moment = require("moment");
+const slick = require("slick-carousel");
 
 // functions
 
@@ -53,54 +55,6 @@ function algoliaAddress() {
     document.getElementById('lng').value = e.suggestion.latlng.lng;
 
   });
-}
-
-// opacity function (for carousel)
-function opacity() {
-  let count = 0;
-  setInterval(function() {
-        if (count == 9) {
-          clearInterval();
-        } else {
-        count ++;
-        $(".photo-carousel.active").css({opacity: "0."+count});
-      }
-  }, 100);
-}
-
-// carousel function
-function carousel() {
-
-  let x = "a";
-  setInterval(function() {
-    if (x == "a") {
-      $("#first-img").removeClass("first");
-
-      $(".photo-carousel").removeClass("active");
-      $("#second-img").addClass("active");
-
-      opacity();
-      x = "b";
-    } else if (x == "b") {
-      $(".photo-carousel").removeClass("active");
-      $("#third-img").addClass("active");
-
-      opacity();
-      x = "c";
-    } else if (x == "c") {
-      $(".photo-carousel").removeClass("active");
-      $("#fourth-img").addClass("active");
-
-      opacity();
-      x = "d";
-    } else if (x == "d") {
-      $(".photo-carousel").removeClass("active");
-      $("#first-img").addClass("active");
-
-      opacity();
-      x = "a";
-    }
-  }, 10000);
 }
 
 // function getFlats (make an ajax request and get flats)
@@ -161,12 +115,13 @@ function getFlats(latlng){
 function printFlats(data) {
   // removing the message "nessun risultato", and the old results
   $(".no-results").remove();
+  $(".no-results__img").remove();
   $(".entry-flat").remove();
 
   // if results = 0, print "nessun risultato" - else, print the results inside #sponsored (if sponsored) or #not-sponsored (if not sponsored)
   if (data.length == 0) {
 
-    let message = "<h2 class='no-results'> Nessun risultato </h2>"
+    let message = "<img class=\"no-results__img\" src=\"/img/404.svg\" alt=\"404\"> <h2 class='no-results'> Purtroppo non è stato trovato nessun risultato, riprova allargando il raggio di ricerca o modificando la località </h2>"
     $("#results").append(message);
 
   } else {
@@ -181,7 +136,22 @@ function printFlats(data) {
         'stars': data[i].stars,
         'price': data[i].price,
         'image': data[i].images[0].path,
-        'slug': data[i].slug
+        'link': data[i].link,
+        'mq': data[i].mq,
+        'rooms': data[i].number_of_rooms,
+        'beds': data[i].number_of_beds,
+        'bathrooms': data[i].number_of_bathrooms,
+        'km': parseInt(data[i].distance_km),
+        'option1' : data[i].option1,
+        'option2' : data[i].option2,
+        'option3' : data[i].option3,
+        'option4' : data[i].option4,
+        'option5' : data[i].option5,
+        'option6' : data[i].option6,
+        'option7' : data[i].option7,
+        'option8' : data[i].option8,
+        'option9' : data[i].option9,
+        'option10' : data[i].option10,
       }
 
       var html = template(context);
@@ -193,12 +163,12 @@ function printFlats(data) {
         $('.card_container').addClass('not-sponsored-flat');
       }
     }
+    $('[data-toggle="tooltip"]').tooltip();
   }
 }
 
 // function that check if all the required parameters are set (guest_search)
 function checkParameters() {
-  console.log($("#city").attr("data-algolia"));
 
   if ($("#city").attr("data-algolia") == "") {
     alert('inserisci una città!');
@@ -225,17 +195,50 @@ function checkParameters() {
 
 jQuery(function() {
 
-  // function to activate toast notifications
+  // function to activate toast notifications adn tooltips
   $('.toast').toast('show');
+  $('[data-toggle="tooltip"]').tooltip()
 
-  // loading algoliaCity inside home and search
+  // loading algoliaCity and function to check "check-in and check-out" inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
+
     algoliaCity();
+
+    $("#check_in").change(function () {
+
+      let checkInValue = $("#check_in").val();
+      let checkOut = moment($("#check_out").val());
+      let endDate = moment(checkInValue).add(1, 'days');
+      let endDateSet = endDate.format('YYYY-MM-DD');
+
+      $("#check_out").attr('min', endDateSet);
+
+      if (checkOut.isBefore(endDate)) {
+        $("#check_out").val(endDateSet);
+      }
+
+    });
   }
 
   // functions to load inside homepage
   if ($("#guest_home").length) {
-    carousel();
+
+    $('.carousel').slick({
+      infinite: true,
+      arrows: false,
+      autoplay: true,
+      lazyLoad: 'progressive',
+      adaptiveHeight: true,
+      autoplaySpeed: 6000
+    });
+
+    $("#children").change(function() {
+      if (($("#children").val() > 0) && ($("#adults").val() == "")) {
+        $("#adults").val(1);
+        alert('inserire almeno un adulto!');
+      }
+    })
+
   }
 
   // functions to load inside search
@@ -243,7 +246,7 @@ jQuery(function() {
 
       // open filter div on click
       $('#filters').on('click', function() {
-        $('.form-check').addClass('block').toggle();
+        $('.form-check').toggleClass('d_none');
       });
 
       // start getFlats on load page if the attribute 'data-algolia' is set
@@ -262,8 +265,8 @@ jQuery(function() {
 
   }
 
-  // function to load inside admin.flats.create
-  if ($("#admin_flats_create").length) {
+  // function to load inside admin.flats.create and admin.flats.edit
+  if ($("#admin_flats_create").length || $("#admin_flats_edit").length) {
     algoliaAddress();
   }
 

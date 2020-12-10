@@ -43,6 +43,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 
     // statistics route
     Route::get('statistics', 'ViewController@index')->name('statistics');
+    Route::get('statistics/{slug}', 'ViewController@show')->name('statistics.show');
 });
 
 

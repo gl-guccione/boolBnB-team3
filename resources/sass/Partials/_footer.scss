@@ -1,19 +1,37 @@
 footer {
     background-color: $mainGrey;
-        
+    padding: 2% 0;
+
     .color_link {
         color: #000;
-        font-weight: bold;
+        font-size: 14px;
 
         &:hover {
             color: $colorMain;
         }
 
-       
+    }
+
+    /**/
+
+    .social-footer {
+        li {
+            list-style: none;
+        }
+    }
+
+    .section_title {
+
+        font-weight: bold;
+
     }
 
     .icon-footer {
-        font-size: 30px;
+        font-size: 20px;
+
+        &.github {
+            font-size: 15px;
+        }
     }
 
     .logo-footer {
@@ -25,6 +43,7 @@ footer {
     }
 
     .description-site {
+        margin-top: 5%;
         font-size: 12px;
         font-weight: 400;
         // text-align: center;

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
+// using Carbon
+use Carbon\Carbon;
+
 class RegisterController extends Controller
 {
     /*
@@ -52,13 +55,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $years_18 = Carbon::tomorrow()->subYears(18);
+
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'between:1,50'],
             'lastname' => ['required', 'string', 'between:1,50'],
             'email' => ['required', 'string', 'email', 'between:1,255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // TODO we can check if the user have at least 18 years
-            'date_of_birth' => ['required', 'date', 'before:today'],
+            'date_of_birth' => ['required', 'date', 'before:'.$years_18->format('Y-m-d')],
             'avatar' => 'image',
             'description' => ['required', 'string', 'between:1,500'],
         ]);
@@ -72,10 +76,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = null;
         if (isset($data['avatar']))
         {
             $path = Storage::disk('public')->put('images', $data['avatar']);
+        }
+        else
+        {
+            $path = '/img/propic.png';
         }
 
 
