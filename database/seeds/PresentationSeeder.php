@@ -67,14 +67,14 @@ class PresentationSeeder extends Seeder
                         'firstname' => 'Domenico',
                         'lastname' => 'Garofalo',
                         'date_of_birth' => '1998-01-13',
-                        'avatar' => '/storage/media/avatar/avatar_u_5.png',
+                        'avatar' => '/storage/media/avatar/avatar_u_5.jpg',
                         'description' => 'Saremo lieti di essere presenti e a disposizione durante la vostra vacanza, qualora ne avrete bisogno. Una buona vacanza ha sempre inizio con un ottimo check-in. Saremo in grado di fornirvi tutti gli strumenti necessari per non farvi stressare e per non farvi perdere tempo, alla ricerca di informazioni che noi sapremo darvi in anticipo. Vi daremo i nostri contatti telefonici, anche wuotsapp e Viber, per essere sempre a vostra disposizione per qualsiasi necessità o semplice informazione. Non aspettare, prenota ora!'
                       ],
                       [
                         'firstname' => 'Carla',
                         'lastname' => 'Artale',
                         'date_of_birth' => '1990-03-11',
-                        'avatar' => '/storage/media/avatar/avatar_d_1.png',
+                        'avatar' => '/storage/media/avatar/avatar_d_1.jpg',
                         'description' => 'Siamo una famiglia con casa a Marina di Cecina, costruita da mio padre nel 1968. La locazione turistica di due porzioni è affidata a Claudia, mia figlia. Roberto, il suo ex marito, è di nazionalità Svizzera e all\'occorrenza aiuta con i turisti dall\'estero. Amiamo la natura e gli animali, abbiamo gatti e cani, giardino e un piccolo angolo aromatiche e orto. Ci piace leggere, scattare foto, cucinare, ascoltare musica. Roberto parla fluentemente svizzero-tedesco, tedesco, inglese e francese.'
                       ],
                       [
@@ -99,10 +99,10 @@ class PresentationSeeder extends Seeder
                         'description' => 'Sono una persona solare - Adoro dipingere - Amo la mia famiglia e i miei figli Roberta e Marco - Ascolto tutta la musica ma in particolare i cantautori italiani e le canzoni "senza tempo" - Leggo romanzi e mi piace vedere i film tratti dagli stessi libri - Mi piace la gente, mi piace conoscerla e mi piace imparare da loro cose nuove.'
                       ],
                       [
-                        'firstname' => 'Carla',
-                        'lastname' => 'Artale',
+                        'firstname' => 'Eleonora',
+                        'lastname' => 'De Luca',
                         'date_of_birth' => '1990-08-27',
-                        'avatar' => '/storage/media/avatar/avatar_d_5.png',
+                        'avatar' => '/storage/media/avatar/avatar_d_5.jpg',
                         'description' => 'Sono nata in Calabria, anche se ho vissuto molti anni al nord Italia e per periodi anche all’estero. Ho una bellissima famiglia con un maschietto ed una femminuccia adorabili. Viviamo alla contrada Scinà, in un piano diverso da quello destinato ai nostri ospiti, i quali hanno accesso alla loro struttura da un’entrata indipendente. E’ una zona tranquilla, per la pace, il relax e le vacanze in ogni stagione, anche se d’estate è molto più popolata da turisti di ogni parte d’Italia e moltissimi anche dall’estero. Il mare vicino ci offre uno spettacolare incontro con lo stretto di Messina, dove è possibile ammirare ad occhio nudo la Sicilia ed il vulcano Stromboli. Mi piacciono gli animali, la natura e mangiare sano, per questo abbiamo il nostro piccolo giardino. E’un luogo dove i bambini godono di aria pulita e giocano in serenità.'
                       ],
                     ];
