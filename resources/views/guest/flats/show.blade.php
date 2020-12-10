@@ -171,13 +171,13 @@
     @if (count($flat->options) > 0)
       {{-- options --}}
       <div class="services">
-            <h3>Servizi</h3>
+        <h3>Servizi</h3>
 
-            <ul class="flat_infos_list">
-              @foreach($flat->options as $option)
-                <li for="checkbox_{{ $option->id }}"> {{ $option->name }}</li>
-              @endforeach
-            </ul>
+        <ul class="flat_infos_list">
+          @foreach($flat->options as $option)
+            <li for="checkbox_{{ $option->id }}"> {{ $option->name }}</li>
+          @endforeach
+        </ul>
       </div>
       {{-- /options --}}
 
