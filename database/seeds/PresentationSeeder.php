@@ -14,6 +14,7 @@ use Faker\Generator as Faker;
 // using Models
 use App\User;
 use App\Flat;
+use App\Image;
 use App\Message;
 use App\View;
 use App\SponsorshipPrice;
@@ -39,7 +40,7 @@ class PresentationSeeder extends Seeder
                         'lastname' => 'Guccione',
                         'email' => 'g.guccione3@gmail.com',
                         'password' => 'password',
-                        'date_of_birth' => '19-04-1994',
+                        'date_of_birth' => '1994-04-19',
                         'avatar' => 'link avatar',
                         'description' => 'descrizione'
                       ]
@@ -62,7 +63,7 @@ class PresentationSeeder extends Seeder
           // FlatsTableSeeder
           $flats = [
                       [
-                        'title' => 'titolo',
+                        'title' => 'app1',
                         'number_of_rooms' => '1',
                         'number_of_beds' => '1',
                         'number_of_bathrooms' => '1',
@@ -70,12 +71,40 @@ class PresentationSeeder extends Seeder
                         'price' => '1',
                         'type' => 'appartamento',
                         'description' => 'descrizione',
+                        'images' => [
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg'
+                        ],
                         'street_name' => 'via',
                         'zip_code' => '96100',
                         'city' => 'siracusa',
                         'lat' => '23.232322',
                         'lng' => '23.232322'
-                      ]
+                      ],
+                      [
+                        'title' => 'app2',
+                        'number_of_rooms' => '1',
+                        'number_of_beds' => '1',
+                        'number_of_bathrooms' => '1',
+                        'mq' => '1',
+                        'price' => '1',
+                        'type' => 'appartamento',
+                        'description' => 'descrizione',
+                        'images' => [
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg',
+                          'media/placeholder_flat_image.jpg'
+                        ],
+                        'street_name' => 'via',
+                        'zip_code' => '96100',
+                        'city' => 'siracusa',
+                        'lat' => '23.232322',
+                        'lng' => '23.232322'
+                      ],
+
                     ];
 
           foreach ($flats as $flat) {
@@ -102,6 +131,17 @@ class PresentationSeeder extends Seeder
             $new_flat->lng = $flat['lng'];
 
             $new_flat->save();
+
+            // ImagesTableSeeder
+            foreach ($flat['images'] as $key => $image) {
+              $new_image = New Image;
+
+              $new_image->flat_id = $new_flat->id;
+              $new_image->index = $key;
+              $new_image->path = $image;
+
+              $new_image->save();
+            }
           }
 
           // MessagesTableSeeder
@@ -110,7 +150,7 @@ class PresentationSeeder extends Seeder
                           'name' => 'nome e cognome',
                           'email' => 'email',
                           'message' => 'messaggio',
-                          'date_of_send' => '10-12-2020'
+                          'date_of_send' => '2020-12-10'
                         ]
                       ];
 
@@ -155,9 +195,6 @@ class PresentationSeeder extends Seeder
               $new_view->save();
             }
           }
-
-          // ImagesTableSeeder
-          // TODO
 
           // SponsorshipPriceTableSeeder
           $list_of_prices = [
