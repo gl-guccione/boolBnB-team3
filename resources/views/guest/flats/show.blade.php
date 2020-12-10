@@ -159,7 +159,7 @@
 
       {{-- price --}}
       <div class="price">
-        <h4>Prezzo per notte:</h4>
+        <h4><i class="far fa-calendar-alt"></i> Prezzo per notte:</h4>
         <span>{{ $flat->price }} € </span>
       </div>
       {{-- /price --}}
