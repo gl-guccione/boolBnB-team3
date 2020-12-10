@@ -112,7 +112,7 @@ class PresentationSeeder extends Seeder
 
             $new_user->firstname = $user['firstname'];
             $new_user->lastname = $user['lastname'];
-            $new_user->email = $user['firstname'].$user['lastname'].'@gmail.com';
+            $new_user->email = strtolower($user['firstname']).strtolower($user['lastname']).'@gmail.com';
             $new_user->password = Hash::make('password');
             $new_user->date_of_birth = $user['date_of_birth'];
             $new_user->avatar = $user['avatar'];
@@ -246,8 +246,8 @@ class PresentationSeeder extends Seeder
                           'media/appartamenti/foto'.rand(1, 168).'.jpg',
                         ],
                         'street_name' => 'Via Domenico Demuro',
-                        'zip_code' => 'cap',
-                        'city' => '07100',
+                        'zip_code' => '07100',
+                        'city' => 'Sassari',
                         'lat' => '40.749',
                         'lng' => '8.52063'
                       ],

@@ -76,6 +76,13 @@
   -webkit-box-orient: vertical;
 }
 
+.overflow_four_rows {
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
 .center {
   text-align: center;
 }
