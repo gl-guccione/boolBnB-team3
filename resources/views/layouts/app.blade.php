@@ -107,7 +107,7 @@
                 @foreach ($devs as $key => $dev)
 
                   <li class="nav-item">
-                    <a class="nav-link color_link" href="{{ $dev }}"><i class="fab fa-github icon-footer github margin_1"></i> {{ $key }}</a>
+                    <a class="nav-link" href="{{ $dev }}"><i class="fab fa-github icon-footer github margin_1"></i> {{ $key }}</a>
                   </li>
 
                 @endforeach
@@ -126,15 +126,20 @@
 
               <h5 class="section_title">Social</h5>
 
-                  <a class="nav-link color_link fl_left" href="https://it-it.facebook.com/"><i class="fab fa-facebook-square icon-footer"></i></a>
+              <div class="social_container">
 
-                  <a class="nav-link color_link fl_left" href="https://www.instagram.com/"><i class="fab fa-instagram-square icon-footer"></i></a>
+                <a class="nav-link color_link" href="https://it-it.facebook.com/"><i class="fab fa-facebook-square icon-footer"></i></a>
 
-                  <a class="nav-link color_link fl_left" href="https://www.linkedin.com/"><i class="fab fa-linkedin icon-footer"></i></a>
+                <a class="nav-link color_link" href="https://www.instagram.com/"><i class="fab fa-instagram-square icon-footer"></i></a>
 
-                  <a class="nav-link color_link fl_left" href="https://twitter.com/login?lang=it"><i class="fab fa-twitter-square icon-footer"></i></a>
+                <a class="nav-link color_link" href="https://www.linkedin.com/"><i class="fab fa-linkedin icon-footer"></i></a>
 
-                  <a class="nav-link color_link fl_left" href="https://www.youtube.com/"><i class="fab fa-youtube icon-footer"></i></a>
+                <a class="nav-link color_link" href="https://twitter.com/login?lang=it"><i class="fab fa-twitter-square icon-footer"></i></a>
+
+                <a class="nav-link color_link" href="https://www.youtube.com/"><i class="fab fa-youtube icon-footer"></i></a>
+
+              </div>
+
 
             </div>
 
