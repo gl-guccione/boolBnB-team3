@@ -74,18 +74,18 @@
 
             <div class="profile-info">
 
-              <h5 class="section_title">Contatti</h5>
+              <h5 class="section_title"></h5>
 
               <ul class="nav flex-column">
 
                 @php
 
                   $devs = [
-                    'Giuseppe Luca Guccione' => 'https://github.com/gl-guccione',
-                    'Giuseppe Falco' => 'https://github.com/peppe965',
-                    'Alessandro Boscato' => 'https://github.com/alessandroboscato',
-                    'Marco De Crema' => 'https://github.com/mdecrema',
-                    'Domenico Garofalo' => 'https://github.com/domg87'
+                    'Giuseppe Luca Guccione (Full stack)' => 'https://github.com/gl-guccione',
+                    'Giuseppe Falco (Full stack)' => 'https://github.com/peppe965',
+                    'Alessandro Boscato (Front end)' => 'https://github.com/alessandroboscato',
+                    'Marco De Crema (Front end)' => 'https://github.com/mdecrema',
+                    'Domenico Garofalo (Front end)' => 'https://github.com/domg87'
                   ];
 
                   function shuffle_assoc($list) {
