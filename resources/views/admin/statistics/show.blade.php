@@ -7,7 +7,7 @@
   <div class="container py-4">
 
     <div class="hero py-4">
-      <img class="hero__image py-4" src="{{ asset('img/statistics/chart.svg') }}" alt="statistics image">
+      <img class="hero__image py-4" src="{{ asset('img/statistics/show.svg') }}" alt="statistics image">
       <h1 class="hero__title py-4">Statistiche dell'appartamento {{ $flat->title }}</h1>
     </div>
 
