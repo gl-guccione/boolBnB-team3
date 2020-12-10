@@ -80,9 +80,7 @@
 
           <div class="col-sm-12 col-md-6 left">
             <h2>BoolBnB</h2>
-            <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
-            <p><i class="fas fa-long-arrow-alt-up"></i> Qui sopra il form da compilare per la ricerca degli appartamenti.</p>
-            <p><i class="fas fa-long-arrow-alt-down"></i> Qui sotto gli appartamenti in evidenza.</p>
+            <p>Boolbnb è un portale online che mette in contatto persone in cerca di un alloggio o di una camera per brevi periodi, con persone che dispongono di uno spazio extra da affittare, generalmente privati. <br> Gli annunci includono sistemazioni quali stanze private, interi appartamenti, castelli e ville, ma anche barche, baite, case sugli alberi, igloo, isole private e qualsiasi altro tipo di alloggio. <br> Ad oggi il sito conta più di {{ $views }} visite!</p>
           </div>
 
           <div class="right col-sm-12 col-md-6">
