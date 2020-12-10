@@ -244,7 +244,7 @@
         {{-- message --}}
         <div class="form-group">
           <label for="message"><i class="fas fa-envelope-open-text"></i> Messaggio*</label>
-          <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{old("message")}}</textarea>
+          <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{ old("message") ?? 'Buongiorno, vorrei essere ricontattato per ricevere maggiori informazioni relative a questo appartamento. Grazie!'}}</textarea>
         </div>
         {{-- /message --}}
 
