@@ -59,7 +59,7 @@
             </div>
 
             <div class="description-footer mt-2">
-              <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per ricreare il noto sito di prenotazioni online "Airbnb".</p>
+              <p>BoolBnB è un progetto nato dalla collaborazione di 5 developers che si sono messi alla prova per creare un sito di prenotazioni di appartamenti online. All'interno di BoolBnB è possibile guardare gli appartamenti, ricercare appartamenti per luogo e/o per servizi, contattare gli host, registrarsi, creare degli appartamenti, mettere in evidenza i propri annunci pagando delle piccole cifre, e tanto altro ancora... Naviga il sito per vederne tutte le caratteristiche</p>
             </div>
 
             <div class="description-site">
