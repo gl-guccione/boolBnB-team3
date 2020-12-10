@@ -11,7 +11,7 @@
     /* Hide the images by default */
     .mySlides {
       display: none;
-      
+
       img{
         max-height:500px;
         width: 100%;
@@ -107,18 +107,21 @@
       .flat_infos_list{
         list-style: none;
         display:flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         padding: 0;
         margin: 20px 0;
-        
+        width: 100%;
+        max-width: 500px;
+
         li{
           font-size: 14px;
           margin-right: 10px;
         }
-        
+
         i{
           color:$colorMain;
           font-size: 18px;
+          margin-right: 7px;
         }
       }
 
@@ -153,7 +156,7 @@
         border-radius: 10px;
         position: relative;
         line-height:45px;
-        
+
         small{
           font-size: 12px;
         }
@@ -176,7 +179,7 @@
             line-height: 45px;
             margin-left:10px;
           }
-          
+
           img{
             width: 45px;
             border-radius: 50%;
@@ -192,10 +195,10 @@
       }
 
       .description{
-        width:60%;  
+        width:60%;
       }
-      
-      // @media 
+
+      // @media
       @media screen and (max-width:800px){
         .stars{
           position: relative;
@@ -210,7 +213,7 @@
 
         .user_avatar{
           width: 100%;
-          
+
           small{
             display: none;
           }
@@ -218,7 +221,7 @@
           .name a{
             margin-top: 20px;
           }
-          
+
           span{
             font-size: 11px;
           }
@@ -258,36 +261,18 @@
       }
     }
 
-    
+
     .btn{
-      background-color: $colorMain;
+      background-color: #fff;
       border-color: $colorMain;
     }
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  i {
+    color: $lightGreen;
+    padding-right: 6px;
+  }
 
 
 

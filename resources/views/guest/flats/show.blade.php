@@ -25,12 +25,12 @@
 
     <div class="header">
       <h1>{{ $flat->title}}</h1>
-      <h4>{{ $flat->type}}</h4>
-      <p><i class="fas fa-map-marker-alt"></i> {{ $flat->city }}</p>
+      <h4 data-toggle="tooltip" data-placement="left" title="tipologia">{{ $flat->type}}</h4>
+      <p data-toggle="tooltip" data-placement="left" title="città"><i class="fas fa-map-marker-alt"></i> {{ $flat->city }}</p>
     </div>
-    
+
     <hr>
-    
+
 
     {{-- slider images --}}
     <section class="carousel">
@@ -47,7 +47,7 @@
 
           @php
             $i = $i + 1;
-          @endphp   
+          @endphp
         @endforeach
 
         {{-- prev img --}}
@@ -58,7 +58,7 @@
 
       <!-- The dots/circles -->
       <div style="text-align:center">
-      
+
         @for ($i = 1; $i < count($flat->images) + 1; $i++)
           <span class="dot" onclick="currentSlide({{ $i }})"></span>
         @endfor
@@ -71,28 +71,28 @@
     <div class="info">
       <h2>Informazioni generali</h2>
 
-      
+
       {{-- options --}}
       <ul class="flat_infos_list">
-        
-        <li><i class="fas fa-door-closed"></i> Mq {{ $flat->mq}} </li>
+
+        <li data-toggle="tooltip" data-placement="top" title="Superficie m²"><i class="fas fa-border-style"></i> {{ $flat->mq}} m² </li>
 
         @if ($flat->number_of_rooms == 1)
-          <li><i class="fas fa-door-closed"></i> Stanza: 1</li>
+          <li data-toggle="tooltip" data-placement="top" title="numero di stanze"><i class="fas fa-door-open"></i> Stanza: 1</li>
         @else
-          <li><i class="fas fa-door-closed"></i> Stanze: {{ $flat->number_of_rooms }}</li>
+          <li data-toggle="tooltip" data-placement="top" title="numero di stanze"><i class="fas fa-door-open"></i> Stanze: {{ $flat->number_of_rooms }}</li>
         @endif
 
         @if ($flat->number_of_beds == 1)
-        <li><i class="fas fa-bed"></i> Letto: 1</li>
+        <li data-toggle="tooltip" data-placement="top" title="numero di letti"><i class="fas fa-bed"></i> Letto: 1</li>
         @else
-        <li><i class="fas fa-bed"></i> Letti: {{ $flat->number_of_beds }}</li>
+        <li data-toggle="tooltip" data-placement="top" title="numero di letti"><i class="fas fa-bed"></i> Letti: {{ $flat->number_of_beds }}</li>
         @endif
 
         @if ($flat->number_of_bathrooms == 1)
-          <li><i class="fas fa-sink"></i> Bagno: 1</li>
+          <li data-toggle="tooltip" data-placement="top" title="numero di bagni"><i class="fas fa-restroom"></i> Bagno: 1</li>
         @else
-          <li><i class="fas fa-sink"></i> Bagni: {{ $flat->number_of_bathrooms }}</li>
+          <li data-toggle="tooltip" data-placement="top" title="numero di bagni"><i class="fas fa-restroom"></i> Bagni: {{ $flat->number_of_bathrooms }}</li>
         @endif
 
       </ul>
@@ -122,11 +122,11 @@
 
       </div>
       {{-- /stars --}}
-      
+
       <div class="user_and_description">
         {{-- host info --}}
         <div class="user_avatar">
-        
+
           <small>Annuncio pubblicato da</small>
           <div class="name">
             <a href="{{ route("guest.users.show", $flat->user->id) }}">
@@ -134,8 +134,8 @@
               <h5>{{ $flat->user->firstname }} {{ $flat->user->lastname }}</h5>
               </a>
           </div>
-          
-          
+
+
           @if ($flat->user->description)
             <p class="overflow_two_rows">{{ $flat->user->description }}</p>
           @endif
@@ -143,7 +143,7 @@
           <span>Utente attivo dal {{ $flat->user->created_at->year }}</span>
         </div>
         {{-- /host info --}}
-        
+
         {{-- <hr> --}}
 
         {{-- description --}}
@@ -154,7 +154,7 @@
         </div>
         {{-- /description --}}
       </div>
-      
+
       <hr>
 
       {{-- price --}}
@@ -168,17 +168,19 @@
 
     <hr>
 
-    {{-- options --}}
-    <div class="services">
-          <h3>Servizi</h3>
+    @if (count($flat->options) > 0)
+      {{-- options --}}
+      <div class="services">
+            <h3>Servizi</h3>
 
-          <ul class="flat_infos_list">
-            @foreach($flat->options as $option)
-              <li><i class="far fa-check-circle"></i> {{ $option->name }}</li>
-            @endforeach
-          </ul>
-    </div>
-    {{-- /options --}}
+            <ul class="flat_infos_list">
+              @foreach($flat->options as $option)
+                <li><i class="far fa-check-circle"></i> {{ $option->name }}</li>
+              @endforeach
+            </ul>
+      </div>
+      {{-- /options --}}
+    @endif
 
     <hr>
 
@@ -226,27 +228,27 @@
 
         {{-- name --}}
         <div class="form-group">
-          <label for="name">Nome*</label>
+          <label for="name"><i class="fas fa-user"></i> Nome*</label>
           <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il tuo nome" min="3" max="50" required value="{{ old("name") ?? $user_name }}">
         </div>
         {{-- /name --}}
 
         {{-- email --}}
         <div class="form-group">
-          <label for="email">Email*</label>
+          <label for="email"><i class="fas fa-at"></i> Email*</label>
           <input name="email" type="text" class="form-control" id="email" placeholder="Inserisci la tua email" min="3" max="255" required value="{{ old("email") ?? $user_email }}">
         </div>
         {{-- /email --}}
 
         {{-- message --}}
         <div class="form-group">
-          <label for="message">Messaggio*</label>
+          <label for="message"><i class="fas fa-envelope-open-text"></i> Messaggio*</label>
           <textarea name="message" class="form-control" id="message" placeholder="Inserisci il messaggio" rows="5" cols="10" min="3" max="10000" required>{{old("message")}}</textarea>
         </div>
         {{-- /message --}}
 
         {{-- button submit --}}
-        <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+        <button type="submit" class="btn btn-primary button"><i class="far fa-paper-plane"></i> Invia Messaggio</button>
         {{-- /button submit --}}
 
       </form>
@@ -254,39 +256,6 @@
     </div>
   </div>
   <!-- form per contattare il proprietario -->
-
-
-
-
-
-      
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -367,4 +336,3 @@
   {{--  /function that show map for flats --}}
 
 @endsection
-
