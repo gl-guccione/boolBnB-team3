@@ -8,13 +8,13 @@
 
     <div class="hero py-4">
       <img class="hero__image py-4" src="{{ asset('img/statistics/chart.svg') }}" alt="statistics image">
-      <h1 class="hero__title py-4">Statistiche generali dei tuoi appartamenti</h1>
+      <h1 class="hero__title py-4">Statistiche dell'appartamento {{ $flat->title }}</h1>
     </div>
 
     <h3 class="pt-3 pb-1">Visite totali: {{ $total_views }}</h3>
     <h3 class="pb-4">Visite di oggi: {{ $today_views }}</h3>
 
-    <h3 class="pt-4"> <i class="fas fa-chart-line"></i> Visite settimanali: {{ $last_seven_days_views }}</h3>
+    <h3 class="pt-4"> <i class="fas fa-chart-area"></i> Visite settimanali: {{ $last_seven_days_views }}</h3>
 
   {{-- canvas for chart.js --}}
     <div class="row chart_container">

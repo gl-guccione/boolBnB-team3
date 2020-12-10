@@ -150,6 +150,8 @@
 
           </form>
 
+          <a class="btn button mt-3" href="{{ route('admin.statistics.show', $flat->slug) }}"><i class="fas fa-chart-area"></i> Statistiche</a>
+
         </div>
       </div>
       {{-- /second col --}}
