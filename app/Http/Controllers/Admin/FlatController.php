@@ -191,7 +191,6 @@ class FlatController extends Controller
                   Rule::unique('flats')->ignore($flat),
                   "max:255",
               ],
-              'active' => 'required|boolean',
               'number_of_rooms' => 'required|integer|between:1,254',
               'number_of_beds' => 'required|integer|between:1,254',
               'number_of_bathrooms' => 'required|integer|between:1,254',
@@ -213,7 +212,6 @@ class FlatController extends Controller
 
         $flat->user_id = Auth::id();
         $flat->title = $data['title'];
-        $flat->active = $data['active'];
         $flat->number_of_rooms = $data['number_of_rooms'];
         $flat->number_of_beds = $data['number_of_beds'];
         $flat->number_of_bathrooms = $data['number_of_bathrooms'];
