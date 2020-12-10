@@ -22,7 +22,6 @@
     </div>
     {{-- form --}}
 
-    <div class="row">
       <div class="col-xl-4 col-sm-8 form form-home">
         <form action="{{ route("guest.homepage.search") }}" method="get">
         @method('GET')
@@ -72,7 +71,6 @@
 
         </form>
       </div>
-    </div>
       {{-- /jumbotron --}}
 
     </div>
