@@ -175,14 +175,15 @@
 
             <ul class="flat_infos_list">
               @foreach($flat->options as $option)
-                <li><i class="far fa-check-circle"></i> {{ $option->name }}</li>
+                <li for="checkbox_{{ $option->id }}"> {{ $option->name }}</li>
               @endforeach
             </ul>
       </div>
       {{-- /options --}}
-    @endif
 
     <hr>
+
+    @endif
 
     <!-- map -->
     <div class="flat_map">
