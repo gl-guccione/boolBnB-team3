@@ -52,7 +52,7 @@
         <div class="row">
 
           {{-- first column --}}
-          <div class="col-6 pt-6">
+          <div class="col-12 col-md-4 pt-6">
 
             <div class="logo-footer">
               <img class="logo-footer" src="{{asset('img/logo.png')}}" alt="logo-footer">
@@ -70,7 +70,7 @@
           {{-- /first column --}}
 
           {{-- second column --}}
-          <div class="col-3 pt-3">
+          <div class="col-12 col-md-4 pt-3">
 
             <div class="profile-info">
 
@@ -120,7 +120,7 @@
           {{-- /second column --}}
 
           {{-- third column --}}
-          <div class="col-3 pt-3">
+          <div class="col-12 col-md-4 pt-3">
 
             <div class="social-footer">
 
