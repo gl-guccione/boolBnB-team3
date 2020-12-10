@@ -36,107 +36,100 @@
 
         @foreach($user->flats as $flat)
 
-        <hr class="end_flat">
+          @if ($flat->active == true)
 
-        {{-- row --}}
-        <div class="row">
+            <hr class="end_flat">
 
-          {{-- first col --}}
-          <div class="col-12 flat__first">
+            {{-- row --}}
+            <div class="row">
 
-            <div class="flat__textimage d_flex">
+              {{-- first col --}}
+              <div class="col-12 flat__first">
 
-              @if (count($flat->images) > 0)
-                <img class="flat__image @if($flat->active == 0) inactive @endif" src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="flat image">
-              @endif
+                <div class="flat__textimage d_flex">
 
-              <div class="flat__text">
+                  @if (count($flat->images) > 0)
+                    <img class="flat__image @if($flat->active == 0) inactive @endif" src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="flat image">
+                  @endif
 
-                <h2 class="flat__title overflow_two_rows">
-                  <a class="flat__link" href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
-                </h2>
+                  <div class="flat__text">
 
-                <p class="flat__description overflow_four_rows">
-                  {{ $flat->description }}
-                </p>
+                    <h2 class="flat__title overflow_two_rows">
+                      <a class="flat__link" href="{{ route('guest.flats.show', $flat->slug) }}">{{ $flat->title }}</a>
+                    </h2>
 
-                <p class="flat__address overflow_row">
-                  <i class="fas fa-map-marker-alt"></i>
-                  {{ $flat->street_name }} -
-                  {{ $flat->city }}
-                </p>
+                    <p class="flat__description overflow_four_rows">
+                      {{ $flat->description }}
+                    </p>
 
-                <span class="flat__stars">
+                    <p class="flat__address overflow_row">
+                      <i class="fas fa-map-marker-alt"></i>
+                      {{ $flat->street_name }} -
+                      {{ $flat->city }}
+                    </p>
 
-                  @php
-                    if ($flat->stars % 2 == 0) {
-                      $star = $flat->stars / 2;
-                      $half_star = 0;
-                    } else {
-                      $star = intval($flat->stars / 2);
-                      $half_star = 1;
-                    }
-                  @endphp
+                    <span class="flat__stars">
 
-                  @for ($i = 0; $i < $star; $i++)
-                    <i class="star_color fas fa-star"></i>
-                  @endfor
-                  @for ($i = 0; $i < $half_star; $i++)
-                    <i class="star_color fas fa-star-half"></i>
-                  @endfor
+                      @php
+                        if ($flat->stars % 2 == 0) {
+                          $star = $flat->stars / 2;
+                          $half_star = 0;
+                        } else {
+                          $star = intval($flat->stars / 2);
+                          $half_star = 1;
+                        }
+                      @endphp
 
-                  ({{ $flat->stars / 2 }})
+                      @for ($i = 0; $i < $star; $i++)
+                        <i class="star_color fas fa-star"></i>
+                      @endfor
+                      @for ($i = 0; $i < $half_star; $i++)
+                        <i class="star_color fas fa-star-half"></i>
+                      @endfor
 
-                </span>
+                      ({{ $flat->stars / 2 }})
+
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <div class="flat__info d_flex">
+
+                  <div data-toggle="tooltip" data-placement="top" title="numero di stanze">
+                    <i class="fas fa-door-open"></i>
+                    {{ $flat->number_of_rooms }}
+                  </div>
+
+                  <div data-toggle="tooltip" data-placement="top" title="numero di letti">
+                    <i class="fas fa-bed"></i>
+                    {{ $flat->number_of_beds }}
+                  </div>
+
+                  <div data-toggle="tooltip" data-placement="top" title="numero di bagni">
+                    <i class="fas fa-restroom"></i>
+                    {{ $flat->number_of_bathrooms }}
+                  </div>
+
+                  <div data-toggle="tooltip" data-placement="top" title="superficie in m²">
+                    <i class="fas fa-border-style"></i>
+                    {{ $flat->mq }}m²
+                  </div>
+
+                  <div data-toggle="tooltip" data-placement="top" title="prezzo a notte">
+                    <i class="fas fa-euro-sign"></i>
+                    {{ $flat->price }}€
+                  </div>
+
+                </div>
 
               </div>
+              {{-- /first col --}}
 
             </div>
-
-            <div class="flat__info d_flex">
-
-              <div data-toggle="tooltip" data-placement="top" title="numero di stanze">
-                <i class="fas fa-door-open"></i>
-                {{ $flat->number_of_rooms }}
-              </div>
-
-              <div data-toggle="tooltip" data-placement="top" title="numero di letti">
-                <i class="fas fa-bed"></i>
-                {{ $flat->number_of_beds }}
-              </div>
-
-              <div data-toggle="tooltip" data-placement="top" title="numero di bagni">
-                <i class="fas fa-restroom"></i>
-                {{ $flat->number_of_bathrooms }}
-              </div>
-
-              <div data-toggle="tooltip" data-placement="top" title="superficie in m²">
-                <i class="fas fa-border-style"></i>
-                {{ $flat->mq }}m²
-              </div>
-
-              <div data-toggle="tooltip" data-placement="top" title="prezzo a notte">
-                <i class="fas fa-euro-sign"></i>
-                {{ $flat->price }}€
-              </div>
-
-              <div data-toggle="tooltip" data-placement="top" title="visibilità">
-                @if ($flat->active == true)
-                <i class="far fa-eye"></i>
-                visibile
-                @else
-                <i class="fas fa-eye-slash"></i>
-                non visibile
-                @endif
-              </div>
-
-            </div>
-
-          </div>
-          {{-- /first col --}}
-
-        </div>
-        {{-- /row --}}
+            {{-- /row --}}
+          @endif
 
         @endforeach
       {{-- /flats list--}}
