@@ -1219,11 +1219,16 @@ class PresentationSeeder extends Seeder
 
           // MessagesTableSeeder
           $messages = [
-            'messaggio',
-            'messaggio2',
-            'messaggio3',
-            'messaggio4',
-            'messaggio5',
+            'Buongiorno, è disponibile posto auto?',
+            'Salve, sto prenotando per il 14 di febbraio e ho visto che il check-in è dalle 14.00, siccome saremo in viaggio dal mattino presto è possibile ottenere le chiavi prima di mezzogiorno?',
+            'Buongiorno, la contatto perché ho visto che l appartamento non dispone del wi fi, volevo sapere se vi è un internet point nelle vicinanze.',
+            'Buonasera, sono interessato al prenotare il suo appartamento e vorrei portare con me il mio cagnolino, è possibile?',
+            'Buongiorno, mi sa dire se in paese c\'è un noleggio di biciclette?',
+            'Buongiorno, il bagno è accessibile per disabili?',
+            'Salve, ho notato che il suo appartamento si trova in una posizione particolare, viste le condizioni meteorologiche attuali, è disponibile un posto auto coperto?',
+            'Salve, il nostro arrivo é previsto per lunedì, siccome viaggio insieme alla mia fidanzata in occasione del nostro anniversario, le posso chiedere di far trovare una bottiglia di spumante al nostro arrivo?',
+            'Buongiorno, mi chiedevo se l appartamento fosse provvisto di forno microonde!',
+            'Buonasera, è previsto il servizio di biancheria?',
           ];
 
           $flats = Flat::all();
