@@ -73,7 +73,7 @@ function getFlats(latlng){
 
   // ajax request with the data from the form and options
   $.ajax({
-    "url": "http://localhost:8000/api/geosearch",
+    "url": searchApi,
     "method": "GET",
     "data": {
       "latlng": latlng,
@@ -197,7 +197,7 @@ jQuery(function() {
 
   // function to activate toast notifications adn tooltips
   $('.toast').toast('show');
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
 
   // loading algoliaCity and function to check "check-in and check-out" inside home and search
   if($("#guest_home").length || $("#guest_search").length) {
