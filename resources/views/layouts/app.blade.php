@@ -205,7 +205,7 @@
 
         let user_id = {{ Auth::id() }};
 
-        let link = "http://localhost:8000/api/newmessages?user_id=" + user_id;
+        let link = "{{ route('api.newmessages') }}?user_id=" + user_id;
         let xmlHttp = new XMLHttpRequest();
 
         xmlHttp.onreadystatechange = function() {
