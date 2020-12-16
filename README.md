@@ -1,3 +1,5 @@
+## visualizza il progetto live su https://bool-bnb-xqb4n.ondigitalocean.app/
+
 #               BoolBnb
 
 ## Cosa è Boolbnb
@@ -26,18 +28,18 @@ Inoltre questa pagina è diversa in base all'utente che la visualizza:
 
 ## Pagina lista appartamenti (solo utenti registrati con almeno un appartamento)
 
-> In questa pagina gli utenti che hanno pubblicato almeno un appartamento possono velocemente visualizzare le informazioni principali e vedranno i bottoni per modificarlo, cancellarlo, vederne le statistiche, inoltre: 
+> In questa pagina gli utenti che hanno pubblicato almeno un appartamento possono velocemente visualizzare le informazioni principali e vedranno i bottoni per modificarlo, cancellarlo, vederne le statistiche, inoltre:
 
 >    - Se l'appartamento non è sponsorizzato potrà sponsorizarlo.
 >    - Se l'appartamento è sponsorizzato potrà estenderne la sponsorizzazione.
->    - L'utente può scegliere se disattivare la visibilità dell'appartamento o riattivarla.  
+>    - L'utente può scegliere se disattivare la visibilità dell'appartamento o riattivarla.
 
 
 ## Registrazione e login
 
 >In qualsiasi pagina del sito è possibile fare la registrazione o login, cliccando nella sezione dedicata dell’intestazione di pagina.
 Cliccando su "Registrati" l'utente viene reindirizzato in una pagina con un form di registrazione.
-Il form di registrazione controlla che i dati obbligatori vengano inseriti e che siano coerenti con la tipologia di dato richiesta (esempio la mail deve contenere la @ e il punto). Nel caso in cui i dati inseriti non soddisfino determinati controlli (come l'età minima 18 anni) verrà restituito un messaggio con uno o più suggerimenti. Se la registrazione va a buon fine, e al login, l'utente viene subito reindirizzato nella Home Page. 
+Il form di registrazione controlla che i dati obbligatori vengano inseriti e che siano coerenti con la tipologia di dato richiesta (esempio la mail deve contenere la @ e il punto). Nel caso in cui i dati inseriti non soddisfino determinati controlli (come l'età minima 18 anni) verrà restituito un messaggio con uno o più suggerimenti. Se la registrazione va a buon fine, e al login, l'utente viene subito reindirizzato nella Home Page.
 
 ## Pagina di ricerca
 
@@ -78,7 +80,7 @@ Cliccando sul tasto "Crea annuncio" nella Home Page si viene reindirizzati in un
 
 >L'aspetto del sito è pensato per rimanere costante e coerente in ogni sua pagina così da offrire un'esperienza utente fluida, intuitiva e familiare.
 La gerarchia degli elementi mostrati è assicurata grazie a un effetto profondità che accomuna gli elementi con la stessa importanza. L'interazione dell'utente su un elemento della pagina ne aumenta l'importanza e dunque l'impatto visivo.
-L'intera applicazione è totalmente responsive: supporta tutte le risoluzioni di tutti i più comuni devices. 
+L'intera applicazione è totalmente responsive: supporta tutte le risoluzioni di tutti i più comuni devices.
 
 
 
@@ -86,7 +88,7 @@ L'intera applicazione è totalmente responsive: supporta tutte le risoluzioni di
 
 ## :key: Istruzioni:
 
-> ## 1. Clonare la repo 
+> ## 1. Clonare la repo
 
 * `git clone https://github.com/gl-guccione/boolBnB-team3.git`
 
@@ -117,7 +119,7 @@ L'intera applicazione è totalmente responsive: supporta tutte le risoluzioni di
 
 * `php artisan key:generate`
 
-* `php artisan migrate` 
+* `php artisan migrate`
 
 * `php artisan db:seed --class=PresentationSeeder`
 
@@ -180,5 +182,3 @@ L'intera applicazione è totalmente responsive: supporta tutte le risoluzioni di
 
 
 * Carbon
-
-
