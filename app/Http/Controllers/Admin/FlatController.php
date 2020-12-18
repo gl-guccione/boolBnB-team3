@@ -78,7 +78,7 @@ class FlatController extends Controller
               'price' => 'required|numeric|between:1,9999',
               'type' => 'required|string|in:appartamento,villetta|max:30',
               'description' => 'required|string|between:3,65000',
-              //TODO extra options
+              // TODO extra options
               'street_name' => 'required|string|between:1,255',
               'zip_code' =>'required|integer|digits:5',
               'city' => 'required|string|between:1,255',
@@ -87,7 +87,7 @@ class FlatController extends Controller
               'options' => 'array|exists:options,id',
               'images' => 'required|max:5',
               'images.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
-
+              // TODO disable images
             ]
         );
 

@@ -58,6 +58,7 @@
 
             <div class="logo-footer">
               <img class="logo-footer" src="{{asset('img/logo.png')}}" alt="logo-footer">
+              {{-- TODO edit logo --}}
             </div>
 
             <div class="description-footer mt-2">
@@ -159,6 +160,8 @@
   </div>
   {{-- /div #app --}}
 
+
+  {{-- TODO add cookie alert --}}
 
 
   <!-- Extra script -->
