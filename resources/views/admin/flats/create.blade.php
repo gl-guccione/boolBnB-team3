@@ -8,7 +8,7 @@
 <div class="container pt-4 create_box">
 
   <div class="hero py-4">
-    <img class="hero__image py-4" src="{{ asset('img/flats/create.svg') }}" alt="flat image">
+    <img class="hero__image py-4" src="{{ asset('img/flats/create.svg') }}" alt="Free photo from pixabay.com">
     <h1 class="hero__title py-4">Inserisci un appartamento</h1>
   </div>
 

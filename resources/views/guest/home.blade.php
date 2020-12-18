@@ -14,7 +14,7 @@
   <div class="container-fluid px-0 jumbo">
     <div class="row no-gutters">
       <div class="col-12 carousel">
-        <img src={{ asset('img/img_home.jpg') }} alt="Free image from pixabay.com">
+        <img src={{ asset('img/img_home.jpg') }} alt="Free photo from pixabay.com">
       </div>
     </div>
     {{-- form --}}
@@ -101,7 +101,7 @@
           <div class="flat_box col-12 col-sm-12 offset-sm-2 col-md-6 col-lg-4 col-xl-3">
 
             <div class="flat__img">
-              <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="#">
+              <img src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="Free photo from pixabay.com">
             </div>
 
             <a href="{{ route("guest.flats.show", $flat->slug) }}"></a>
@@ -163,7 +163,7 @@
           </div>
 
           <div class="col-lg-6 col-md-12 became-host__image">
-            <img src="{{ asset('img/homepage/became_host.svg') }}" alt="">
+            <img src="{{ asset('img/homepage/became_host.svg') }}" alt="became host">
           </div>
 
         </div>

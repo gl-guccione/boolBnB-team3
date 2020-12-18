@@ -8,7 +8,7 @@
 <div class="container edit_box pt-4">
 
   <div class="hero py-4">
-    <img class="hero__image py-4" src="{{ asset('img/flats/edit.svg') }}" alt="flat image">
+    <img class="hero__image py-4" src="{{ asset('img/flats/edit.svg') }}" alt="edit flat">
     <h1 class="hero__title py-4">Modifica appartamento</h1>
   </div>
 

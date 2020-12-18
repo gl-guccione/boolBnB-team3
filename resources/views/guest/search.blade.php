@@ -156,7 +156,7 @@
 
         <div class="col-12 col-lg-5 flat__container-img">
           <a class="flat__link" href="@{{ link }}"></a>
-          <img class="flat__img" src="/storage/@{{ image }}" alt="@{{ title }}">
+          <img class="flat__img" src="/storage/@{{ image }}" alt="Free photo from pixabay.com">
           <div class="flat__sponsored"><i class="fas fa-tags"></i> in evidenza</div>
         </div>
 

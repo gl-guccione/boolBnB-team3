@@ -49,7 +49,7 @@
                 <div class="flat__textimage d_flex">
 
                   @if (count($flat->images) > 0)
-                    <img class="flat__image @if($flat->active == 0) inactive @endif" src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="flat image">
+                    <img class="flat__image @if($flat->active == 0) inactive @endif" src="{{ asset('storage/'.$flat->images[0]->path) }}" alt="Free photo from pixabay.com">
                   @endif
 
                   <div class="flat__text">
