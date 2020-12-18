@@ -14,10 +14,7 @@
   <div class="container-fluid px-0 jumbo">
     <div class="row no-gutters">
       <div class="col-12 carousel">
-        <img src={{ asset('img/img1.jpeg') }} alt="carousel_img">
-        <img src={{ asset('img/img2.jpg') }} alt="carousel_img">
-        <img src={{ asset('img/img3.jpg') }} alt="carousel_img">
-        <img src={{ asset('img/img4.jpg') }} alt="carousel_img">
+        <img src={{ asset('img/img_home.jpg') }} alt="Free image from pixabay.com">
       </div>
     </div>
     {{-- form --}}
