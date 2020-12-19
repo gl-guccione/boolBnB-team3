@@ -83,7 +83,7 @@
 
       {{-- immagini --}}
       <div class="form-group col-lg-8">
-        <label for="images"><i class="fas fa-images"></i> Foto* (massimo 5)</label>
+        <label for="images"><i class="fas fa-images"></i> Foto* (massimo 5) <small>(per motivi di copyright verranno caricate delle immagini 'placeholder' al posto di quelle inserite)</small></label>
         <input id="images" type="file" class="form-control" name="images[]" multiple autocomplete="name" autofocus accept="image/x-png, image/jpeg">
       </div>
       {{-- /immagini --}}

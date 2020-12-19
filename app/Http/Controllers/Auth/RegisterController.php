@@ -78,7 +78,9 @@ class RegisterController extends Controller
     {
         if (isset($data['avatar']))
         {
-            $path = Storage::disk('public')->put('images', $data['avatar']);
+            // disabling images for copyright purpose
+            // $path = Storage::disk('public')->put('images', $data['avatar']);
+            $path = '/img/propic.png';
         }
         else
         {

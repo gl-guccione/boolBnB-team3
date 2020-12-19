@@ -85,9 +85,10 @@ class FlatController extends Controller
               'lat' => 'required|string|between:1,10',
               'lng' => 'required|string|between:1,11',
               'options' => 'array|exists:options,id',
+
+              // disabling images for copyright purpose
               'images' => 'required|max:5',
-              'images.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
-              // TODO disable images
+              'images.*' => 'mimes:jpeg,jpg,png,gif|max:2048'
             ]
         );
 
@@ -104,7 +105,7 @@ class FlatController extends Controller
         $newFlat->price = $data['price'];
         $newFlat->type = $data['type'];
         $newFlat->description = $data['description'];
-        $newFlat->stars = rand(1,10);
+        $newFlat->stars = rand(5, 10);
 
         if (isset($data['extra_options']))
         {
@@ -125,11 +126,14 @@ class FlatController extends Controller
             $newFlat->options()->sync($data["options"]);
         }
 
-        if (isset($data["images"]))
-        {
+        // disabling images for copyright purpose
+        if (isset($data["images"])) {
             foreach ($data["images"] as $key => $image) {
 
-              $imagePath = Storage::disk("public")->put("images", $image);
+              // disabling images for copyright purpose
+              // $imagePath = Storage::disk("public")->put("images", $image);
+
+              $imagePath = 'media/placeholder_flat_image.jpg';
 
               $newImage = new Image;
 
@@ -140,9 +144,7 @@ class FlatController extends Controller
               $newImage->path = $imagePath;
 
               $newImage->save();
-
             }
-
         }
 
         return redirect()->route('guest.flats.show', $newFlat->slug)->with('record_added', 'Appartamento creato correttamente!');
